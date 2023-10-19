@@ -1,6 +1,7 @@
+import 'package:combined_playlist_maker/artist.dart';
 import 'package:combined_playlist_maker/requests.dart';
+import 'package:combined_playlist_maker/track.dart';
 import 'package:flutter/material.dart';
-import 'dart:async';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'user.dart';
 
@@ -93,11 +94,27 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.only(right: 7),
                 child: ElevatedButton(
                     onPressed: () {
-                      retrieveSpotifyProfileInfo();
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(builder: (context) => UsersDisplay()),
-                      );
+                      var usersBox = Hive.box<User>('users').values.toList();
+                      // este bloque de if-else viene dado porque con la primera llamada para coger los datos del usuario
+                      // (y guardarlos en Hive), los datos parecia que tardaban en guardarse, y entonces en la vista de
+                      // lista de usuarios, no se veía nada, este arreglo hace que con la primera llamada (cuando no hay
+                      // usuarios en Hive aún), se coja directamente el usuario creado con los datos cogidos en
+                      // retrieveSpotifyProfileInfo
+                      if (usersBox.isEmpty) {
+                        retrieveSpotifyProfileInfo().then((user) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UsersDisplay(user: user)),
+                          );
+                        });
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => UsersDisplay()),
+                        );
+                      }
                     },
                     child: Text('See user\'s list')),
               ),
@@ -129,53 +146,8 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 }
 
-class UsersDisplay extends StatefulWidget {
-  @override
-  _UsersDisplayState createState() => _UsersDisplayState();
-}
-
-class _UsersDisplayState extends State<UsersDisplay> {
-  late List users;
-
-  @override
-  void initState() {
-    super.initState();
-    //Hive.box<User>('users').values.toList()
-    users = Hive.box<User>('users').values.toList();
-    print('Users: $users');
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Welcome!'),
-      ),
-      body: Center(
-        // Agrega el contenido de tu widget aquí
-        child: ListView.builder(
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: ListTile(
-                leading: Image(image: NetworkImage(users[index].imageUrl)),
-                title: Text(users[index].id),
-              ),
-            );
-          },
-          itemCount: users.length,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          requestAuthorization();
-        },
-        tooltip: 'Add another spotify user',
-        child: Icon(Icons.add),
-      ),
-      // Agrega otros widgets y elementos de IU aquí
-    );
-  }
+List hiveGetUsers() {
+  return Hive.box<User>('users').values.toList();
 }
 
 void deleteContentFromHive() async {
@@ -183,4 +155,81 @@ void deleteContentFromHive() async {
   await Hive.box('tokens').clear();
   await Hive.box<User>('users').clear();
   await Hive.box('codeVerifiers').clear();
+}
+
+class ItemDisplay extends StatelessWidget {
+  List items;
+
+  ItemDisplay({super.key, required this.items});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Top Items'),
+      ),
+      body: Center(
+        // Agrega el contenido de tu widget aquí
+        child: ListView.builder(
+          itemBuilder: (BuildContext context, int index) {
+            var child;
+            if (items[index].runtimeType == Track) {
+              child = TrackTile(item: items[index]);
+            } else {
+              child = ArtistTile(item: items[index]);
+            }
+            return Padding(
+              padding: const EdgeInsets.all(15.0),
+              child: child,
+            );
+          },
+          itemCount: items.length,
+        ),
+      ),
+    );
+  }
+}
+
+class WorkInProgressScreen extends StatelessWidget {
+  const WorkInProgressScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Work in Progress'),
+      ),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Work in Progress',
+              style: TextStyle(fontSize: 24.0),
+            ),
+            SizedBox(height: 20.0),
+            Icon(
+              Icons.build, // Icono de herramientas
+              size: 48.0, // Tamaño del icono
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class BasicDataVisualization extends StatelessWidget {
+  final String data;
+
+  const BasicDataVisualization({super.key, required this.data});
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Data Retrieved'),
+      ),
+      body: Text('${data}'),
+    );
+  }
 }
