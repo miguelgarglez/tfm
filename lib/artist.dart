@@ -37,7 +37,7 @@ class Artist {
 }
 
 class ArtistTile extends StatelessWidget {
-  Artist item;
+  final Artist item;
 
   ArtistTile({super.key, required this.item});
   @override

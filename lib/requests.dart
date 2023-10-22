@@ -218,8 +218,8 @@ Future<List> getUsersTopItems(
   return [];
 }
 
-Future<List> getRecommendations(
-    String userId, List genreSeeds, double limit) async {
+Future<List> getRecommendations(String userId, List genreSeeds,
+    List artistSeeds, List trackSeeds, double limit) async {
   var usersBox = Hive.box<User>('Users');
   User? user = usersBox.get(userId);
   var accessToken = user!.accessToken;
@@ -229,13 +229,13 @@ Future<List> getRecommendations(
   final args = {
     'market': 'ES',
     'limit': limit.round().toString(),
-    'seed_artists': [],
+    'seed_artists': artistSeeds,
     'seed_genres': genreSeeds,
-    'seed_tracks': [],
+    'seed_tracks': trackSeeds,
   };
 
   final Uri uri = Uri.https('api.spotify.com', '/v1/recommendations', args);
-  print('Uri generada: ${uri.path}');
+  print('Uri generada: ${uri}');
   try {
     final response = await get(
       uri,

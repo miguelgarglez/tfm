@@ -158,7 +158,7 @@ void deleteContentFromHive() async {
 }
 
 class ItemDisplay extends StatelessWidget {
-  List items;
+  final List items;
 
   ItemDisplay({super.key, required this.items});
 

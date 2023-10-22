@@ -1,5 +1,4 @@
 import 'package:combined_playlist_maker/forms.dart';
-import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -95,7 +94,7 @@ class UserAdapter extends TypeAdapter<User> {
 
 class UsersDisplay extends StatefulWidget {
   List<User>? users;
-  User? user;
+  final User? user;
 
   UsersDisplay({super.key, this.user});
   @override
@@ -208,12 +207,29 @@ class UserDetail extends StatelessWidget {
               padding: EdgeInsets.all(8),
               child: ElevatedButton(
                   onPressed: () {
+                    Map recommendationParams = {};
                     getGenreSeeds(user.id).then((genreSeeds) {
+                      recommendationParams['genre_seeds'] = genreSeeds;
+                      return getUsersTopItems(
+                          user.id, 'tracks', 'short_term', 15);
+                    }).then((topTracks) {
+                      recommendationParams['track_seeds'] = topTracks;
+                      return getUsersTopItems(
+                          user.id, 'artists', 'short_term', 15);
+                    }).then((topArtists) {
+                      recommendationParams['artist_seeds'] = topArtists;
                       Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: ((context) => GetRecommendations(
-                                  user: user, genreOptions: genreSeeds))));
+                                    user: user,
+                                    genreOptions:
+                                        recommendationParams['genre_seeds'],
+                                    trackOptions:
+                                        recommendationParams['track_seeds'],
+                                    artistOptions:
+                                        recommendationParams['artist_seeds'],
+                                  ))));
                     });
                   },
                   child: Text('Get Recommendations')),

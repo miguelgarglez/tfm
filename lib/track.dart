@@ -56,7 +56,7 @@ class Track {
 }
 
 class TrackTile extends StatelessWidget {
-  Track item;
+  final Track item;
 
   TrackTile({super.key, required this.item});
   @override

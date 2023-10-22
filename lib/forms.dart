@@ -1,3 +1,4 @@
+import 'package:combined_playlist_maker/artist.dart';
 import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/requests.dart';
 import 'package:combined_playlist_maker/track.dart';
@@ -6,7 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 class GetTopItems extends StatefulWidget {
-  late User? user;
+  final User? user;
 
   GetTopItems({super.key, this.user});
   @override
@@ -21,7 +22,6 @@ class _GetTopItemsState extends State<GetTopItems> {
 
   // Controladores para los campos de entrada
   final controller = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -140,24 +140,30 @@ class _GetTopItemsState extends State<GetTopItems> {
 }
 
 class GetRecommendations extends StatefulWidget {
-  late User? user;
-  late List? genreOptions;
+  final User? user;
+  final List? genreOptions;
+  final List? trackOptions;
+  final List? artistOptions;
 
-  GetRecommendations({super.key, this.user, this.genreOptions});
+  GetRecommendations(
+      {super.key,
+      this.user,
+      this.genreOptions,
+      this.trackOptions,
+      this.artistOptions});
   @override
   _GetRecommendationsState createState() => _GetRecommendationsState();
 }
 
 class _GetRecommendationsState extends State<GetRecommendations> {
   // Variables para los valores del formulario
-  //List seedArtists = [];
-  //List seedTracks = [];
+  List seedArtists = [];
+  List seedTracks = [];
   List seedGenres = [];
   double limit = 25;
 
   // Controladores para los campos de entrada
   final controller = TextEditingController();
-  final _formKey = GlobalKey<FormState>();
 
   @override
   void dispose() {
@@ -182,8 +188,16 @@ class _GetRecommendationsState extends State<GetRecommendations> {
 
   @override
   Widget build(BuildContext context) {
-    final _items = widget.genreOptions!
+    Map _items = {};
+
+    _items['seed_genres'] = widget.genreOptions!
         .map((genre) => MultiSelectItem(genre, genre))
+        .toList();
+    _items['seed_artists'] = widget.artistOptions!
+        .map((artist) => MultiSelectItem(artist.id, artist.name))
+        .toList();
+    _items['seed_tracks'] = widget.trackOptions!
+        .map((track) => MultiSelectItem(track.id, track.name))
         .toList();
     return Scaffold(
       appBar: AppBar(
@@ -199,14 +213,48 @@ class _GetRecommendationsState extends State<GetRecommendations> {
             Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: MultiSelectDialogField(
-                  items: _items,
+                  items: _items['seed_genres'],
                   initialValue: [],
-                  title: Text('Select up to 5 genres'),
+                  title: Text('Select genres'),
                   selectedColor: Colors.green,
                   buttonIcon: Icon(Icons.arrow_drop_down),
                   buttonText: Text('Choose music genres'),
                   onConfirm: (results) {
                     seedGenres = results;
+                  },
+                )),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+              child: Text('Select artists'),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: MultiSelectDialogField(
+                  items: _items['seed_artists'],
+                  initialValue: [],
+                  title: Text('Select up to 5 artists'),
+                  selectedColor: Colors.green,
+                  buttonIcon: Icon(Icons.arrow_drop_down),
+                  buttonText: Text('Choose artists'),
+                  onConfirm: (results) {
+                    seedArtists = results;
+                  },
+                )),
+            Padding(
+              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+              child: Text('Select tracks'),
+            ),
+            Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: MultiSelectDialogField(
+                  items: _items['seed_tracks'],
+                  initialValue: [],
+                  title: Text('Select up to 5 tracks'),
+                  selectedColor: Colors.green,
+                  buttonIcon: Icon(Icons.arrow_drop_down),
+                  buttonText: Text('Choose tracks'),
+                  onConfirm: (results) {
+                    seedArtists = results;
                   },
                 )),
             Padding(
@@ -218,7 +266,8 @@ class _GetRecommendationsState extends State<GetRecommendations> {
             ElevatedButton(
               onPressed: () {
                 print('Va a ejecutar getRecommendations!!');
-                getRecommendations(widget.user!.id, seedGenres, limit)
+                getRecommendations(widget.user!.id, seedGenres, seedArtists,
+                        seedTracks, limit)
                     .then((recommendationsList) => Navigator.push(
                         context,
                         MaterialPageRoute(
