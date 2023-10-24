@@ -64,8 +64,6 @@ Future<void> requestAuthorization() async {
   var n = cvBox.length;
   await cvBox.put('cv$n', codeVerifier);
 
-  print('codeVerifier: $codeVerifier');
-
   String codeChallenge = await generateCodeChallenge(codeVerifier);
 
   String state = generateRandomString(16);
@@ -94,7 +92,7 @@ Future<void> requestAuthorization() async {
 
 bool isAuthenticated() {
   //auth es una caja de Hive que simplemente guarda un booleano
-  var auth = Hive.box('auth').values.toList();
+  var auth = Hive.box('auth').toMap();
   print(auth);
   if (auth.isEmpty) {
     return false;
@@ -107,7 +105,6 @@ Future<String> getAccessToken() async {
   String? code;
 
   code = await obtainCurrentURLCode();
-  print('code from URL: $code');
 
   var cvBox = Hive.box('codeVerifiers');
   var codeVerifier = await cvBox.get('cv${cvBox.length - 1}');

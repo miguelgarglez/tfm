@@ -94,13 +94,15 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.only(right: 7),
                 child: ElevatedButton(
                     onPressed: () {
-                      var usersBox = Hive.box<User>('users').values.toList();
+                      var usersBox = Hive.box<User>('users').toMap();
                       // este bloque de if-else viene dado porque con la primera llamada para coger los datos del usuario
                       // (y guardarlos en Hive), los datos parecia que tardaban en guardarse, y entonces en la vista de
                       // lista de usuarios, no se veía nada, este arreglo hace que con la primera llamada (cuando no hay
                       // usuarios en Hive aún), se coja directamente el usuario creado con los datos cogidos en
                       // retrieveSpotifyProfileInfo
                       if (usersBox.isEmpty) {
+                        print(
+                            'MAIN: La lista de usuarios está vacía: $usersBox');
                         retrieveSpotifyProfileInfo().then((user) {
                           Navigator.push(
                             context,
@@ -109,11 +111,16 @@ class _MyHomePageState extends State<MyHomePage> {
                           );
                         });
                       } else {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(
-                              builder: (context) => UsersDisplay()),
-                        );
+                        print('MAIN: Ya hay usuarios en la lista: $usersBox');
+                        retrieveSpotifyProfileInfo().then((user) {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => UsersDisplay(
+                                      user: user,
+                                    )),
+                          );
+                        });
                       }
                     },
                     child: Text('See user\'s list')),

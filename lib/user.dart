@@ -109,8 +109,9 @@ class _UsersDisplayState extends State<UsersDisplay> {
     List<User> currentUsers = Hive.box<User>('users').values.toList();
     if (currentUsers.isEmpty) {
       widget.users = [widget.user!];
+    } else {
+      widget.users = currentUsers;
     }
-    widget.users = currentUsers;
 
     print('Users: ${widget.users}');
   }
@@ -128,9 +129,13 @@ class _UsersDisplayState extends State<UsersDisplay> {
             return Padding(
               padding: const EdgeInsets.all(15.0),
               child: ListTile(
-                leading:
-                    Image(image: NetworkImage(widget.users![index].imageUrl)),
-                title: Text(widget.users![index].id),
+                leading: FadeInImage.assetNetwork(
+                    placeholder: 'images/unknown_cover.png',
+                    image: widget.users![index].imageUrl,
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset('images/unknown_cover.png');
+                    }),
+                title: Text(widget.users![index].displayName),
                 onTap: () {
                   Navigator.push(
                       context,
