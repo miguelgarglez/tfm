@@ -1,6 +1,7 @@
 import 'package:combined_playlist_maker/forms.dart';
 import 'package:combined_playlist_maker/requests.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class User {
@@ -93,7 +94,7 @@ class UserAdapter extends TypeAdapter<User> {
 }
 
 class UsersDisplay extends StatefulWidget {
-  List<User>? users;
+  List<User>? users = Hive.box<User>('users').values.toList();
   final User? user;
 
   UsersDisplay({super.key, this.user});
@@ -107,11 +108,7 @@ class _UsersDisplayState extends State<UsersDisplay> {
     super.initState();
     //Hive.box<User>('users').values.toList()
     List<User> currentUsers = Hive.box<User>('users').values.toList();
-    if (currentUsers.isEmpty) {
-      widget.users = [widget.user!];
-    } else {
-      widget.users = currentUsers;
-    }
+    widget.users = currentUsers;
 
     print('Users: ${widget.users}');
   }
@@ -123,7 +120,6 @@ class _UsersDisplayState extends State<UsersDisplay> {
         title: Text('Welcome!'),
       ),
       body: Center(
-        // Agrega el contenido de tu widget aquí
         child: ListView.builder(
           itemBuilder: (BuildContext context, int index) {
             return Padding(
@@ -137,12 +133,17 @@ class _UsersDisplayState extends State<UsersDisplay> {
                     }),
                 title: Text(widget.users![index].displayName),
                 onTap: () {
-                  Navigator.push(
+                  context.go('/users/${widget.users![index].id}');
+                  /*context.go(Uri(
+                    path: 'user',
+                    queryParameters: {'id': widget.users![index].id},
+                  ).toString());*/
+                  /*Navigator.push(
                       context,
                       MaterialPageRoute(
                         builder: (context) =>
-                            UserDetail(user: widget.users![index]),
-                      ));
+                            UserDetail(id: widget.users![index].id),
+                      ));*/
                 },
               ),
             );
@@ -163,15 +164,17 @@ class _UsersDisplayState extends State<UsersDisplay> {
 }
 
 class UserDetail extends StatelessWidget {
-  final User user;
+  final String? id;
 
-  const UserDetail({super.key, required this.user});
+  const UserDetail({super.key, required this.id});
 
   @override
   Widget build(BuildContext context) {
+    var userBox = Hive.box<User>('users');
+    User? user = userBox.get(id);
     return Scaffold(
       appBar: AppBar(
-        title: Text(user.displayName),
+        title: Text(user!.displayName),
       ),
       body: Center(
         child: Column(
@@ -195,12 +198,13 @@ class UserDetail extends StatelessWidget {
               padding: EdgeInsets.all(8),
               child: ElevatedButton(
                   onPressed: () {
-                    Navigator.push(
+                    context.go('/users/${user.id}/get-top-items');
+                    /*Navigator.push(
                         context,
                         MaterialPageRoute(
                             builder: ((context) => GetTopItems(
                                   user: user,
-                                ))));
+                                ))));*/
                   },
                   child: Text('Let\'s go!')),
             ),
@@ -223,18 +227,20 @@ class UserDetail extends StatelessWidget {
                           user.id, 'artists', 'short_term', 15);
                     }).then((topArtists) {
                       recommendationParams['artist_seeds'] = topArtists;
-                      Navigator.push(
+                      context.go('/users/${user.id}/get-recommendations',
+                          extra: recommendationParams);
+                      /*Navigator.push(
                           context,
                           MaterialPageRoute(
                               builder: ((context) => GetRecommendations(
-                                    user: user,
+                                    userId: id,
                                     genreOptions:
                                         recommendationParams['genre_seeds'],
                                     trackOptions:
                                         recommendationParams['track_seeds'],
                                     artistOptions:
                                         recommendationParams['artist_seeds'],
-                                  ))));
+                                  ))));*/
                     });
                   },
                   child: Text('Get Recommendations')),

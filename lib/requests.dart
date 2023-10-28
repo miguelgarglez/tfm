@@ -9,7 +9,7 @@ import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const CLIENT_ID = '26cd2b5bfc8a431eb6b343e28ced0b6f';
-const REDIRECT_URI = 'http://localhost:5000/callback';
+const REDIRECT_URI = 'http://localhost:5000/';
 const SCOPE = 'user-read-private user-read-email user-top-read';
 
 /*
@@ -155,7 +155,6 @@ Future<User> retrieveSpotifyProfileInfo() async {
 
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      print('Datos petición de información de usuario: \n${data}');
       newUser = User.fromJson(data, accessToken);
       var usersBox = Hive.box<User>('users');
       await usersBox.put(data['id'], newUser);

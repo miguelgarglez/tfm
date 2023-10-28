@@ -1,9 +1,12 @@
 import 'package:combined_playlist_maker/artist.dart';
+import 'package:combined_playlist_maker/forms.dart';
 import 'package:combined_playlist_maker/requests.dart';
 import 'package:combined_playlist_maker/track.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'user.dart';
+import 'package:go_router/go_router.dart';
+import 'package:combined_playlist_maker/user.dart';
+import 'package:combined_playlist_maker/routes.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -12,7 +15,6 @@ void main() async {
   await Hive.openBox('tokens');
   await Hive.openBox('codeVerifiers');
   await Hive.openBox<User>('users');
-  //setUrlStrategy(PathUrlStrategy());
   runApp(const MyApp());
 }
 
@@ -36,10 +38,10 @@ class MyApp extends StatelessWidget {
       colorScheme:
           ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 39, 214, 19)),
     );
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: MyAppRoutes(),
       title: 'Combined Playlist Maker',
       theme: lightTheme,
-      home: const MyHomePage(),
     );
   }
 }
@@ -94,34 +96,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.only(right: 7),
                 child: ElevatedButton(
                     onPressed: () {
-                      var usersBox = Hive.box<User>('users').toMap();
                       // este bloque de if-else viene dado porque con la primera llamada para coger los datos del usuario
                       // (y guardarlos en Hive), los datos parecia que tardaban en guardarse, y entonces en la vista de
                       // lista de usuarios, no se veía nada, este arreglo hace que con la primera llamada (cuando no hay
                       // usuarios en Hive aún), se coja directamente el usuario creado con los datos cogidos en
                       // retrieveSpotifyProfileInfo
-                      if (usersBox.isEmpty) {
-                        print(
-                            'MAIN: La lista de usuarios está vacía: $usersBox');
-                        retrieveSpotifyProfileInfo().then((user) {
-                          Navigator.push(
+                      retrieveSpotifyProfileInfo().then((user) {
+                        context.go('/users/');
+                        /*Navigator.push(
                             context,
                             MaterialPageRoute(
                                 builder: (context) => UsersDisplay(user: user)),
-                          );
-                        });
-                      } else {
-                        print('MAIN: Ya hay usuarios en la lista: $usersBox');
-                        retrieveSpotifyProfileInfo().then((user) {
-                          Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UsersDisplay(
-                                      user: user,
-                                    )),
-                          );
-                        });
-                      }
+                          );*/
+                      });
                     },
                     child: Text('See user\'s list')),
               ),
@@ -236,7 +223,9 @@ class BasicDataVisualization extends StatelessWidget {
       appBar: AppBar(
         title: Text('Data Retrieved'),
       ),
-      body: Text('${data}'),
+      body: Expanded(
+          child: SingleChildScrollView(
+              scrollDirection: Axis.vertical, child: Text('${data}'))),
     );
   }
 }

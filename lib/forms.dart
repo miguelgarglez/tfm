@@ -7,9 +7,9 @@ import 'package:flutter/material.dart';
 import 'package:multi_select_flutter/multi_select_flutter.dart';
 
 class GetTopItems extends StatefulWidget {
-  final User? user;
+  final String? userId;
 
-  GetTopItems({super.key, this.user});
+  GetTopItems({super.key, this.userId});
   @override
   _GetTopItemsState createState() => _GetTopItemsState();
 }
@@ -122,7 +122,7 @@ class _GetTopItemsState extends State<GetTopItems> {
             ElevatedButton(
               onPressed: () {
                 print('Va a ejecutar getUsersTopItems!!');
-                getUsersTopItems(widget.user!.id, type, timeRange, limit)
+                getUsersTopItems(widget.userId!, type, timeRange, limit)
                     .then((rankingList) => Navigator.push(
                         context,
                         MaterialPageRoute(
@@ -140,17 +140,11 @@ class _GetTopItemsState extends State<GetTopItems> {
 }
 
 class GetRecommendations extends StatefulWidget {
-  final User? user;
-  final List? genreOptions;
-  final List? trackOptions;
-  final List? artistOptions;
+  final String? userId;
+  final Map recommendationOptions;
 
   GetRecommendations(
-      {super.key,
-      this.user,
-      this.genreOptions,
-      this.trackOptions,
-      this.artistOptions});
+      {super.key, this.userId, required this.recommendationOptions});
   @override
   _GetRecommendationsState createState() => _GetRecommendationsState();
 }
@@ -188,17 +182,22 @@ class _GetRecommendationsState extends State<GetRecommendations> {
 
   @override
   Widget build(BuildContext context) {
-    Map _items = {};
+    final List<MultiSelectItem> _seed_genres = widget
+        .recommendationOptions['genre_seeds']
+        .map<MultiSelectItem>((genre) => MultiSelectItem(genre, genre))
+        .toList();
 
-    _items['seed_genres'] = widget.genreOptions!
-        .map((genre) => MultiSelectItem(genre, genre))
+    final List<MultiSelectItem> _seed_artists = widget
+        .recommendationOptions['artist_seeds']
+        .map<MultiSelectItem>(
+            (artist) => MultiSelectItem(artist.id, artist.name))
         .toList();
-    _items['seed_artists'] = widget.artistOptions!
-        .map((artist) => MultiSelectItem(artist.id, artist.name))
+
+    final List<MultiSelectItem> _seed_tracks = widget
+        .recommendationOptions['track_seeds']
+        .map<MultiSelectItem>((track) => MultiSelectItem(track.id, track.name))
         .toList();
-    _items['seed_tracks'] = widget.trackOptions!
-        .map((track) => MultiSelectItem(track.id, track.name))
-        .toList();
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Adjust recommendation parameters'),
@@ -213,7 +212,7 @@ class _GetRecommendationsState extends State<GetRecommendations> {
             Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: MultiSelectDialogField(
-                  items: _items['seed_genres'],
+                  items: _seed_genres, //_items['seed_genres'],
                   initialValue: [],
                   title: Text('Select genres'),
                   selectedColor: Colors.green,
@@ -230,7 +229,7 @@ class _GetRecommendationsState extends State<GetRecommendations> {
             Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: MultiSelectDialogField(
-                  items: _items['seed_artists'],
+                  items: _seed_artists, //_items['seed_artists'],
                   initialValue: [],
                   title: Text('Select up to 5 artists'),
                   selectedColor: Colors.green,
@@ -247,7 +246,7 @@ class _GetRecommendationsState extends State<GetRecommendations> {
             Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: MultiSelectDialogField(
-                  items: _items['seed_tracks'],
+                  items: _seed_tracks, //_items['seed_tracks'],
                   initialValue: [],
                   title: Text('Select up to 5 tracks'),
                   selectedColor: Colors.green,
@@ -266,7 +265,7 @@ class _GetRecommendationsState extends State<GetRecommendations> {
             ElevatedButton(
               onPressed: () {
                 print('Va a ejecutar getRecommendations!!');
-                getRecommendations(widget.user!.id, seedGenres, seedArtists,
+                getRecommendations(widget.userId!, seedGenres, seedArtists,
                         seedTracks, limit)
                     .then((recommendationsList) => Navigator.push(
                         context,
