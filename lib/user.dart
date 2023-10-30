@@ -176,76 +176,78 @@ class UserDetail extends StatelessWidget {
       appBar: AppBar(
         title: Text(user!.displayName),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Text(user.id),
-            Text(user.email),
-            Text('Country: ${user.country}'),
-            Text('Followers: ${user.followers}'),
-            Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: Image(image: NetworkImage(user.imageUrl)),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 15, left: 15, top: 15),
-              child:
-                  Text('Want to know your most listened artists and tracks?'),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8),
-              child: ElevatedButton(
-                  onPressed: () {
-                    context.go('/users/${user.id}/get-top-items');
-                    /*Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => GetTopItems(
-                                  user: user,
-                                ))));*/
-                  },
-                  child: Text('Let\'s go!')),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(right: 15, left: 15, top: 15),
-              child: Text('Want new songs to listen to?'),
-            ),
-            Padding(
-              padding: EdgeInsets.all(8),
-              child: ElevatedButton(
-                  onPressed: () {
-                    Map recommendationParams = {};
-                    getGenreSeeds(user.id).then((genreSeeds) {
-                      recommendationParams['genre_seeds'] = genreSeeds;
-                      return getUsersTopItems(
-                          user.id, 'tracks', 'short_term', 15);
-                    }).then((topTracks) {
-                      recommendationParams['track_seeds'] = topTracks;
-                      return getUsersTopItems(
-                          user.id, 'artists', 'short_term', 15);
-                    }).then((topArtists) {
-                      recommendationParams['artist_seeds'] = topArtists;
-                      context.go('/users/${user.id}/get-recommendations',
-                          extra: recommendationParams);
+      body: SingleChildScrollView(
+        child: Center(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Text(user.id),
+              Text(user.email),
+              Text('Country: ${user.country}'),
+              Text('Followers: ${user.followers}'),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: Image(image: NetworkImage(user.imageUrl)),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 15, left: 15, top: 15),
+                child:
+                    Text('Want to know your most listened artists and tracks?'),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: ElevatedButton(
+                    onPressed: () {
+                      context.go('/users/${user.id}/get-top-items');
                       /*Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: ((context) => GetRecommendations(
-                                    userId: id,
-                                    genreOptions:
-                                        recommendationParams['genre_seeds'],
-                                    trackOptions:
-                                        recommendationParams['track_seeds'],
-                                    artistOptions:
-                                        recommendationParams['artist_seeds'],
+                              builder: ((context) => GetTopItems(
+                                    user: user,
                                   ))));*/
-                    });
-                  },
-                  child: Text('Get Recommendations')),
-            )
-          ],
+                    },
+                    child: Text('Let\'s go!')),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(right: 15, left: 15, top: 15),
+                child: Text('Want new songs to listen to?'),
+              ),
+              Padding(
+                padding: EdgeInsets.all(8),
+                child: ElevatedButton(
+                    onPressed: () {
+                      Map recommendationParams = {};
+                      getGenreSeeds(user.id).then((genreSeeds) {
+                        recommendationParams['genre_seeds'] = genreSeeds;
+                        return getUsersTopItems(
+                            user.id, 'tracks', 'short_term', 15);
+                      }).then((topTracks) {
+                        recommendationParams['track_seeds'] = topTracks;
+                        return getUsersTopItems(
+                            user.id, 'artists', 'short_term', 15);
+                      }).then((topArtists) {
+                        recommendationParams['artist_seeds'] = topArtists;
+                        context.go('/users/${user.id}/get-recommendations',
+                            extra: recommendationParams);
+                        /*Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: ((context) => GetRecommendations(
+                                      userId: id,
+                                      genreOptions:
+                                          recommendationParams['genre_seeds'],
+                                      trackOptions:
+                                          recommendationParams['track_seeds'],
+                                      artistOptions:
+                                          recommendationParams['artist_seeds'],
+                                    ))));*/
+                      });
+                    },
+                    child: Text('Get Recommendations')),
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -8,6 +8,7 @@
             "name": "combined_playlist_maker",
             "request": "launch",
             "type": "dart",
+            "flutterMode": "debug",
             "args": ["--web-port=5000"]
         },
         {

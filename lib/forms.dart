@@ -92,47 +92,49 @@ class _GetTopItemsState extends State<GetTopItems> {
       appBar: AppBar(
         title: Text('Adjust request parameters'),
       ),
-      body: Form(
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-              child: Text('Top Tracks or Artists?'),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: buildRadioTopType(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-              child: Text('What time frame?'),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: buildTimeFrameDropdown(),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-              child: Text('Limit the length of the ranking'),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: buildLimitField(),
-            ),
-            ElevatedButton(
-              onPressed: () {
-                print('Va a ejecutar getUsersTopItems!!');
-                getUsersTopItems(widget.userId!, type, timeRange, limit)
-                    .then((rankingList) => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: ((context) => ItemDisplay(
-                                  items: rankingList,
-                                )))));
-              },
-              child: Text('Submit'),
-            ),
-          ],
+      body: SingleChildScrollView(
+        child: Form(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+                child: Text('Top Tracks or Artists?'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: buildRadioTopType(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+                child: Text('What time frame?'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: buildTimeFrameDropdown(),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
+                child: Text('Limit the length of the ranking'),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: buildLimitField(),
+              ),
+              ElevatedButton(
+                onPressed: () {
+                  print('Va a ejecutar getUsersTopItems!!');
+                  getUsersTopItems(widget.userId!, type, timeRange, limit)
+                      .then((rankingList) => Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: ((context) => ItemDisplay(
+                                    items: rankingList,
+                                  )))));
+                },
+                child: Text('Submit'),
+              ),
+            ],
+          ),
         ),
       ),
     );
