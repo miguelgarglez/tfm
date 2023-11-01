@@ -5,10 +5,10 @@ import 'package:combined_playlist_maker/user.dart';
 import 'package:go_router/go_router.dart';
 
 GoRouter MyAppRoutes() {
-  return GoRouter(initialLocation: '/start', routes: [
+  return GoRouter(initialLocation: '/', routes: [
     GoRoute(
       name: 'home',
-      path: '/start',
+      path: '/',
       builder: (context, state) => MyHomePage(),
       routes: [],
     ),

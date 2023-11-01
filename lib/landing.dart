@@ -68,7 +68,7 @@ class MyHomePage extends StatelessWidget {
               child: ElevatedButton(
                   onPressed: () {
                     deleteContentFromHive();
-                    context.go('/start');
+                    context.go('/');
                   },
                   child: Text('Delete data')),
             ),

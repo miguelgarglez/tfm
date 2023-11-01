@@ -181,7 +181,7 @@ class _UsersDisplayState extends State<UsersDisplay> {
                           return Image.asset('images/unknown_cover.png');
                         },
                         width: double.infinity,
-                        height: 240,
+                        height: 115,
                         fit: BoxFit.cover,
                       ),
                     ),
@@ -203,7 +203,13 @@ class _UsersDisplayState extends State<UsersDisplay> {
                           onSelected: (String choice) {
                             if (choice == 'delete') {
                               hiveDeleteUser(widget.users![index].id);
-                              context.go('/users');
+                              if (hiveGetUsers().isNotEmpty) {
+                                context.go('/users');
+                              } else {
+                                var authBox = Hive.box('auth');
+                                authBox.clear();
+                                context.go('/');
+                              }
                             }
                           },
                         ),
