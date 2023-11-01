@@ -9,7 +9,8 @@ import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const CLIENT_ID = '26cd2b5bfc8a431eb6b343e28ced0b6f';
-var REDIRECT_URI = 'http://localhost:5000/'; //default
+const REDIRECT_URI =
+    'https://miguelgarglez.github.io/start'; //'http://localhost:5000/start'; //default
 const SCOPE = 'user-read-private user-read-email user-top-read';
 
 /*
@@ -83,8 +84,6 @@ Future<void> requestAuthorization() async {
 
   if (await canLaunchUrl(authorizationUrl)) {
     await launchUrl(authorizationUrl, webOnlyWindowName: '_self');
-    var authBox = Hive.box('auth');
-    await authBox.put('isAuth', true);
   } else {
     throw 'Could not launch $authorizationUrl';
   }
@@ -93,7 +92,6 @@ Future<void> requestAuthorization() async {
 bool isAuthenticated() {
   //auth es una caja de Hive que simplemente guarda un booleano
   var auth = Hive.box('auth').toMap();
-  print(auth);
   if (auth.isEmpty) {
     return false;
   } else {

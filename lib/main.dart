@@ -1,12 +1,10 @@
 import 'package:combined_playlist_maker/artist.dart';
-import 'package:combined_playlist_maker/forms.dart';
-import 'package:combined_playlist_maker/requests.dart';
 import 'package:combined_playlist_maker/track.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:go_router/go_router.dart';
 import 'package:combined_playlist_maker/user.dart';
 import 'package:combined_playlist_maker/routes.dart';
+import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() async {
   await Hive.initFlutter();
@@ -15,6 +13,7 @@ void main() async {
   await Hive.openBox('tokens');
   await Hive.openBox('codeVerifiers');
   await Hive.openBox<User>('users');
+  usePathUrlStrategy();
   runApp(const MyApp());
 }
 
@@ -46,102 +45,17 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key});
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    var children = <Widget>[];
-
-    //aquí realmente tendré que acabar haciendo una funcion que compruebe si el
-    //token que haya está en vigor con la API de spotify
-    if (!isAuthenticated()) {
-      //mostrar botón de login, no mostrar botón comenzar
-      children = <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: ElevatedButton(
-              onPressed: requestAuthorization,
-              child: Text('Login with Spotify')),
-        ),
-        Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Text('And start using the app!'),
-        ),
-      ];
-    } else {
-      //no mostrar botón de login, y mostrar botón comenzar
-      children = <Widget>[
-        Padding(
-          padding: const EdgeInsets.all(15.0),
-          child: Text('You logged in from Spotify'),
-        ),
-        Padding(
-          padding: EdgeInsets.all(15.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Padding(
-                padding: const EdgeInsets.only(right: 7),
-                child: ElevatedButton(
-                    onPressed: () {
-                      // este bloque de if-else viene dado porque con la primera llamada para coger los datos del usuario
-                      // (y guardarlos en Hive), los datos parecia que tardaban en guardarse, y entonces en la vista de
-                      // lista de usuarios, no se veía nada, este arreglo hace que con la primera llamada (cuando no hay
-                      // usuarios en Hive aún), se coja directamente el usuario creado con los datos cogidos en
-                      // retrieveSpotifyProfileInfo
-                      retrieveSpotifyProfileInfo().then((user) {
-                        context.go('/users/');
-                        /*Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => UsersDisplay(user: user)),
-                          );*/
-                      });
-                    },
-                    child: Text('See user\'s list')),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(left: 7),
-                child: ElevatedButton(
-                    onPressed: () {
-                      deleteContentFromHive();
-                      setState(() {});
-                    },
-                    child: Text('Delete data')),
-              ),
-            ],
-          ),
-        ),
-      ];
-    }
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Welcome to CPM from Spotify'),
-      ),
-      body: Center(
-          child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: children,
-      )),
-    );
-  }
-}
-
 List hiveGetUsers() {
   return Hive.box<User>('users').values.toList();
+}
+
+bool hiveDeleteUser(String userId) {
+  var userBox = Hive.box<User>('users');
+  if (userBox.containsKey(userId)) {
+    userBox.delete(userId);
+    return true;
+  }
+  return false;
 }
 
 void deleteContentFromHive() async {

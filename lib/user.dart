@@ -1,4 +1,5 @@
 import 'package:combined_playlist_maker/forms.dart';
+import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -106,7 +107,6 @@ class _UsersDisplayState extends State<UsersDisplay> {
   @override
   void initState() {
     super.initState();
-    //Hive.box<User>('users').values.toList()
     List<User> currentUsers = Hive.box<User>('users').values.toList();
     widget.users = currentUsers;
 
@@ -114,7 +114,7 @@ class _UsersDisplayState extends State<UsersDisplay> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  /*Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Text('Welcome!'),
@@ -134,16 +134,6 @@ class _UsersDisplayState extends State<UsersDisplay> {
                 title: Text(widget.users![index].displayName),
                 onTap: () {
                   context.go('/users/${widget.users![index].id}');
-                  /*context.go(Uri(
-                    path: 'user',
-                    queryParameters: {'id': widget.users![index].id},
-                  ).toString());*/
-                  /*Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) =>
-                            UserDetail(id: widget.users![index].id),
-                      ));*/
                 },
               ),
             );
@@ -160,6 +150,82 @@ class _UsersDisplayState extends State<UsersDisplay> {
       ),
       // Agrega otros widgets y elementos de IU aquí
     );
+  }*/
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Welcome!'),
+      ),
+      body: Padding(
+        padding: EdgeInsets.all(16),
+        child: GridView.builder(
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 2, // Dos columnas
+            crossAxisSpacing: 10.0, // Espacio entre columnas
+            mainAxisSpacing: 10.0, // Espacio entre filas
+          ),
+          itemBuilder: (BuildContext context, int index) {
+            return InkWell(
+              onTap: () => context.go('/users/${widget.users![index].id}'),
+              child: Card(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    // Imagen del usuario
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(15),
+                      child: FadeInImage.assetNetwork(
+                        placeholder: 'images/unknown_cover.png',
+                        image: widget.users![index].imageUrl,
+                        imageErrorBuilder: (context, error, stackTrace) {
+                          return Image.asset('images/unknown_cover.png');
+                        },
+                        width: double.infinity,
+                        height: 240,
+                        fit: BoxFit.cover,
+                      ),
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Text(widget.users![index].displayName),
+                        // Menú desplegable con tres puntos para acciones
+                        PopupMenuButton<String>(
+                          itemBuilder: (context) {
+                            return <PopupMenuEntry<String>>[
+                              const PopupMenuItem<String>(
+                                value: 'delete',
+                                child: Text('Delete'),
+                              ),
+                              // Agrega más opciones de menú según tus necesidades
+                            ];
+                          },
+                          onSelected: (String choice) {
+                            if (choice == 'delete') {
+                              hiveDeleteUser(widget.users![index].id);
+                              context.go('/users');
+                            }
+                          },
+                        ),
+                      ],
+                    ),
+                    // Nombre del usuario
+                  ],
+                ),
+              ),
+            );
+          },
+          itemCount: widget.users!.length,
+        ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          requestAuthorization();
+        },
+        tooltip: 'Add another spotify user',
+        child: Icon(Icons.add),
+      ),
+    );
   }
 }
 
@@ -169,7 +235,7 @@ class UserDetail extends StatelessWidget {
   const UserDetail({super.key, required this.id});
 
   @override
-  Widget build(BuildContext context) {
+  /*Widget build(BuildContext context) {
     var userBox = Hive.box<User>('users');
     User? user = userBox.get(id);
     return Scaffold(
@@ -247,6 +313,103 @@ class UserDetail extends StatelessWidget {
                     child: Text('Get Recommendations')),
               )
             ],
+          ),
+        ),
+      ),
+    );
+  }*/
+  Widget build(BuildContext context) {
+    var userBox = Hive.box<User>('users');
+    User? user = userBox.get(id);
+
+    return Scaffold(
+      appBar: AppBar(
+        title: Text(user!.displayName),
+      ),
+      body: Center(
+        child: SingleChildScrollView(
+          child: Padding(
+            padding: EdgeInsets.all(20),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.grey,
+                        offset: Offset(0, 5),
+                        blurRadius: 10,
+                      ),
+                    ],
+                  ),
+                  child: ClipRRect(
+                    borderRadius: BorderRadius.circular(50.0),
+                    child: Image.network(
+                      user.imageUrl,
+                      width: 250,
+                      height: 250,
+                    ),
+                  ),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  user.id,
+                  style: TextStyle(fontSize: 18),
+                ),
+                Text(
+                  user.email,
+                  style: TextStyle(fontSize: 18),
+                ),
+                Text(
+                  'Country: ${user.country}',
+                  style: TextStyle(fontSize: 18),
+                ),
+                Text(
+                  'Followers: ${user.followers}',
+                  style: TextStyle(fontSize: 18),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  'Want to know your most listened artists and tracks?',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    context.go('/users/${user.id}/get-top-items');
+                  },
+                  child: Text('Let\'s go!'),
+                ),
+                SizedBox(height: 16),
+                Text(
+                  'Want new songs to listen to?',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(height: 16),
+                ElevatedButton(
+                  onPressed: () {
+                    Map recommendationParams = {};
+                    getGenreSeeds(user.id).then((genreSeeds) {
+                      recommendationParams['genre_seeds'] = genreSeeds;
+                      return getUsersTopItems(
+                          user.id, 'tracks', 'short_term', 15);
+                    }).then((topTracks) {
+                      recommendationParams['track_seeds'] = topTracks;
+                      return getUsersTopItems(
+                          user.id, 'artists', 'short_term', 15);
+                    }).then((topArtists) {
+                      recommendationParams['artist_seeds'] = topArtists;
+                      context.go('/users/${user.id}/get-recommendations',
+                          extra: recommendationParams);
+                    });
+                  },
+                  child: Text('Get Recommendations'),
+                ),
+              ],
+            ),
           ),
         ),
       ),
