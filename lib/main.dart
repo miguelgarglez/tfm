@@ -1,17 +1,17 @@
-import 'package:combined_playlist_maker/artist.dart';
-import 'package:combined_playlist_maker/track.dart';
+import 'package:combined_playlist_maker/models/artist.dart';
+import 'package:combined_playlist_maker/models/track.dart';
 import 'package:flutter/material.dart';
 import 'package:hive_flutter/hive_flutter.dart';
-import 'package:combined_playlist_maker/user.dart';
-import 'package:combined_playlist_maker/routes.dart';
+import 'package:combined_playlist_maker/models/user.dart';
+import 'package:combined_playlist_maker/src/routes.dart';
 import 'package:flutter_web_plugins/url_strategy.dart';
 
 void main() async {
   await Hive.initFlutter();
   Hive.registerAdapter(UserAdapter());
   await Hive.openBox('auth');
-  await Hive.openBox('tokens');
   await Hive.openBox('codeVerifiers');
+  await Hive.openBox('urlCode');
   await Hive.openBox<User>('users');
   usePathUrlStrategy();
   runApp(const MyApp());
@@ -23,7 +23,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    ThemeData lightTheme = ThemeData(
+    /*ThemeData lightTheme = ThemeData(
       brightness: Brightness.light,
       useMaterial3: true,
       textTheme: const TextTheme(
@@ -36,11 +36,11 @@ class MyApp extends StatelessWidget {
       ),
       colorScheme:
           ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 39, 214, 19)),
-    );
+    );*/
     return MaterialApp.router(
       routerConfig: MyAppRoutes(),
       title: 'Combined Playlist Maker',
-      theme: lightTheme,
+      theme: ThemeData.dark(useMaterial3: true),
     );
   }
 }
@@ -60,9 +60,9 @@ bool hiveDeleteUser(String userId) {
 
 void deleteContentFromHive() async {
   await Hive.box('auth').clear();
-  await Hive.box('tokens').clear();
   await Hive.box<User>('users').clear();
   await Hive.box('codeVerifiers').clear();
+  await Hive.box('urlCode').clear();
 }
 
 class ItemDisplay extends StatelessWidget {

@@ -1,5 +1,5 @@
 import 'package:combined_playlist_maker/main.dart';
-import 'package:combined_playlist_maker/requests.dart';
+import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -14,9 +14,10 @@ class MyHomePage extends StatelessWidget {
     //mostrar botón de login, no mostrar botón comenzar
     var notLoggedIn = <Widget>[
       Icon(
-        Icons.music_note, // Puedes cambiar el icono según tus preferencias
+        Icons
+            .music_note_outlined, // Puedes cambiar el icono según tus preferencias
         size: 120.0, // Tamaño del icono
-        color: Colors.black, // Color del icono
+        // Color del icono
       ),
       SizedBox(height: 20.0),
       Padding(
@@ -35,7 +36,7 @@ class MyHomePage extends StatelessWidget {
       Icon(
         Icons.music_note, // Puedes cambiar el icono según tus preferencias
         size: 120.0, // Tamaño del icono
-        color: Colors.black, // Color del icono
+        // Color del icono
       ),
       SizedBox(height: 20.0), // Espacio entre el icono y el texto
       Text(
@@ -84,19 +85,23 @@ class MyHomePage extends StatelessWidget {
     } else {
       children = notLoggedIn;
     }
+    // comprobar si el codigo se ha devuelto al autorizar el acceso de spotify
+    if (authSuccess(Uri.base) == true) {
+      if (hiveGetUsers().isEmpty) {
+        var authBox = Hive.box('auth');
+        authBox.put('isAuth', true);
+      }
 
-    if (authSuccess(Uri.base) == true && hiveGetUsers().isEmpty) {
-      var authBox = Hive.box('auth');
-      authBox.put('isAuth', true);
       retrieveSpotifyProfileInfo().then((user) {
-        context.go('/users/');
-      });
-    } else if (authSuccess(Uri.base) == true && hiveGetUsers().isNotEmpty) {
-      retrieveSpotifyProfileInfo().then((user) {
-        context.go('/users/');
+        if (user.content.isNotValid()) {
+          // En caso de error
+          // de momento queda pendiente
+        } else {
+          context.go('/users/');
+        }
       });
     }
-
+    print('Se ejecuta build()');
     return Scaffold(
       appBar: AppBar(
         title: Text('Combined Playlist Maker'),

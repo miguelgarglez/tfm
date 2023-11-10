@@ -1,13 +1,15 @@
 import 'dart:convert';
 import 'dart:math';
-import 'package:combined_playlist_maker/track.dart';
-import 'package:combined_playlist_maker/user.dart';
-import 'package:combined_playlist_maker/artist.dart';
+import 'package:combined_playlist_maker/models/my_response.dart';
+import 'package:combined_playlist_maker/models/track.dart';
+import 'package:combined_playlist_maker/models/user.dart';
+import 'package:combined_playlist_maker/models/artist.dart';
 import 'package:crypto/crypto.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+const CLIENT_SECRET = 'cb6fb021de0d4020b84be01614e76254';
 const CLIENT_ID = '26cd2b5bfc8a431eb6b343e28ced0b6f';
 const REDIRECT_URI = 'http://localhost:5000/'; //default
 const SCOPE = 'user-read-private user-read-email user-top-read';
@@ -31,7 +33,7 @@ String generateRandomString(int length) {
 /**
  * Función que genera 
  */
-Future<String> generateCodeChallenge(String codeVerifier) async {
+String generateCodeChallenge(String codeVerifier) {
   var data = ascii.encode(codeVerifier);
   // Calcula el hash SHA-256 de la secuencia de bytes del código de verificación
   var hash = sha256.convert(data);
@@ -47,7 +49,7 @@ Future<String> generateCodeChallenge(String codeVerifier) async {
 }
 
 dynamic obtainCurrentURLCode() async {
-  String? code;
+  String? code = '';
   Uri uri;
 
   uri = Uri.base;
@@ -60,11 +62,13 @@ dynamic obtainCurrentURLCode() async {
 Future<void> requestAuthorization() async {
   var codeVerifier = generateRandomString(128);
 
+  // guardamos el codeVerifier para el proceso de autenticación
+  // después lo guardaré con el usuario
   var cvBox = Hive.box('codeVerifiers');
   var n = cvBox.length;
   await cvBox.put('cv$n', codeVerifier);
 
-  String codeChallenge = await generateCodeChallenge(codeVerifier);
+  String codeChallenge = generateCodeChallenge(codeVerifier);
 
   String state = generateRandomString(16);
 
@@ -91,21 +95,30 @@ Future<void> requestAuthorization() async {
 bool isAuthenticated() {
   //auth es una caja de Hive que simplemente guarda un booleano
   var auth = Hive.box('auth').toMap();
-  if (auth.isEmpty) {
+  var users = Hive.box<User>('users').toMap();
+  if (auth.isEmpty && users.isEmpty) {
     return false;
   } else {
     return true;
   }
 }
 
-Future<String> getAccessToken() async {
+Future<MyResponse> getAccessToken() async {
   String? code;
 
+  MyResponse ret = MyResponse();
+
+  //obtengo el codigo de la url y lo guardo
   code = await obtainCurrentURLCode();
 
   var cvBox = Hive.box('codeVerifiers');
   var codeVerifier = await cvBox.get('cv${cvBox.length - 1}');
-
+  cvBox.clear();
+  if (codeVerifier == null) {
+    // no hay un codeVerifier, asi que va a dar error, cortamos ejecución
+    ret.content = {};
+    return ret;
+  }
   final body = {
     'grant_type': 'authorization_code',
     'code': code,
@@ -121,59 +134,72 @@ Future<String> getAccessToken() async {
       body: body,
     );
 
+    ret.statusCode = response.statusCode;
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      var atBox = Hive.box('tokens');
-      var n = atBox.length;
-      await atBox.put('at$n', data['access_token']);
-      return data['access_token'];
+      ret.content = data;
+      return ret;
     } else {
       print(json.decode(response.body));
+      ret.content = {};
       throw Exception('HTTP status ${response.statusCode} in getAccessToken');
     }
   } catch (error) {
-    print('Error $error');
+    print('Error $error (getAccessToken)');
+    return ret;
   }
-  return '';
 }
 
 //funcion que se llama la primera vez que el usuario acepta la autorización de spotify
-Future<User> retrieveSpotifyProfileInfo() async {
-  var accessToken = await getAccessToken();
-  print('accessToken: $accessToken');
+Future<MyResponse> retrieveSpotifyProfileInfo() async {
+  MyResponse ret = MyResponse();
+  MyResponse tokenResponse = await getAccessToken();
+  print('accessToken (retrieveSpotifyProfileInfo): $tokenResponse');
+  if (tokenResponse.statusCode != 200) {
+    //no se ha llegado a hacer la petición porque el token
+    //no se ha obtenido correctamente
+    ret.content = User.notValid();
+    return ret;
+  }
+
   final Uri uri = Uri.parse('https://api.spotify.com/v1/me');
   User newUser;
 
   try {
     final response = await get(
       uri,
-      headers: {'Authorization': 'Bearer $accessToken'},
+      headers: {
+        'Authorization': 'Bearer ${tokenResponse.content['access_token']}'
+      },
     );
-
+    ret.statusCode = response.statusCode;
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      newUser = User.fromJson(data, accessToken);
+      newUser = User.fromJson(data, tokenResponse.content['access_token'],
+          tokenResponse.content['refresh_token']);
       var usersBox = Hive.box<User>('users');
-      await usersBox.put(data['id'], newUser);
-      return newUser;
+      await usersBox.put(newUser.id, newUser);
+      ret.content = newUser;
+      return ret;
     } else {
       print(json.decode(response.body));
+      ret.content = User.notValid();
       throw Exception(
           'HTTP status ${response.statusCode} en retrieveSpotifyProfileInfo');
     }
   } catch (error) {
     print('Error: $error');
+    return ret;
   }
-  return User.notValid();
 }
 
-Future<List> getUsersTopItems(
+Future<MyResponse> getUsersTopItems(
     String userId, String type, String timeRange, double limit) async {
   var usersBox = Hive.box<User>('Users');
   User? user = usersBox.get(userId);
   var accessToken = user!.accessToken;
 
-  List topItems = [];
+  MyResponse ret = MyResponse();
 
   final args = {
     'time_range': timeRange,
@@ -186,37 +212,44 @@ Future<List> getUsersTopItems(
       uri,
       headers: {'Authorization': 'Bearer $accessToken'},
     );
-
+    ret.statusCode = response.statusCode;
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      if (type == 'artists') {
-        for (var item in data['items']) {
-          Artist a = Artist.fromJson(item);
-          topItems.add(a);
-        }
-      } else {
-        for (var item in data['items']) {
-          Track a = Track.fromJson(item);
-          topItems.add(a);
-        }
-      }
-      return topItems;
+      ret.content = parseItemData(data, type);
+      return ret;
     } else {
-      print(json.decode(response.body));
+      ret.content = [];
       throw Exception('HTTP status ${response.statusCode} en getUsersTopItems');
     }
   } catch (error) {
     print('Error: $error');
+    return ret;
   }
-  return [];
 }
 
-Future<List> getRecommendations(String userId, List genreSeeds,
+List parseItemData(data, type) {
+  List topItems = [];
+  if (type == 'artists') {
+    for (var item in data['items']) {
+      Artist a = Artist.fromJson(item);
+      topItems.add(a);
+    }
+  } else {
+    for (var item in data['items']) {
+      Track a = Track.fromJson(item);
+      topItems.add(a);
+    }
+  }
+  return topItems;
+}
+
+Future<MyResponse> getRecommendations(String userId, List genreSeeds,
     List artistSeeds, List trackSeeds, double limit) async {
   var usersBox = Hive.box<User>('Users');
   User? user = usersBox.get(userId);
   var accessToken = user!.accessToken;
 
+  MyResponse ret = MyResponse();
   List recommendations = [];
 
   final args = {
@@ -228,29 +261,31 @@ Future<List> getRecommendations(String userId, List genreSeeds,
   };
 
   final Uri uri = Uri.https('api.spotify.com', '/v1/recommendations', args);
-  print('Uri generada: ${uri}');
   try {
     final response = await get(
       uri,
       headers: {'Authorization': 'Bearer $accessToken'},
     );
 
+    ret.statusCode = response.statusCode;
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       for (var item in data['tracks']) {
         Track t = Track.fromJson(item);
         recommendations.add(t);
       }
-      return recommendations;
+      ret.content = recommendations;
+      return ret;
     } else {
+      ret.content = [];
       print(json.decode(response.body));
       throw Exception(
           'HTTP status ${response.statusCode} in getRecommendations');
     }
   } catch (error) {
     print('Error: $error');
+    return ret;
   }
-  return [];
 }
 
 Future<List> getGenreSeeds(String userId) async {
@@ -260,7 +295,7 @@ Future<List> getGenreSeeds(String userId) async {
 
   final Uri uri =
       Uri.https('api.spotify.com', '/v1/recommendations/available-genre-seeds');
-  print('Uri generada: ${uri.path}');
+
   try {
     final response = await get(
       uri,
@@ -278,4 +313,45 @@ Future<List> getGenreSeeds(String userId) async {
     print('Error: $error');
   }
   return [];
+}
+
+Future<MyResponse> refreshToken(userId) async {
+  MyResponse ret = MyResponse();
+
+  //obtengo el codigo de la url y lo guardo
+  var usersBox = Hive.box<User>('users');
+  User? u = usersBox.get(userId);
+
+  final body = {
+    'grant_type': 'refresh_token',
+    'refresh_token': u!.refreshToken,
+    'client_id': CLIENT_ID,
+  };
+
+  try {
+    final response = await post(
+      Uri.parse('https://accounts.spotify.com/api/token'),
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded',
+      },
+      body: body,
+    );
+
+    ret.statusCode = response.statusCode;
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      print('Se ha obtenido un token RENOVADO en refreshToken');
+      ret.content = data;
+      print(ret);
+      return ret;
+    } else {
+      print(json.decode(response.body));
+      ret.content = {};
+      throw Exception('HTTP status ${response.statusCode} in refreshToken');
+    }
+  } catch (error) {
+    print('Error $error');
+    print(ret);
+    return ret;
+  }
 }
