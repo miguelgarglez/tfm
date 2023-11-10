@@ -9,7 +9,6 @@ import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-const CLIENT_SECRET = 'cb6fb021de0d4020b84be01614e76254';
 const CLIENT_ID = '26cd2b5bfc8a431eb6b343e28ced0b6f';
 const REDIRECT_URI = 'http://localhost:5000/'; //default
 const SCOPE = 'user-read-private user-read-email user-top-read';
