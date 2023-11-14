@@ -242,8 +242,8 @@ List parseItemData(data, type) {
   return topItems;
 }
 
-Future<MyResponse> getRecommendations(String userId, List genreSeeds,
-    List artistSeeds, List trackSeeds, double limit) async {
+Future<MyResponse> getRecommendations(String userId, List? genreSeeds,
+    List? artistSeeds, List? trackSeeds, double limit) async {
   var usersBox = Hive.box<User>('Users');
   User? user = usersBox.get(userId);
   var accessToken = user!.accessToken;
@@ -287,10 +287,12 @@ Future<MyResponse> getRecommendations(String userId, List genreSeeds,
   }
 }
 
-Future<List> getGenreSeeds(String userId) async {
+Future<MyResponse> getGenreSeeds(String userId) async {
   var usersBox = Hive.box<User>('Users');
   User? user = usersBox.get(userId);
   var accessToken = user!.accessToken;
+
+  MyResponse ret = MyResponse();
 
   final Uri uri =
       Uri.https('api.spotify.com', '/v1/recommendations/available-genre-seeds');
@@ -301,17 +303,20 @@ Future<List> getGenreSeeds(String userId) async {
       headers: {'Authorization': 'Bearer $accessToken'},
     );
 
+    ret.statusCode = response.statusCode;
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      return data['genres'];
+      ret.content = data['genres'];
+      return ret;
     } else {
       print(json.decode(response.body));
       throw Exception('HTTP status ${response.statusCode} in getGenreSeeds');
     }
   } catch (error) {
+    ret.content = [];
     print('Error: $error');
   }
-  return [];
+  return ret;
 }
 
 Future<MyResponse> refreshToken(userId) async {
@@ -339,7 +344,6 @@ Future<MyResponse> refreshToken(userId) async {
     ret.statusCode = response.statusCode;
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      print('Se ha obtenido un token RENOVADO en refreshToken');
       ret.content = data;
       print(ret);
       return ret;

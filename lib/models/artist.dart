@@ -1,4 +1,5 @@
 import 'package:combined_playlist_maker/main.dart';
+import 'package:combined_playlist_maker/utils/work_in_progress.dart';
 import 'package:flutter/material.dart';
 
 class Artist {

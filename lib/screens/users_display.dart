@@ -75,7 +75,10 @@ class _UsersDisplayState extends State<UsersDisplay> {
           ),
           itemBuilder: (BuildContext context, int index) {
             return InkWell(
-              onTap: () => context.go('/users/${widget.users![index].id}'),
+              onTap: () {
+                widget.users![index].updateToken();
+                context.go('/users/${widget.users![index].id}');
+              },
               child: Card(
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -106,10 +109,10 @@ class _UsersDisplayState extends State<UsersDisplay> {
                                 value: 'delete',
                                 child: Text('Delete'),
                               ),
-                              const PopupMenuItem<String>(
+                              /*const PopupMenuItem<String>(
                                 value: 'token',
                                 child: Text('Get Token'),
-                              ),
+                              ),*/
                               // Agrega más opciones de menú según tus necesidades
                             ];
                           },
@@ -122,25 +125,11 @@ class _UsersDisplayState extends State<UsersDisplay> {
                                 var authBox = Hive.box('auth');
                                 authBox.clear().then((v) => context.go('/'));
                               }
-                            } else if (choice == 'token') {
-                              var userId = widget.users![index].id;
-                              refreshToken(userId).then((tokenResponse) {
-                                if (tokenResponse.content.isNotEmpty) {
-                                  var usersBox = Hive.box<User>('users');
-                                  User? u =
-                                      usersBox.get(widget.users![index].id);
-                                  print('Token "renovado": $tokenResponse');
-                                  u!.accessToken =
-                                      tokenResponse.content['access_token'];
-                                  u.refreshToken =
-                                      tokenResponse.content['refresh_token'];
-                                  usersBox.delete(u.id);
-                                  usersBox.put(u.id, u);
-                                } else {
-                                  // error al renovar el token de acceso
-                                }
-                              });
-                            }
+                            } /*else if (choice == 'token') {
+                              var usersBox = Hive.box<User>('users');
+                              User? u = usersBox.get(widget.users![index].id);
+                              u!.updateToken();
+                            }*/
                           },
                         ),
                       ],

@@ -1,4 +1,6 @@
 import 'package:combined_playlist_maker/models/user.dart';
+import 'package:combined_playlist_maker/return_codes.dart';
+import 'package:combined_playlist_maker/services/error_handling.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -123,40 +125,9 @@ class _GetTopItemsState extends State<GetTopItems> {
                   print('Va a ejecutar getUsersTopItems!!');
                   getUsersTopItems(widget.userId!, type, timeRange, limit)
                       .then((rankingResponse) {
-                    if (rankingResponse.statusCode == 401) {
-                      //renovar token
-                      var usersBox = Hive.box<User>('users');
-                      User? u = usersBox.get(widget.userId);
-                      if (u!.updateToken() == true) {
-                        context.go(
-                            '/users/${widget.userId}/get-recommendations/recommendations',
-                            extra: rankingResponse.content);
-                      } else {
-                        //manejar la falta del token de alguna forma (probablemente)
-                        //pidiendo la autorización de nuevo del usuario
-                      }
-                    } else if (rankingResponse.statusCode != 200) {
-                      // mostrar error con un dialog o similar
-                      showDialog(
-                        context: context,
-                        builder: (BuildContext context) {
-                          return AlertDialog(
-                            title: Text('Error'),
-                            content: Text(
-                                'Ha ocurrido un error (${rankingResponse.statusCode}) con la API de Spotify. Inténtalo de nuevo'),
-                            actions: [
-                              TextButton(
-                                child: Text('Aceptar'),
-                                onPressed: () {
-                                  Navigator.of(context)
-                                      .pop(); // Cierra el cuadro de diálogo
-                                },
-                              ),
-                            ],
-                          );
-                        },
-                      );
-                    } else {
+                    if (handleResponse(
+                            rankingResponse, widget.userId!, context) ==
+                        ReturnCodes.SUCCESS) {
                       context.go(
                           '/users/${widget.userId}/get-top-items/top-items',
                           extra: rankingResponse.content);

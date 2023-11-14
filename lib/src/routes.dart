@@ -1,6 +1,7 @@
 import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/screens/get_recommendations.dart';
 import 'package:combined_playlist_maker/screens/get_top_items.dart';
+import 'package:combined_playlist_maker/screens/item_display.dart';
 import 'package:combined_playlist_maker/screens/landing.dart';
 import 'package:combined_playlist_maker/screens/user_detail.dart';
 import 'package:combined_playlist_maker/screens/users_display.dart';

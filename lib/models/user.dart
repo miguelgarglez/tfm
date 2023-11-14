@@ -1,3 +1,4 @@
+import 'package:combined_playlist_maker/models/my_response.dart';
 import 'package:combined_playlist_maker/services/requests.dart' as req;
 import 'package:hive_flutter/hive_flutter.dart';
 
@@ -50,7 +51,7 @@ class User {
         refreshToken: '');
   }
 
-  bool updateToken() {
+  MyResponse updateToken() {
     req.refreshToken(id).then((tokenResponse) {
       if (tokenResponse.content.isNotEmpty) {
         var usersBox = Hive.box<User>('users');
@@ -60,11 +61,12 @@ class User {
         u.refreshToken = tokenResponse.content['refresh_token'];
         usersBox.delete(u.id);
         usersBox.put(u.id, u);
-        return true;
+        return tokenResponse;
+      } else {
+        return tokenResponse;
       }
-      return false;
     });
-    return false;
+    return MyResponse();
   }
 
   bool isNotValid() {
