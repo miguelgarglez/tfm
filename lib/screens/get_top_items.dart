@@ -16,9 +16,11 @@ class GetTopItems extends StatefulWidget {
 
 class _GetTopItemsState extends State<GetTopItems> {
   // Variables para los valores del formulario
-  String type = 'Tracks';
+  String type = '';
   double limit = 25;
   String timeRange = 'medium_term';
+
+  final formKey = new GlobalKey<FormState>();
 
   // Controladores para los campos de entrada
   final controller = TextEditingController();
@@ -27,6 +29,14 @@ class _GetTopItemsState extends State<GetTopItems> {
   void dispose() {
     controller.dispose();
     super.dispose();
+  }
+
+  bool validateForm() {
+    if (type == '') {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   Slider buildLimitField() {
@@ -94,6 +104,7 @@ class _GetTopItemsState extends State<GetTopItems> {
       ),
       body: SingleChildScrollView(
         child: Form(
+          key: formKey,
           child: Column(
             children: [
               Padding(
@@ -122,17 +133,27 @@ class _GetTopItemsState extends State<GetTopItems> {
               ),
               ElevatedButton(
                 onPressed: () {
-                  print('Va a ejecutar getUsersTopItems!!');
-                  getUsersTopItems(widget.userId!, type, timeRange, limit)
-                      .then((rankingResponse) {
-                    if (handleResponse(
-                            rankingResponse, widget.userId!, context) ==
-                        ReturnCodes.SUCCESS) {
-                      context.go(
-                          '/users/${widget.userId}/get-top-items/top-items',
-                          extra: rankingResponse.content);
-                    }
-                  });
+                  if (validateForm()) {
+                    print('Va a ejecutar getUsersTopItems!!');
+                    getUsersTopItems(widget.userId!, type, timeRange, limit)
+                        .then((rankingResponse) {
+                      if (handleResponse(
+                              rankingResponse, widget.userId!, context) ==
+                          ReturnCodes.SUCCESS) {
+                        context.go(
+                            '/users/${widget.userId}/get-top-items/top-items',
+                            extra: rankingResponse.content);
+                      }
+                    });
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                          'Please select "Tracks" or "Artists"',
+                        ),
+                      ),
+                    );
+                  }
                 },
                 child: Text('Submit'),
               ),

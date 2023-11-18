@@ -1,6 +1,8 @@
 import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/models/user.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
+import 'package:combined_playlist_maker/utils/work_in_progress.dart';
+import 'package:combined_playlist_maker/widgets/expandable_fab.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -20,6 +22,19 @@ class _UsersDisplayState extends State<UsersDisplay> {
     super.initState();
     List<User> currentUsers = Hive.box<User>('users').values.toList();
     widget.users = currentUsers;
+  }
+
+  int calculateCrossAxisCount(BuildContext context) {
+    // Puedes ajustar estos valores según tus preferencias
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    if (screenWidth > 1000) {
+      return 4; // Más de 1200, usa 4 columnas
+    } else if (screenWidth > 700) {
+      return 3; // Más de 800, usa 3 columnas
+    } else {
+      return 2; // Menos de 800, usa 2 columnas (valor predeterminado)
+    }
   }
 
   @override
@@ -61,6 +76,11 @@ class _UsersDisplayState extends State<UsersDisplay> {
     );
   }*/
   Widget build(BuildContext context) {
+    double screenHeight = MediaQuery.of(context)
+        .size
+        .height; // Ajusta el factor según sea necesario
+    double screenWidth = MediaQuery.of(context).size.width;
+
     return Scaffold(
       appBar: AppBar(
         title: Text('Welcome!'),
@@ -69,7 +89,7 @@ class _UsersDisplayState extends State<UsersDisplay> {
         padding: EdgeInsets.all(16),
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-            crossAxisCount: 2, // Dos columnas
+            crossAxisCount: calculateCrossAxisCount(context), // Dos columnas
             crossAxisSpacing: 10.0, // Espacio entre columnas
             mainAxisSpacing: 10.0, // Espacio entre filas
           ),
@@ -81,60 +101,62 @@ class _UsersDisplayState extends State<UsersDisplay> {
               },
               child: Card(
                 child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     // Imagen del usuario
                     ClipRRect(
                       borderRadius: BorderRadius.circular(15),
-                      child: FadeInImage.assetNetwork(
-                        placeholder: 'images/unknown_cover.png',
-                        image: widget.users![index].imageUrl,
-                        imageErrorBuilder: (context, error, stackTrace) {
-                          return Image.asset('images/unknown_cover.png');
-                        },
-                        width: double.infinity,
-                        height: 115,
-                        fit: BoxFit.cover,
+                      child: AspectRatio(
+                        aspectRatio: 52 / 40,
+                        child: FadeInImage.assetNetwork(
+                          placeholder: 'images/unknown_cover.png',
+                          image: widget.users![index].imageUrl,
+                          imageErrorBuilder: (context, error, stackTrace) {
+                            return Image.asset('images/unknown_cover.png');
+                          },
+                          width: double.infinity,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Text(widget.users![index].displayName),
-                        // Menú desplegable con tres puntos para acciones
-                        PopupMenuButton<String>(
-                          itemBuilder: (context) {
-                            return <PopupMenuEntry<String>>[
-                              const PopupMenuItem<String>(
-                                value: 'delete',
-                                child: Text('Delete'),
-                              ),
-                              /*const PopupMenuItem<String>(
-                                value: 'token',
-                                child: Text('Get Token'),
-                              ),*/
-                              // Agrega más opciones de menú según tus necesidades
-                            ];
-                          },
-                          onSelected: (String choice) {
-                            if (choice == 'delete') {
-                              hiveDeleteUser(widget.users![index].id);
-                              if (hiveGetUsers().isNotEmpty) {
-                                context.go('/users');
-                              } else {
-                                var authBox = Hive.box('auth');
-                                authBox.clear().then((v) => context.go('/'));
+
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              widget.users![index].displayName,
+                              overflow:
+                                  TextOverflow.ellipsis, // Se agrega esta línea
+                              textAlign: TextAlign.center,
+                            ),
+                          ),
+                          // Menú desplegable con tres puntos para acciones
+                          PopupMenuButton<String>(
+                            itemBuilder: (context) {
+                              return <PopupMenuEntry<String>>[
+                                const PopupMenuItem<String>(
+                                  value: 'delete',
+                                  child: Text('Delete'),
+                                ),
+                              ];
+                            },
+                            onSelected: (String choice) {
+                              if (choice == 'delete') {
+                                hiveDeleteUser(widget.users![index].id);
+                                if (hiveGetUsers().isNotEmpty) {
+                                  context.go('/users');
+                                } else {
+                                  var authBox = Hive.box('auth');
+                                  authBox.clear().then((v) => context.go('/'));
+                                }
                               }
-                            } /*else if (choice == 'token') {
-                              var usersBox = Hive.box<User>('users');
-                              User? u = usersBox.get(widget.users![index].id);
-                              u!.updateToken();
-                            }*/
-                          },
-                        ),
-                      ],
+                            },
+                          ),
+                        ],
+                      ),
                     ),
-                    // Nombre del usuario
                   ],
                 ),
               ),
@@ -143,12 +165,35 @@ class _UsersDisplayState extends State<UsersDisplay> {
           itemCount: widget.users!.length,
         ),
       ),
-      floatingActionButton: FloatingActionButton(
+      floatingActionButton: /*FloatingActionButton(
         onPressed: () {
           requestAuthorization();
         },
         tooltip: 'Add another spotify user',
         child: Icon(Icons.add),
+      ),*/
+          ExpandableFab(
+        distance: 60,
+        children: [
+          ActionButton(
+            onPressed: () {
+              requestAuthorization();
+            },
+            icon: const Icon(Icons.person_add),
+            tooltip: 'Add a new user',
+          ),
+          ActionButton(
+            onPressed: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => WorkInProgressScreen(),
+                  ));
+            },
+            icon: const Icon(Icons.playlist_add_rounded),
+            tooltip: 'Make a combined playlist',
+          ),
+        ],
       ),
     );
   }

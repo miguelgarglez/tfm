@@ -7,7 +7,9 @@ import 'package:combined_playlist_maker/utils/error_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
+import 'package:multi_select_flutter/chip_display/multi_select_chip_display.dart';
 import 'package:multi_select_flutter/dialog/multi_select_dialog_field.dart';
+import 'package:multi_select_flutter/multi_select_flutter.dart';
 import 'package:multi_select_flutter/util/multi_select_item.dart';
 
 class GetRecommendations extends StatefulWidget {
@@ -35,6 +37,14 @@ class _GetRecommendationsState extends State<GetRecommendations> {
 
   // Controladores para los campos de entrada
   final controller = TextEditingController();
+
+  bool validateForm() {
+    if (tracksResult.isEmpty && genresResult.isEmpty && artistsResult.isEmpty) {
+      return false;
+    } else {
+      return true;
+    }
+  }
 
   @override
   void initState() {
@@ -135,6 +145,7 @@ class _GetRecommendationsState extends State<GetRecommendations> {
                     unselectedColor: Theme.of(context).highlightColor,
                     searchable: true,
                     separateSelectedItems: true,
+                    listType: MultiSelectListType.LIST,
                     onConfirm: (results) {
                       genresResult = results;
                     },
@@ -188,18 +199,28 @@ class _GetRecommendationsState extends State<GetRecommendations> {
                     )),
                 ElevatedButton(
                   onPressed: () {
-                    print('Va a ejecutar getRecommendations!!');
-                    getRecommendations(widget.userId!, genresResult,
-                            artistsResult, tracksResult, limit)
-                        .then((recommendationsResponse) {
-                      if (handleResponse(recommendationsResponse,
-                              widget.userId!, context) ==
-                          ReturnCodes.SUCCESS) {
-                        context.go(
-                            '/users/${widget.userId}/get-recommendations/recommendations',
-                            extra: recommendationsResponse.content);
-                      }
-                    });
+                    if (validateForm()) {
+                      print('Va a ejecutar getRecommendations!!');
+                      getRecommendations(widget.userId!, genresResult,
+                              artistsResult, tracksResult, limit)
+                          .then((recommendationsResponse) {
+                        if (handleResponse(recommendationsResponse,
+                                widget.userId!, context) ==
+                            ReturnCodes.SUCCESS) {
+                          context.go(
+                              '/users/${widget.userId}/get-recommendations/recommendations',
+                              extra: recommendationsResponse.content);
+                        }
+                      });
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        SnackBar(
+                          content: Text(
+                            'Please select at least one genre, one artist or one track',
+                          ),
+                        ),
+                      );
+                    }
                   },
                   child: Text('Submit'),
                 ),
