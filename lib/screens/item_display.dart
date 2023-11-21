@@ -1,5 +1,6 @@
-import 'package:combined_playlist_maker/models/artist.dart';
 import 'package:combined_playlist_maker/models/track.dart';
+import 'package:combined_playlist_maker/widgets/artist_tile.dart';
+import 'package:combined_playlist_maker/widgets/track_tile.dart';
 import 'package:flutter/material.dart';
 
 class ItemDisplay extends StatelessWidget {

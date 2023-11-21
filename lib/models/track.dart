@@ -1,7 +1,3 @@
-import 'package:combined_playlist_maker/main.dart';
-import 'package:combined_playlist_maker/utils/work_in_progress.dart';
-import 'package:flutter/material.dart';
-
 class Track {
   List<Map<String, String>> artists;
   int durationMs;
@@ -12,6 +8,7 @@ class Track {
   String imageUrl;
   int popularity;
   int trackNumber;
+  String uri;
 
   Track({
     required this.artists,
@@ -23,6 +20,7 @@ class Track {
     required this.imageUrl,
     required this.popularity,
     required this.trackNumber,
+    required this.uri,
   });
 
   factory Track.fromJson(Map<String, dynamic> json) {
@@ -47,40 +45,12 @@ class Track {
       imageUrl: imageUrl,
       popularity: json['popularity'],
       trackNumber: json['track_number'],
+      uri: json['uri'],
     );
   }
 
   @override
   String toString() {
     return 'Track{name: $name, id: $id, artists: $artists, popularity: $popularity}';
-  }
-}
-
-class TrackTile extends StatelessWidget {
-  final Track item;
-
-  TrackTile({super.key, required this.item});
-  @override
-  Widget build(BuildContext context) {
-    return ListTile(
-      leading: FadeInImage.assetNetwork(
-        placeholder: 'images/unknown_cover.png',
-        image: item.imageUrl,
-        imageErrorBuilder: (context, error, stackTrace) {
-          return Image.asset('images/unknown_cover.png');
-        },
-      ),
-      title: Text(item.name),
-      subtitle: Text(
-          item.artists.map((artist) => artist['name'].toString()).join(', ')),
-      trailing: Icon(Icons.music_note_sharp),
-      onTap: () {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (context) => WorkInProgressScreen(),
-            ));
-      },
-    );
   }
 }

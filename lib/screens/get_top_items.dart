@@ -1,16 +1,15 @@
-import 'package:combined_playlist_maker/models/user.dart';
 import 'package:combined_playlist_maker/return_codes.dart';
 import 'package:combined_playlist_maker/services/error_handling.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:hive_flutter/hive_flutter.dart';
 
 class GetTopItems extends StatefulWidget {
   final String? userId;
 
-  GetTopItems({super.key, this.userId});
+  const GetTopItems({super.key, this.userId});
   @override
+  // ignore: library_private_types_in_public_api
   _GetTopItemsState createState() => _GetTopItemsState();
 }
 
@@ -67,7 +66,7 @@ class _GetTopItemsState extends State<GetTopItems> {
             });
           },
         ),
-        Text('Tracks'),
+        const Text('Tracks'),
         Radio(
           value: 'artists',
           groupValue: type,
@@ -77,7 +76,7 @@ class _GetTopItemsState extends State<GetTopItems> {
             });
           },
         ),
-        Text('Artists'),
+        const Text('Artists'),
       ],
     );
   }
@@ -100,7 +99,7 @@ class _GetTopItemsState extends State<GetTopItems> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Adjust request parameters'),
+        title: const Text('Adjust request parameters'),
       ),
       body: SingleChildScrollView(
         child: Form(
@@ -108,24 +107,27 @@ class _GetTopItemsState extends State<GetTopItems> {
           child: Column(
             children: [
               Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-                child: Text('Top Tracks or Artists?'),
+                padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+                child: Text('Top Tracks or Artists?',
+                    style: Theme.of(context).textTheme.titleMedium),
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: buildRadioTopType(),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-                child: Text('What time frame?'),
+                padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+                child: Text('What time frame?',
+                    style: Theme.of(context).textTheme.titleMedium),
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: buildTimeFrameDropdown(),
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 15, right: 15, top: 15),
-                child: Text('Limit the length of the ranking'),
+                padding: EdgeInsets.only(left: 15, right: 15, top: 15),
+                child: Text('Limit the length of the ranking',
+                    style: Theme.of(context).textTheme.titleMedium),
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
@@ -134,7 +136,6 @@ class _GetTopItemsState extends State<GetTopItems> {
               ElevatedButton(
                 onPressed: () {
                   if (validateForm()) {
-                    print('Va a ejecutar getUsersTopItems!!');
                     getUsersTopItems(widget.userId!, type, timeRange, limit)
                         .then((rankingResponse) {
                       if (handleResponse(
@@ -147,7 +148,7 @@ class _GetTopItemsState extends State<GetTopItems> {
                     });
                   } else {
                     ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
+                      const SnackBar(
                         content: Text(
                           'Please select "Tracks" or "Artists"',
                         ),
@@ -155,7 +156,7 @@ class _GetTopItemsState extends State<GetTopItems> {
                     );
                   }
                 },
-                child: Text('Submit'),
+                child: const Text('Submit'),
               ),
             ],
           ),

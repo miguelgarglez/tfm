@@ -7,12 +7,14 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
+// ignore: must_be_immutable
 class UsersDisplay extends StatefulWidget {
   List<User>? users = Hive.box<User>('users').values.toList();
   final User? user;
 
   UsersDisplay({super.key, this.user});
   @override
+  // ignore: library_private_types_in_public_api
   _UsersDisplayState createState() => _UsersDisplayState();
 }
 
@@ -27,13 +29,31 @@ class _UsersDisplayState extends State<UsersDisplay> {
   int calculateCrossAxisCount(BuildContext context) {
     // Puedes ajustar estos valores según tus preferencias
     double screenWidth = MediaQuery.of(context).size.width;
-
-    if (screenWidth > 1000) {
-      return 4; // Más de 1200, usa 4 columnas
+    if (screenWidth > 1600) {
+      return 5;
+    } else if (screenWidth > 1000) {
+      return 4;
     } else if (screenWidth > 700) {
-      return 3; // Más de 800, usa 3 columnas
+      return 3;
     } else {
-      return 2; // Menos de 800, usa 2 columnas (valor predeterminado)
+      return 2;
+    }
+  }
+
+  TextStyle? calculateFontSize(BuildContext context) {
+    // Puedes ajustar estos valores según tus preferencias
+    double screenWidth = MediaQuery.of(context).size.width;
+
+    if (screenWidth > 1300) {
+      return Theme.of(context)
+          .textTheme
+          .headlineMedium; // Más de 1200, usa 4 columnas
+    } else if (screenWidth > 500) {
+      return Theme.of(context).textTheme.headlineSmall;
+    } else {
+      return Theme.of(context)
+          .textTheme
+          .bodyLarge; // Menos de 800, usa 2 columnas (valor predeterminado)
     }
   }
 
@@ -76,17 +96,12 @@ class _UsersDisplayState extends State<UsersDisplay> {
     );
   }*/
   Widget build(BuildContext context) {
-    double screenHeight = MediaQuery.of(context)
-        .size
-        .height; // Ajusta el factor según sea necesario
-    double screenWidth = MediaQuery.of(context).size.width;
-
     return Scaffold(
       appBar: AppBar(
         title: Text('Welcome!'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(16),
+        padding: const EdgeInsets.all(16),
         child: GridView.builder(
           gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
             crossAxisCount: calculateCrossAxisCount(context), // Dos columnas
@@ -125,12 +140,11 @@ class _UsersDisplayState extends State<UsersDisplay> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Expanded(
-                            child: Text(
-                              widget.users![index].displayName,
-                              overflow:
-                                  TextOverflow.ellipsis, // Se agrega esta línea
-                              textAlign: TextAlign.center,
-                            ),
+                            child: Text(widget.users![index].displayName,
+                                overflow: TextOverflow
+                                    .ellipsis, // Se agrega esta línea
+                                textAlign: TextAlign.center,
+                                style: calculateFontSize(context)),
                           ),
                           // Menú desplegable con tres puntos para acciones
                           PopupMenuButton<String>(
@@ -165,14 +179,7 @@ class _UsersDisplayState extends State<UsersDisplay> {
           itemCount: widget.users!.length,
         ),
       ),
-      floatingActionButton: /*FloatingActionButton(
-        onPressed: () {
-          requestAuthorization();
-        },
-        tooltip: 'Add another spotify user',
-        child: Icon(Icons.add),
-      ),*/
-          ExpandableFab(
+      floatingActionButton: ExpandableFab(
         distance: 60,
         children: [
           ActionButton(
@@ -187,7 +194,7 @@ class _UsersDisplayState extends State<UsersDisplay> {
               Navigator.push(
                   context,
                   MaterialPageRoute(
-                    builder: (context) => WorkInProgressScreen(),
+                    builder: (context) => const WorkInProgressScreen(),
                   ));
             },
             icon: const Icon(Icons.playlist_add_rounded),

@@ -1,7 +1,4 @@
-import 'dart:js';
-
 import 'package:combined_playlist_maker/models/user.dart';
-import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -16,12 +13,7 @@ class UserDetail extends StatelessWidget {
     var userBox = Hive.box<User>('users');
     User? user = userBox.get(id);
 
-    // Obtén el ancho de la pantalla
-    double screenWidth = MediaQuery.of(context).size.width;
-
     // Decide el diseño en función del ancho de la pantalla
-    bool isWideScreen =
-        screenWidth > 740; // Puedes ajustar este valor según tus necesidades
     bool isHorizontal =
         MediaQuery.of(context).orientation == Orientation.landscape;
 
@@ -32,7 +24,7 @@ class UserDetail extends StatelessWidget {
       body: Center(
         child: SingleChildScrollView(
           child: Padding(
-            padding: EdgeInsets.all(20),
+            padding: const EdgeInsets.all(20),
             child: isHorizontal
                 ? _buildWideScreenLayout(user, context)
                 : _buildNarrowScreenLayout(user, context),
@@ -48,7 +40,7 @@ class UserDetail extends StatelessWidget {
       children: [
         // Columna izquierda con la imagen
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
@@ -67,7 +59,7 @@ class UserDetail extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(width: 40),
+        const SizedBox(width: 40),
         // Columna derecha con detalles y botones
         Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -85,7 +77,7 @@ class UserDetail extends StatelessWidget {
       children: [
         // Columna superior con la imagen
         Container(
-          decoration: BoxDecoration(
+          decoration: const BoxDecoration(
             shape: BoxShape.circle,
             boxShadow: [
               BoxShadow(
@@ -104,7 +96,7 @@ class UserDetail extends StatelessWidget {
             ),
           ),
         ),
-        SizedBox(height: 16),
+        const SizedBox(height: 16),
         // Columna inferior con detalles y botones
         ..._buildUserDetails(user, context),
       ],
@@ -115,43 +107,43 @@ class UserDetail extends StatelessWidget {
     return [
       Text(
         user.id,
-        style: TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 18),
       ),
       Text(
         user.email,
-        style: TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 18),
       ),
       Text(
         'Country: ${user.country}',
-        style: TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 18),
       ),
       Text(
         'Followers: ${user.followers}',
-        style: TextStyle(fontSize: 18),
+        style: const TextStyle(fontSize: 18),
       ),
-      SizedBox(height: 16),
-      Text(
+      const SizedBox(height: 16),
+      const Text(
         'Want to know your most listened artists and tracks?',
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
-      SizedBox(height: 16),
+      const SizedBox(height: 16),
       ElevatedButton(
         onPressed: () {
           context.go('/users/${user.id}/get-top-items');
         },
-        child: Text('Let\'s go!'),
+        child: const Text('Let\'s go!'),
       ),
-      SizedBox(height: 16),
-      Text(
+      const SizedBox(height: 16),
+      const Text(
         'Want new songs to listen to?',
         style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
       ),
-      SizedBox(height: 16),
+      const SizedBox(height: 16),
       ElevatedButton(
         onPressed: () {
           context.go('/users/${user.id}/get-recommendations');
         },
-        child: Text('Get Recommendations'),
+        child: const Text('Get Recommendations'),
       ),
     ];
   }
