@@ -72,8 +72,6 @@ class _GetRecommendationsState extends State<GetRecommendations> {
           .map<MultiSelectItem>(
               (track) => MultiSelectItem(track.id, track.name))
           .toList();
-      print(a.content.map((artist) => artist.id).toList());
-      print(t.content.map((track) => track.id).toList());
     } catch (error) {
       // Manejar errores si es necesario
       throw Exception('Error initializing data on GetRecommendations');
@@ -206,7 +204,7 @@ class _GetRecommendationsState extends State<GetRecommendations> {
                       getRecommendations(widget.userId!, genresResult,
                               artistsResult, tracksResult, limit)
                           .then((recommendationsResponse) {
-                        if (handleResponse(recommendationsResponse,
+                        if (handleResponseUI(recommendationsResponse,
                                 widget.userId!, context) ==
                             ReturnCodes.SUCCESS) {
                           context.go(

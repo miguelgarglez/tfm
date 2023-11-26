@@ -3,20 +3,20 @@ import 'package:combined_playlist_maker/utils/work_in_progress.dart';
 import 'package:flutter/material.dart';
 
 class ArtistTile extends StatelessWidget {
-  final Artist item;
+  final Artist artist;
 
-  ArtistTile({super.key, required this.item});
+  ArtistTile({super.key, required this.artist});
   @override
   Widget build(BuildContext context) {
     return ListTile(
       leading: FadeInImage.assetNetwork(
           placeholder: 'images/unknown_cover.png',
-          image: item.imageUrl,
+          image: artist.imageUrl,
           imageErrorBuilder: (context, error, stackTrace) {
             return Image.asset('images/unknown_cover.png');
           }),
-      title: Text(item.name),
-      subtitle: Text(item.genres.map((genre) => genre.toString()).join(', ')),
+      title: Text(artist.name),
+      subtitle: Text(artist.genres.map((genre) => genre.toString()).join(', ')),
       trailing: Icon(Icons.portrait_rounded),
       onTap: () {
         Navigator.push(

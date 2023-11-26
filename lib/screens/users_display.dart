@@ -191,11 +191,7 @@ class _UsersDisplayState extends State<UsersDisplay> {
           ),
           ActionButton(
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const WorkInProgressScreen(),
-                  ));
+              context.go('/users/generate-playlist-basic');
             },
             icon: const Icon(Icons.playlist_add_rounded),
             tooltip: 'Make a combined playlist',

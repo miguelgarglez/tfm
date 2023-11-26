@@ -4,6 +4,7 @@ import 'package:combined_playlist_maker/models/my_response.dart';
 import 'package:combined_playlist_maker/models/track.dart';
 import 'package:combined_playlist_maker/models/user.dart';
 import 'package:combined_playlist_maker/models/artist.dart';
+import 'package:combined_playlist_maker/services/basic_recommendator.dart';
 import 'package:crypto/crypto.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
@@ -139,6 +140,7 @@ Future<MyResponse> getAccessToken() async {
       ret.content = data;
       return ret;
     } else {
+      // ! Debugging
       print(json.decode(response.body));
       ret.content = {};
       throw Exception('HTTP status ${response.statusCode} in getAccessToken');
@@ -153,7 +155,6 @@ Future<MyResponse> getAccessToken() async {
 Future<MyResponse> retrieveSpotifyProfileInfo() async {
   MyResponse ret = MyResponse();
   MyResponse tokenResponse = await getAccessToken();
-  print('accessToken (retrieveSpotifyProfileInfo): $tokenResponse');
   if (tokenResponse.statusCode != 200) {
     //no se ha llegado a hacer la petición porque el token
     //no se ha obtenido correctamente
@@ -345,7 +346,6 @@ Future<MyResponse> refreshToken(userId) async {
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
       ret.content = data;
-      print(ret);
       return ret;
     } else {
       print(json.decode(response.body));
@@ -357,4 +357,53 @@ Future<MyResponse> refreshToken(userId) async {
     print(ret);
     return ret;
   }
+}
+
+Future<MyResponse> generatePlaylistBasic(Duration duration) async {
+  MyResponse ret = MyResponse();
+
+  var usersBox = Hive.box<User>('users').toMap();
+
+  Map<String, List> recommendations = {};
+
+  for (var user in usersBox.values) {
+    user.updateToken(); // actualizo el token del usuario
+    var userId = user.id;
+
+    // obtengo los items top del usuario
+    MyResponse topTracks =
+        await getUsersTopItems(userId, 'tracks', 'short_term', 3);
+    if (topTracks.statusCode != 200) {
+      ret.content = {'error': 'error retrieving top tracks'};
+      ret.statusCode = topTracks.statusCode;
+      return ret;
+    }
+    List? trackSeeds = topTracks.content.map((track) => track.id).toList();
+
+    MyResponse topArtists =
+        await getUsersTopItems(userId, 'artists', 'short_term', 2);
+    if (topArtists.statusCode != 200) {
+      ret.content = {'error': 'error retrieving top artists'};
+      ret.statusCode = topArtists.statusCode;
+      return ret;
+    }
+    List? artistSeeds = topArtists.content.map((artist) => artist.id).toList();
+
+    MyResponse userRecommendations =
+        await getRecommendations(userId, [], artistSeeds, trackSeeds, 100);
+    if (userRecommendations.statusCode != 200) {
+      ret.content = {'error': 'error retrieving recommendations'};
+      ret.statusCode = userRecommendations.statusCode;
+      return ret;
+    }
+    ret.statusCode = userRecommendations.statusCode;
+
+    recommendations[userId] = userRecommendations.content;
+  }
+
+  List playlist = mergeRecommendedTracksBasic(recommendations, duration);
+
+  ret.content = playlist;
+
+  return ret;
 }

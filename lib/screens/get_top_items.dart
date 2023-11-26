@@ -138,11 +138,11 @@ class _GetTopItemsState extends State<GetTopItems> {
                   if (validateForm()) {
                     getUsersTopItems(widget.userId!, type, timeRange, limit)
                         .then((rankingResponse) {
-                      if (handleResponse(
+                      if (handleResponseUI(
                               rankingResponse, widget.userId!, context) ==
                           ReturnCodes.SUCCESS) {
                         context.go(
-                            '/users/${widget.userId}/get-top-items/top-items',
+                            '/users/${widget.userId}/get-top-items/top-${type}',
                             extra: rankingResponse.content);
                       }
                     });

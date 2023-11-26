@@ -56,7 +56,6 @@ class User {
       if (tokenResponse.content.isNotEmpty) {
         var usersBox = Hive.box<User>('users');
         User? u = usersBox.get(id);
-        print('Token "renovado": $tokenResponse');
         u!.accessToken = tokenResponse.content['access_token'];
         u.refreshToken = tokenResponse.content['refresh_token'];
         usersBox.delete(u.id);
