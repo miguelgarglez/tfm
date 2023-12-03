@@ -5,6 +5,7 @@ import 'package:combined_playlist_maker/models/track.dart';
 import 'package:combined_playlist_maker/models/user.dart';
 import 'package:combined_playlist_maker/models/artist.dart';
 import 'package:combined_playlist_maker/services/basic_recommendator.dart';
+import 'package:combined_playlist_maker/services/error_handling.dart';
 import 'package:crypto/crypto.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
@@ -12,7 +13,8 @@ import 'package:url_launcher/url_launcher.dart';
 
 const CLIENT_ID = '26cd2b5bfc8a431eb6b343e28ced0b6f';
 const REDIRECT_URI = 'http://localhost:5000/'; //default
-const SCOPE = 'user-read-private user-read-email user-top-read';
+const SCOPE =
+    'user-read-private user-read-email user-top-read playlist-modify-public playlist-modify-private ugc-image-upload';
 
 /*
  * Función que genera una cadena aleatoria
@@ -407,3 +409,242 @@ Future<MyResponse> generatePlaylistBasic(Duration duration) async {
 
   return ret;
 }
+
+Future<MyResponse> savePlaylistToSpotify(
+    List items,
+    String userId,
+    String name,
+    String description,
+    bool isPublic,
+    bool isCollaborative,
+    String coverImage) async {
+  MyResponse ret = MyResponse();
+
+  String playlistId = '';
+
+  MyResponse creationResponse = await createPlaylistOnSpotify(
+      userId, name, description, isPublic, isCollaborative);
+  if (creationResponse.statusCode == 201) {
+    // playlist created successfully
+    playlistId = creationResponse.content['id'];
+    MyResponse addTracksResponse = await addTracksToPlaylist(
+        userId, creationResponse.content['id'], items);
+    if (addTracksResponse.statusCode == 201) {
+      // tracks added successfully
+      if (coverImage != '') {
+        uploadCoverImage(userId, playlistId, coverImage);
+      }
+      ret.statusCode = 201;
+      ret.content = creationResponse.content;
+      // ! Debugging
+      print(ret.content);
+    } else {
+      // error adding tracks
+      ret.statusCode = addTracksResponse.statusCode;
+      ret.content = addTracksResponse.content;
+    }
+  } else {
+    // error creating playlist
+    ret.statusCode = creationResponse.statusCode;
+    ret.content = creationResponse.content;
+  }
+
+  return ret;
+}
+
+Future<MyResponse> uploadCoverImage(
+    String userId, String playlistId, String coverImage) async {
+  var usersBox = Hive.box<User>('Users');
+  User? user = usersBox.get(userId);
+  var accessToken = user!.accessToken;
+
+  MyResponse ret = MyResponse();
+
+  try {
+    final response = await put(
+      Uri.parse('https://api.spotify.com/v1/playlists/$playlistId/images'),
+      headers: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'image/jpeg',
+      },
+      body: coverImage,
+    );
+    ret.statusCode = response.statusCode;
+    if (response.statusCode == 202) {
+      ret.content = {}; // * No content
+      // ! Debugging
+      print(ret.statusCode);
+      return ret;
+    } else {
+      print(json.decode(response.body));
+      ret.content = {};
+      throw Exception('HTTP status ${response.statusCode} in uploadCoverImage');
+    }
+  } catch (error) {
+    print('Error $error');
+    print(ret);
+    return ret;
+  }
+}
+
+/*
+RESPUESTA DE LA API AL CREAR UNA PLAYLIST
+{
+  collaborative: false,
+  description: Descripción por defecto,
+  external_urls: {
+    spotify: https://open.spotify.com/playlist/49lLX3rKW2GM7tgIb876ze
+  },
+  followers: {
+    href: null,
+    total: 0
+  },
+  href: https://api.spotify.com/v1/playlists/49lLX3rKW2GM7tgIb876ze,
+  id: 49lLX3rKW2GM7tgIb876ze,
+  images: [],
+  name: Título por defecto,
+  owner: {
+    display_name: Miguel García,
+    external_urls: {
+      spotify: https://open.spotify.com/user/miguuels
+    },
+    href: https://api.spotify.com/v1/users/miguuels,
+    id: miguuels,
+    type: user,
+    uri: spotify:user:miguuels
+  },
+  primary_color: null,
+  public: false,
+  snapshot_id: MSwxNjZkZTRmODlkYzVhY2M5NTU2OWU5YjMxMGM0NjZiMDkzN2VkZWRm,
+  tracks: {
+    href: https://api.spotify.com/v1/playlists/49lLX3rKW2GM7tgIb876ze/tracks,
+    items: [],
+    limit: 100,
+    next: null,
+    offset: 0,
+    previous: null,
+    total: 0
+  },
+  type: playlist,
+  uri: spotify:playlist:49lLX3rKW2GM7tgIb876ze
+}
+ */
+
+Future<MyResponse> createPlaylistOnSpotify(String userId, String name,
+    String description, bool isPublic, bool isCollaborative) async {
+  MyResponse ret = MyResponse();
+  var usersBox = Hive.box<User>('Users');
+  User? user = usersBox.get(userId);
+  var accessToken = user!.accessToken;
+
+  // * importante hacer json.encode para que el body sea un string
+  final body = json.encode({
+    "name": name,
+    "description": description,
+    "public": isCollaborative ? false : isPublic,
+    "collaborative": isCollaborative,
+  });
+
+  try {
+    final response = await post(
+      Uri.parse('https://api.spotify.com/v1/users/$userId/playlists'),
+      headers: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json',
+      },
+      body: body,
+    );
+    ret.statusCode = response.statusCode;
+    if (response.statusCode == 201) {
+      final data = json.decode(response.body);
+      ret.content = data;
+      print(ret.statusCode);
+      return ret;
+    } else {
+      print(json.decode(response.body));
+      ret.content = {};
+      throw Exception(
+          'HTTP status ${response.statusCode} in createPlaylistOnSpotify');
+    }
+  } catch (error) {
+    print('Error $error');
+    print(ret);
+    return ret;
+  }
+}
+
+Future<MyResponse> addTracksToPlaylist(
+    String userId, String playlistId, List tracks) async {
+  MyResponse ret = MyResponse();
+  var usersBox = Hive.box<User>('Users');
+  User? user = usersBox.get(userId);
+  var accessToken = user!.accessToken;
+
+  // * importante hacer json.encode para que el body sea un string
+  final body = json.encode({
+    "uris": tracks.map((e) => 'spotify:track:${e.id}').toList(),
+  });
+
+  try {
+    final response = await post(
+      Uri.parse('https://api.spotify.com/v1/playlists/$playlistId/tracks'),
+      headers: {
+        'Authorization': 'Bearer $accessToken',
+        'Content-Type': 'application/json',
+      },
+      body: body,
+    );
+
+    ret.statusCode = response.statusCode;
+    if (response.statusCode == 201) {
+      final data = json.decode(response.body);
+      ret.content = data;
+      return ret;
+    } else {
+      print(json.decode(response.body));
+      ret.content = {};
+      throw Exception(
+          'HTTP status ${response.statusCode} in addTracksToPlaylist');
+    }
+  } catch (error) {
+    print('Error $error');
+    return ret;
+  }
+}
+
+Future<MyResponse> getPlaylist(String playlistId, String userId) async {
+  MyResponse ret = MyResponse();
+  var usersBox = Hive.box<User>('Users');
+  User? user = usersBox.get(userId);
+  var accessToken = user!.accessToken;
+
+  try {
+    final response = await get(
+      Uri.parse('https://api.spotify.com/v1/playlists/$playlistId'),
+      headers: {
+        'Authorization': 'Bearer $accessToken',
+      },
+    );
+
+    ret.statusCode = response.statusCode;
+    if (response.statusCode == 200) {
+      final data = json.decode(response.body);
+      ret.content = data;
+      // ! Debugging
+      print(ret.content);
+      return ret;
+    } else {
+      print(json.decode(response.body));
+      ret.content = {};
+      throw Exception('HTTP status ${response.statusCode} in getPlaylist');
+    }
+  } catch (error) {
+    print('Error $error');
+    return ret;
+  }
+}
+
+/*
+RESPUESTA DE GET PLAYLIST DE LA API
+
+ */

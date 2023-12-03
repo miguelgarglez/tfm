@@ -12,6 +12,14 @@ int handleResponseUI(MyResponse? r, String? userId, BuildContext context) {
     return ReturnCodes.BAD_REQUEST;
   } else if (r?.statusCode == 200) {
     return ReturnCodes.SUCCESS;
+  } else if (r?.statusCode == 201) {
+    return ReturnCodes.SUCCESS;
+  } else if (r?.statusCode == 429) {
+    showErrorDialog(
+        context,
+        'An error (${r?.statusCode}) occured with Spotify API. Too many requests. Try again later.',
+        'OK');
+    return ReturnCodes.TOO_MANY_REQUESTS;
   } else if (r?.statusCode == 401) {
     showReauthDialog(
         context,

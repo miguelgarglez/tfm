@@ -39,6 +39,18 @@ class User {
     );
   }
 
+  factory User.dummy() {
+    return User(
+        displayName: 'Select one of the available users',
+        id: 'dummy',
+        email: '',
+        imageUrl: '',
+        country: '',
+        followers: 0,
+        accessToken: '',
+        refreshToken: '');
+  }
+
   factory User.notValid() {
     return User(
         displayName: '',
