@@ -7,9 +7,13 @@ import 'package:url_launcher/url_launcher.dart';
 class PlaylistDetail extends StatefulWidget {
   final String playlistId;
   final String userId;
+  final String playlistCoverUrl;
 
   const PlaylistDetail(
-      {Key? key, required this.playlistId, required this.userId})
+      {Key? key,
+      required this.playlistId,
+      required this.userId,
+      required this.playlistCoverUrl})
       : super(key: key);
 
   @override
@@ -27,8 +31,6 @@ class _PlaylistDetailState extends State<PlaylistDetail> {
   Future<void> initializeData() async {
     try {
       playlist = getPlaylist(widget.playlistId, widget.userId);
-      /*playlist =
-          Playlist.fromJson(playlistResponse.content) as Future<Playlist>;*/
     } catch (error) {
       throw Exception('Error initializing playlist on PlaylistDetail');
     }
@@ -44,7 +46,7 @@ class _PlaylistDetailState extends State<PlaylistDetail> {
       ),
       body: SingleChildScrollView(
         child: Center(
-          child: FutureBuilder(
+          child: FutureBuilder<MyResponse>(
             future: playlist,
             builder: (context, snapshot) {
               if (snapshot.hasData) {
@@ -58,18 +60,26 @@ class _PlaylistDetailState extends State<PlaylistDetail> {
                     ),
                     SizedBox(height: 16),
                     ClipRRect(
-                      borderRadius: BorderRadius.circular(50.0),
-                      child: Image.network(
-                        snapshot.data!.content['images'][0]['url'],
-                        width: 250,
-                        height: 250,
-                      ),
-                    ),
+                        borderRadius: BorderRadius.circular(50.0),
+                        child: FadeInImage.assetNetwork(
+                          width: 250,
+                          height: 250,
+                          placeholder: 'images/unknown_cover.png',
+                          image: widget.playlistCoverUrl != ''
+                              ? widget.playlistCoverUrl
+                              : snapshot.data!.content.imageUrl,
+                          imageErrorBuilder: (context, error, stackTrace) {
+                            return Image.asset('images/unknown_cover.png');
+                          },
+                        )),
+                    SizedBox(height: 16),
+                    Text(snapshot.data!.content.name,
+                        style: Theme.of(context).textTheme.headlineLarge),
                     SizedBox(height: 16),
                     ElevatedButton(
                       onPressed: () {
                         Uri u = Uri.https('open.spotify.com',
-                            '/playlist/${snapshot.data!.content['id']}');
+                            '/playlist/${snapshot.data!.content.id}');
                         canLaunchUrl(u).then((value) {
                           launchUrl(u);
                         }).onError((error, stackTrace) {
@@ -91,7 +101,15 @@ class _PlaylistDetailState extends State<PlaylistDetail> {
                   child: Text('$snapshot.error'),
                 );
               } else {
-                return CircularProgressIndicator();
+                return Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Center(
+                      child: CircularProgressIndicator(),
+                    ),
+                  ],
+                );
               }
             },
           ),

@@ -20,6 +20,7 @@ class _GetTopItemsState extends State<GetTopItems> {
   String timeRange = 'medium_term';
 
   final formKey = new GlobalKey<FormState>();
+  bool _loading = false;
 
   // Controladores para los campos de entrada
   final controller = TextEditingController();
@@ -136,8 +137,14 @@ class _GetTopItemsState extends State<GetTopItems> {
               ElevatedButton(
                 onPressed: () {
                   if (validateForm()) {
+                    setState(() {
+                      _loading = true;
+                    });
                     getUsersTopItems(widget.userId!, type, timeRange, limit)
                         .then((rankingResponse) {
+                      setState(() {
+                        _loading = false;
+                      });
                       if (handleResponseUI(
                               rankingResponse, widget.userId!, context) ==
                           ReturnCodes.SUCCESS) {
@@ -158,6 +165,11 @@ class _GetTopItemsState extends State<GetTopItems> {
                 },
                 child: const Text('Submit'),
               ),
+              if (_loading)
+                Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: CircularProgressIndicator(),
+                ),
             ],
           ),
         ),

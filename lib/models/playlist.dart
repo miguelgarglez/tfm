@@ -1,7 +1,7 @@
 class Playlist {
   bool collaborative;
   String description;
-  List externalUrls;
+  String externalUrls;
   String href;
   String id;
   String imageUrl;
@@ -34,14 +34,15 @@ class Playlist {
       externalUrls: json['external_urls']['spotify'] ?? '',
       href: json['href'] ?? '',
       id: json['id'] ?? '',
-      imageUrl: (json['images']).toList()[0]['url'] ??
+      imageUrl: json['images'][0]['url'] ??
           '', // * lista de maps {height, url, width}
       name: json['name'] ?? '',
       owner: json['owner']['id'] ?? '',
       public: json['public'] ?? false,
       // * lista de maps {added_at, added_by, is_local, primary_color, track}
       // * y cojo solamente el objeto track
-      tracks: json['tracks']['items'].map((item) => item['track']) ?? [],
+      tracks:
+          json['tracks']['items'].map((item) => item['track']).toList() ?? [],
       type: json['type'] ?? '',
       uri: json['uri'] ?? '',
     );

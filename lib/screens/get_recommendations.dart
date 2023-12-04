@@ -30,6 +30,8 @@ class _GetRecommendationsState extends State<GetRecommendations> {
 
   final formKey = GlobalKey<FormState>();
 
+  bool _loading = false;
+
   // Controladores para los campos de entrada
   final controller = TextEditingController();
 
@@ -201,9 +203,15 @@ class _GetRecommendationsState extends State<GetRecommendations> {
                 ElevatedButton(
                   onPressed: () {
                     if (validateForm()) {
+                      setState(() {
+                        _loading = true;
+                      });
                       getRecommendations(widget.userId!, genresResult,
                               artistsResult, tracksResult, limit)
                           .then((recommendationsResponse) {
+                        setState(() {
+                          _loading = false;
+                        });
                         if (handleResponseUI(recommendationsResponse,
                                 widget.userId!, context) ==
                             ReturnCodes.SUCCESS) {
@@ -224,6 +232,11 @@ class _GetRecommendationsState extends State<GetRecommendations> {
                   },
                   child: const Text('Submit'),
                 ),
+                if (_loading)
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: CircularProgressIndicator(),
+                  ),
               ],
             ),
           ),

@@ -12,6 +12,16 @@ class GeneratePlaylistBasic extends StatefulWidget {
 
 class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
   Duration _duration = Duration(hours: 0, minutes: 0);
+
+  bool _loading = false;
+
+  bool validateDuration(Duration duration) {
+    if (duration.inMinutes < 5) {
+      return false;
+    }
+    return true;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,17 +51,37 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
                 onPressed: () {
-                  generatePlaylistBasic(_duration).then((playlistResponse) {
-                    if (handleResponseUI(playlistResponse, '', context) ==
-                        ReturnCodes.SUCCESS) {
-                      context.go('/users/generate-playlist-basic/playlist',
-                          extra: playlistResponse.content);
-                    }
-                  });
+                  if (validateDuration(_duration)) {
+                    setState(() {
+                      _loading = true;
+                    });
+                    generatePlaylistBasic(_duration).then((playlistResponse) {
+                      setState(() {
+                        _loading = false;
+                      });
+                      if (handleResponseUI(playlistResponse, '', context) ==
+                          ReturnCodes.SUCCESS) {
+                        context.go('/users/generate-playlist-basic/playlist',
+                            extra: playlistResponse.content);
+                      }
+                    });
+                  } else {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content:
+                            Text('The duration must be at least 5 minutes.'),
+                      ),
+                    );
+                  }
                 },
                 child: Text('Generate playlist'),
               ),
             ),
+            if (_loading)
+              Padding(
+                padding: const EdgeInsets.all(8.0),
+                child: CircularProgressIndicator(),
+              ),
           ],
         )))));
   }
