@@ -1,9 +1,9 @@
 import 'package:combined_playlist_maker/return_codes.dart';
+import 'package:combined_playlist_maker/screens/playlist_display.dart';
 import 'package:combined_playlist_maker/services/error_handling.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:duration_picker/duration_picker.dart';
-import 'package:go_router/go_router.dart';
 
 class GeneratePlaylistBasic extends StatefulWidget {
   @override
@@ -61,8 +61,13 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
                       });
                       if (handleResponseUI(playlistResponse, '', context) ==
                           ReturnCodes.SUCCESS) {
-                        context.go('/users/generate-playlist-basic/playlist',
-                            extra: playlistResponse.content);
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => PlaylistDisplay(
+                                  items: playlistResponse.content,
+                                  title: 'Your combined playlist'),
+                            ));
                       }
                     });
                   } else {

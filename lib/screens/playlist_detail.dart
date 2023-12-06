@@ -1,5 +1,4 @@
 import 'package:combined_playlist_maker/models/my_response.dart';
-import 'package:combined_playlist_maker/models/playlist.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -7,13 +6,9 @@ import 'package:url_launcher/url_launcher.dart';
 class PlaylistDetail extends StatefulWidget {
   final String playlistId;
   final String userId;
-  final String playlistCoverUrl;
 
   const PlaylistDetail(
-      {Key? key,
-      required this.playlistId,
-      required this.userId,
-      required this.playlistCoverUrl})
+      {Key? key, required this.playlistId, required this.userId})
       : super(key: key);
 
   @override
@@ -65,9 +60,7 @@ class _PlaylistDetailState extends State<PlaylistDetail> {
                           width: 250,
                           height: 250,
                           placeholder: 'images/unknown_cover.png',
-                          image: widget.playlistCoverUrl != ''
-                              ? widget.playlistCoverUrl
-                              : snapshot.data!.content.imageUrl,
+                          image: snapshot.data!.content.imageUrl,
                           imageErrorBuilder: (context, error, stackTrace) {
                             return Image.asset('images/unknown_cover.png');
                           },

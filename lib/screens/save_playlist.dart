@@ -1,6 +1,7 @@
 import 'dart:convert';
+import 'dart:typed_data';
 import 'package:combined_playlist_maker/screens/playlist_detail.dart';
-import 'package:image_picker/image_picker.dart';
+import 'package:image_picker_web/image_picker_web.dart';
 import 'package:combined_playlist_maker/models/user.dart';
 import 'package:combined_playlist_maker/return_codes.dart';
 import 'package:combined_playlist_maker/services/error_handling.dart';
@@ -10,9 +11,8 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 class SavePlaylist extends StatefulWidget {
   final List items;
-  final String? userId;
 
-  const SavePlaylist({super.key, required this.userId, required this.items});
+  const SavePlaylist({super.key, required this.items});
 
   @override
   // ignore: library_private_types_in_public_api
@@ -30,7 +30,7 @@ class _SavePlaylistState extends State<SavePlaylist> {
   bool _loading = false;
 
   // * Para seleccionar una imagen de la galería
-  String playlistCover = '';
+  Uint8List? playlistCover;
   String base64Cover = '';
 
   Future<void> initializeData() async {
@@ -52,13 +52,11 @@ class _SavePlaylistState extends State<SavePlaylist> {
   }
 
   Future<void> _pickImage() async {
-    final pickedImage =
-        await ImagePicker().pickImage(source: ImageSource.gallery);
-    final bytes = await pickedImage!.readAsBytes();
+    final pickedImageBytes = await ImagePickerWeb.getImageAsBytes();
 
     setState(() {
-      base64Cover = base64Encode(bytes);
-      playlistCover = pickedImage.path;
+      playlistCover = pickedImageBytes;
+      base64Cover = base64Encode(pickedImageBytes as List<int>);
     });
   }
 
@@ -212,9 +210,9 @@ class _SavePlaylistState extends State<SavePlaylist> {
                     )),
                 IconButton(
                   onPressed: _pickImage,
-                  icon: playlistCover != ''
-                      ? Image.network(
-                          playlistCover,
+                  icon: playlistCover != null
+                      ? Image.memory(
+                          playlistCover!,
                           width: 60,
                           height: 60,
                         )
@@ -244,16 +242,12 @@ class _SavePlaylistState extends State<SavePlaylist> {
                         if (handleResponseUI(
                                 playlistResponse, selectedUser, context) ==
                             ReturnCodes.SUCCESS) {
-                          // TODO: Navigate to created playlist screen
-                          // ! Debugging
-                          print('Playlist created');
                           Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => PlaylistDetail(
                                   userId: selectedUser,
                                   playlistId: playlistResponse.content['id'],
-                                  playlistCoverUrl: playlistCover,
                                 ),
                               ));
                         }

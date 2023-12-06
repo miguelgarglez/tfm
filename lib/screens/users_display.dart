@@ -1,7 +1,6 @@
 import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/models/user.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
-import 'package:combined_playlist_maker/utils/work_in_progress.dart';
 import 'package:combined_playlist_maker/widgets/expandable_fab.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -180,6 +179,7 @@ class _UsersDisplayState extends State<UsersDisplay> {
         ),
       ),
       floatingActionButton: ExpandableFab(
+        initialOpen: false,
         distance: 60,
         children: [
           ActionButton(

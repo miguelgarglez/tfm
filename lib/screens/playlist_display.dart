@@ -22,7 +22,7 @@ class PlaylistDisplay extends StatelessWidget {
             itemBuilder: (BuildContext context, int index) {
               return Padding(
                 padding: const EdgeInsets.all(15.0),
-                child: TrackTile(userId: userId, track: items[index]),
+                child: TrackTile(track: items[index]),
               );
             },
             itemCount: items.length,
@@ -31,12 +31,10 @@ class PlaylistDisplay extends StatelessWidget {
         floatingActionButton: FloatingActionButton(
           tooltip: 'Save playlist to Spotify',
           onPressed: () {
-            // TODO: Implementar la ruta para usar context.go
             Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (context) =>
-                      SavePlaylist(userId: userId, items: items),
+                  builder: (context) => SavePlaylist(items: items),
                 ));
           },
           child: const Icon(Icons.save_alt_rounded),

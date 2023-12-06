@@ -71,8 +71,10 @@ class User {
         u!.accessToken = tokenResponse.content['access_token'];
         u.refreshToken = tokenResponse.content['refresh_token'];
         usersBox.delete(u.id);
-        usersBox.put(u.id, u);
-        return tokenResponse;
+        usersBox.put(u.id, u).then((v) {
+          print('User $id updated with refreshed token');
+          return tokenResponse;
+        });
       } else {
         return tokenResponse;
       }

@@ -12,8 +12,7 @@ import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const CLIENT_ID = '26cd2b5bfc8a431eb6b343e28ced0b6f';
-const REDIRECT_URI =
-    'https://miguelgarglez.github.io'; //'http://localhost:5000/'; //default
+const REDIRECT_URI = 'http://localhost:5000/'; //default
 const SCOPE =
     'user-read-private user-read-email user-top-read playlist-modify-public playlist-modify-private ugc-image-upload';
 
@@ -143,8 +142,6 @@ Future<MyResponse> getAccessToken() async {
       ret.content = data;
       return ret;
     } else {
-      // ! Debugging
-      print(json.decode(response.body));
       ret.content = {};
       throw Exception('HTTP status ${response.statusCode} in getAccessToken');
     }
@@ -428,14 +425,15 @@ Future<MyResponse> savePlaylistToSpotify(
       userId, name, description, isPublic, isCollaborative);
   if (creationResponse.statusCode == 201) {
     // playlist created successfully
+
     playlistId = creationResponse.content['id'];
+    if (coverImage != '') {
+      await uploadCoverImage(userId, playlistId, coverImage);
+    }
     MyResponse addTracksResponse = await addTracksToPlaylist(
         userId, creationResponse.content['id'], items);
     if (addTracksResponse.statusCode == 201) {
       // tracks added successfully
-      if (coverImage != '') {
-        uploadCoverImage(userId, playlistId, coverImage);
-      }
       ret.statusCode = 201;
       ret.content = creationResponse.content;
       // ! Debugging
@@ -473,9 +471,9 @@ Future<MyResponse> uploadCoverImage(
     );
     ret.statusCode = response.statusCode;
     if (response.statusCode == 202) {
-      ret.content = {}; // * No content
+      ret.content = 'Cover Uploaded Successfully'; // * No content
       // ! Debugging
-      print(ret.statusCode);
+      print(ret);
       return ret;
     } else {
       print(json.decode(response.body));
@@ -631,11 +629,7 @@ Future<MyResponse> getPlaylist(String playlistId, String userId) async {
     ret.statusCode = response.statusCode;
     if (response.statusCode == 200) {
       final data = json.decode(response.body);
-      // ! Debugging
-      print(data);
       ret.content = Playlist.fromJson(data);
-      // ! Debugging
-      print(ret.content);
       return ret;
     } else {
       print(json.decode(response.body));

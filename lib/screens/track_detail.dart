@@ -15,7 +15,7 @@ class TrackDetail extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text(track!.name),
+        title: Text(track.name),
       ),
       body: Center(
         child: SingleChildScrollView(
