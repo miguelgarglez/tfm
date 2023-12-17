@@ -30,7 +30,7 @@ List mergeRecommendedTracksBasic(
   print('Duracion promedio de las canciones: $meanDuration');
   print('Numero de tracks: ${mergedTracks.length}');
 
-  mergedTracks.shuffle();
+  // mergedTracks.shuffle();
 
   return mergedTracks;
 }
