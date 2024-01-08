@@ -12,6 +12,7 @@ class GeneratePlaylistBasic extends StatefulWidget {
 
 class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
   Duration _duration = Duration(hours: 0, minutes: 0);
+  String? _aggregationStrategy;
 
   bool _loading = false;
 
@@ -39,6 +40,7 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
             Padding(
                 padding: const EdgeInsets.all(20.0),
                 child: DurationPicker(
+                  baseUnit: BaseUnit.minute,
                   duration: _duration,
                   onChange: (val) {
                     setState(() {
@@ -48,6 +50,34 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
                   snapToMins: 5.0,
                 )),
             Padding(
+              padding: const EdgeInsets.only(
+                  left: 60, right: 60, top: 15, bottom: 15),
+              child: DropdownButtonFormField(
+                hint: Text('Select an aggregation strategy'),
+                value: _aggregationStrategy,
+                items: {
+                  'average': 'Average',
+                  'most_pleasure': 'Most Pleasure',
+                  'least_pleasure': 'Least Pleasure',
+                  'multiplicative': 'Multiplicative',
+                  'all': 'Try all strategies and compare'
+                }
+                    .map((value, label) {
+                      return MapEntry(
+                          value,
+                          DropdownMenuItem(
+                              value: value, child: Center(child: Text(label))));
+                    })
+                    .values
+                    .toList(),
+                onChanged: (value) {
+                  setState(() {
+                    _aggregationStrategy = value.toString();
+                  });
+                },
+              ),
+            ),
+            Padding(
               padding: const EdgeInsets.all(10.0),
               child: ElevatedButton(
                 onPressed: () {
@@ -55,19 +85,38 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
                     setState(() {
                       _loading = true;
                     });
-                    generatePlaylistBasic(_duration).then((playlistResponse) {
+                    generateCombinedPlaylist(_duration, _aggregationStrategy)
+                        .then((playlistResponse) {
                       setState(() {
                         _loading = false;
                       });
                       if (handleResponseUI(playlistResponse, '', context) ==
                           ReturnCodes.SUCCESS) {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) => PlaylistDisplay(
-                                  items: playlistResponse.content,
-                                  title: 'Your combined playlist'),
-                            ));
+                        if (playlistResponse.content.length == 1) {
+                          // si solamente se ha generado playlist con una estrategia
+                          // de agregación, se muestra directamente la playlist
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PlaylistDisplay(
+                                    items: playlistResponse
+                                        .content[_aggregationStrategy],
+                                    title: 'Your combined playlist'),
+                              ));
+                        } else {
+                          // si se han generado varias playlist, se muestrará además
+                          // una barra de pestañas para mostrar las distintas playlist
+                          // generadas con las diferentes estrategias de agregación
+                          // TODO: implementar barra de pestañas dentro de PlaylistDisplay
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) =>
+                                    PlaylistDisplay.multiplePlaylists(
+                                        playlists: playlistResponse.content,
+                                        title: 'See your playlists'),
+                              ));
+                        }
                       }
                     });
                   } else {

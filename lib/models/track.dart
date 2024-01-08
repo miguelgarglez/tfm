@@ -50,7 +50,21 @@ class Track {
   }
 
   @override
+  bool operator ==(Object other) =>
+      identical(this, other) ||
+      other is Track &&
+          runtimeType == other.runtimeType &&
+          id == other.id &&
+          name == other.name &&
+          artists == other.artists &&
+          popularity == other.popularity;
+
+  @override
+  int get hashCode =>
+      id.hashCode ^ name.hashCode ^ artists.hashCode ^ popularity.hashCode;
+
+  @override
   String toString() {
-    return 'Track{name: $name, id: $id, artists: $artists, popularity: $popularity}';
+    return 'Track{id: $id, name: $name, artists: $artists, popularity: $popularity}';
   }
 }

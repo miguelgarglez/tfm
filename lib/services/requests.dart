@@ -5,7 +5,7 @@ import 'package:combined_playlist_maker/models/playlist.dart';
 import 'package:combined_playlist_maker/models/track.dart';
 import 'package:combined_playlist_maker/models/user.dart';
 import 'package:combined_playlist_maker/models/artist.dart';
-import 'package:combined_playlist_maker/services/basic_recommendator.dart';
+import 'package:combined_playlist_maker/services/recommendator.dart';
 import 'package:crypto/crypto.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
@@ -244,6 +244,16 @@ List parseItemData(data, type) {
   return topItems;
 }
 
+/// Retrieves recommendations from the Spotify API based on the provided parameters.
+///
+/// The [userId] parameter is the ID of the user making the request.
+/// The [genreSeeds] parameter is a list of genre seeds to use for the recommendations.
+/// The [artistSeeds] parameter is a list of artist seeds to use for the recommendations.
+/// The [trackSeeds] parameter is a list of track seeds to use for the recommendations.
+/// The [limit] parameter is the maximum number of recommendations to retrieve.
+///
+/// Returns a [Future] that resolves to a [MyResponse] object containing the recommendations.
+/// If an error occurs during the request, an empty [MyResponse] object is returned.
 Future<MyResponse> getRecommendations(String userId, List? genreSeeds,
     List? artistSeeds, List? trackSeeds, double limit) async {
   var usersBox = Hive.box<User>('Users');
@@ -360,7 +370,12 @@ Future<MyResponse> refreshToken(userId) async {
   }
 }
 
-Future<MyResponse> generatePlaylistBasic(Duration duration) async {
+/// Generates a recommended playlist based on the top tracks and artists of each user.
+///
+/// The [duration] parameter specifies the desired duration of the playlist.
+/// Returns a [Future] that resolves to a [MyResponse] object containing the generated playlist.
+Future<MyResponse> generateCombinedPlaylist(
+    Duration duration, String? type) async {
   MyResponse ret = MyResponse();
 
   var usersBox = Hive.box<User>('users').toMap();
@@ -402,9 +417,14 @@ Future<MyResponse> generatePlaylistBasic(Duration duration) async {
     recommendations[userId] = userRecommendations.content;
   }
 
-  List playlist = mergeRecommendedTracksBasic(recommendations, duration);
+  // indicates the number of seeds for each type of seed
+  // [0] = artists, [1] = tracks, [2] = genres
+  // the sum of the values must be 5
+  List<int> seedProp = [2, 0, 3];
+  Map<String, List> playlists =
+      generateRecommendedPlaylist(recommendations, duration, seedProp, type);
 
-  ret.content = playlist;
+  ret.content = playlists;
 
   return ret;
 }
