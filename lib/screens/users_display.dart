@@ -1,6 +1,12 @@
+import 'dart:convert';
+
 import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/models/user.dart';
+import 'package:combined_playlist_maker/services/error_handling.dart';
+import 'package:combined_playlist_maker/services/recommendator.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
+import 'package:combined_playlist_maker/services/statistics.dart';
+import 'package:combined_playlist_maker/utils/basic_data_visualization.dart';
 import 'package:combined_playlist_maker/widgets/expandable_fab.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
@@ -18,6 +24,8 @@ class UsersDisplay extends StatefulWidget {
 }
 
 class _UsersDisplayState extends State<UsersDisplay> {
+  bool _loading = false;
+
   @override
   void initState() {
     super.initState();
@@ -191,11 +199,37 @@ class _UsersDisplayState extends State<UsersDisplay> {
           ),
           ActionButton(
             onPressed: () {
-              context.go('/users/generate-playlist-basic');
+              context.go('/users/generate-playlist');
             },
             icon: const Icon(Icons.playlist_add_rounded),
             tooltip: 'Make a combined playlist',
           ),
+          // * TEMPORAL ACTION BUTTON
+          ActionButton(
+            onPressed: () {
+              setState(() {
+                // ! Debugging
+                print('Started checking all strategies and durations...');
+                _loading = true;
+              });
+              checkAllStrategiesAllDurations().then((data) {
+                setState(() {
+                  // ! Debugging
+                  print('Finished checking all strategies and durations');
+                  _loading = false;
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => BasicDataVisualization.isJSON(
+                            data: jsonEncode(data)),
+                      ));
+                });
+              });
+            },
+            icon: const Icon(Icons.plumbing_sharp),
+            tooltip: 'Execute CPM test',
+          ),
+          // * TEMPORAL ACTION BUTTON
         ],
       ),
     );

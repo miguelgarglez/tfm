@@ -55,13 +55,10 @@ class Track {
       other is Track &&
           runtimeType == other.runtimeType &&
           id == other.id &&
-          name == other.name &&
-          artists == other.artists &&
-          popularity == other.popularity;
+          name == other.name;
 
   @override
-  int get hashCode =>
-      id.hashCode ^ name.hashCode ^ artists.hashCode ^ popularity.hashCode;
+  int get hashCode => id.hashCode ^ name.hashCode;
 
   @override
   String toString() {

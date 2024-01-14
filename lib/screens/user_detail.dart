@@ -40,23 +40,34 @@ class UserDetail extends StatelessWidget {
       children: [
         // Columna izquierda con la imagen
         Container(
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+            shape: BoxShape.rectangle,
             boxShadow: [
               BoxShadow(
-                color: Colors.grey,
-                offset: Offset(0, 5),
-                blurRadius: 10,
+                blurStyle: BlurStyle.normal,
+                color: Theme.of(context).colorScheme.primary,
+                blurRadius: 5,
               ),
             ],
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(50.0),
-            child: Image.network(
-              user.imageUrl,
-              width: 250,
-              height: 250,
-            ),
+            child: (user.imageUrl == '')
+                ? FadeInImage.assetNetwork(
+                    placeholder: 'images/unknown_cover.png',
+                    image: user.imageUrl,
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset('images/unknown_cover.png');
+                    },
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  )
+                : Image.network(
+                    user.imageUrl,
+                    width: 250,
+                    height: 250,
+                  ),
           ),
         ),
         const SizedBox(width: 40),
@@ -77,23 +88,34 @@ class UserDetail extends StatelessWidget {
       children: [
         // Columna superior con la imagen
         Container(
-          decoration: const BoxDecoration(
-            shape: BoxShape.circle,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(50.0),
+            shape: BoxShape.rectangle,
             boxShadow: [
               BoxShadow(
-                color: Colors.grey,
-                offset: Offset(0, 5),
-                blurRadius: 10,
+                blurStyle: BlurStyle.normal,
+                color: Theme.of(context).colorScheme.primary,
+                blurRadius: 5,
               ),
             ],
           ),
           child: ClipRRect(
             borderRadius: BorderRadius.circular(50.0),
-            child: Image.network(
-              user.imageUrl,
-              width: 250,
-              height: 250,
-            ),
+            child: (user.imageUrl == '')
+                ? FadeInImage.assetNetwork(
+                    placeholder: 'images/unknown_cover.png',
+                    image: user.imageUrl,
+                    imageErrorBuilder: (context, error, stackTrace) {
+                      return Image.asset('images/unknown_cover.png');
+                    },
+                    width: double.infinity,
+                    fit: BoxFit.cover,
+                  )
+                : Image.network(
+                    user.imageUrl,
+                    width: 250,
+                    height: 250,
+                  ),
           ),
         ),
         const SizedBox(height: 16),

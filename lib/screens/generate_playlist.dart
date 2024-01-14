@@ -58,8 +58,10 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
                 items: {
                   'average': 'Average',
                   'most_pleasure': 'Most Pleasure',
-                  'least_pleasure': 'Least Pleasure',
+                  'least_misery': 'Least Misery',
                   'multiplicative': 'Multiplicative',
+                  'borda': 'Borda',
+                  'average_custom': 'Average without misery',
                   'all': 'Try all strategies and compare'
                 }
                     .map((value, label) {
@@ -93,8 +95,8 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
                       if (handleResponseUI(playlistResponse, '', context) ==
                           ReturnCodes.SUCCESS) {
                         if (playlistResponse.content.length == 1) {
-                          // si solamente se ha generado playlist con una estrategia
-                          // de agregación, se muestra directamente la playlist
+                          // if only one playlist has been generated with one aggregation strategy,
+                          // the playlist is displayed directly
                           Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -104,10 +106,8 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
                                     title: 'Your combined playlist'),
                               ));
                         } else {
-                          // si se han generado varias playlist, se muestrará además
-                          // una barra de pestañas para mostrar las distintas playlist
-                          // generadas con las diferentes estrategias de agregación
-                          // TODO: implementar barra de pestañas dentro de PlaylistDisplay
+                          // if multiple playlists have been generated, a tab bar will be displayed
+                          // to show the different playlists generated with different aggregation strategies
                           Navigator.push(
                               context,
                               MaterialPageRoute(

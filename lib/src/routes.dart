@@ -1,5 +1,5 @@
 import 'package:combined_playlist_maker/models/track.dart';
-import 'package:combined_playlist_maker/screens/generate_playlist_basic.dart';
+import 'package:combined_playlist_maker/screens/generate_playlist.dart';
 import 'package:combined_playlist_maker/screens/get_recommendations.dart';
 import 'package:combined_playlist_maker/screens/get_top_items.dart';
 import 'package:combined_playlist_maker/screens/item_display.dart';
@@ -24,8 +24,8 @@ GoRouter MyAppRoutes() {
         builder: (context, state) => UsersDisplay(),
         routes: [
           GoRoute(
-              name: 'generate playlist basic',
-              path: 'generate-playlist-basic',
+              name: 'generate playlist',
+              path: 'generate-playlist',
               builder: (context, state) {
                 return GeneratePlaylistBasic();
               },

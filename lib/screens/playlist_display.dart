@@ -59,7 +59,7 @@ class PlaylistDisplay extends StatelessWidget {
       return DefaultTabController(
         length: playlists.length,
         child: Builder(builder: (BuildContext context) {
-          final TabController tabController = DefaultTabController.of(context)!;
+          final TabController tabController = DefaultTabController.of(context);
           return Scaffold(
             appBar: AppBar(
               bottom: TabBar(

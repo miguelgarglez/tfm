@@ -27,11 +27,21 @@ class User {
   // recibido de la request de los datos de usuario getProfileInfo
   factory User.fromJson(
       Map<String, dynamic> json, String token, String refreshToken) {
+    String imageUrl = '';
+    if ((json['images'] as List).isNotEmpty) {
+      // La lista de imágenes no está vacía y puedes acceder a json['images'][0]
+      imageUrl =
+          json['images'][1]['url']; // Selecciona la segunda imagen de la lista
+    } else {
+      // La lista de imágenes está vacía o no existe la clave 'images' en el JSON
+      imageUrl = '';
+    }
+
     return User(
       displayName: json['display_name'],
       id: json['id'],
       email: json['email'],
-      imageUrl: json['images'][1]['url'],
+      imageUrl: imageUrl,
       country: json['country'],
       followers: json['followers']['total'],
       accessToken: token,
@@ -86,7 +96,6 @@ class User {
     return (displayName == '' &&
         id == '' &&
         email == '' &&
-        imageUrl == '' &&
         country == '' &&
         accessToken == '' &&
         refreshToken == '');
