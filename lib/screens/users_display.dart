@@ -2,12 +2,11 @@ import 'dart:convert';
 
 import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/models/user.dart';
-import 'package:combined_playlist_maker/services/error_handling.dart';
-import 'package:combined_playlist_maker/services/recommendator.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:combined_playlist_maker/services/statistics.dart';
 import 'package:combined_playlist_maker/utils/basic_data_visualization.dart';
 import 'package:combined_playlist_maker/widgets/expandable_fab.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
@@ -24,8 +23,6 @@ class UsersDisplay extends StatefulWidget {
 }
 
 class _UsersDisplayState extends State<UsersDisplay> {
-  bool _loading = false;
-
   @override
   void initState() {
     super.initState();
@@ -65,47 +62,10 @@ class _UsersDisplayState extends State<UsersDisplay> {
   }
 
   @override
-  /*Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('Welcome!'),
-      ),
-      body: Center(
-        child: ListView.builder(
-          itemBuilder: (BuildContext context, int index) {
-            return Padding(
-              padding: const EdgeInsets.all(15.0),
-              child: ListTile(
-                leading: FadeInImage.assetNetwork(
-                    placeholder: 'images/unknown_cover.png',
-                    image: widget.users![index].imageUrl,
-                    imageErrorBuilder: (context, error, stackTrace) {
-                      return Image.asset('images/unknown_cover.png');
-                    }),
-                title: Text(widget.users![index].displayName),
-                onTap: () {
-                  context.go('/users/${widget.users![index].id}');
-                },
-              ),
-            );
-          },
-          itemCount: widget.users!.length,
-        ),
-      ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          requestAuthorization();
-        },
-        tooltip: 'Add another spotify user',
-        child: Icon(Icons.add),
-      ),
-      // Agrega otros widgets y elementos de IU aquí
-    );
-  }*/
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Welcome!'),
+        title: const Text('Welcome!'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16),
@@ -205,30 +165,37 @@ class _UsersDisplayState extends State<UsersDisplay> {
             tooltip: 'Make a combined playlist',
           ),
           // * TEMPORAL ACTION BUTTON
-          ActionButton(
-            onPressed: () {
-              setState(() {
-                // ! Debugging
-                print('Started checking all strategies and durations...');
-                _loading = true;
-              });
-              checkAllStrategiesAllDurations().then((data) {
-                setState(() {
-                  // ! Debugging
-                  print('Finished checking all strategies and durations');
-                  _loading = false;
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => BasicDataVisualization.isJSON(
-                            data: jsonEncode(data)),
-                      ));
-                });
-              });
-            },
-            icon: const Icon(Icons.plumbing_sharp),
-            tooltip: 'Execute CPM test',
-          ),
+          (kDebugMode)
+              ? ActionButton(
+                  onPressed: () {
+                    setState(() {
+                      // ! Debugging
+                      if (kDebugMode) {
+                        print(
+                            'Started checking all strategies and durations...');
+                      }
+                    });
+                    checkAllStrategiesAllDurations().then((data) {
+                      setState(() {
+                        // ! Debugging
+                        if (kDebugMode) {
+                          print(
+                              'Finished checking all strategies and durations');
+                        }
+                        Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) =>
+                                  BasicDataVisualization.isJSON(
+                                      data: jsonEncode(data)),
+                            ));
+                      });
+                    });
+                  },
+                  icon: const Icon(Icons.plumbing_sharp),
+                  tooltip: 'Execute CPM test',
+                )
+              : Container(),
           // * TEMPORAL ACTION BUTTON
         ],
       ),

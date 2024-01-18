@@ -32,10 +32,10 @@ class BasicDataVisualization extends StatelessWidget {
           }
 
           // Crea un enlace para descargar el archivo
-          AnchorElement downloadLink = AnchorElement(
+          AnchorElement(
             href: 'data:application/json;charset=utf-8;base64,$jsonBase64',
           )
-            ..setAttribute('download', 'group_of_${numUsers}.json')
+            ..setAttribute('download', 'group_of_$numUsers.json')
             ..click();
         },
         child: const Icon(Icons.save_alt_rounded),

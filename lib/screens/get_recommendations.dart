@@ -1,5 +1,5 @@
 import 'package:combined_playlist_maker/models/my_response.dart';
-import 'package:combined_playlist_maker/return_codes.dart';
+import 'package:combined_playlist_maker/src/return_codes.dart';
 import 'package:combined_playlist_maker/services/error_handling.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:flutter/material.dart';

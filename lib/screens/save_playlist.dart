@@ -3,7 +3,7 @@ import 'dart:typed_data';
 import 'package:combined_playlist_maker/screens/playlist_detail.dart';
 import 'package:image_picker_web/image_picker_web.dart';
 import 'package:combined_playlist_maker/models/user.dart';
-import 'package:combined_playlist_maker/return_codes.dart';
+import 'package:combined_playlist_maker/src/return_codes.dart';
 import 'package:combined_playlist_maker/services/error_handling.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
 import 'package:flutter/material.dart';
@@ -11,11 +11,17 @@ import 'package:hive_flutter/hive_flutter.dart';
 
 class SavePlaylist extends StatefulWidget {
   final List items;
+  final bool automaticSaving;
+  final String? strategy;
 
-  const SavePlaylist({super.key, required this.items});
+  const SavePlaylist({super.key, required this.items})
+      : automaticSaving = false,
+        strategy = '';
+
+  SavePlaylist.defaultSaving({super.key, required this.items, this.strategy})
+      : automaticSaving = true;
 
   @override
-  // ignore: library_private_types_in_public_api
   _SavePlaylistState createState() => _SavePlaylistState();
 }
 
@@ -73,13 +79,17 @@ class _SavePlaylistState extends State<SavePlaylist> {
 
   @override
   Widget build(BuildContext context) {
+    if (widget.automaticSaving) {
+      _assignDefaultTestTitleAndDescription();
+      return _buildAskForUser();
+    }
     return Scaffold(
       appBar: AppBar(
         title: const Text('Save Playlist'),
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.all(16.0),
+          padding: const EdgeInsets.all(16.0),
           child: Center(
             child: Column(
               children: [
@@ -87,7 +97,6 @@ class _SavePlaylistState extends State<SavePlaylist> {
                   value: selectedUser,
                   onChanged: (String? newValue) {
                     setState(() {
-                      print('Selected user: $newValue');
                       selectedUser = newValue!;
                     });
                   },
@@ -103,17 +112,17 @@ class _SavePlaylistState extends State<SavePlaylist> {
                                 return Image.asset('images/unknown_cover.png');
                               }),
                           Container(
-                              margin: EdgeInsets.only(left: 10),
+                              margin: const EdgeInsets.only(left: 10),
                               child: Text(user.displayName)),
                         ],
                       ),
                     );
                   }).toList(),
-                  hint: Text('Select a user to save the playlist'),
+                  hint: const Text('Select a user to save the playlist'),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Playlist\'s title',
                   ),
                   initialValue: playlistTitle,
@@ -125,9 +134,9 @@ class _SavePlaylistState extends State<SavePlaylist> {
                     });
                   },
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 TextFormField(
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Playlist\'s description',
                   ),
                   initialValue: playlistDescription,
@@ -139,9 +148,9 @@ class _SavePlaylistState extends State<SavePlaylist> {
                     });
                   },
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Text(
                       'Will the playlist be collaborative?',
                       style: Theme.of(context).textTheme.labelLarge,
@@ -158,8 +167,8 @@ class _SavePlaylistState extends State<SavePlaylist> {
                         });
                       },
                     ),
-                    Text('Yes'),
-                    SizedBox(width: 16.0),
+                    const Text('Yes'),
+                    const SizedBox(width: 16.0),
                     Radio<bool>(
                       value: false,
                       groupValue: playlistCollaborative,
@@ -169,14 +178,14 @@ class _SavePlaylistState extends State<SavePlaylist> {
                         });
                       },
                     ),
-                    Text('No'),
+                    const Text('No'),
                   ],
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: playlistCollaborative
-                      ? [Text('Your playlist will be collaborative')]
+                      ? [const Text('Your playlist will be collaborative')]
                       : [
                           Radio<bool>(
                             value: true,
@@ -187,8 +196,8 @@ class _SavePlaylistState extends State<SavePlaylist> {
                               });
                             },
                           ),
-                          Text('Public'),
-                          SizedBox(width: 16.0),
+                          const Text('Public'),
+                          const SizedBox(width: 16.0),
                           Radio<bool>(
                             value: false,
                             groupValue: playlistVisibility,
@@ -198,12 +207,12 @@ class _SavePlaylistState extends State<SavePlaylist> {
                               });
                             },
                           ),
-                          Text('Private'),
+                          const Text('Private'),
                         ],
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 Padding(
-                    padding: EdgeInsets.all(10),
+                    padding: const EdgeInsets.all(10),
                     child: Text(
                       'Upload a cover for your playlist:',
                       style: Theme.of(context).textTheme.labelLarge,
@@ -216,9 +225,9 @@ class _SavePlaylistState extends State<SavePlaylist> {
                           width: 60,
                           height: 60,
                         )
-                      : Icon(Icons.image, size: 60),
+                      : const Icon(Icons.image, size: 60),
                 ),
-                SizedBox(height: 16.0),
+                const SizedBox(height: 16.0),
                 ElevatedButton(
                   onPressed: () {
                     // Lógica para guardar la playlist
@@ -254,17 +263,17 @@ class _SavePlaylistState extends State<SavePlaylist> {
                       });
                     } else {
                       ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
+                        const SnackBar(
                           content: Text('Please fill all the fields'),
                         ),
                       );
                     }
                   },
-                  child: Text('Save playlist'),
+                  child: const Text('Save playlist'),
                 ),
                 if (_loading)
-                  Padding(
-                    padding: const EdgeInsets.all(16.0),
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
                     child: CircularProgressIndicator(),
                   ),
               ],
@@ -273,5 +282,107 @@ class _SavePlaylistState extends State<SavePlaylist> {
         ),
       ),
     );
+  }
+
+  Widget _buildAskForUser() {
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Save Playlist'),
+      ),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Center(
+            child: Column(
+              children: [
+                DropdownButton<String>(
+                  value: selectedUser,
+                  onChanged: (String? newValue) {
+                    setState(() {
+                      selectedUser = newValue!;
+                    });
+                  },
+                  items: users.map<DropdownMenuItem<String>>((user) {
+                    return DropdownMenuItem<String>(
+                      value: user.id,
+                      child: Row(
+                        children: [
+                          FadeInImage.assetNetwork(
+                              placeholder: 'images/unknown_cover.png',
+                              image: user.imageUrl,
+                              imageErrorBuilder: (context, error, stackTrace) {
+                                return Image.asset('images/unknown_cover.png');
+                              }),
+                          Container(
+                              margin: const EdgeInsets.only(left: 10),
+                              child: Text(user.displayName)),
+                        ],
+                      ),
+                    );
+                  }).toList(),
+                  hint: const Text('Select a user to save the playlist'),
+                ),
+                const SizedBox(height: 16.0),
+                ElevatedButton(
+                  onPressed: () {
+                    // Lógica para guardar la playlist
+
+                    if (validatePlaylistData()) {
+                      setState(() {
+                        _loading = true;
+                      });
+                      savePlaylistToSpotify(
+                              widget.items,
+                              selectedUser,
+                              playlistTitle,
+                              playlistDescription,
+                              playlistVisibility,
+                              playlistCollaborative,
+                              base64Cover)
+                          .then((playlistResponse) {
+                        setState(() {
+                          _loading = false;
+                        });
+                        if (handleResponseUI(
+                                playlistResponse, selectedUser, context) ==
+                            ReturnCodes.SUCCESS) {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => PlaylistDetail(
+                                  userId: selectedUser,
+                                  playlistId: playlistResponse.content['id'],
+                                ),
+                              ));
+                        }
+                      });
+                    } else {
+                      ScaffoldMessenger.of(context).showSnackBar(
+                        const SnackBar(
+                          content: Text('Please select an user'),
+                        ),
+                      );
+                    }
+                  },
+                  child: const Text('Save playlist'),
+                ),
+                if (_loading)
+                  const Padding(
+                    padding: EdgeInsets.all(16.0),
+                    child: CircularProgressIndicator(),
+                  ),
+              ],
+            ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  void _assignDefaultTestTitleAndDescription() {
+    playlistTitle = widget.strategy!;
+    playlistDescription =
+        'Playlist generated for users: ${users.skip(1).map((user) => user.displayName).join(', ')}';
+    playlistVisibility = true;
   }
 }

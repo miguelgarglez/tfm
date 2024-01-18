@@ -1,5 +1,6 @@
 import 'package:combined_playlist_maker/models/my_response.dart';
 import 'package:combined_playlist_maker/services/requests.dart' as req;
+import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class User {
@@ -82,7 +83,9 @@ class User {
         u.refreshToken = tokenResponse.content['refresh_token'];
         usersBox.delete(u.id);
         usersBox.put(u.id, u).then((v) {
-          print('User $id updated with refreshed token');
+          if (kDebugMode) {
+            print('User $id updated with refreshed token');
+          }
           return tokenResponse;
         });
       } else {

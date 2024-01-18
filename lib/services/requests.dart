@@ -8,6 +8,7 @@ import 'package:combined_playlist_maker/models/artist.dart';
 import 'package:combined_playlist_maker/services/recommendator.dart';
 import 'package:combined_playlist_maker/services/statistics.dart';
 import 'package:crypto/crypto.dart';
+import 'package:flutter/foundation.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -180,18 +181,28 @@ Future<MyResponse> getAccessToken() async {
       throw Exception('HTTP status ${response.statusCode} in getAccessToken');
     }
   } catch (error) {
-    print('Error $error (getAccessToken)');
+    if (kDebugMode) {
+      print('Error $error');
+    }
     return ret;
   }
 }
 
-//funcion que se llama la primera vez que el usuario acepta la autorización de spotify
+/// Retrieves the Spotify profile information for the authenticated user.
+/// Returns a [MyResponse] object containing the status code and content.
+/// If the access token is not obtained correctly, the status code will be set accordingly
+/// and the content will be a [User] object indicating that the user is not valid.
+/// If the request is successful, the status code will be 200 and the content will be
+/// a [User] object representing the retrieved user information.
+/// Throws an exception if the HTTP status code is not 200.
+/// Returns the [MyResponse] object.
 Future<MyResponse> retrieveSpotifyProfileInfo() async {
   MyResponse ret = MyResponse();
   MyResponse tokenResponse = await getAccessToken();
   if (tokenResponse.statusCode != 200) {
     //no se ha llegado a hacer la petición porque el token
     //no se ha obtenido correctamente
+    ret.statusCode = tokenResponse.statusCode;
     ret.content = User.notValid();
     return ret;
   }
@@ -216,7 +227,9 @@ Future<MyResponse> retrieveSpotifyProfileInfo() async {
       ret.content = newUser;
       return ret;
     } else {
-      print(json.decode(response.body));
+      if (kDebugMode) {
+        print(json.decode(response.body));
+      }
       ret.content = User.notValid();
       throw Exception(
           'HTTP status ${response.statusCode} en retrieveSpotifyProfileInfo');
@@ -227,6 +240,17 @@ Future<MyResponse> retrieveSpotifyProfileInfo() async {
   }
 }
 
+/// Retrieves the top items of a user from the Spotify API.
+///
+/// The [userId] parameter specifies the ID of the user.
+/// The [type] parameter specifies the type of top items to retrieve (e.g., 'tracks', 'artists').
+/// The [timeRange] parameter specifies the time range for the top items (e.g., 'short_term', 'medium_term', 'long_term').
+/// The [limit] parameter specifies the maximum number of items to retrieve.
+///
+/// Returns a [Future] that resolves to a [MyResponse] object containing the response data.
+/// If successful, the [MyResponse.content] field will contain a list of parsed top items.
+/// If an error occurs, the [MyResponse.statusCode] field will be set accordingly and the [MyResponse.content] field will be an empty list.
+/// If an exception is thrown, the [MyResponse.statusCode] field will be unset and the [MyResponse.content] field will be an empty list.
 Future<MyResponse> getUsersTopItems(
     String userId, String type, String timeRange, double limit) async {
   var usersBox = Hive.box<User>('Users');
@@ -262,6 +286,16 @@ Future<MyResponse> getUsersTopItems(
   }
 }
 
+/// Parses the item data based on the given type.
+///
+/// The function takes in the `data` and `type` parameters and returns a list of parsed items.
+/// If the `type` is 'artists', it parses the data as a list of artists and returns a list of Artist objects.
+/// If the `type` is not 'artists', it parses the data as a list of tracks and returns a list of Track objects.
+///
+/// Example usage:
+/// ```dart
+/// List parsedItems = parseItemData(data, 'artists');
+/// ```
 List parseItemData(data, type) {
   List topItems = [];
   if (type == 'artists') {
@@ -428,7 +462,7 @@ Future<MyResponse> refreshToken(userId) async {
 Future<MyResponse> obtainAllUsersRecommendations(
     {double numTracks = 3,
     double numArtists = 2,
-    String tracksTerm = 'short_term',
+    String tracksTerm = 'medium_term',
     String artistsTerm = 'long_term'}) async {
   MyResponse ret = MyResponse();
 
@@ -442,7 +476,7 @@ Future<MyResponse> obtainAllUsersRecommendations(
   Map<String, List> recommendations = {};
 
   for (var user in usersBox.values) {
-    //user.updateToken(); // actualizo el token del usuario
+    user.updateToken(); // actualizo el token del usuario
     var userId = user.id;
 
     // obtengo los items top del usuario
@@ -551,7 +585,9 @@ Future<MyResponse> savePlaylistToSpotify(
   MyResponse creationResponse = await createPlaylistOnSpotify(
       userId, name, description, isPublic, isCollaborative);
   if (creationResponse.statusCode == 201) {
-    // playlist created successfully
+    if (kDebugMode) {
+      print('Playlist created successfully');
+    }
     playlistId = creationResponse.content['id'];
     if (coverImage != '') {
       await uploadCoverImage(userId, playlistId, coverImage);
@@ -559,11 +595,15 @@ Future<MyResponse> savePlaylistToSpotify(
     MyResponse addTracksResponse = await addTracksToPlaylist(
         userId, creationResponse.content['id'], items);
     if (addTracksResponse.statusCode == 201) {
-      // tracks added successfully
+      if (kDebugMode) {
+        print('Tracks added to playlist successfully');
+      }
       ret.statusCode = 201;
       ret.content = creationResponse.content;
       // ! Debugging
-      print(ret.content);
+      if (kDebugMode) {
+        print(ret.content);
+      }
     } else {
       // error adding tracks
       ret.statusCode = addTracksResponse.statusCode;
@@ -606,18 +646,21 @@ Future<MyResponse> uploadCoverImage(
     );
     ret.statusCode = response.statusCode;
     if (response.statusCode == 202) {
-      ret.content = 'Cover Uploaded Successfully'; // * No content
+      ret.content = {'msg': 'Cover Uploaded Successfully'}; // * No content
       // ! Debugging
-      print(ret);
+      if (kDebugMode) {
+        print(ret);
+      }
       return ret;
     } else {
-      print(json.decode(response.body));
-      ret.content = {};
+      ret.content = {'error': '${json.decode(response.body)}'};
       throw Exception('HTTP status ${response.statusCode} in uploadCoverImage');
     }
   } catch (error) {
-    print('Error $error');
-    print(ret);
+    if (kDebugMode) {
+      print('Error $error');
+      print(ret);
+    }
     return ret;
   }
 }
@@ -640,7 +683,7 @@ Future<MyResponse> createPlaylistOnSpotify(String userId, String name,
   User? user = usersBox.get(userId);
   var accessToken = user!.accessToken;
 
-  // * importante hacer json.encode para que el body sea un string
+  // * Important to do json.encode for the body to be a String
   final body = json.encode({
     "name": name,
     "description": description,
@@ -661,17 +704,18 @@ Future<MyResponse> createPlaylistOnSpotify(String userId, String name,
     if (response.statusCode == 201) {
       final data = json.decode(response.body);
       ret.content = data;
-      print(ret.statusCode);
       return ret;
     } else {
-      print(json.decode(response.body));
-      ret.content = {};
+      ret.content = {'error': '${json.decode(response.body)}'};
       throw Exception(
           'HTTP status ${response.statusCode} in createPlaylistOnSpotify');
     }
   } catch (error) {
-    print('Error $error');
-    print(ret);
+    if (kDebugMode) {
+      print('Error $error');
+      print(ret);
+    }
+
     return ret;
   }
 }
@@ -695,7 +739,7 @@ Future<MyResponse> addTracksToPlaylist(
   User? user = usersBox.get(userId);
   var accessToken = user!.accessToken;
 
-  // * importante hacer json.encode para que el body sea un string
+  // * Important to do json.encode for the body to be a String
   final body = json.encode({
     "uris": tracks.map((e) => 'spotify:track:${e.id}').toList(),
   });
@@ -716,13 +760,15 @@ Future<MyResponse> addTracksToPlaylist(
       ret.content = data;
       return ret;
     } else {
-      print(json.decode(response.body));
-      ret.content = {};
+      ret.content = {'error': '${json.decode(response.body)}'};
       throw Exception(
           'HTTP status ${response.statusCode} in addTracksToPlaylist');
     }
   } catch (error) {
-    print('Error $error');
+    if (kDebugMode) {
+      print('Error $error');
+      print(ret);
+    }
     return ret;
   }
 }
@@ -756,12 +802,14 @@ Future<MyResponse> getPlaylist(String playlistId, String userId) async {
       ret.content = Playlist.fromJson(data);
       return ret;
     } else {
-      print(json.decode(response.body));
-      ret.content = {};
+      ret.content = {'error': '${json.decode(response.body)}'};
       throw Exception('HTTP status ${response.statusCode} in getPlaylist');
     }
   } catch (error) {
-    print('Error $error');
+    if (kDebugMode) {
+      print('Error $error');
+      print(ret);
+    }
     return ret;
   }
 }

@@ -1,4 +1,4 @@
-import 'package:combined_playlist_maker/return_codes.dart';
+import 'package:combined_playlist_maker/src/return_codes.dart';
 import 'package:combined_playlist_maker/screens/playlist_display.dart';
 import 'package:combined_playlist_maker/services/error_handling.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
@@ -26,7 +26,7 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(title: const Text('Generate Playlist Basic')),
+        appBar: AppBar(title: const Text('Generate Playlist')),
         body: SingleChildScrollView(
             child: Center(
                 child: Form(
@@ -56,13 +56,13 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
                 hint: Text('Select an aggregation strategy'),
                 value: _aggregationStrategy,
                 items: {
-                  'average': 'Average',
-                  'most_pleasure': 'Most Pleasure',
-                  'least_misery': 'Least Misery',
-                  'multiplicative': 'Multiplicative',
-                  'borda': 'Borda',
-                  'average_custom': 'Average without misery',
-                  'all': 'Try all strategies and compare'
+                  //'average': 'Average',
+                  //'most_pleasure': 'Most Pleasure',
+                  'multiplicative': 'Strategy A',
+                  'least_misery': 'Strategy B',
+                  //'borda': 'Borda',
+                  //'average_custom': 'Average without misery',
+                  'all': 'Compare strategies A and B'
                 }
                     .map((value, label) {
                       return MapEntry(

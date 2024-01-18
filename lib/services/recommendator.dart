@@ -1,17 +1,12 @@
-import 'package:combined_playlist_maker/return_codes.dart';
-import 'package:csv/csv.dart';
-
-import 'package:combined_playlist_maker/models/my_response.dart';
 import 'package:combined_playlist_maker/models/track.dart';
-import 'package:combined_playlist_maker/services/requests.dart';
 
 Map<String, Function> strategies = {
-  'average': averageGroupRatings,
+  //'average': averageGroupRatings,
   'multiplicative': multiplicativeGroupRatings,
-  'most_pleasure': mostPleasureGroupRatings,
+  //'most_pleasure': mostPleasureGroupRatings,
   'least_misery': leastMiseryGroupRatings,
-  'borda': bordaGroupRatings,
-  'average_custom': averageCustomGroupRatings,
+  //'borda': bordaGroupRatings,
+  //'average_custom': averageCustomGroupRatings,
 };
 
 /// Generates a recommended playlist based on the given recommendations, playlist duration, seed proportions, and type.
@@ -158,13 +153,13 @@ Map<Track, double> averageCustomGroupRatings(
 /// Returns a map containing the average ratings for each track.
 Map<Track, double> bordaGroupRatings(
     Map<String, List> recommendations, Map<Track, List<double>> ratings) {
-  Map<Track, double> avgGroupRatings = ratings.map((track, ratingsList) {
-    double averageRating = ratingsList.reduce((double a, double b) => a + b);
+  Map<Track, double> bordaGroupRatings = ratings.map((track, ratingsList) {
+    double bordaRating = ratingsList.reduce((double a, double b) => a + b);
 
-    return MapEntry(track, averageRating);
+    return MapEntry(track, bordaRating);
   });
 
-  return avgGroupRatings;
+  return bordaGroupRatings;
 }
 
 /// Calculates the multiplicative group ratings for a given set of recommendations.
@@ -297,13 +292,6 @@ Map<Track, List<double>> obtainIndividualRatings(
     userNum += 1;
   }
 
-  // calculate percentage of coincidence between users recommendations
-  // if there is no coincidence, the number of entries in the ratings Map
-  // will be equal to the number of users times 100, which is the
-  // number of recommendations generated for each user (totalUsers * 100)
-  // if there is coincidence, the number of entries will be less than that
-  // because the same track will be recommended to more than one user
-  //double coincidence = (((totalUsers * 100) / ratings.length) - 1.0) * 100;
   // ! Debugging
   // print('Coincidence between users recommendations: ${coincidence}%');
   /*print('RATINGS:');

@@ -1,10 +1,13 @@
 import 'package:combined_playlist_maker/main.dart';
 import 'package:combined_playlist_maker/services/requests.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/hive_flutter.dart';
 
 class MyHomePage extends StatelessWidget {
+  const MyHomePage({super.key});
+
   @override
   Widget build(BuildContext context) {
     var children = <Widget>[];
@@ -13,19 +16,19 @@ class MyHomePage extends StatelessWidget {
     //token que haya está en vigor con la API de spotify
     //mostrar botón de login, no mostrar botón comenzar
     var notLoggedIn = <Widget>[
-      Icon(
+      const Icon(
         Icons
             .music_note_outlined, // Puedes cambiar el icono según tus preferencias
         size: 120.0, // Tamaño del icono
         // Color del icono
       ),
-      SizedBox(height: 20.0),
-      Padding(
-        padding: const EdgeInsets.all(15.0),
+      const SizedBox(height: 20.0),
+      const Padding(
+        padding: EdgeInsets.all(15.0),
         child: ElevatedButton(
             onPressed: requestAuthorization, child: Text('Login with Spotify')),
       ),
-      Padding(
+      const Padding(
         padding: EdgeInsets.all(15.0),
         child: Text('And start using the app!'),
       ),
@@ -33,25 +36,25 @@ class MyHomePage extends StatelessWidget {
 
     var loggedIn = <Widget>[
       // Icono grande
-      Icon(
+      const Icon(
         Icons.music_note, // Puedes cambiar el icono según tus preferencias
         size: 120.0, // Tamaño del icono
         // Color del icono
       ),
-      SizedBox(height: 20.0), // Espacio entre el icono y el texto
-      Text(
+      const SizedBox(height: 20.0), // Espacio entre el icono y el texto
+      const Text(
         'Welcome!',
         style: TextStyle(
           fontSize: 24.0, // Tamaño del texto
           fontWeight: FontWeight.bold, // Estilo del texto
         ),
       ),
-      Padding(
-        padding: const EdgeInsets.all(15.0),
+      const Padding(
+        padding: EdgeInsets.all(15.0),
         child: Text('You logged in from Spotify'),
       ),
       Padding(
-        padding: EdgeInsets.all(15.0),
+        padding: const EdgeInsets.all(15.0),
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -62,16 +65,16 @@ class MyHomePage extends StatelessWidget {
                   onPressed: () {
                     context.go('/users/');
                   },
-                  child: Text('See user\'s list')),
+                  child: const Text('See user\'s list')),
             ),
             Padding(
-              padding: EdgeInsets.only(left: 7),
+              padding: const EdgeInsets.only(left: 7),
               child: ElevatedButton(
                   onPressed: () {
                     deleteContentFromHive();
                     context.go('/');
                   },
-                  child: Text('Delete data')),
+                  child: const Text('Delete data')),
             ),
           ],
         ),
@@ -102,10 +105,12 @@ class MyHomePage extends StatelessWidget {
       });
     }
     // ! Debugging
-    print('Se ejecuta build()');
+    if (kDebugMode) {
+      print('Se ejecuta build()');
+    }
     return Scaffold(
       appBar: AppBar(
-        title: Text('Combined Playlist Maker'),
+        title: const Text('Combined Playlist Maker'),
       ),
       body: Center(
           child: Column(
