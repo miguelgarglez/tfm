@@ -23,11 +23,62 @@ class UsersDisplay extends StatefulWidget {
 }
 
 class _UsersDisplayState extends State<UsersDisplay> {
+  bool _firstTime = false;
   @override
   void initState() {
     super.initState();
     List<User> currentUsers = Hive.box<User>('users').values.toList();
     widget.users = currentUsers;
+    _checkFirstTime();
+  }
+
+  Future<void> _checkFirstTime() async {
+    // Inicializar Hive y abrir una caja
+    var box = await Hive.box('firstTime');
+
+    bool firstTime = box.get('firstTime', defaultValue: true);
+
+    if (firstTime) {
+      await box.put('firstTime', false);
+      setState(() {
+        _firstTime = true;
+      });
+
+      WidgetsBinding.instance.addPostFrameCallback((_) {
+        if (_firstTime) {
+          _showWelcomeDialog();
+        }
+      });
+    } else {
+      setState(() {
+        _firstTime = false;
+      });
+    }
+  }
+
+  void _showWelcomeDialog() {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          titlePadding: const EdgeInsets.only(top: 35, left: 35, right: 35),
+          contentPadding:
+              const EdgeInsets.only(top: 20, left: 35, right: 35, bottom: 35),
+          title: const Text("Welcome!"),
+          content: const Text("""You logged in with a Spotify user! 
+Log in with more users and create combined playlists together (+).
+Or tap on your profile card and explore your most listened tracks and artists!"""),
+          actions: <Widget>[
+            TextButton(
+              child: const Text("Got it!"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 
   int calculateCrossAxisCount(BuildContext context) {
@@ -130,7 +181,12 @@ class _UsersDisplayState extends State<UsersDisplay> {
                                   context.go('/users');
                                 } else {
                                   var authBox = Hive.box('auth');
-                                  authBox.clear().then((v) => context.go('/'));
+                                  var firtTimeBox = Hive.box('firstTime');
+                                  authBox.clear().then((v) {
+                                    firtTimeBox
+                                        .clear()
+                                        .then((value) => context.go('/'));
+                                  });
                                 }
                               }
                             },

@@ -10,6 +10,7 @@ void main() async {
   await Hive.openBox('auth');
   await Hive.openBox('codeVerifiers');
   await Hive.openBox('urlCode');
+  await Hive.openBox('firstTime');
   await Hive.openBox<User>('users');
   usePathUrlStrategy();
   runApp(const MyApp());
