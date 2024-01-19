@@ -95,16 +95,30 @@ class _GeneratePlaylistBasicState extends State<GeneratePlaylistBasic> {
                       if (handleResponseUI(playlistResponse, '', context) ==
                           ReturnCodes.SUCCESS) {
                         if (playlistResponse.content.length == 1) {
-                          // if only one playlist has been generated with one aggregation strategy,
-                          // the playlist is displayed directly
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => PlaylistDisplay(
-                                    items: playlistResponse
-                                        .content[_aggregationStrategy],
-                                    title: 'Your combined playlist'),
-                              ));
+                          if (playlistResponse.auxContent.isEmpty) {
+                            // if only one playlist has been generated with one aggregation strategy,
+                            // the playlist is displayed directly
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PlaylistDisplay(
+                                      items: playlistResponse
+                                          .content[_aggregationStrategy],
+                                      title: 'Your combined playlist'),
+                                ));
+                          } else {
+                            // if it was going to be a comparison, but one playlist
+                            // has been removed due to total overlapping
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => PlaylistDisplay(
+                                      items: playlistResponse.content.values
+                                          .toList()[0],
+                                      wasOverlapped: true,
+                                      title: 'Your combined playlist'),
+                                ));
+                          }
                         } else {
                           // if multiple playlists have been generated, a tab bar will be displayed
                           // to show the different playlists generated with different aggregation strategies

@@ -221,37 +221,33 @@ Or tap on your profile card and explore your most listened tracks and artists!""
             tooltip: 'Make a combined playlist',
           ),
           // * TEMPORAL ACTION BUTTON
-          (kDebugMode)
-              ? ActionButton(
-                  onPressed: () {
-                    setState(() {
-                      // ! Debugging
-                      if (kDebugMode) {
-                        print(
-                            'Started checking all strategies and durations...');
-                      }
-                    });
-                    checkAllStrategiesAllDurations().then((data) {
-                      setState(() {
-                        // ! Debugging
-                        if (kDebugMode) {
-                          print(
-                              'Finished checking all strategies and durations');
-                        }
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (context) =>
-                                  BasicDataVisualization.isJSON(
-                                      data: jsonEncode(data)),
-                            ));
-                      });
-                    });
-                  },
-                  icon: const Icon(Icons.plumbing_sharp),
-                  tooltip: 'Execute CPM test',
-                )
-              : Container(),
+          if (kDebugMode)
+            ActionButton(
+              onPressed: () {
+                setState(() {
+                  // ! Debugging
+                  if (kDebugMode) {
+                    print('Started checking all strategies and durations...');
+                  }
+                });
+                checkAllStrategiesAllDurations().then((data) {
+                  setState(() {
+                    // ! Debugging
+                    if (kDebugMode) {
+                      print('Finished checking all strategies and durations');
+                    }
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => BasicDataVisualization.isJSON(
+                              data: jsonEncode(data)),
+                        ));
+                  });
+                });
+              },
+              icon: const Icon(Icons.plumbing_sharp),
+              tooltip: 'Execute CPM test',
+            ),
           // * TEMPORAL ACTION BUTTON
         ],
       ),

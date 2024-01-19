@@ -16,14 +16,20 @@ class PlaylistDisplay extends StatelessWidget {
   final String title;
   final String? userId;
   final Map<String, dynamic> playlists;
+  final bool? wasOverlapped;
 
   const PlaylistDisplay(
-      {super.key, required this.items, required this.title, this.userId})
+      {super.key,
+      required this.items,
+      required this.title,
+      this.userId,
+      this.wasOverlapped})
       : playlists = const {};
 
   const PlaylistDisplay.multiplePlaylists(
       {super.key, required this.playlists, required this.title, this.userId})
-      : items = const [];
+      : wasOverlapped = false,
+        items = const [];
   @override
   Widget build(BuildContext context) {
     // * If something happened and there are no playlists to display
@@ -52,6 +58,11 @@ class PlaylistDisplay extends StatelessWidget {
       );
       // * If there is only one playlist to display
     } else if (items.isNotEmpty) {
+      if (wasOverlapped == true) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          _showOverlappingDialog(context);
+        });
+      }
       return Scaffold(
           appBar: AppBar(
             title: Text(title),
@@ -131,5 +142,30 @@ class PlaylistDisplay extends StatelessWidget {
         }),
       );
     }
+  }
+
+  void _showOverlappingDialog(context) {
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          titlePadding: const EdgeInsets.only(top: 35, left: 35, right: 35),
+          contentPadding:
+              const EdgeInsets.only(top: 20, left: 35, right: 35, bottom: 35),
+          title: const Text("Sorry :("),
+          content: const Text(
+              """It was not possible to generate two options for you to choose.
+Hopefully you will like the one we generated for you!"""),
+          actions: <Widget>[
+            TextButton(
+              child: const Text("OK"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
 }

@@ -14,7 +14,8 @@ import 'package:http/http.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 const CLIENT_ID = '26cd2b5bfc8a431eb6b343e28ced0b6f';
-const REDIRECT_URI = 'http://localhost:5000/'; //default
+const REDIRECT_URI =
+    'http://localhost:5000/'; //'https://miguelgarglez.github.io';
 const SCOPE =
     'user-read-private user-read-email user-top-read playlist-modify-public playlist-modify-private ugc-image-upload';
 
@@ -462,7 +463,7 @@ Future<MyResponse> refreshToken(userId) async {
 Future<MyResponse> obtainAllUsersRecommendations(
     {double numTracks = 3,
     double numArtists = 2,
-    String tracksTerm = 'medium_term',
+    String tracksTerm = 'short_term',
     String artistsTerm = 'long_term'}) async {
   MyResponse ret = MyResponse();
 
@@ -552,6 +553,15 @@ Future<MyResponse> generateCombinedPlaylist(
   List<int> seedProp = [2, 0, 3];
   Map<String, List> playlists = generateRecommendedPlaylist(
       recommendations.content, duration, seedProp, type);
+
+  // ! Taking into account that there will be two strategies to compare for users
+  // ! tests, we will eliminate one of the playlists if it totally overlaps with the other one
+  // ! This is done to avoid having two playlists that are exactly the same
+  if (playlists.length == 2) {
+    // lo hacemos para las pruebas de usuarios donde se comparan 2 estrategias
+    playlists = removeIfOverlaps(playlists);
+    ret.auxContent = {'msg': 'Playlist removed due to total overlap'};
+  }
 
   ret.statusCode = recommendations.statusCode;
   ret.content = playlists;

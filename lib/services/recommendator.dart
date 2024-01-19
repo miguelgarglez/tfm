@@ -1,4 +1,5 @@
 import 'package:combined_playlist_maker/models/track.dart';
+import 'package:flutter/foundation.dart';
 
 Map<String, Function> strategies = {
   //'average': averageGroupRatings,
@@ -44,18 +45,8 @@ Map<String, List<dynamic>> generateRecommendedPlaylist(
   }
   sortedTracks[type] = sortedRecommendation(groupRatings[type]!);
 
-  // ! Debugging
-  /*print('RANKING:');
-  print('${sortedMapRecommendation(groupRatings[type]!)}');*/
-
   recommendation[type] =
       cutOrderedRecommendations(sortedTracks[type]!, playlistDuration);
-
-  // ! Debugging
-  /*print('Duracion que se pidio: ${playlistDuration}');
-  print(
-      'Duracion que se obtuvo: ${calculateTotalDuration(recommendation[type]!)}');
-  print('Numero de tracks: ${recommendation[type]!.length}');*/
 
   return recommendation;
 }
@@ -321,4 +312,48 @@ Duration calculateTotalDuration(List recommendations) {
   }
 
   return Duration(milliseconds: totalDuration.toInt());
+}
+
+/// Removes a playlist if it overlaps with another playlist.
+/// Removes a playlist from the given map if it is totally overlapped with another playlist.
+///
+/// The [playlists] parameter is a map where the keys are playlist names and the values are lists of songs.
+/// The function checks if the first two playlists in the map are totally overlapped using the [areTotallyOverlapped] function.
+/// If they are, the function removes the first playlist from the map and returns the updated map.
+///
+/// If the [kDebugMode] constant is true, a debug message is printed to indicate that a playlist is being removed due to total overlapping.
+///
+/// Returns the updated map of playlists after removing any overlapped playlist.
+Map<String, List> removeIfOverlaps(Map<String, List> playlists) {
+  List p = playlists.values.toList();
+  if (areTotallyOverlapped(p[0], p[1])) {
+    if (kDebugMode) {
+      print('Removing playlist due to total overlapping');
+    }
+    playlists.remove(playlists.keys.toList()[0]);
+  }
+  return playlists;
+}
+
+/// Checks if two playlists are totally overlapped.
+///
+/// Returns true if all the tracks in playlist p1 are also present in playlist p2,
+/// otherwise returns false.
+bool areTotallyOverlapped(p1, p2) {
+  List trackIds = [];
+  double overlapping = 0;
+  for (Track track in p1) {
+    trackIds.add(track.id); // add ids of p1 tracks
+  }
+  for (Track track in p2) {
+    if (trackIds.contains(track.id)) {
+      overlapping += 1;
+    }
+  }
+
+  double overlappingValue = overlapping / ((p1.length + p2.length) / 2);
+  if (overlappingValue == 1.0) {
+    return true;
+  }
+  return false;
 }

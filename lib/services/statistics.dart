@@ -48,6 +48,13 @@ void auxInfoRecommendations(Map<String, List> recommendations) {
   print('Repeated tracks: ${repeatedTracks}');
 }
 
+/// Checks all strategies for all durations and returns the results.
+///
+/// This function generates playlists for each strategy and duration based on the obtained recommendations.
+/// It calculates the overlapping between the playlists and returns the results in a map.
+/// The map contains information about the users, users' similarity, and strategies overlapping for each duration.
+///
+/// Returns a Future that resolves to a map containing the results.
 Future<Map> checkAllStrategiesAllDurations() async {
   List<Duration> durations = [
     Duration(minutes: 10),
