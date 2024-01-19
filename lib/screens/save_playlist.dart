@@ -39,6 +39,9 @@ class _SavePlaylistState extends State<SavePlaylist> {
   Uint8List? playlistCover;
   String base64Cover = '';
 
+  final GlobalKey<ScaffoldMessengerState> _scaffoldKey =
+      GlobalKey<ScaffoldMessengerState>();
+
   Future<void> initializeData() async {
     try {
       var usersBox = Hive.box<User>('users');
@@ -60,10 +63,22 @@ class _SavePlaylistState extends State<SavePlaylist> {
   Future<void> _pickImage() async {
     final pickedImageBytes = await ImagePickerWeb.getImageAsBytes();
 
-    setState(() {
-      playlistCover = pickedImageBytes;
-      base64Cover = base64Encode(pickedImageBytes as List<int>);
-    });
+    if (pickedImageBytes != null) {
+      if (pickedImageBytes.length > 255 * 1024) {
+        WidgetsBinding.instance.addPostFrameCallback((_) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            const SnackBar(
+              content: Text('Sorry, the image is too big'),
+            ),
+          );
+        });
+        return;
+      }
+      setState(() {
+        playlistCover = pickedImageBytes;
+        base64Cover = base64Encode(pickedImageBytes);
+      });
+    }
   }
 
   bool validatePlaylistData() {
@@ -84,6 +99,7 @@ class _SavePlaylistState extends State<SavePlaylist> {
       return _buildAskForUser();
     }
     return Scaffold(
+      key: _scaffoldKey,
       appBar: AppBar(
         title: const Text('Save Playlist'),
       ),

@@ -97,8 +97,9 @@ class MyHomePage extends StatelessWidget {
 
       retrieveSpotifyProfileInfo().then((user) {
         if (user.content.isNotValid()) {
-          // En caso de error
-          // de momento queda pendiente
+          // TODO: Fix bug that makes the build method be called twice
+          // TODO: and make the error be thrown always
+          // This is why we are not doing anything in case there is an error
         } else {
           context.go('/users/');
         }
