@@ -1,0 +1,90 @@
+\ifglsentryexists{wytiwyg}{}%
+{%
+\gls@defglossaryentry{wytiwyg}%
+{%
+name={WYTIWYG},%
+sort={WYTIWYG},%
+type={acronym},%
+first={What You Think Is What You Get\glsspace (WYTIWYG)},%
+firstplural={What You Think Is What You Gets\glsspace (WYTIWYGs)},%
+text={WYTIWYG},%
+plural={WYTIWYGs},%
+description={What You Think Is What You Get},%
+descriptionplural={What You Think Is What You Get\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={What You Think Is What You Get},%
+longplural={What You Think Is What You Gets},%
+short={WYTIWYG},%
+shortplural={WYTIWYGs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{wysiwyg}{}%
+{%
+\gls@defglossaryentry{wysiwyg}%
+{%
+name={WYSIWYG},%
+sort={WYSIWYG},%
+type={acronym},%
+first={What You See Is What You Get\glsspace (WYSIWYG)},%
+firstplural={What You See Is What You Gets\glsspace (WYSIWYGs)},%
+text={WYSIWYG},%
+plural={WYSIWYGs},%
+description={What You See Is What You Get},%
+descriptionplural={What You See Is What You Get\acrpluralsuffix },%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={What You See Is What You Get},%
+longplural={What You See Is What You Gets},%
+short={WYSIWYG},%
+shortplural={WYSIWYGs},%
+counter={page},%
+parent={},%
+%
+}%
+}%
+\ifglsentryexists{OPCST}{}%
+{%
+\gls@defglossaryentry{OPCST}%
+{%
+name={opción de estilo},%
+sort={opción de estilo},%
+type={main},%
+first={opci\IeC {\'o}n de estilo},%
+firstplural={opciones de estilo},%
+text={opci\IeC {\'o}n de estilo},%
+plural={opciones de estilo},%
+description={Son los valores que modifican el funcionamiento del estilo. Se ponen entre corchetes y separadas por comas en el comando \textbackslash documentclass y antes de el nombre del estilo que irá entre llaves},%
+descriptionplural={Son los valores que modifican el funcionamiento del estilo. Se ponen entre corchetes y separadas por comas en el comando \textbackslash documentclass y antes de el nombre del estilo que irá entre llaves},%
+symbol={\relax },%
+symbolplural={\relax },%
+user1={},%
+user2={},%
+user3={},%
+user4={},%
+user5={},%
+user6={},%
+long={},%
+longplural={},%
+short={},%
+shortplural={},%
+counter={page},%
+parent={},%
+%
+}%
+}%

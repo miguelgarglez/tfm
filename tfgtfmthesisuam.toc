@@ -1,0 +1,21 @@
+\babel@toc {spanish}{}
+\contentsline {chapter}{\numberline {1}Introducci\IeC {\'o}n}{1}{chapter.1}%
+\contentsline {section}{\numberline {1.1}Motivaci\IeC {\'o}n del proyecto}{1}{section.1.1}%
+\contentsline {section}{\numberline {1.2}Propuesta y objetivos}{2}{section.1.2}%
+\contentsline {section}{\numberline {1.3}Estructura del documento}{2}{section.1.3}%
+\contentsline {chapter}{\numberline {2}Estado del arte}{3}{chapter.2}%
+\contentsline {section}{\numberline {2.1}\textit {Framework} de desarrollo de aplicaciones: \textit {Flutter}}{3}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}\textit {Dart}, el lenguaje detr\IeC {\'a}s de \textit {Flutter}}{4}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Instalaci\IeC {\'o}n y primer uso b\IeC {\'a}sico}{4}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}\textit {Widgets}}{5}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}API Web de Spotify}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}Visi\IeC {\'o}n general de la API}{6}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Datos de cuenta de los usuarios}{8}{subsection.2.2.2}%
+\contentsline {subsection}{\numberline {2.2.3}Canciones m\IeC {\'a}s escuchadas}{8}{subsection.2.2.3}%
+\contentsline {subsection}{\numberline {2.2.4}Recomendaciones}{8}{subsection.2.2.4}%
+\contentsline {subsection}{\numberline {2.2.5}Crear playlist}{8}{subsection.2.2.5}%
+\contentsline {section}{\numberline {2.3}Recomendaci\IeC {\'o}n}{8}{section.2.3}%
+\contentsline {chapter}{\numberline {3}Desarrollo}{9}{chapter.3}%
+\contentsline {chapter}{\numberline {4}Pruebas y resultados}{11}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{13}{chapter.5}%
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{15}{chapter*.19}%

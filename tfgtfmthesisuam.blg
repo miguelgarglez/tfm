@@ -1,0 +1,46 @@
+This is BibTeX, Version 0.99d (TeX Live 2020)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: tfgtfmthesisuam.aux
+The style file: ieeetr.bst
+Database file #1: tfgtfmthesisuam.bib
+You've used 12 entries,
+            1876 wiz_defined-function locations,
+            522 strings with 4321 characters,
+and the built_in function-call counts, 1524 in all, are:
+= -- 132
+> -- 48
+< -- 0
++ -- 24
+- -- 12
+* -- 62
+:= -- 229
+add.period$ -- 12
+call.type$ -- 12
+change.case$ -- 12
+chr.to.int$ -- 0
+cite$ -- 12
+duplicate$ -- 48
+empty$ -- 217
+format.name$ -- 12
+if$ -- 385
+int.to.chr$ -- 0
+int.to.str$ -- 12
+missing$ -- 0
+newline$ -- 39
+num.names$ -- 12
+pop$ -- 72
+preamble$ -- 1
+purify$ -- 0
+quote$ -- 0
+skip$ -- 47
+stack$ -- 0
+substring$ -- 0
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 12
+width$ -- 14
+write$ -- 98

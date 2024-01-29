@@ -1,0 +1,44 @@
+\begin{thebibliography}{10}
+
+\bibitem{flutter}
+Google, ``Flutter.'' \url{github.com/flutter/flutter}, 2017.
+
+\bibitem{spotify}
+S.~AB, ``Spotify.'' \url{https://open.spotify.com/}, 2024.
+
+\bibitem{spotify_api}
+S.~AB, ``Web api, spotify for developers.''
+  \url{https://developer.spotify.com/documentation/web-api}, 2024.
+
+\bibitem{flutter_car}
+Google, ``Toyota showcase.'' \url{https://flutter.dev/showcase/toyota}, 2021.
+
+\bibitem{dart}
+Google, ``Dart.'' \url{https://github.com/dart-lang}, 2011.
+
+\bibitem{hot_reload}
+Google, ``Hot reload.'' \url{https://docs.flutter.dev/tools/hot-reload}, 2023.
+
+\bibitem{pub_dev}
+Google, ``pub.dev.'' \url{https://pub.dev}, 2023.
+
+\bibitem{dart_overview}
+Google, ``Dart overview.'' \url{https://dart.dev/overview}, 2023.
+
+\bibitem{flutter_install}
+Google, ``Flutter install.''
+  \url{https://docs.flutter.dev/get-started/install}, 2024.
+
+\bibitem{flutter_ui}
+Google, ``Building user interfaces with flutter.''
+  \url{https://docs.flutter.dev/ui}, 2023.
+
+\bibitem{react}
+Meta, ``React.'' \url{https://react.dev}, 2024.
+
+\bibitem{spotify_pkce}
+S.~AB, ``Authorization code with pkce flow.''
+  \url{https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow},
+  2024.
+
+\end{thebibliography}

@@ -1,0 +1,67 @@
+En esta sección realizaremos una visión general de la API de \textit{Spotify} \cite{spotify_api}, e iremos pasando por
+los \textit{endpoints} más destacados, que serán útiles para el desarrollo de la aplicación. No obstante, 
+en el capítulo \ref{CAP:DESARROLLO} se ahondará más en el uso de cada uno de ellos.
+
+\subsection{Visión general de la API\label{subsec:vision_general_api}}
+
+La API de \textit{Spotify} \cite{spotify_api} es una API \textit{REST}, que utiliza el formato \textit{JSON} para el intercambio 
+de datos. Es importante destacar que para hacer uso de esta API, es necesario darse de alta como desarrollador, asumiendo que se 
+tiene una cuenta de \textit{Spotify}. Una vez hecho esto, se podrán dar de alta aplicaciones en la cuenta de desarrollador desde el
+\textit{Dashboard}, y tener así los datos y credenciales necesarios para hacer uso de la API. 
+En el \textit{Dashboard} se pueden ver las aplicaciones dadas de alta, así como crear nuevas. Además, se puede entrar en cada
+aplicación para ver datos de utilización de \textit{endpoints} y editar ajustes sobre ella, como la dirección del sitio web,
+las posibles \textit{redirect URIs} para el flujo de autenticación, etc.
+Obsérvese la figura \ref{FIG:SPOTIFY_DEV}
+a modo de orientación.
+
+\begin{figure}[Visión general \textit{Spotify for Developers}]{FIG:SPOTIFY_DEV}
+    {Visión general \textit{Spotify for Developers} \\
+    {\scriptsize Imágenes extraídas de \href{https://developer.spotify.com/dashboard/}{developer.spotify.com}}}
+    \subfigure[]{\textit{Dashboard}}{\image{7cm}{}{propias/dashboard.png}} \quad
+    \subfigure[]{Información aplicación}{\image{7cm}{}{propias/app_basic_info.png}} \quad
+    \subfigure[]{Editar ajustes aplicación}{\image{7cm}{}{propias/app_settings.png}}
+\end{figure}
+
+Para hacerse una idea inicial de qué tipos de \textit{endpoints} nos harán falta, se puede hacer una primera aproximación
+a la aplicación que se quiere desarrollar. Vamos a suponer que un grupo de usuarios de \textit{Spotify} está 
+reunido e interesado en crear una playlist común que combine sus gustos musicales para escuchar en ese momento
+(o en un futuro). Teniendo en cuenta esta situación, y el resultado que se quiere obtener, podemos
+listar qué tipos de \textit{endpoints} o interacciones con la API nos harán falta:
+
+\begin{itemize}
+  \item \textbf{Datos de cuenta de los usuarios}, es decir, necesitaremos que los usuarios hagan 
+  \textit{login} con sus cuentas de \textit{Spotify} 
+  \item \textbf{Canciones más escuchadas} porque es necesario saber sobre los gustos de los usuarios y,
+  obtener las canciones más escuchadas de cada uno de los usuarios que forman el grupo, parece una buena forma de hacerlo.
+  \item \textbf{Recomendaciones}, porque así, podremos aprovecharnos de las estrategias de recomendación 
+  individuales de \textit{Spotify}, y obtener recomendaciones de canciones que puedan gustar a los usuarios 
+  que forman el grupo, para así generar la playlist común.
+  \item \textbf{Crear playlist}, porque así los usuarios podrán guardar en sus cuentas de \textit{Spotify} la
+  playlist que se haya generado.
+\end{itemize}
+
+\subsection{Datos de cuenta de los usuarios\label{subsec:datos_cuenta_usuarios}}
+
+Para que los usuarios puedan autenticarse aplicaciones con sus cuentas de \textit{Spotify}, y así poder crear playlists 
+combinadas con los usuarios de su grupo, se llevará a cabo el flujo de autenticación PKCE 
+(\textit{Proof Key for Code Exchange}) definido en \cite{spotify_pkce}, el cual es el recomendado por 
+\textit{Spotify} para aplicaciones móviles u aplicaciones web de una sola página, donde la clave secreta
+del cliente no puede ser protegida de manera segura. Se puede ver un gráfico del flujo en la figura \ref{FIG:SPOTIFY_PKCE_FLOW}.
+
+\begin{figure}[Flujo de autenticación PKCE]{FIG:SPOTIFY_PKCE_FLOW}
+    {Flujo de autenticación PKCE}
+          \image{14cm}{}{propias/flujo_pkce.png}
+\end{figure}
+
+Para llevar a cabo esta autenticación, la app tendrá que lanzar la URL de autenticación de \textit{Spotify}
+("https://accounts.spotify.com/authorize"). Para más detalles sobre cómo se lleva a cabo este flujo en nuestra app, se tratará en 
+el capítulo \ref{CAP:DESARROLLO}.
+
+\subsection{Canciones más escuchadas\label{subsec:canciones_mas_escuchadas}}
+
+\subsection{Recomendaciones\label{subsec:recomendaciones}}
+
+\subsection{Crear playlist\label{subsec:crear_playlist}}
+
+
+

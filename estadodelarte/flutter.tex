@@ -1,0 +1,124 @@
+\textit{Flutter} \cite{flutter} es un \textit{framework} de desarrollo de código abierto de aplicaciones multiplataforma desarrollado 
+por \textit{Google}. Es una alternativa que tiene cierta popularidad, y que, como comentábamos en la sección \ref{SEC:MOTIVACION}
+ha llamado nuestra atención.
+
+Con este \textit{framework}, se pueden desarrollar aplicaciones para diversas plataformas, con una misma base de código.
+Desde aplicaciones móviles en \textit{iOS} y \textit{Android}, hasta aplicaciones de escritorio para \textit{Windows}, \textit{Linux} o \textit{MacOS}. Sin olvidarnos de
+las aplicaciones \textit{Web} (como la aplicación desarrollada en este trabajo), o incluso dispositivos 
+embebidos, como los que pueden ser el infoentretenimiento de un coche \cite{flutter_car}. 
+
+Aunque solamente este hecho aporta un atractivo muy considerable a esta tecnología, \textit{Flutter} cuenta con otras características a tener en cuenta:
+
+\begin{itemize}
+  \item \textbf{Rendimiento:} utiliza el lenguaje de programación \textit{Dart} \cite{dart}, que se compila a código nativo, lo que aporta una ventaja en rendimiento clara.
+   Comentaremos más sobre las características de este lenguaje en la sección \ref{SEC:DART}.
+  \item \textbf{Productividad:} cuenta con \textit{Hot Reload} \cite{hot_reload}, que permite ver los cambios en la aplicación en tiempo real, sin necesidad de reiniciar 
+  la aplicación, y sin perder el estado de esta, agilizando mucho el desarrollo.
+  \item \textbf{Personalización:} su diseño de la interfaz basada en \textit{widgets} personalizables, que permiten crear interfaces de usuario atractivas y consistentes.
+  \item \textbf{Comunidad:} existe una comunidad con buena actividad, la cual hace que prolifere el desarrollo de \textit{plugins} que se pueden encontrar en \textit{pub.dev} \cite{pub_dev}.
+
+\end{itemize}
+
+
+
+
+
+\subsection{\textit{Dart}, el lenguaje detrás de \textit{Flutter}\label{SEC:DART}}
+
+\textit{Flutter} se basa en el lenguaje de programación \textit{Dart} \cite{dart}, 
+también desarrollado por \textit{Google}. Aunque este es un lenguaje relativamente nuevo, y con 
+un uso que no está tan extendido como otros lenguajes, como \textit{Java}, \textit{Python} o \textit{JavaScript},
+podemos destacar varias características de este lenguaje que lo hacen atractivo. Por otro lado, haberse familiarizado
+con este lenguaje no ha sido un problema para el desarrollo en este trabajo, debido a una sintaxis que 
+recuerda a otros lenguajes como \textit{Java}, \textit{C++} o \textit{JavaScript}. Algunas características 
+para una visión general de \textit{Dart} \cite{dart_overview} son:
+
+\begin{itemize}
+  \item \textbf{Tipado estático:} es un lenguaje de tipado estático, lo que significa que una vez las 
+  variables se declaran de un tipo, este no puede cambiar durante la ejecución del programa.
+  \item \textbf{Tipado dinámico:} aunque sea un lenguaje de tipado estático, también permite el uso del tipo
+  \texttt{dynamic}, que permite flexibilidad en el tipo que deba tener una variable.
+  \item \textbf{Programación orientada a objetos:} es un lenguaje orientado a objetos, lo que lo hace muy amigable
+  si se tiene experiencia con otros lenguajes orientados a objetos.
+  \item \textbf{Seguridad frente a nulos:} tiene un sistema de seguridad frente a nulos, que permite evitar que variables
+puedan tener un valor nulo en cualquier momento en tiempo de ejecución.
+  \item \textbf{Asincronía:} permite el uso de funciones asíncronas, que permiten ejecutar código en segundo plano, 
+  sin bloquear la ejecución del programa.
+  \item \textbf{Compilación a código nativo:} se compila a código nativo, lo que aporta un rendimiento muy bueno.
+  \item \textbf{Compilación nativa:} permite la compilación \textit{JIT} (\textit{just-in-time}) y \textit{AOT} (\textit{ahead-of-time}), 
+  que permite producir código máquina para plataformas nativas.
+  \item \textbf{Compilación \textit{Web}:} para aplicaciones \textit{Web}, se compila a código
+  \textit{JavaScript}, que es lo que ocurre con la aplicación desarrollada en este trabajo.
+\end{itemize}
+
+Dart es un lenguaje optimizado para el cliente que permite desarrollar aplicaciones rápidas en cualquier 
+plataforma. Su objetivo es ofrecer el lenguaje de programación más productivo para el desarrollo 
+multiplataforma, junto con una plataforma de ejecución flexible para marcos de aplicaciones. 
+Dart también constituye la base de Flutter. Dart proporciona el lenguaje y los tiempos de ejecución 
+que impulsan las aplicaciones de Flutter, pero Dart también admite muchas tareas básicas del desarrollador, 
+como formatear, analizar y probar el código \cite{dart_overview}.
+
+\subsection{Instalación y primer uso básico\label{SEC:INSTALACION}}
+
+Para poder desarrollar con \textit{Flutter}, es necesario instalar el \textit{SDK} de 
+\textit{Flutter}, que se explica en \cite{flutter_install} para diferentes plataformas.
+
+Una vez instalado, se puede comprobar que todo funciona correctamente ejecutando el comando 
+\texttt{flutter doctor}. Para crear un proyecto, se ejecuta el comando \texttt{flutter create <nombre\_proyecto>}.
+Una vez creado, tras situarse en el directorio del nuevo proyecto, se puede ejecutar
+con el comando \texttt{flutter run}. Ejecutando el comando \texttt{flutter devices} se puede
+comprobar qué dispositivos están conectados y disponibles para la ejecución. En la figura \ref{FIG:FLUTTER_RUN} 
+se puede ver un ejemplo de ejecución de un proyecto \textit{Flutter}.
+
+\begin{figure}[Ejecución de un proyecto \textit{Flutter}]{FIG:FLUTTER_RUN}
+  {Ejecución de un proyecto \textit{Flutter} \\
+   \footnotesize{
+    Imagen extraída de \href{
+      https://docs.flutter.dev/get-started/test-drive?tab=terminal
+    }{flutter.dev}
+    }
+  }
+        \image{6cm}{}{propias/flutter_run.png}
+\end{figure}
+
+
+\subsection{\textit{Widgets}\label{SEC:WIDGETS}}
+
+Los \textit{widgets} son el elemento básico de la interfaz de usuario en \textit{Flutter}. Todo lo que se ve
+en pantalla es un \textit{widget}, y estos se combinan para crear elementos gráficos más complejos; pero 
+siempre hay que tener en mente que todo está formado por \textit{widgets}, los cuales se organizan en forma de
+árbol. En la figura \ref{FIG:WIDGETS} se puede ver un ejemplo de vista de árbol de \textit{widgets}.
+
+\begin{figure}[Ejemplo de árbol de \textit{widgets}]{FIG:WIDGETS}
+  {Ejemplo de árbol de \textit{widgets}}
+        \image{6cm}{}{propias/widget_tree.png}
+\end{figure}
+
+Según \cite{flutter_ui}, los widgets de Flutter se construyen utilizando un marco moderno que se inspira en \textit{React} \cite{react}. 
+La idea central es construir la interfaz de usuario a partir de widgets. Los widgets describen el aspecto que debería 
+tener su vista en función de su configuración y estado actuales. Cuando cambia el estado de un widget, este reconstruye 
+su descripción, que el framework compara con la descripción anterior para determinar los cambios mínimos necesarios en el 
+árbol de renderizado subyacente para pasar de un estado al siguiente.
+
+Existen dos tipos de \textit{widgets}: los \textit{StatelessWidget} y los \textit{StatefulWidget}. Los primeros son aquellos que no contemplan
+cambios en su estado porque no tienen; es decir, no almacenan un estado que pueda variar. Mientras que los segundos sí almacenan un estado que pueda
+variar, y por ejemplo, pueden cambiar su aspecto en función de este estado.
+
+Para hacer ver esto de una forma más cercana a lo técnico y al código, vamos a aclarar un par de cosas. Cuando se crea un \textit{widget}, se define una clase
+que hereda de \textit{StatelessWidget} o de \textit{StatefulWidget}, y se implementa el método \texttt{build()}. Este método es el que se encarga de devolver
+un \textit{widget} (que, como ya hemos comentado, puede estar formado por numerosos \textit{widgets} estructurados en un árbol) que será lo que se muestre en 
+la interfaz de usuario.
+
+En el caso de los \textit{StatefulWidget}, debe implementarse el método \texttt{createState()}, que devolverá un objeto que hereda de \textit{State}.
+Este será el que se encargue de almacenar el estado del \textit{widget}, y actualizarlo cuando se necesite. En el caso de un \textit{StatefulWidget}, el método
+\texttt{build()} puede implementarse tanto en el \textit{widget} como en el \textit{state}, pero es recomendable hacerlo en el \textit{state}.
+Veamos la comparación en código de un \textit{StatelessWidget} y un \textit{StatefulWidget} en la figura \ref{FIG:WIDGETS_CODE}.
+
+\begin{figure}[Implementación en código de un \textit{StatelessWidget} y un \textit{StatefulWidget}]{FIG:WIDGETS_CODE}
+  {Implementación en código de un \textit{StatelessWidget} y un \textit{StatefulWidget}}
+  \subfigure[]{\textit{StatelessWidget}}{\image{7cm}{}{propias/stateless.png}} \quad
+  \subfigure[]{\textit{StatefulWidget}}{\image{7cm}{}{propias/stateful.png}}
+\end{figure}
+
+
+
