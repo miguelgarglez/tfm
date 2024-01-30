@@ -41,4 +41,19 @@ S.~AB, ``Authorization code with pkce flow.''
   \url{https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow},
   2024.
 
+\bibitem{top_items}
+S.~AB, ``Get user's top items.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks},
+  2024.
+
+\bibitem{recommendations}
+S.~AB, ``Get recommendations.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/get-recommendations},
+  2024.
+
+\bibitem{create_playlist}
+S.~AB, ``Create playlist.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/create-playlist},
+  2024.
+
 \end{thebibliography}

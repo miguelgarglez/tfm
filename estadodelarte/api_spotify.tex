@@ -59,9 +59,76 @@ el capítulo \ref{CAP:DESARROLLO}.
 
 \subsection{Canciones más escuchadas\label{subsec:canciones_mas_escuchadas}}
 
+Una vez se lleva a cabo la autenticación del usuario con su cuenta de \textit{Spotify}, ya podemos hacer llamadas a la API
+gracias al token de acceso que hemos obtenido. 
+
+Comenzando por las canciones más escuchadas por el usuario, descubrimos que hay una \textit{endpoint} que nos puede devolver
+los datos que necesitamos. En la documentación de la API \cite{spotify_api} está definido como \textit{Get User's Top Items} \cite{top_items}.
+Y es que, resulta que podremos obtener tanto las canciones más escuchadas, como los artistas más escuchados. Veremos cómo haremos 
+uso de este \textit{endpoint} para la implementación de nuestra app en el capítulo \ref{CAP:DESARROLLO}. 
+
+Como se puede observar en la figura \ref{FIG:TOP_ITEMS}, \texttt{GET} es el método a utilizar y se especifican los siguientes parámetros:
+
+\begin{itemize}
+  \item \texttt{type}: para indicar si queremos obtener artistas o canciones.
+  \item \texttt{time\_range}: el período de tiempo sobre el que queremos obtener la lista \textit{items}.
+  \item \texttt{limit}: el número de \textit{items} que querríamos obtener.
+  \item \texttt{offset}: por si quisieramos obtener la lista a partir de una determinada posición.
+\end{itemize}
+
+\begin{figure}[Obtener canciones o artistas más escuchados]{FIG:TOP_ITEMS}
+    {Obtener canciones o artistas más escuchados \\
+    {\scriptsize Imagen extraída de \href{https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks}{developer.spotify.com}}}
+          \image{11cm}{}{propias/top_items.png}
+\end{figure}
+
 \subsection{Recomendaciones\label{subsec:recomendaciones}}
 
+Para obtener recomendaciones de canciones, \textit{Spotify} nos ofrece un \textit{endpoint} llamado \textit{Get Recommendations} \cite{recommendations}.
+En el capítulo \ref{CAP:DESARROLLO} ahondaremos más en detalle sobre cómo se ha hecho uso de este 
+\textit{endpoint} para la implementación de la app. En la figura \ref{FIG:RECOMMENDATIONS}, además de que
+\texttt{GET} es el método a utilizar, se pueden observar cinco parámetros que se pueden especificar:
+
+\begin{itemize}
+  \item \texttt{limit}: el número de canciones que se quieren obtener.
+  \item \texttt{market}: el mercado en el que deben estar presentes las canciones recomendadas,
+  si se quisiera restringir.
+  \item \texttt{seed\_artists}: una lista de identificadores de artistas, a partir de los cuales, 
+  \textit{Spotify} obtendrá canciones para recomendar.
+  \item \texttt{seed\_genres}: una lista de géneros, que funciona igual que la anterior.
+  \item \texttt{seed\_tracks}: una lista de identificadores de canciones, que funciona igual que las anteriores.
+\end{itemize}
+
+Para este \textit{endpoint}, existen más parámetros opcionales que se pueden especificar, relacionados con la 
+la musicalidad, la energía, el tempo, la popularidad de las canciones, etc. Realmente tienen mucho potencial para 
+la obtención de recomendaciones, pero no se han utilizado en la aplicación desarrollada. No obstante, está claro 
+que deben tenerse en cuenta para trabajo futuro, y lo comentaremos en el capítulo \ref{CAP:CONCLUSIONES}.
+
+\begin{figure}[Obtener recomendaciones]{FIG:RECOMMENDATIONS}
+    {Obtener recomendaciones \\
+    {\scriptsize Imagen extraída de \href{https://developer.spotify.com/documentation/web-api/reference/get-recommendations}{developer.spotify.com}}}
+          \image{11cm}{}{propias/recommendations.png}
+\end{figure}
+
 \subsection{Crear playlist\label{subsec:crear_playlist}}
+
+Para crear una playlist, \textit{Spotify} nos ofrece un \textit{endpoint} llamado \textit{Create Playlist} \cite{create_playlist}.
+Como con los anteriores, ahondaremos más en cómo es utilizado en el capítulo \ref{CAP:DESARROLLO}. En la figura \ref{FIG:CREATE_PLAYLIST}, además de
+\texttt{POST} es el método a utilizar, se pueden observar los parámetros a especificar en el cuerpo de la petición:
+
+\begin{itemize}
+  \item \texttt{name}: el nombre de la playlist.
+  \item \texttt{public}: si la playlist es pública o no.
+  \item \texttt{collaborative}: si la playlist es colaborativa o no.
+  \item \texttt{description}: la descripción de la playlist.
+\end{itemize}
+
+\begin{figure}[Crear playlist]{FIG:CREATE_PLAYLIST}
+    {Crear playlist \\
+    {\scriptsize Imagen extraída de \href{https://developer.spotify.com/documentation/web-api/reference/create-playlist}{developer.spotify.com}}}
+          \image{11cm}{}{propias/create_playlist.png}
+\end{figure}
+
 
 
 
