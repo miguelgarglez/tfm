@@ -3,36 +3,36 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: tfgtfmthesisuam.aux
 The style file: ieeetr.bst
 Database file #1: tfgtfmthesisuam.bib
-You've used 15 entries,
+You've used 16 entries,
             1876 wiz_defined-function locations,
-            531 strings with 4684 characters,
-and the built_in function-call counts, 1899 in all, are:
-= -- 165
-> -- 60
+            534 strings with 4810 characters,
+and the built_in function-call counts, 2024 in all, are:
+= -- 176
+> -- 64
 < -- 0
-+ -- 30
-- -- 15
-* -- 77
-:= -- 283
-add.period$ -- 15
-call.type$ -- 15
-change.case$ -- 15
++ -- 32
+- -- 16
+* -- 82
+:= -- 301
+add.period$ -- 16
+call.type$ -- 16
+change.case$ -- 16
 chr.to.int$ -- 0
-cite$ -- 15
-duplicate$ -- 60
-empty$ -- 271
-format.name$ -- 15
-if$ -- 481
+cite$ -- 16
+duplicate$ -- 64
+empty$ -- 289
+format.name$ -- 16
+if$ -- 513
 int.to.chr$ -- 0
-int.to.str$ -- 15
+int.to.str$ -- 16
 missing$ -- 0
-newline$ -- 48
-num.names$ -- 15
-pop$ -- 90
+newline$ -- 51
+num.names$ -- 16
+pop$ -- 96
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 59
+skip$ -- 63
 stack$ -- 0
 substring$ -- 0
 swap$ -- 0
@@ -41,6 +41,6 @@ text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 15
-width$ -- 17
-write$ -- 122
+while$ -- 16
+width$ -- 18
+write$ -- 130

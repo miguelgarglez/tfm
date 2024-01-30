@@ -56,4 +56,9 @@ S.~AB, ``Create playlist.''
   \url{https://developer.spotify.com/documentation/web-api/reference/create-playlist},
   2024.
 
+\bibitem{add_to_playlist}
+S.~AB, ``Add items to playlist.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist},
+  2024.
+
 \end{thebibliography}

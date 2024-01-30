@@ -129,6 +129,22 @@ Como con los anteriores, ahondaremos más en cómo es utilizado en el capítulo 
           \image{11cm}{}{propias/create_playlist.png}
 \end{figure}
 
+Con este \textit{endpoint} se lleva a cabo la creación de la \textit{playlist}, que se guardará en la cuenta de \textit{Spotify} del usuario que
+se elija. Pero aún faltaría añadir las canciones a la \textit{playlist} recién creada. Para ello, \textit{Spotify} nos ofrece un \textit{endpoint} llamado
+\textit{Add Items to Playlist} \cite{add_to_playlist}. En la figura \ref{FIG:ADD_TO_PLAYLIST}, además de observar que \texttt{POST} es el método a utilizar,
+se pueden observar de nuevo los parámetros a especificar en el cuerpo de la petición:
 
+\begin{itemize}
+  \item \texttt{playlist\_id}: el identificador de la \textit{playlist} a la que se quieren añadir las canciones.
+  \item \texttt{position}: la posición en la que se quieren añadir las canciones.
+  \item \texttt{uris}: una lista de identificadores de canciones, que se añadirán a la \textit{playlist}.
+\end{itemize}
 
+Debe observarse además, que las \texttt{uris} se pueden pasar en la URL de la petición si no son demasiadas;
+si no, se recomienda pasarlas en el cuerpo de la petición.
 
+\begin{figure}[Añadir canciones a \textit{playlist}]{FIG:ADD_TO_PLAYLIST}
+    {Añadir canciones a \textit{playlist} \\
+    {\scriptsize Imagen extraída de \href{https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist}{developer.spotify.com}}}
+          \image{11cm}{}{propias/add_to_playlist.png}
+\end{figure}
