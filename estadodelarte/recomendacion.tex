@@ -1,1 +1,64 @@
-Hablaré de recomendación y los conceptos e ideas que se han aplicado en este trabajo para dejar unas bases.
+Como introducción a esta sección, un fragmento del prefacio del libro \textit{Recommender Systems Handbook} \cite{recommender_handbook}
+traducido por nosotros al español aporta una visión bastante actual de qué debe venirnos a la cabeza cuando hablamos de sistemas de recomendación:
+
+\textit{``Los sistemas de recomendación son herramientas y técnicas de software que ofrecen sugerencias de artículos 
+útiles para un usuario. Las sugerencias de un sistema de recomendación están pensadas para ayudar al usuario a tomar 
+decisiones como qué comprar, qué música escuchar o qué noticias leer. Los sistemas de recomendación son un valioso medio
+ para que los usuarios de Internet hagan frente a la sobrecarga de información y les ayuden a elegir mejor. En la 
+ actualidad son una de las aplicaciones más populares de la inteligencia artificial, ya que ayudan a descubrir información
+ en la Red. Se han propuesto varias técnicas de generación de recomendaciones y, en las dos últimas décadas, muchas de
+ ellas se han implantado con éxito en entornos comerciales. Hoy en día, todos los grandes actores de Internet adoptan técnicas de
+ recomendación. El desarrollo de sistemas de recomendación es un esfuerzo multidisciplinar en el que participan expertos 
+ de diversos campos, como la inteligencia artificial, la interacción persona-ordenador, la minería de datos, la estadística, 
+ los sistemas de apoyo a la decisión, el marketing y el comportamiento del consumidor.''}
+
+El estudio sobre sistemas de recomendación es un campo bastante más nuevo que otras técnicas y herramientas clásicas de los sistemas de información, 
+como las bases de datos, o los motores de búsqueda. A pesar de ser un área de estudio independiente relativamente joven, el interés en estos sistemas
+ha crecido de manera muy significativa. Simplemente, un claro signo de ello es cómo se hace uso de los sistemas de recomendación en la actualidad,
+como por ejemplo en las plataformas de \textit{streaming} de música o vídeo (como \textit{Spotify} o \textit{Netflix}), o en las plataformas de
+comercio electrónico (como \textit{Amazon} o \textit{eBay}). Reflexionemos sobre el motivo de su extendido uso. 
+
+\textbf{Partes interesadas en un sistema de recomendación}
+
+Según \cite{recommenderintro}, en un sistema de recomendación influyen tres partes interesadas: los usuarios (o consumidores), los proveedores (o suministradores)
+y los propietarios del sistema. Los usuarios son los que reciben las recomendaciones (basándonos en este trabajo, digamos que los usuarios de \textit{Spotify}), 
+los proveedores son los que ofrecen los productos o servicios que se recomiendan (digamos que los artistas que publican su música en \textit{Spotify}), y
+el propietario del sistema (en este caso, \textit{Spotify}) que ofrece la plataforma en la que los usuarios son acercados a los proveedores (artistas). Sabiendo
+esto, podemos ver que las tres partes se ven beneficiadas ante un escenario ideal: los usuarios reciben recomendaciones de productos o servicios que les
+interesan (descubren nuevas canciones, géneros y artistas que les gustan), los proveedores ven aumentada su visibilidad (los artistas pueden volverse más
+conocidos) y, por tanto, sus ventas, y el propietario del sistema ve aumentado su número de usuarios y, por tanto, sus ingresos (más suscripciones de \textit{Spotify}).
+Este beneficio claro para las tres partes diríamos que es claramente uno de los mayores motivos por los que los sistemas de recomendación son tan 
+populares y utilizados en la actualidad.
+
+\textbf{Fuentes de datos y conocimiento en un sistema de recomendación}
+
+Por otro lado, no podemos dejar de lado la suma importancia que tienen los datos de los que hace uso un sistema de recomendación. En \cite{recommenderintro}, 
+se destacan tres elementos como las fuentes de conocimiento y datos de las que un sistema de recomendación se nutre: los usuarios, los productos (o ítems)
+y las interacciones entre los dos anteriores. Los \textbf{ítems}, que son los objetos de las recomendaciones, deben contar con una descripción detallada y exhaustiva, 
+abarcando desde características generales hasta metadatos específicos. Algoritmos especializados extraen y analizan estas características, los cuales son
+especialmente necesarios y útiles para ítems complejos como imágenes o textos, utilizando técnicas avanzadas de procesamiento de imágenes 
+y lenguaje natural.
+En cuanto a los \textbf{usuarios}, cada usuario se modela de manera única, integrando una diversidad de factores como intereses, edad y género, entre otros. 
+Pero más allá de las preferencias que se puedan mostrar explícitamente (como que un usuario indique sus géneros de música favoritos de manera activa),
+el modelo de un usuario también se enriquece con información contextual, permitiendo así que el sistema de recomendación ajuste sus sugerencias a las
+circunstancias específicas y momentáneas del usuario (como un descubrimiento de un nuevo artista o género que está escuchando recientemente).
+Por último, las \textbf{interacciones} entre usuarios e ítems son la fuente de datos más importante para un sistema de recomendación. Desde calificaciones
+explícitas hasta comportamientos implícitos de navegación, cada acción del usuario aporta información valiosa, contribuyendo a la comprensión profunda de 
+sus preferencias y comportamientos.
+
+\subsection{Métodos y técnicas de recomendación\label{SEC:METODOS_RECOMENDACION}}
+
+
+    \subsubsection{Filtrado basado en contenido\label{SEC:RECOMENDADORES_CONTENIDO}}
+    \subsubsection{Filtrado colaborativo\label{SEC:RECOMENDADORES_COLABORATIVOS}}
+    \subsubsection{Sistemas híbridos\label{SEC:RECOMENDADORES_HIBRIDOS}}
+
+\subsection{Tipos de sistemas de recomendación\label{SEC:TIPOS_RECOMENDADORES}}
+    \subsubsection{Recomendación de música\label{SEC:RECOMENDACION_MUSICA}}
+    \subsubsection{Recomendación a grupos\label{SEC:RECOMENDACION_GRUPOS}}
+
+\subsection{Estrategias de agregación\label{SEC:AGREGACION}}
+
+
+
+

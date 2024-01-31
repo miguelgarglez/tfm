@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.13)  30 JAN 2024 20:02
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.13)  31 JAN 2024 19:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -643,15 +643,15 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 )))
 \verbatim@out=\write5
-runsystem(touch w18-test-20241301202.tex)...disabled (restricted).
+runsystem(touch w18-test-20241311177.tex)...disabled (restricted).
 
-runsystem(rm -f w18-test-20241301202.tex)...disabled (restricted).
+runsystem(rm -f w18-test-20241311177.tex)...disabled (restricted).
 
 runsystem(rm -f "tfgtfmthesisuam.gnuploterrors")...disabled (restricted).
 
 runsystem(mkdir -p "gnuplottex")...disabled (restricted).
 
-runsystem(touch "gnuplottex/w18-test-20241301202.tex")...disabled (restricted).
+runsystem(touch "gnuplottex/w18-test-20241311177.tex")...disabled (restricted).
 
 
 
@@ -2470,10 +2470,12 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [11 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/create_playlist.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/add_to_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
- (/Users/miguelgarciagonzalez/TFM_MUII/tfm/estadodelarte/recomendacion.tex)
-LaTeX Info: Redefining \. on input line 55.
-LaTeX Info: Redefining \% on input line 55.
-Package cleveref Info: loaded `spanish' language definitions on input line 55.
+ (/Users/miguelgarciagonzalez/TFM_MUII/tfm/estadodelarte/recomendacion.tex
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 32.
+LaTeX Info: Redefining \% on input line 32.
+Package cleveref Info: loaded `spanish' language definitions on input line 32.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2493,12 +2495,15 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-
-Cap\'{\i }tulo 3.
-(/Users/miguelgarciagonzalez/TFM_MUII/tfm/desarrollo/desarrollo.tex
-Begining itemize
-Ending itemize
+LaTeX Font Info:    Font shape `T1/txss/b/n' in size <12> not available
+(Font)              Font shape `T1/txss/bx/n' tried instead on input line 52.
+LaTeX Font Info:    Font shape `T1/txss/bx/n' will be
+(Font)              scaled to size 11.39996pt on input line 52.
 )
+LaTeX Info: Redefining \. on input line 55.
+LaTeX Info: Redefining \% on input line 55.
+Package cleveref Info: loaded `spanish' language definitions on input line 55.
+
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
  []
@@ -2510,9 +2515,15 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[13
+[13] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
 
-] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2527,8 +2538,11 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
-Cap\'{\i }tulo 4.
-(/Users/miguelgarciagonzalez/TFM_MUII/tfm/pruebas/pruebas.tex)
+Cap\'{\i }tulo 3.
+(/Users/miguelgarciagonzalez/TFM_MUII/tfm/desarrollo/desarrollo.tex
+Begining itemize
+Ending itemize
+)
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
  []
@@ -2555,14 +2569,8 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
-Cap\'{\i }tulo 5.
-(/Users/miguelgarciagonzalez/TFM_MUII/tfm/conclusiones/conclusiones.tex)
-
-Package glossaries Warning: No \printglossary or \printglossaries found. 
-(Remove \makeglossaries if you don't want any glossaries.) 
-This document will not have a glossary.
-
-(/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.bbl
+Cap\'{\i }tulo 4.
+(/Users/miguelgarciagonzalez/TFM_MUII/tfm/pruebas/pruebas.tex)
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
  []
@@ -2584,6 +2592,40 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
  [18
+
+] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+
+Cap\'{\i }tulo 5.
+(/Users/miguelgarciagonzalez/TFM_MUII/tfm/conclusiones/conclusiones.tex)
+
+Package glossaries Warning: No \printglossary or \printglossaries found. 
+(Remove \makeglossaries if you don't want any glossaries.) 
+This document will not have a glossary.
+
+(/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.bbl
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[19] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+ [20
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2618,7 +2660,7 @@ No file tfgtfmthesisuam.gls.
 No file tfgtfmthesisuam.acr.
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[19] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[21] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2627,7 +2669,7 @@ No file tfgtfmthesisuam.acr.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [20
+ [22
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2635,7 +2677,7 @@ No file tfgtfmthesisuam.acr.
  (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.ind)
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [21
+ [23
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2666,7 +2708,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[22 </Users/miguelgarciagonzalez/TFM_MUII/tfm/logoUAMw.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[24 </Users/miguelgarciagonzalez/TFM_MUII/tfm/logoUAMw.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 64.
@@ -3059,13 +3101,45 @@ Package cleveref Info: loaded `spanish' language definitions on input line 32.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 64.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 64.
 \openout6 = `tfgtfmthesisuam.out'.
 
 Package rerunfilecheck Info: File `tfgtfmthesisuam.out' has not changed.
-(rerunfilecheck)             Checksum: FD35070A0DB9BE50496719F2602E6CE0;1376.
+(rerunfilecheck)             Checksum: 8D5D2FC41E97489D741075408AD0B823;1647.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3098,18 +3172,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 47404 strings out of 480608
- 1055315 string characters out of 5903630
- 1693208 words of memory out of 5000000
- 62063 multiletter control sequences out of 15000+600000
- 625660 words of font info for 151 fonts, out of 8000000 for 9000
+ 47451 strings out of 480608
+ 1056441 string characters out of 5903630
+ 1694099 words of memory out of 5000000
+ 62092 multiletter control sequences out of 15000+600000
+ 628638 words of font info for 154 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  71i,9n,107p,1121b,876s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/rtxbsssc.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/rtxsssc.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrb0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.pdf (40 pages, 2349092 bytes).
+Output written on /Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.pdf (42 pages, 2357854 bytes).
 PDF statistics:
- 528 PDF objects out of 1000 (max. 8388607)
- 426 compressed objects within 5 object streams
- 100 named destinations out of 1000 (max. 500000)
- 263 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 564 PDF objects out of 1000 (max. 8388607)
+ 460 compressed objects within 5 object streams
+ 112 named destinations out of 1000 (max. 500000)
+ 287 words of extra memory for PDF output out of 10000 (max. 10000000)
 

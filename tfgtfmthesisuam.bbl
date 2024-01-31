@@ -61,4 +61,13 @@ S.~AB, ``Add items to playlist.''
   \url{https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist},
   2024.
 
+\bibitem{recommender_handbook}
+F.~Ricci, L.~Rokach, and B.~Shapira, eds., {\em Recommender Systems Handbook}.
+\newblock Springer {US}, 2022.
+
+\bibitem{recommenderintro}
+F.~Ricci, L.~Rokach, and B.~Shapira, ``Recommender systems: introduction and
+  challenges,'' in {\em Recommender systems handbook}, pp.~1--34, Springer,
+  2022.
+
 \end{thebibliography}
