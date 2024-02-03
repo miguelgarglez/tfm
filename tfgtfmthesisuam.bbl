@@ -70,4 +70,20 @@ F.~Ricci, L.~Rokach, and B.~Shapira, ``Recommender systems: introduction and
   challenges,'' in {\em Recommender systems handbook}, pp.~1--34, Springer,
   2022.
 
+\bibitem{contextrecommender}
+G.~Adomavicius, K.~Bauman, A.~Tuzhilin, and M.~Unger, ``Context-aware
+  recommender systems: From foundations to recent developments context-aware
+  recommender systems,'' in {\em Recommender Systems Handbook}, pp.~211--250,
+  Springer, 2021.
+
+\bibitem{musicrecommender}
+M.~Schedl, P.~Knees, B.~McFee, and D.~Bogdanov, ``Music recommendation systems:
+  Techniques, use cases, and challenges,'' in {\em Recommender Systems
+  Handbook}, pp.~927--971, Springer, 2021.
+
+\bibitem{grouprecommender}
+J.~Masthoff and A.~Deli{\'c}, ``Group recommender systems: Beyond preference
+  aggregation,'' in {\em Recommender Systems Handbook}, pp.~381--420, Springer,
+  2022.
+
 \end{thebibliography}

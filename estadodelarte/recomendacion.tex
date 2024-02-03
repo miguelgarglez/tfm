@@ -48,17 +48,193 @@ sus preferencias y comportamientos.
 
 \subsection{Métodos y técnicas de recomendación\label{SEC:METODOS_RECOMENDACION}}
 
+Para que un sistema de recomendación haga bien su trabajo, que es sugerir ítems que puedan interesar al usuario, tiene que ser capaz de adivinar o predecir
+ cómo de útiles o atractivos serán ciertos ítems para cada persona. Esto se hace evaluando y comparando lo que se conoce sobre los ítems y 
+ los usuarios. A veces, por ejemplo, cuando no hay mucha información específica sobre los gustos de un usuario, el sistema puede optar por recomendar lo que es popular
+  o lo que ha gustado a muchos, pensando que hay más posibilidades de que también le guste a ese usuario.
 
-    \subsubsection{Filtrado basado en contenido\label{SEC:RECOMENDADORES_CONTENIDO}}
-    \subsubsection{Filtrado colaborativo\label{SEC:RECOMENDADORES_COLABORATIVOS}}
-    \subsubsection{Sistemas híbridos\label{SEC:RECOMENDADORES_HIBRIDOS}}
+En términos técnicos, se habla de calcular la 'utilidad' (también lo llamaremos \textit{rating} en este trabajo) de un ítem para un usuario, que no es más
+ que tratar de prever cuánto le va a gustar. No todos los sistemas hacen este cálculo de manera completa y obtienen un \textit{rating} como tal; algunos 
+ se basan en métodos más generales o en suposiciones para decidir qué recomendar. Además, hay que considerar que lo que a una persona le puede parecer
+ atractivo o interesante puede depender de muchas cosas, como la actividad que puede estar haciendo, su compañía (si la tiene) o el lugar, así que las recomendaciones 
+ también deberían tener en cuenta esos detalles idealmente, para que fueran realmente acertadas.
+
+ Por supuesto, existen diversas formas en las cuales un sistema de recomendación puede calcular estas predicciones de utilidad o atractivo para los usuarios.
+ Trataremos tres tipos principales: basado en contenido, el filtrado colaborativo y los sistemas híbridos. 
+
+
+ \subsubsection{Basado en contenido\label{SEC:RECOMENDADORES_CONTENIDO}}
+ La recomendación basada en contenido se centra en las características de los ítems para hacer recomendar a los usuarios. Funciona analizando los 
+ detalles de los ítems que a un usuario le han gustado en el pasado y buscando otros ítems que sean similares en cuanto a esas características. Por 
+ ejemplo, si a alguien le gustan las películas de un género en particular o de un director específico, el sistema recomendará otras películas que 
+ coincidan con esas preferencias. De manera muy sencilla, la recomendación basada en contenido mira lo que te ha gustado antes y te sugiere cosas parecidas. 
+ Imaginemos que nos encantan ciertas canciones de pop español o las canciones de un artista en concreto. El sistema nota esto y luego te muestra más películas del mismo tipo.
+
+ Este método utiliza algoritmos para procesar y entender las características de los ítems, como las palabras en una descripción, los elementos 
+ visuales en una imagen, o el análisis de audio de una canción. Con esta información, el sistema crea un perfil de lo que le gusta al usuario basado en 
+ lo que ha elegido anteriormente y luego busca y recomienda nuevos ítems que encajen con ese perfil. Así, la recomendación basada en contenido permite que las sugerencias sean 
+ personalizadas y relevantes para los intereses específicos de cada usuario.
+
+
+\subsubsection{Filtrado colaborativo\label{SEC:RECOMENDADORES_COLABORATIVOS}}
+
+El filtrado colaborativo es el enfoque original y más simple de los sistemas de recomendación. Predice la utilidad de un ítem para un usuario basándose en
+cómo de atractivo o útil les ha parecido ese ítem a otros usuarios. El fundamento detrás de esto es que, si dos usuarios han tenido intereses parecidos en el
+pasado, desde luego es probable que tengan intereses parecidos en el futuro. Imaginemos que dos usuarios han escuchado las mismas canciones de un artista
+en el pasado, o de un género en particular. Si uno empieza a escuchar una nueva canción de manera recurrente (le gusta), es probable que al otro usuario
+también le vaya a gustar esta canción. Podemos imaginarlo como si tenemos un amigo con el que compartimos gustos musicales; lógicamente, tendremos en cuenta 
+sus recomendaciones, ya que sabemos que tenemos gustos parecidos.
+
+Debe destacarse que el filtrado colaborativo no necesita información detallada sobre los ítems, como la recomendación basada en contenido. Existen dos tipos
+de filtrado colaborativo: basado en usuarios y basado en ítems. El basado en usuarios compara a los usuarios entre sí y recomienda ítems que les han parecido
+atractivos a otros usuarios calficados como similares al usuario al que se le recomienda; mientras que el basado en ítems compara
+ítems entre sí. Pero, ¿no es eso lo que hace la recomendación basada en contenido? debemos dejar clara la diferencia con la recomendación basada en contenido.
+
+En la recomendación basada en contenido \ref{SEC:RECOMENDADORES_CONTENIDO}, se modelan con procesos y algoritmos especiales las características de los ítems
+ que consume un usuario; para tras ello, recomendarle más ítems que se asemejen a las características de ese modelo producido. En cambio, en el filtrado
+  colaborativo enfocado en ítems, la diferencia fundamental se encuentra en cuándo se considera a dos ítems similares entre sí (obviando la diferencia de 
+  que aquí se comparan ítems directamente, y en la basada en contenido se comparan ítems con un perfil o modelo de características extraído de haber 
+  procesado los ítems consumidos previamente). Y es que, si un conjunto de usuarios ha calificado o interactuado de manera similar con ciertos ítems, 
+  entonces esos ítems se consideran similares entre sí. No se necesitan detalles sobre las características de los ítems, como género de una canción, 
+  artista o análisis de audio. La similitud entre los ítems se calcula en función de las calificaciones o interacciones de los usuarios, no en función 
+  de sus características intrínsecas.
+
+
+\subsubsection{Sistemas híbridos\label{SEC:RECOMENDADORES_HIBRIDOS}}
+
+Estos sistemas nacen de la necesidad de cubrir los inconvenientes con los que nos podemos encontrar con los anteriores métodos. No entraremos en más detalles,
+pero por ejemplo, mientras que los métodos de filtrado colaborativo tienen dificultades para recomendar nuevos ítems sin calificaciones, los enfoques 
+basados en contenido pueden hacer predicciones para estos ítems usando sus descripciones.
+
+Además, es importante considerar el contexto del usuario para personalizar más las recomendaciones. Por ejemplo, las sugerencias para vacaciones en 
+invierno deberían ser distintas a las de verano, o las recomendaciones de canciones deberían ser diferentes para una sesión de ejercicio, de estudio, o 
+una fiesta. Los sistemas de recomendación sensibles al contexto (CARS) \cite{contextrecommender} utilizan esta información para afinar sus sugerencias.
+
+
+
 
 \subsection{Tipos de sistemas de recomendación\label{SEC:TIPOS_RECOMENDADORES}}
-    \subsubsection{Recomendación de música\label{SEC:RECOMENDACION_MUSICA}}
-    \subsubsection{Recomendación a grupos\label{SEC:RECOMENDACION_GRUPOS}}
+
+Tras haber visto como base los métodos más comunes de recomendación, vamos a pasar a hablar de los dos ámbitos o tipos de recomendación que más nos
+interesan en este trabajo por razones obvias si queremos desarrollar una aplicación como la descrita en la sección \ref{SEC:MOTIVACION}: 
+la recomendación de música y la recomendación a grupos.
+    
+\subsubsection{Recomendación de música\label{SEC:RECOMENDACION_MUSICA}}
+
+Aunque en \cite{musicrecommender} se habla de manera bastante extensa sobre la recomendación en este ámbito, trataremos de hacer un resumen con los puntos que 
+más creemos que nos interesan para este trabajo. Está claro que el consumo de música ha cambiado mucho en los últimos años, llegando a la situación actual,
+donde la música se consume de manera digital, generalmente en \textit{streaming}. Esto ha llevado a que estas plataformas que dan este tipo de servicio 
+lleguen a ofrecer unas cantidades de música (o contenido, si incluimos los \textit{podcasts}) tan inmensas y tan variadas que son inabarcables para nadie. 
+Y aquí es donde entra en juego la recomendación de música, que se convierte en una herramienta muy útil para los usuarios, al ayudarles a navegar por el inmenso
+catálogo de música que ofrecen estas plataformas.
+
+Por otro lado, simplemente por anotarlo, hay unos cuantos factores que hacen que los sistemas de recomendación de música se diferencien considerablemente 
+de otros tipos de sistemas de recomendación. Veámoslos:
+
+\begin{itemize}
+    \item \textbf{Duración de Consumo:} La música se consume más rápidamente que otros medios (como películas o libros), lo que significa que los usuarios
+     pueden formar opiniones sobre los ítems musicales en menos tiempo. Esto puede hacer que los ítems musicales se consideren más 'desechables'.
+    
+    \item \textbf{Tamaño del Catálogo:} Los catálogos de música son considerablemente más grandes que los de películas o series. Por lo tanto, la 
+    escalabilidad de los algoritmos de recomendación es una consideración más crítica en el dominio de la música.
+    
+    \item \textbf{Consumo Repetido:} Los ítems musicales a menudo se consumen repetidamente, incluso varias veces seguidas, a diferencia de otros medios
+     como películas o libros.
+    
+    \item \textbf{Consumo Secuencial:} Las canciones suelen consumirse en secuencia (como en \textit{playlists}), lo que da importancia a problemas 
+    de recomendación conscientes de la secuencia, como la continuación automática de listas de reproducción o la recomendación de la próxima pista.
+    
+    \item \textbf{Consumo Pasivo:} La música a menudo se consume de manera pasiva, lo que puede afectar la calidad de los indicios de preferencia,
+    especialmente obteniéndolos de manera implícita (como el tiempo de escucha).
+    
+    \item \textbf{Importancia del Contenido:} En la recomendación musical, los enfoques basados en contenido son más relevantes que en otros dominios 
+    debido a la influencia de campos como el procesamiento y análisis de audio y la recuperación de información musical. Estos enfoques intentan extraer 
+    información semántica de la música y usarla para hacer recomendaciones, a menudo debido a la escasez de datos de calificación explícitos en este 
+    dominio.
+\end{itemize}
+
+% hablar de lean-in y lean-back (?)
+
+\subsubsection{Recomendación a grupos\label{SEC:RECOMENDACION_GRUPOS}}
+
+También se habla de forma extensa sobre este ámbito de los sistemas de recomendación en \cite{grouprecommender}, pero trataremos de destacar los puntos
+que más nos pueden interesar para el trabajo y el desarrollo de nuestra idea de aplicación presentada en la sección \ref{SEC:MOTIVACION}. Creemos que es 
+interesante ver una clasificación de sistemas de recomendación a grupos:
+
+\begin{itemize}
+    \item \textbf{Conocimiento de Preferencias:} Las preferencias individuales pueden ser conocidas de antemano o desarrollarse con el tiempo a través 
+    de interacciones de grupo o métodos de crítica.
+    \item \textbf{Experiencia de los Ítems:} Los ítems pueden ser experimentados directamente por el grupo (como música o anuncios) o presentados como 
+    opciones en una lista de recomendaciones.
+    \item \textbf{Interactividad del Grupo:} El grupo puede ser pasivo, sin influir en la agregación de preferencias, o activo, participando en la 
+    negociación o influenciando las calificaciones.
+    \item \textbf{Negociación vs. Recomendaciones Directas:} Algunos sistemas permiten negociación y discusión sobre las recomendaciones, mientras que 
+    otros entregan recomendaciones de forma directa sin interacción.
+    \item \textbf{Recomendación de Ítem Único vs. Secuencia:} Algunos sistemas recomiendan un único ítem, mientras que otros sugieren secuencias de ítems,
+     como listas de reproducción o rutas turísticas.
+    \item \textbf{Estimación de Preferencias:} Las preferencias individuales pueden ser estimadas usando filtrado basado en contenido o colaborativo.
+    \item \textbf{Agregación de Perfiles o Recomendaciones:} Los sistemas pueden agregar perfiles de usuarios, que expresan preferencias numéricas por ítem, 
+    o directamente las recomendaciones, ya sea como listas clasificadas o como estimaciones numéricas.
+\end{itemize}
+
+Digamos que teniendo en cuenta el contexto de la aplicación que queremos desarrollar, y las opciones que nos da la API de \textit{Spotify}, podríamos tratar 
+de clasificar en base a estos últimos criterios el sistema de recomendación que podemos obtener. Por ello, en cuanto al que va a ser nuestro sistema de recomendación, 
+podemos decir que:
+\begin{itemize}
+    \item Conoceremos las preferencias individuales de los usuarios de antemano gracias a los datos de \textit{Spotify}.
+    \item Los ítems serán experimentados directamente por el grupo, ya que se trata de música.
+    \item Buscamos que el grupo pueda ser activo, pudiendo elegir distintas estrategias de agregación de preferencias.
+    \item Nuestro sistema suministrará recomendaciones directamente tras una previa 'negociación'.
+    \item Nuestro sistema recomendará secuencias de ítems, las \textit{playlists}.
+    \item Las preferencias individuales de los usuarios son estimadas de forma implícita, a través de sus interacciones con \textit{Spotify}.
+    \item En el caso de nuestro sistema de recomendación, agregaremos recomendaciones individuales de ítems en una recomendación grupal. No agruparemos
+    perfiles de usuarios en un único perfil grupal.
+\end{itemize}
+
+Un tema importante en la recomendación dirigida a grupos es la agregación de preferencias, y en nuestro caso la agregación de las recomendaciones 
+individuales, en una sola para todo el grupo. Y este tema lo trataremos en la siguiente sección, ya que, es el factor sobre el que han recaído 
+algunas pruebas, investigación y experimentos con usuarios a la hora de probar distintas generaciones de \textit{playlists}.
 
 \subsection{Estrategias de agregación\label{SEC:AGREGACION}}
 
+En la recomendación dirigida a grupos, el principal reto a resolver es cómo conseguir tratar a un grupo de usuarios como una única entidad, basándonos
+en los gustos individuales de cada uno de los miembros de este. En \cite{grouprecommender} se habla de varias estrategias de agregación de preferencias,
+estas sirven de la misma forma para agregar perfiles, y agregar recomendaciones (lo que haremos en nuestro sistema de recomendación). 
+Tal y cómo usaremos estas estrategias, será para obtener un \textit{rating} grupal para cada canción que sea susceptible de entrar en la \textit{playlist}
+que se acabará generando para el grupo. Así que, lo que haremos básicamente, será obtener recomendaciones de individuales de canciones para cada usuario, 
+y luego, a través de una estrategia de agregación, obtener un \textit{rating} grupal para cada canción. Ahondaremos más sobre el funcionamiento e implementación
+el capítulo \ref{CAP:DESARROLLO}. Veamos algunas de las estrategias de agregación más comunes, las nombraremos en inglés, para minimizar confusiones entre lo 
+la bibliografía, esta sección y el desarrollo:
+
+\begin{itemize}
+    \item \textbf{\textit{Average}:} Promedia las calificaciones de los usuarios.
+    \item \textbf{\textit{Multiplicative}:} Multiplica las calificaciones de los usuarios. 
+    \item \textbf{\textit{Borda}:} Asigna puntos a cada ítem en función de su clasificación por cada usuario, y luego suma los puntos 
+    para cada ítem.
+    \item \textbf{\textit{Least Misery}:} Asigna a cada ítem el valor mínimo de las calificaciones de los usuarios.
+    \item \textbf{\textit{Most Pleasure}:} Asigna a cada ítem el valor máximo de las calificaciones de los usuarios.
+    \item \textbf{\textit{Average without Misery}:} Asigna a cada ítem el valor promedio de las calificaciones de los usuarios, pero
+    excluye las calificaciones más bajas (se establece un umbral para decidir cuándo es demasiado baja una puntuación o \textit{rating}).
+    \item \textbf{\textit{Fairness}:} Los ítems se ordenan como si cada usuario eligiera un ítem por turnos. Así, si hay tres usuarios, el
+    los primeros tres ítems de la lista serán los que más gusten a cada usuario, y así sucesivamente.
+\end{itemize}
 
 
+\subsection{Evaluación de nuestro sistema de recomendación\label{SEC:EVALUACION}}
+
+Cómo evaluar un sistema de recomendación sigue siendo un tema de investigación muy importante a día de hoy, ya que, a pesar de que existen métricas o 
+pruebas con usuarios, no hay un método de evaluación que sea el más adecuado para todos los sistemas de recomendación. En \cite{grouprecommender} se habla
+sobre la evaluación de sistemas de recomendación dirigidos a grupos, y se destacan dos tipos: estudios con usuarios, y evaluaciones \textit{offline}.
+
+\subsubsection{Estudios con usuarios}
+
+Será la forma en la que trataremos de evaluar nuestro sistema de recomendación, elaborando encuestas para recoger las sensaciones y satisfacción
+que las \textit{playlists} generadas por nuestro sistema de recomendación han causado en los usuarios. Compararemos estrategias de agregación para tratar de sacar conclusiones
+sobre que estrategias tienen mejor acogida.
+
+\subsubsection{Evaluaciones \textit{offline}}
+
+Aunque no con el mismo propósito, también hemos hecho uso de estas evaluaciones \textit{offline} para comparar distintas estrategias de agregación. Así seremos
+capaces de ver cuáles se comportaban de manera más similar a otras estrategias, y cuáles se comportaban de manera más diferente. Esto nos dará la posibilidad de suprimir
+estrategias que sean demasiado similares, para así centrar las comparaciones con usuarios en las estrategias que más diferencias presenten entre sí.
 
