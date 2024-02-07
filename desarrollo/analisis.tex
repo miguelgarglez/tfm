@@ -1,11 +1,63 @@
+\subsection{Análisis de requisitos\label{SEC:REQUISITOS}}
+
+En esta sección de análisis, se detallarán los requisitos funcionales y no funcionales de la aplicación.
+
+\paragraph{\textbf{Requisitos Funcionales}}
+
+Expondremos los requisitos funcionales de la aplicación, definiendo lo que esperamos que nuestra aplicación desarrollada 
+cumpla. Estos requisitos se han obtenido a partir de la motivación del proyecto y de las funcionalidades que ofrece la API
+de Spotify. A continuación, se detallan los requisitos funcionales de la aplicación:
 
 \begin{functional}
-    \item El sistema debe permitir que los usuarios se autentiquen a través de Spotify.
-    \item El sistema debe obtener los artistas y canciones más escuchados de los usuarios en el corto, medio y largo plazo.
-    \item El sistema debe ofrecer recomendaciones de canciones y artistas basadas en las preferencias de escucha de los usuarios.
-    \item El sistema debe permitir que múltiples usuarios combinen sus gustos musicales para crear una playlist colaborativa.
-    \item El sistema debe permitir a los usuarios elegir la duración de la playlist colaborativa.
-    \item El sistema debe ofrecer distintas estrategias de agregación para la selección de canciones en la playlist colaborativa.
-    \item El sistema debe mostrar la playlist generada en pantalla.
-    \item El sistema debe permitir a los usuarios guardar la playlist colaborativa en sus cuentas de Spotify.
+    \item El sistema debe permitir que los usuarios hagan \textit{login} a través de Spotify.
+    \begin{functional}
+        \item El sistema hará uso del servicio de autenticación de Spotify.
+    \end{functional}
+    \item El sistema debe permitir que los usuarios obtengan información de sus cuentas de Spotify.
+    \item El sistema debe permitir que múltiples usuarios estén dados de alta (hayan hecho \textit{login} con su cuenta de Spotify) al 
+    mismo tiempo en la aplicación.
+    \item El sistema debe ser capaz de comunicarse con la API de Spotify, y recibir y enviar información con éxito al servicio.
+    \item El sistema debe ser capaz de obtener los artistas o canciones más escuchados de los usuarios en el corto, medio o largo plazo.
+    \begin{functional}
+        \item El sistema obtendrá hasta 50 artistas o canciones más escuchados de los usuarios.
+    \end{functional} 
+    \item El sistema debe ser capaz de ofrecer recomendaciones de canciones a los usuarios basándose en canciones, géneros o artistas que seleccionen los usuarios.
+    \begin{functional}
+        \item El sistema debe permitir a los usuarios seleccionar canciones, géneros o artistas para obtener recomendaciones.
+        \item El sistema recomendará hasta 50 canciones a los usuarios.
+    \end{functional} 
+    
+    \item El sistema debe permitir que múltiples usuarios dados de alta en la aplicación creen una playlist colaborativa.
+    \begin{functional}
+        \item El sistema debe permitir a los usuarios elegir la duración de la playlist colaborativa.
+        \item El sistema debe ofrecer distintas estrategias de agregación para la selección de canciones en la playlist colaborativa.
+        \item El sistema debe mostrar la playlist generada en pantalla.
+        \item El sistema debe permitir a los usuarios guardar la playlist colaborativa en sus cuentas de Spotify.
+    \end{functional} 
+    
 \end{functional}
+
+\paragraph{\textbf{Requisitos No Funcionales}}
+
+A continuación, se detallan los requisitos no funcionales de la aplicación:
+
+\begin{nonfunctional}
+    \item \textbf{Rendimiento}: La aplicación debe responder a las solicitudes del usuario en menos de 3 segundos bajo condiciones normales de carga.
+    \item \textbf{Disponibilidad}: La aplicación debe estar disponible el 99\% del tiempo, asegurando el acceso de los usuarios a sus funcionalidades.
+    \item \textbf{Compatibilidad}: La aplicación debe ser compatible con las versiones más recientes de navegadores web populares como Chrome, Firefox, Safari y Edge.
+    \item \textbf{Mantenibilidad}: El código de la aplicación debe seguir las buenas prácticas de programación, siendo legible, bien documentado y fácil de mantener.
+    \item \textbf{Usabilidad}: La interfaz de usuario debe ser intuitiva y fácil de usar, asegurando que los usuarios puedan realizar todas las operaciones sin necesidad de instrucciones adicionales.
+\end{nonfunctional}
+
+\subsection{Diagramas de casos de uso principales\label{SEC:CASOS_USO}}
+
+A continuación, se presentan los diagramas de casos de uso principales de la aplicación. Estos diagramas representan las interacciones en las cuáles
+se sustenta la funcionalidad de la aplicación.
+
+\begin{figure}[Diagramas de casos de uso principales de la aplicación]{FIG:USE_CASE_DIAGRAM}
+    {Diagramas de casos de uso principales de la aplicación}
+    \subfigure[]{\textit{Login}}{\image{5.7cm}{}{propias/login_usecase.png}} \quad
+    \subfigure[]{\textit{Crear Playlist}}{\image{8cm}{}{propias/create_playlist_usecase.png}}
+\end{figure}
+
+\newpage

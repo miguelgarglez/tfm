@@ -36,30 +36,27 @@ Google, ``Building user interfaces with flutter.''
 \bibitem{react}
 Meta, ``React.'' \url{https://react.dev}, 2024.
 
-\bibitem{spotify_pkce}
-S.~AB, ``Authorization code with pkce flow.''
-  \url{https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow},
-  2024.
+\bibitem{spotify_wikipedia}
+Wikipedia, ``Spotify.'' \url{https://es.wikipedia.org/wiki/Spotify}, 2024.
+\newblock Último acceso: 7 de febrero de 2024.
 
-\bibitem{top_items}
-S.~AB, ``Get user's top items.''
-  \url{https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks},
-  2024.
+\bibitem{HistoriaSpotifyMarketing4ECommerce}
+Marketing4eCommerce, ``Historia de spotify: nacimiento y evolución.''
+  \url{https://marketing4ecommerce.net/historia-de-spotify-del-lider-de-la-musica-en-streaming/},
+  2022.
+\newblock Último acceso: 7 de febrero de 2024.
 
-\bibitem{recommendations}
-S.~AB, ``Get recommendations.''
-  \url{https://developer.spotify.com/documentation/web-api/reference/get-recommendations},
-  2024.
+\bibitem{deezer_api}
+deezerdevs, ``Deezer api documentation.''
+  \url{https://rapidapi.com/deezerdevs/api/deezer-1}, 2024.
 
-\bibitem{create_playlist}
-S.~AB, ``Create playlist.''
-  \url{https://developer.spotify.com/documentation/web-api/reference/create-playlist},
-  2024.
+\bibitem{applemusic_api}
+A.~Inc., ``Apple music api.''
+  \url{https://developer.apple.com/documentation/applemusicapi}, 2024.
 
-\bibitem{add_to_playlist}
-S.~AB, ``Add items to playlist.''
-  \url{https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist},
-  2024.
+\bibitem{SpotifyEngineeringBlog}
+S.~Engineering, ``Spotify engineering - spotify’s official technology blog.''
+  \url{https://engineering.atspotify.com/}, 2024.
 
 \bibitem{recommender_handbook}
 F.~Ricci, L.~Rokach, and B.~Shapira, eds., {\em Recommender Systems Handbook}.
@@ -85,5 +82,38 @@ M.~Schedl, P.~Knees, B.~McFee, and D.~Bogdanov, ``Music recommendation systems:
 J.~Masthoff and A.~Deli{\'c}, ``Group recommender systems: Beyond preference
   aggregation,'' in {\em Recommender Systems Handbook}, pp.~381--420, Springer,
   2022.
+
+\bibitem{hive}
+Google, ``Hive package.'' \url{https://pub.dev/packages/hive}, 2024.
+
+\bibitem{spotify_pkce}
+S.~AB, ``Authorization code with pkce flow.''
+  \url{https://developer.spotify.com/documentation/web-api/tutorials/code-pkce-flow},
+  2024.
+
+\bibitem{current_user_profile}
+S.~AB, ``Get current user's profile.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/get-current-users-profile},
+  2024.
+
+\bibitem{top_items}
+S.~AB, ``Get user's top items.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/get-users-top-artists-and-tracks},
+  2024.
+
+\bibitem{recommendations}
+S.~AB, ``Get recommendations.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/get-recommendations},
+  2024.
+
+\bibitem{create_playlist}
+S.~AB, ``Create playlist.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/create-playlist},
+  2024.
+
+\bibitem{add_to_playlist}
+S.~AB, ``Add items to playlist.''
+  \url{https://developer.spotify.com/documentation/web-api/reference/add-tracks-to-playlist},
+  2024.
 
 \end{thebibliography}

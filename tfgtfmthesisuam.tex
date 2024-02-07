@@ -10,17 +10,20 @@
 
 \documentclass[epsbased,copyright,final,printable,covers,extendedindex,firstnumbered,tfm,gnuplot]{tfgtfmthesisuam}
 
-\advisor{Alejandro Belllogín Kouki}
+\usepackage{array}
+\usepackage{makecell}
+
+\advisor{Alejandro Bellogín Kouki}
 \levelin{Ingeniería Informática}
 \title{Desarrollo de una aplicación de recomendación de música para grupos}
 \subtitle{}
 \author{Miguel García González}
 \privateaddress{C\textbackslash\ Ana María Nº 51}
-\copyrightdate{3 de Noviembre de 2017}
+\copyrightdate{12 de Febrero de 2024}
 
 \dedication{A mis padres, por su apoyo incondicional.}
 \famouscite{Quien recibe un beneficio nunca debe olvidarlo;\\quien lo otorga, nunca debe recordarlo. \\[0.1em] \begin{flushright}Pierre Charron\end{flushright}}
-\prefacefile{inicio/prefacio}
+%\prefacefile{inicio/prefacio}
 \ackfile{inicio/agradecimientos}
 \resumenfile{inicio/resumen}
 \abstractfile{inicio/abstract}
@@ -49,11 +52,11 @@
 
 \chapter{Estado del arte\label{CAP:ESTADODELARTE}}{estadodelarte/estadodelarte}
   \section{\textit{Framework} de desarrollo de aplicaciones: \textit{Flutter}\label{SEC:FLUTTER}}{estadodelarte/flutter}
-  \section{API Web de Spotify\label{SEC:API_SPOTIFY}}{estadodelarte/api_spotify}
+  \section{\textit{Spotify} y su API Web\label{SEC:API_SPOTIFY}}{estadodelarte/spotify}
   \section{Recomendación\label{SEC:RECOMENDACION}}{estadodelarte/recomendacion}
 
 \chapter{Desarrollo de nuestra aplicación\label{CAP:DESARROLLO}}{desarrollo/desarrollo}
-  \section{Análisis de requisitos básico\label{SEC:REQUISITOS}}{desarrollo/analisis}
+  \section{Análisis\label{SEC:ANALISIS}}{desarrollo/analisis}
   \section{Diseño de la aplicación\label{SEC:DISENO}}{desarrollo/diseno}
   \section{Implementación de la aplicación\label{SEC:IMPLEMENTACION}}{desarrollo/implementacion}
 

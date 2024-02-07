@@ -8,28 +8,46 @@
 \contentsline {subsection}{\numberline {2.1.1}\textit {Dart}, el lenguaje detr\IeC {\'a}s de \textit {Flutter}}{4}{subsection.2.1.1}%
 \contentsline {subsection}{\numberline {2.1.2}Instalaci\IeC {\'o}n y primer uso b\IeC {\'a}sico}{4}{subsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.1.3}\textit {Widgets}}{5}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}API Web de Spotify}{6}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}Visi\IeC {\'o}n general de la API}{6}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Datos de cuenta de los usuarios}{8}{subsection.2.2.2}%
-\contentsline {subsection}{\numberline {2.2.3}Canciones m\IeC {\'a}s escuchadas}{8}{subsection.2.2.3}%
-\contentsline {subsection}{\numberline {2.2.4}Recomendaciones}{9}{subsection.2.2.4}%
-\contentsline {subsection}{\numberline {2.2.5}Crear playlist}{10}{subsection.2.2.5}%
-\contentsline {section}{\numberline {2.3}Recomendaci\IeC {\'o}n}{12}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}M\IeC {\'e}todos y t\IeC {\'e}cnicas de recomendaci\IeC {\'o}n}{13}{subsection.2.3.1}%
-\contentsline {subsubsection}{Basado en contenido}{14}{section*.23}%
-\contentsline {subsubsection}{Filtrado colaborativo}{14}{section*.24}%
-\contentsline {subsubsection}{Sistemas h\IeC {\'\i }bridos}{15}{section*.25}%
-\contentsline {subsection}{\numberline {2.3.2}Tipos de sistemas de recomendaci\IeC {\'o}n}{15}{subsection.2.3.2}%
-\contentsline {subsubsection}{Recomendaci\IeC {\'o}n de m\IeC {\'u}sica}{15}{section*.26}%
-\contentsline {subsubsection}{Recomendaci\IeC {\'o}n a grupos}{16}{section*.27}%
-\contentsline {subsection}{\numberline {2.3.3}Estrategias de agregaci\IeC {\'o}n}{17}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Evaluaci\IeC {\'o}n de nuestro sistema de recomendaci\IeC {\'o}n}{18}{subsection.2.3.4}%
-\contentsline {subsubsection}{Estudios con usuarios}{18}{section*.28}%
-\contentsline {subsubsection}{Evaluaciones \textit {offline}}{18}{section*.29}%
-\contentsline {chapter}{\numberline {3}Desarrollo de nuestra aplicaci\IeC {\'o}n}{19}{chapter.3}%
-\contentsline {section}{\numberline {3.1}An\IeC {\'a}lisis de requisitos b\IeC {\'a}sico}{19}{section.3.1}%
+\contentsline {section}{\numberline {2.2}\textit {Spotify} y su API Web}{6}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}La API Web de \textit {Spotify}}{7}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Contribuci\IeC {\'o}n de \textit {Spotify} a la investigaci\IeC {\'o}n y desarrollo en el \IeC {\'a}mbito del an\IeC {\'a}lisis musical y la recomendaci\IeC {\'o}n}{7}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Recomendaci\IeC {\'o}n}{8}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}M\IeC {\'e}todos y t\IeC {\'e}cnicas de recomendaci\IeC {\'o}n}{9}{subsection.2.3.1}%
+\contentsline {subsubsection}{Basado en contenido}{10}{section*.16}%
+\contentsline {subsubsection}{Filtrado colaborativo}{10}{section*.17}%
+\contentsline {subsubsection}{Sistemas h\IeC {\'\i }bridos}{11}{section*.18}%
+\contentsline {subsection}{\numberline {2.3.2}Tipos de sistemas de recomendaci\IeC {\'o}n}{12}{subsection.2.3.2}%
+\contentsline {subsubsection}{Recomendaci\IeC {\'o}n de m\IeC {\'u}sica}{12}{section*.19}%
+\contentsline {subsubsection}{Recomendaci\IeC {\'o}n a grupos}{13}{section*.20}%
+\contentsline {subsection}{\numberline {2.3.3}Estrategias de agregaci\IeC {\'o}n}{13}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Evaluaci\IeC {\'o}n de un sistema de recomendaci\IeC {\'o}n a grupos}{14}{subsection.2.3.4}%
+\contentsline {subsubsection}{Estudios con usuarios}{14}{section*.21}%
+\contentsline {subsubsection}{Evaluaciones \textit {offline}}{14}{section*.22}%
+\contentsline {subsection}{\numberline {2.3.5}Implicaciones para el trabajo}{15}{subsection.2.3.5}%
+\contentsline {chapter}{\numberline {3}Desarrollo de nuestra aplicaci\IeC {\'o}n}{17}{chapter.3}%
+\contentsline {section}{\numberline {3.1}An\IeC {\'a}lisis}{17}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}An\IeC {\'a}lisis de requisitos}{17}{subsection.3.1.1}%
+\contentsline {paragraph}{\textbf {Requisitos Funcionales}}{17}{section*.23}%
+\contentsline {paragraph}{\textbf {Requisitos No Funcionales}}{18}{section*.24}%
+\contentsline {subsection}{\numberline {3.1.2}Diagramas de casos de uso principales}{18}{subsection.3.1.2}%
 \contentsline {section}{\numberline {3.2}Dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{19}{section.3.2}%
-\contentsline {section}{\numberline {3.3}Implementaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{19}{section.3.3}%
-\contentsline {chapter}{\numberline {4}Pruebas y resultados}{21}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{23}{chapter.5}%
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{25}{chapter*.30}%
+\contentsline {subsection}{\numberline {3.2.1}Dise\IeC {\~n}o de la interfaz de usuario}{19}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Arquitectura del sistema}{19}{subsection.3.2.2}%
+\contentsline {subsubsection}{Frontend}{20}{section*.28}%
+\contentsline {paragraph}{Pantallas}{21}{section*.29}%
+\contentsline {paragraph}{Widgets}{21}{section*.30}%
+\contentsline {paragraph}{Servicios}{22}{section*.31}%
+\contentsline {paragraph}{Modelos}{22}{section*.32}%
+\contentsline {subsubsection}{Almacenamiento Local}{22}{section*.33}%
+\contentsline {subsubsection}{API de Spotify}{22}{section*.34}%
+\contentsline {paragraph}{Visi\IeC {\'o}n general de la API}{22}{section*.35}%
+\contentsline {paragraph}{Datos de cuenta de los usuarios}{24}{section*.37}%
+\contentsline {paragraph}{Canciones m\IeC {\'a}s escuchadas}{24}{section*.39}%
+\contentsline {paragraph}{Recomendaciones}{25}{section*.41}%
+\contentsline {paragraph}{Crear playlist}{26}{section*.43}%
+\contentsline {paragraph}{Resumen de los \textit {endpoints} a utilizar}{27}{section*.46}%
+\contentsline {section}{\numberline {3.3}Implementaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{27}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Flujo de autenticaci\IeC {\'o}n}{27}{subsection.3.3.1}%
+\contentsline {chapter}{\numberline {4}Pruebas y resultados}{29}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{31}{chapter.5}%
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{34}{chapter*.48}%

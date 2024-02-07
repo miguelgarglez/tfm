@@ -1,20 +1,25 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Ejecuci\IeC {\'o}n de un proyecto \textit {Flutter}}}{5}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Ejemplo de \IeC {\'a}rbol de \textit {widgets}}}{5}{figure.caption.15}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Implementaci\IeC {\'o}n en c\IeC {\'o}digo de un \textit {StatelessWidget} y un \textit {StatefulWidget}}}{6}{figure.caption.16}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{6}{figure.caption.16}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{6}{figure.caption.16}%
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Visi\IeC {\'o}n general \textit {Spotify for Developers}}}{7}{figure.caption.17}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{7}{figure.caption.17}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{7}{figure.caption.17}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{7}{figure.caption.17}%
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Flujo de autenticaci\IeC {\'o}n PKCE}}{8}{figure.caption.18}%
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Obtener canciones o artistas m\IeC {\'a}s escuchados}}{9}{figure.caption.19}%
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Obtener recomendaciones}}{10}{figure.caption.20}%
-\contentsline {figure}{\numberline {2.8}{\ignorespaces Crear playlist}}{11}{figure.caption.21}%
-\contentsline {figure}{\numberline {2.9}{\ignorespaces A\IeC {\~n}adir canciones a \textit {playlist}}}{11}{figure.caption.22}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ejecuci\IeC {\'o}n de un proyecto \textit {Flutter}}}{5}{figure.caption.13}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Ejemplo de \IeC {\'a}rbol de \textit {widgets}}}{5}{figure.caption.14}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Implementaci\IeC {\'o}n en c\IeC {\'o}digo de un \textit {StatelessWidget} y un \textit {StatefulWidget}}}{6}{figure.caption.15}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{6}{figure.caption.15}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{6}{figure.caption.15}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagramas de casos de uso principales de la aplicaci\IeC {\'o}n}}{19}{figure.caption.25}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{19}{figure.caption.25}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{19}{figure.caption.25}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Maquetas de la aplicaci\IeC {\'o}n a desarrollar}}{20}{figure.caption.26}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de secuencia de interacci\IeC {\'o}n con la API de \textit {Spotify}}}{21}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Visi\IeC {\'o}n general \textit {Spotify for Developers}}}{23}{figure.caption.36}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{23}{figure.caption.36}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{23}{figure.caption.36}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{23}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Flujo de autenticaci\IeC {\'o}n PKCE}}{24}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Obtener canciones o artistas m\IeC {\'a}s escuchados}}{25}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Obtener recomendaciones}}{26}{figure.caption.42}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Crear playlist}}{27}{figure.caption.44}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces A\IeC {\~n}adir canciones a \textit {playlist}}}{28}{figure.caption.45}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
