@@ -25,6 +25,12 @@
 \BOOKMARK [2][-]{subsection.3.2.2}{Arquitectura del sistema}{section.3.2}% 25
 \BOOKMARK [1][-]{section.3.3}{Implementaci\363n de la aplicaci\363n}{chapter.3}% 26
 \BOOKMARK [2][-]{subsection.3.3.1}{Flujo de autenticaci\363n}{section.3.3}% 27
-\BOOKMARK [0][-]{chapter.4}{Pruebas y resultados}{}% 28
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 29
-\BOOKMARK [0][-]{chapter*.48}{Bibliograf\355a}{}% 30
+\BOOKMARK [2][-]{subsection.3.3.2}{Llamadas a la API de Spotify y procesamiento de respuestas}{section.3.3}% 28
+\BOOKMARK [2][-]{subsection.3.3.3}{Generaci\363n de playlist combinada}{section.3.3}% 29
+\BOOKMARK [2][-]{subsection.3.3.4}{Pruebas de evaluaci\363n}{section.3.3}% 30
+\BOOKMARK [0][-]{chapter.4}{Pruebas y resultados}{}% 31
+\BOOKMARK [1][-]{section.4.1}{Estudios con usuarios}{chapter.4}% 32
+\BOOKMARK [2][-]{subsection.4.1.1}{Gesti\363n de usuarios}{section.4.1}% 33
+\BOOKMARK [1][-]{section.4.2}{Evaluaciones offline}{chapter.4}% 34
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 35
+\BOOKMARK [0][-]{chapter*.53}{Bibliograf\355a}{}% 36

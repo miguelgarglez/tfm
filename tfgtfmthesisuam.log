@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.13)  7 FEB 2024 20:23
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.13)  9 FEB 2024 01:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -643,15 +643,15 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 )))
 \verbatim@out=\write5
-runsystem(touch w18-test-2024271223.tex)...disabled (restricted).
+runsystem(touch w18-test-202429118.tex)...disabled (restricted).
 
-runsystem(rm -f w18-test-2024271223.tex)...disabled (restricted).
+runsystem(rm -f w18-test-202429118.tex)...disabled (restricted).
 
 runsystem(rm -f "tfgtfmthesisuam.gnuploterrors")...disabled (restricted).
 
 runsystem(mkdir -p "gnuplottex")...disabled (restricted).
 
-runsystem(touch "gnuplottex/w18-test-2024271223.tex")...disabled (restricted).
+runsystem(touch "gnuplottex/w18-test-202429118.tex")...disabled (restricted).
 
 
 
@@ -2005,6 +2005,21 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 Package cleveref Info: loaded `spanish' language definitions on input line 1.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[13] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
 )
 \tf@toc=\write24
 \openout6 = `tfgtfmthesisuam.toc'.
@@ -2021,21 +2036,18 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[13] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
- [14
-
-] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[14] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
  (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.loa)
 \tf@loa=\write25
 \openout6 = `tfgtfmthesisuam.loa'.
 
- (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.lol)
+ (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.lol
+LaTeX Font Info:    Trying to load font information for T1+pcr on input line 9.
+ (/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/t1pcr.fd
+File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
+))
 \tf@lol=\write26
 \openout6 = `tfgtfmthesisuam.lol'.
 
@@ -2051,6 +2063,23 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 LaTeX Info: Redefining \. on input line 1.
 LaTeX Info: Redefining \% on input line 1.
 Package cleveref Info: loaded `spanish' language definitions on input line 1.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[15
+
+] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
 )
 \tf@lof=\write29
 \openout6 = `tfgtfmthesisuam.lof'.
@@ -2079,14 +2108,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[15] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
- [16
-
-] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[16] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2104,11 +2126,13 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.49 ...ropuesta y objetivos\label{SEC:OBJETIVOS}}
+l.66 ...ropuesta y objetivos\label{SEC:OBJETIVOS}}
                                                   {introduccion/objetivos}
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [1] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+ [1
+
+] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2129,9 +2153,9 @@ LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 8.54997pt on input line 8.
 Ending itemize
 ) (/Users/miguelgarciagonzalez/TFM_MUII/tfm/introduccion/estructura.tex)
-LaTeX Info: Redefining \. on input line 53.
-LaTeX Info: Redefining \% on input line 53.
-Package cleveref Info: loaded `spanish' language definitions on input line 53.
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
+Package cleveref Info: loaded `spanish' language definitions on input line 70.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2145,7 +2169,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.53 ...{Estado del arte\label{CAP:ESTADODELARTE}}
+l.70 ...{Estado del arte\label{CAP:ESTADODELARTE}}
                                                   {estadodelarte/estadodelarte}
 \openout6 = `tfgtfmthesisuam.mw'.
 
@@ -2164,11 +2188,11 @@ l.53 ...{Estado del arte\label{CAP:ESTADODELARTE}}
 Cap\'{\i }tulo 2.
 (/Users/miguelgarciagonzalez/TFM_MUII/tfm/estadodelarte/estadodelarte.tex)
 LaTeX Font Info:    Font shape `T1/txss/b/it' in size <17.28> not available
-(Font)              Font shape `T1/txss/bx/it' tried instead on input line 54.
+(Font)              Font shape `T1/txss/bx/it' tried instead on input line 71.
 LaTeX Font Info:    Font shape `T1/txss/bx/it' in size <17.28> not available
-(Font)              Font shape `T1/txss/bx/sl' tried instead on input line 54.
+(Font)              Font shape `T1/txss/bx/sl' tried instead on input line 71.
 LaTeX Font Info:    Font shape `T1/txss/bx/sl' will be
-(Font)              scaled to size 16.41594pt on input line 54.
+(Font)              scaled to size 16.41594pt on input line 71.
  (/Users/miguelgarciagonzalez/TFM_MUII/tfm/estadodelarte/flutter.tex
 Begining itemize
 LaTeX Font Info:    Font shape `T1/txss/b/n' in size <9> not available
@@ -2218,17 +2242,12 @@ l.31
 
 
 Begining itemize
-LaTeX Font Info:    Trying to load font information for T1+pcr on input line 36.
-(/usr/local/texlive/2020/texmf-dist/tex/latex/psnfss/t1pcr.fd
-File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-)
 LaTeX Font Info:    Font shape `T1/txss/b/it' in size <9> not available
 (Font)              Font shape `T1/txss/bx/it' tried instead on input line 46.
 LaTeX Font Info:    Font shape `T1/txss/bx/it' in size <9> not available
 (Font)              Font shape `T1/txss/bx/sl' tried instead on input line 46.
 LaTeX Font Info:    Font shape `T1/txss/bx/sl' will be
 (Font)              scaled to size 8.54997pt on input line 46.
-
 Ending itemize
 Figure propias/flutter_run.png with width data
 LaTeX Info: Redefining \. on input line 80.
@@ -2527,9 +2546,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 Begining itemize
 Ending itemize
 )
-LaTeX Info: Redefining \. on input line 58.
-LaTeX Info: Redefining \% on input line 58.
-Package cleveref Info: loaded `spanish' language definitions on input line 58.
+LaTeX Info: Redefining \. on input line 75.
+LaTeX Info: Redefining \% on input line 75.
+Package cleveref Info: loaded `spanish' language definitions on input line 75.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2689,10 +2708,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 Begining itemize
 Ending itemize
 Begining itemize
-Ending itemize
-LaTeX Info: Redefining \. on input line 96.
-LaTeX Info: Redefining \% on input line 96.
-Package cleveref Info: loaded `spanish' language definitions on input line 96.
+LaTeX Info: Redefining \. on input line 86.
+LaTeX Info: Redefining \% on input line 86.
+Package cleveref Info: loaded `spanish' language definitions on input line 86.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2709,13 +2727,15 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
-Begining itemize
 Ending itemize
 Begining itemize
 Ending itemize
-LaTeX Info: Redefining \. on input line 147.
-LaTeX Info: Redefining \% on input line 147.
-Package cleveref Info: loaded `spanish' language definitions on input line 147.
+Begining itemize
+Ending itemize
+Begining itemize
+LaTeX Info: Redefining \. on input line 130.
+LaTeX Info: Redefining \% on input line 130.
+Package cleveref Info: loaded `spanish' language definitions on input line 130.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2732,24 +2752,15 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
+Ending itemize
 Figure propias/dashboard.png with width data
 Figure propias/app_basic_info.png with width data
 Figure propias/app_settings.png with width data
 LaTeX Font Info:    Font shape `T1/txss/m/n' will be
-(Font)              scaled to size 6.64998pt on input line 154.
-Begining itemize
-Ending itemize
-
-Overfull \hbox (60.72365pt too wide) in paragraph at lines 175--176
-[]\T1/txss/m/n/11 Todos es-tos \T1/txss/m/sl/11 end-points \T1/txss/m/n/11 es-tán dis-po-ni-bles en la API de \T1/txss/m/sl/11 Spo-tify\T1/txss/m/n/11 , cu-ya URL ba-se es "tex-tit"https://api.spotify.com/v1".
- []
-
-
-Underfull \vbox (badness 3179) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 176.
-LaTeX Info: Redefining \% on input line 176.
-Package cleveref Info: loaded `spanish' language definitions on input line 176.
+(Font)              scaled to size 6.64998pt on input line 160.
+LaTeX Info: Redefining \. on input line 167.
+LaTeX Info: Redefining \% on input line 167.
+Package cleveref Info: loaded `spanish' language definitions on input line 167.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2766,10 +2777,17 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
+Begining itemize
+Ending itemize
+
+Overfull \hbox (53.30418pt too wide) in paragraph at lines 181--182
+[]\T1/txss/m/n/11 Todos es-tos \T1/txss/m/sl/11 end-points \T1/txss/m/n/11 es-tán dis-po-ni-bles en la API de \T1/txss/m/sl/11 Spo-tify\T1/txss/m/n/11 , cu-ya URL ba-se es tex-tit"https://api.spotify.com/v1.
+ []
+
 Figure propias/flujo_pkce.png with width data
-LaTeX Info: Redefining \. on input line 206.
-LaTeX Info: Redefining \% on input line 206.
-Package cleveref Info: loaded `spanish' language definitions on input line 206.
+LaTeX Info: Redefining \. on input line 200.
+LaTeX Info: Redefining \% on input line 200.
+Package cleveref Info: loaded `spanish' language definitions on input line 200.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2789,11 +2807,12 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 Figure propias/top_items.png with width data
 Begining itemize
 Ending itemize
-Begining itemize
-Ending itemize
-LaTeX Info: Redefining \. on input line 243.
-LaTeX Info: Redefining \% on input line 243.
-Package cleveref Info: loaded `spanish' language definitions on input line 243.
+
+Underfull \vbox (badness 7326) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 234.
+LaTeX Info: Redefining \% on input line 234.
+Package cleveref Info: loaded `spanish' language definitions on input line 234.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2810,14 +2829,13 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
-Figure propias/recommendations.png with width data
 Begining itemize
 Ending itemize
-Figure propias/create_playlist.png with width data
+Figure propias/recommendations.png with width data
 Begining itemize
-LaTeX Info: Redefining \. on input line 279.
-LaTeX Info: Redefining \% on input line 279.
-Package cleveref Info: loaded `spanish' language definitions on input line 279.
+LaTeX Info: Redefining \. on input line 263.
+LaTeX Info: Redefining \% on input line 263.
+Package cleveref Info: loaded `spanish' language definitions on input line 263.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2835,22 +2853,25 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 
 Ending itemize
+Figure propias/create_playlist.png with width data
+Begining itemize
+Ending itemize
 Figure propias/add_to_playlist.png with width data
 LaTeX Font Info:    Font shape `T1/txss/b/it' in size <11> not available
-(Font)              Font shape `T1/txss/bx/it' tried instead on input line 291.
+(Font)              Font shape `T1/txss/bx/it' tried instead on input line 297.
 LaTeX Font Info:    Font shape `T1/txss/bx/it' in size <11> not available
-(Font)              Font shape `T1/txss/bx/sl' tried instead on input line 291.
+(Font)              Font shape `T1/txss/bx/sl' tried instead on input line 297.
 LaTeX Font Info:    Font shape `T1/txss/bx/sl' will be
-(Font)              scaled to size 10.44997pt on input line 291.
+(Font)              scaled to size 10.44997pt on input line 297.
 
-Overfull \hbox (31.64072pt too wide) in paragraph at lines 297--320
+Overfull \hbox (31.64072pt too wide) in paragraph at lines 303--326
  [] 
  []
 
-) (/Users/miguelgarciagonzalez/TFM_MUII/tfm/desarrollo/implementacion.tex)
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
-Package cleveref Info: loaded `spanish' language definitions on input line 65.
+)
+LaTeX Info: Redefining \. on input line 78.
+LaTeX Info: Redefining \% on input line 78.
+Package cleveref Info: loaded `spanish' language definitions on input line 78.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2866,17 +2887,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [27 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/create_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-LaTeX Info: Redefining \. on input line 65.
-LaTeX Info: Redefining \% on input line 65.
-Package cleveref Info: loaded `spanish' language definitions on input line 65.
+LaTeX Info: Redefining \. on input line 78.
+LaTeX Info: Redefining \% on input line 78.
+Package cleveref Info: loaded `spanish' language definitions on input line 78.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2890,6 +2903,264 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 [28 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/add_to_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+ (/Users/miguelgarciagonzalez/TFM_MUII/tfm/desarrollo/implementacion.tex (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
+File: lstlang1.sty 2020/03/24 1.8d listings language file
+)
+LaTeX Info: Redefining \. on input line 49.
+LaTeX Info: Redefining \% on input line 49.
+Package cleveref Info: loaded `spanish' language definitions on input line 49.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[29] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 104.
+LaTeX Info: Redefining \% on input line 104.
+Package cleveref Info: loaded `spanish' language definitions on input line 104.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[30] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 166.
+LaTeX Info: Redefining \% on input line 166.
+Package cleveref Info: loaded `spanish' language definitions on input line 166.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[31] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+
+Overfull \hbox (17.36052pt too wide) in paragraph at lines 169--174
+[]\T1/txss/m/n/11 Podemos ob-ser-var en los frag-men-tos de có-di-go ex-pues-tos có-mo ha-ce-mos uso del ob-je-to \T1/pcr/m/n/11 MyResponse
+ []
+
+LaTeX Info: Redefining \. on input line 222.
+LaTeX Info: Redefining \% on input line 222.
+Package cleveref Info: loaded `spanish' language definitions on input line 222.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[32] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 266.
+LaTeX Info: Redefining \% on input line 266.
+Package cleveref Info: loaded `spanish' language definitions on input line 266.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[33] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 319.
+LaTeX Info: Redefining \% on input line 319.
+Package cleveref Info: loaded `spanish' language definitions on input line 319.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[34] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+
+Overfull \hbox (24.30606pt too wide) in paragraph at lines 334--339
+[]\T1/txss/m/n/11 En pri-mer lu-gar se ob-tie-nen re-co-men-da-cio-nes pa-ra los usua-rios con la fun-ción \T1/pcr/m/n/11 getRecommendations\T1/txss/m/n/11 ,
+ []
+
+
+Overfull \hbox (5.78867pt too wide) in paragraph at lines 334--339
+\T1/txss/m/n/11 re-ce la pe-na co-men-tar aquí son los ar-gu-men-tos que se le pa-san a la URI, \T1/pcr/m/n/11 seedArtists\T1/txss/m/n/11 , \T1/pcr/m/n/11 seedTracks
+ []
+
+LaTeX Info: Redefining \. on input line 369.
+LaTeX Info: Redefining \% on input line 369.
+Package cleveref Info: loaded `spanish' language definitions on input line 369.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[35] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+
+Begining itemize
+Ending itemize
+LaTeX Info: Redefining \. on input line 418.
+LaTeX Info: Redefining \% on input line 418.
+Package cleveref Info: loaded `spanish' language definitions on input line 418.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[36] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 477.
+LaTeX Info: Redefining \% on input line 477.
+Package cleveref Info: loaded `spanish' language definitions on input line 477.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[37] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 535.
+LaTeX Info: Redefining \% on input line 535.
+Package cleveref Info: loaded `spanish' language definitions on input line 535.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[38] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 591.
+LaTeX Info: Redefining \% on input line 591.
+Package cleveref Info: loaded `spanish' language definitions on input line 591.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[39] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+)
+LaTeX Info: Redefining \. on input line 82.
+LaTeX Info: Redefining \% on input line 82.
+Package cleveref Info: loaded `spanish' language definitions on input line 82.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[40] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2906,7 +3177,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[29
+[41
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2917,7 +3188,19 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [30
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+ [42
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2942,7 +3225,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[31] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[43] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2951,7 +3234,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [32
+ [44
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2995,7 +3278,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 90--93
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[33] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[45] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -3016,9 +3299,9 @@ Underfull \hbox (badness 1043) in paragraph at lines 115--118
 )
 No file tfgtfmthesisuam.gls.
 No file tfgtfmthesisuam.acr.
-LaTeX Info: Redefining \. on input line 72.
-LaTeX Info: Redefining \% on input line 72.
-Package cleveref Info: loaded `spanish' language definitions on input line 72.
+LaTeX Info: Redefining \. on input line 89.
+LaTeX Info: Redefining \% on input line 89.
+Package cleveref Info: loaded `spanish' language definitions on input line 89.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3031,7 +3314,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[34] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[46] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3041,7 +3324,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.ind)
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [35
+ [47
 
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
@@ -3073,11 +3356,11 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[36 </Users/miguelgarciagonzalez/TFM_MUII/tfm/logoUAMw.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[48 </Users/miguelgarciagonzalez/TFM_MUII/tfm/logoUAMw.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 72.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 72.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 89.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 89.
  (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.aux
 LaTeX Info: Redefining \. on input line 32.
 LaTeX Info: Redefining \% on input line 32.
@@ -3602,13 +3885,117 @@ Package cleveref Info: loaded `spanish' language definitions on input line 32.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
 )
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 72.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 72.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 89.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 89.
 \openout6 = `tfgtfmthesisuam.out'.
 
 Package rerunfilecheck Info: File `tfgtfmthesisuam.out' has not changed.
-(rerunfilecheck)             Checksum: 2A700D50FD725DB428441FA868E5829A;2369.
+(rerunfilecheck)             Checksum: 88A40AACEE7FC1F37B3774337323ED82;2859.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -3641,18 +4028,18 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 48088 strings out of 480608
- 1065573 string characters out of 5903630
- 1702137 words of memory out of 5000000
- 62610 multiletter control sequences out of 15000+600000
- 634824 words of font info for 160 fonts, out of 8000000 for 9000
+ 49215 strings out of 480608
+ 1082036 string characters out of 5903630
+ 2033448 words of memory out of 5000000
+ 63254 multiletter control sequences out of 15000+600000
+ 637105 words of font info for 167 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,15n,107p,1121b,889s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,15n,107p,1121b,2575s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/rtxbsssc.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/rtxsssc.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrb0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.pdf (52 pages, 3071599 bytes).
+Output written on /Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.pdf (64 pages, 3134386 bytes).
 PDF statistics:
- 763 PDF objects out of 1000 (max. 8388607)
- 641 compressed objects within 7 object streams
- 184 named destinations out of 1000 (max. 500000)
- 363 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 1432 PDF objects out of 1440 (max. 8388607)
+ 1292 compressed objects within 13 object streams
+ 638 named destinations out of 1000 (max. 500000)
+ 411 words of extra memory for PDF output out of 10000 (max. 10000000)
 

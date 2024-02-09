@@ -59,20 +59,21 @@ Tal y como se ha diseñado el \textit{frontend} de la aplicación, cada pantalla
 el cual, a su vez está formado por widgets más pequeños que se combinan para formar la interfaz de usuario. Los módulos que definen las pantallas se agrupan en \textit{lib/screens}:
 
 \begin{itemize}
-  \item \texttt{generate\_playlist.dart}
-  \item \texttt{get\_recommendations.dart}
-  \item \texttt{get\_top\_items.dart}
-  \item \texttt{item\_display.dart}
-  \item \texttt{landing.dart}
-  \item \texttt{playlist\_detail.dart}
-  \item \texttt{playlist\_display.dart}
-  \item \texttt{save\_playlist.dart}
-  \item \texttt{track\_detail.dart}
-  \item \texttt{user\_detail.dart}
-  \item \texttt{users\_display.dart}
+  \item \texttt{landing.dart}: pantalla de inicio de la aplicación, que muestra un botón para hacer \textit{login} con \textit{Spotify}.
+  \item \texttt{users\_display.dart}: pantalla que muestra los usuarios que han hecho \textit{login} en la aplicación.
+  \item \texttt{user\_detail.dart}: pantalla que muestra la información de un usuario.
+  \item \texttt{generate\_playlist.dart}: pantalla del formulario para la generación de \textit{playlists}.
+  \item \texttt{playlist\_display.dart}: pantalla que muestra una \textit{playlist} generada.
+  \item \texttt{item\_display.dart}: pantalla que muestra ítems (artistas o canciones) en una lista.
+  \item \texttt{save\_playlist.dart}: pantalla del formulario para guardar una \textit{playlist} en la cuenta de \textit{Spotify} de un usuario.
+  \item \texttt{playlist\_detail.dart}: pantalla que muestra la información básica de una \textit{playlist} guardada
+  en la cuenta de \textit{Spotify} del usuario.
+  \item \texttt{track\_detail.dart}: pantalla que muestra la información de una canción.
+  \item \texttt{get\_top\_items.dart}: pantalla del formulario para obtener las canciones más escuchadas.
+  \item \texttt{get\_recommendations.dart}: pantalla del formulario para obtener recomendaciones de canciones.
 \end{itemize}
 
- % QUEDA COMENTAR POR AQUI
+Se puede encontrar conexión entre estos módulos y las maquetas de la Figura \ref{FIG:MAQUETAS}.
 
 \paragraph{Widgets}
 
@@ -80,12 +81,11 @@ Los \textit{widgets} personalizados (la mayoría de \textit{widgets} utilizados 
 se utilizan para formar las pantallas se agrupan en \textit{lib/widgets}:
 
 \begin{itemize}
-  \item \texttt{artist\_tile.dart}
-  \item \texttt{expandable\_fab.dart}
-  \item \texttt{track\_tile.dart}
+  \item \texttt{artist\_tile.dart}: \textit{widget} que muestra la información de un artista en un elemento de lista.
+  \item \texttt{track\_tile.dart}: \textit{widget} que muestra la información de una canción en un elemento de lista.
+  \item \texttt{expandable\_fab.dart}: \textit{widget} que muestra un botón flotante que se expande al hacer clicar en él.
 \end{itemize}
 
- % QUEDA COMENTAR POR AQUI
 
 \paragraph{Servicios}
 
@@ -95,12 +95,10 @@ de recomendación de canciones, que se ha desarrollado para llevar a cabo la agr
 En este grupo tenemos:
 
 \begin{itemize}
-  \item \texttt{requests.dart}
-  \item \texttt{recommendator.dart}
-  \item \texttt{statistics.dart}
+  \item \texttt{requests.dart}: módulo que se encarga de realizar las llamadas a la API de \textit{Spotify}.
+  \item \texttt{recommendator.dart}: módulo que se encarga de llevar a cabo la agregación de las canciones recomendadas por \textit{Spotify} para los usuarios que forman un grupo.
+  \item \texttt{statistics.dart}: módulo que se encarga de la realización de pruebas y obtener métricas sobre las recomendaciones de \textit{playlists}.
 \end{itemize}
-
- % QUEDA COMENTAR POR AQUI
 
 \paragraph{Modelos}
 
@@ -108,13 +106,12 @@ Cuando hablamos de uniformizar las respuestas de la API de \textit{Spotify}, nos
 errores en las pantallas y las peticiones exitosas. Se han agrupado en \textit{lib/models} los modelos de objetos que se utilizan en la aplicación:
 
 \begin{itemize}
-  \item \texttt{artist.dart}
-  \item \texttt{my\_response.dart}
-  \item \texttt{track.dart}
-  \item \texttt{user.dart}
+  \item \texttt{artist.dart}: modelo de objeto que representa a un artista.
+  \item \texttt{my\_response.dart}: modelo de objeto que representa una respuesta de la API de \textit{Spotify}.
+  \item \texttt{track.dart}: modelo de objeto que representa a una canción.
+  \item \texttt{user.dart}: modelo de objeto que representa a un usuario.
 \end{itemize}
 
- % QUEDA COMENTAR POR AQUI
 
 
 \subsubsection{Almacenamiento Local\label{subsec:almacenamiento_local}}
@@ -122,9 +119,18 @@ errores en las pantallas y las peticiones exitosas. Se han agrupado en \textit{l
 El almacenamiento local se ha llevado a cabo con \textit{Hive} \cite{hive} para \textit{Flutter}. Ha sido utilizada
 para guardar de forma segura a los usuarios que hagan login en la aplicación, junto con sus respectivos tokens de
  acceso a la API de \textit{Spotify}. Este ha sido el principal uso que se le ha dado, pero también se ha utilizado 
- para guardar pequeñas variables de forma temporal.
+ para guardar pequeñas variables de forma temporal. Algunas características que han hecho de \textit{Hive} una elección
+ adecuada para el almacenamiento local en la aplicación son:
 
- % QUEDA COMENTAR POR AQUI
+\begin{itemize}
+  \item \textbf{Base de datos No SQL}: Hive ofrece una estructura de datos flexible y escalable, ideal para almacenar datos temporales que no requieren un esquema rígido.
+  \item \textbf{Fácil de usar}: La API de \textit{Hive} es intuitiva y sencilla, lo que facilita su integración en el código \textit{Flutter}.
+  \item \textbf{Alto rendimiento}: \textit{Hive} ofrece un acceso rápido a los datos, lo que es crucial para una experiencia de usuario fluida.
+  \item \textbf{Ligera}: La biblioteca de \textit{Hive} tiene un tamaño reducido, lo que minimiza el impacto en el rendimiento general de la aplicación.
+  \item \textbf{Multiplataforma}: \textit{Hive} es compatible con \textit{Flutter} web y móvil, lo que permite una mayor reutilización del código.
+\end{itemize}
+
+
 
 
 
@@ -172,7 +178,7 @@ listar qué tipos de \textit{endpoints} o interacciones con la API nos harán fa
   playlist que se haya generado.
 \end{itemize}
 
-Todos estos \textit{endpoints} están disponibles en la API de \textit{Spotify}, cuya URL base es "textit{"https://api.spotify.com/v1}". Vamos a hacer un recorrido por cada uno de ellos.
+Todos estos \textit{endpoints} están disponibles en la API de \textit{Spotify}, cuya URL base es textit{"https://api.spotify.com/v1}. Vamos a hacer un recorrido por cada uno de ellos.
 
 \paragraph{Datos de cuenta de los usuarios\label{subsec:datos_cuenta_usuarios}}
 

@@ -39,15 +39,26 @@
 \contentsline {paragraph}{Servicios}{22}{section*.31}%
 \contentsline {paragraph}{Modelos}{22}{section*.32}%
 \contentsline {subsubsection}{Almacenamiento Local}{22}{section*.33}%
-\contentsline {subsubsection}{API de Spotify}{22}{section*.34}%
-\contentsline {paragraph}{Visi\IeC {\'o}n general de la API}{22}{section*.35}%
+\contentsline {subsubsection}{API de Spotify}{23}{section*.34}%
+\contentsline {paragraph}{Visi\IeC {\'o}n general de la API}{23}{section*.35}%
 \contentsline {paragraph}{Datos de cuenta de los usuarios}{24}{section*.37}%
-\contentsline {paragraph}{Canciones m\IeC {\'a}s escuchadas}{24}{section*.39}%
-\contentsline {paragraph}{Recomendaciones}{25}{section*.41}%
+\contentsline {paragraph}{Canciones m\IeC {\'a}s escuchadas}{25}{section*.39}%
+\contentsline {paragraph}{Recomendaciones}{26}{section*.41}%
 \contentsline {paragraph}{Crear playlist}{26}{section*.43}%
 \contentsline {paragraph}{Resumen de los \textit {endpoints} a utilizar}{27}{section*.46}%
-\contentsline {section}{\numberline {3.3}Implementaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{27}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Flujo de autenticaci\IeC {\'o}n}{27}{subsection.3.3.1}%
-\contentsline {chapter}{\numberline {4}Pruebas y resultados}{29}{chapter.4}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{31}{chapter.5}%
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{34}{chapter*.48}%
+\contentsline {section}{\numberline {3.3}Implementaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{29}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Flujo de autenticaci\IeC {\'o}n}{29}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Llamadas a la API de Spotify y procesamiento de respuestas}{33}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Generaci\IeC {\'o}n de \textit {playlist} combinada}{34}{subsection.3.3.3}%
+\contentsline {subsubsection}{Obtenci\IeC {\'o}n de recomendaciones de los usuarios}{35}{section*.48}%
+\contentsline {paragraph}{Decisi\IeC {\'o}n sobre las semillas a partir de los cuales se obtendr\IeC {\'a}n las recomendaciones.}{36}{section*.49}%
+\contentsline {subsubsection}{Agregaci\IeC {\'o}n de recomendaciones}{37}{section*.50}%
+\contentsline {paragraph}{Decisi\IeC {\'o}n sobre los \textit {ratings} individuales.}{37}{section*.51}%
+\contentsline {subsubsection}{Obtenci\IeC {\'o}n de la \textit {playlist} final}{39}{section*.52}%
+\contentsline {subsection}{\numberline {3.3.4}Pruebas de evaluaci\IeC {\'o}n}{40}{subsection.3.3.4}%
+\contentsline {chapter}{\numberline {4}Pruebas y resultados}{41}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Estudios con usuarios}{41}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Gesti\IeC {\'o}n de usuarios}{41}{subsection.4.1.1}%
+\contentsline {section}{\numberline {4.2}Evaluaciones \textit {offline}}{41}{section.4.2}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{43}{chapter.5}%
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{46}{chapter*.53}%

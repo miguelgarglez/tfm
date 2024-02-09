@@ -1,1 +1,636 @@
+En esta sección trataremos la implementación de las partes más críticas e importantes de la aplicación, pasando desde la 
+autenticación de usuarios, hasta la implementación de la agregación y obtención de \textit{ratings} grupales sobre canciones. 
+También se hablará de las pruebas de evaluación que se llevaron a cabo para obtener conclusiones sobre las potenciales estrategias
+ a utilizar para la generación de \textit{playlists}, que sirvieron para definir las estrategias a utilizar en las pruebas con usuarios
+ que se explican en la Sección \ref{SEC:ESTUDIOS_USUARIOS}.
+
+
 \subsection{Flujo de autenticación\label{SEC:FLUJO_AUTENTICACION}}
+
+La implementación de la autenticación de usuarios se llevó a cabo siguiendo el flujo de autenticación de \textit{Spotify}, que explicábamos en la Sección 
+\ref{subsec:datos_cuenta_usuarios}. Inspirados en las instrucciones que daba \textit{Spotify} en su documentación, se implementó un flujo de autenticación
+en Dart. A pesar de que encontramos posibles librerías de \textit{Flutter} para llevar a cabo esta tarea, decidimos no utilizarlas para tener una total flexibilidad
+e independencia a la hora de hacer uso de la API de \textit{Spotify}. Además, creímos que para un lenguaje como Dart, una librería como esta no estaría tan cuidada
+como podría estarlo para lenguajes mucho más extendidos como \textit{Python} o \textit{JavaScript}. 
+
+Como se explicaba en la Sección \ref{subsec:datos_cuenta_usuarios}, tras que un usuario pulse en el botón para hacer login en la aplicación,
+se le redirige a una página de \textit{Spotify} en la que se le pide que inicie sesión, y que dé permisos a la aplicación para acceder a sus datos. Véase el
+Código \ref{CODIGO:LOGIN_SPOTIFY} para ver cómo se lleva a cabo el lanzamiento de la URL de autenticación en \textit{Spotify}.
+
+
+
+\begin{lstlisting}[language=python, caption=Lanzar autenticación en \textit{Spotify}, label=CODIGO:LOGIN_SPOTIFY]
+    Future<void> requestAuthorization() async {
+        var codeVerifier = generateRandomString(128);
+      
+        # guardamos el codeVerifier para el proceso de autenticacion
+        var cvBox = Hive.box('codeVerifiers');
+        await cvBox.put('cv', codeVerifier);
+      
+        String codeChallenge = generateCodeChallenge(codeVerifier);
+      
+        String state = generateRandomString(16);
+      
+        final args = {
+          'response_type': 'code',
+          'client_id': clientId,
+          'scope': scope,
+          'redirect_uri': redirectUri,
+          'state': state,
+          'code_challenge_method': 'S256',
+          'code_challenge': codeChallenge,
+        };
+      
+        final authorizationUrl =
+            Uri.https('accounts.spotify.com', '/authorize', args);
+      
+        if (await canLaunchUrl(authorizationUrl)) {
+          await launchUrl(authorizationUrl, webOnlyWindowName: '_self');
+        } else {
+          throw 'Could not launch $authorizationUrl';
+        }
+      }
+\end{lstlisting}
+Podemos ver en la línea 5 del Código \ref{CODIGO:LOGIN_SPOTIFY} que se genera un \texttt{codeVerifier} aleatorio, que se guarda en nuestro almacenamiento local, pudiendo
+ver un ejemplo de cómo se guardan elementos en el almacenamiento local de la aplicación.
+Una vez que el usuario ha dado permisos a la aplicación, \textit{Spotify} redirige al usuario a la URL que se ha especificado en la configuración de la aplicación, 
+junto con un código de autorización. Este código de autorización es el que se utilizará para obtener el \texttt{access\_token} y el \texttt{refresh\_token} que nos permitirán
+hacer la primera llamada a la API de \textit{Spotify} para obtener los datos del usuario y plasmar en la aplicación el \textit{login} exitoso. 
+Véase el Código \ref{CODIGO:GET_ACCESS_TOKEN} para ver cómo se obtiene el código de autorización y se intercambia por el \texttt{access\_token} y el \texttt{refresh\_token}. 
+
+\begin{lstlisting}[language=python, caption=Obtener \texttt{access\_token} y \texttt{refresh\_token}, label=CODIGO:GET_ACCESS_TOKEN]
+  Future<MyResponse> getAccessToken() async {
+    String code;
+  
+    MyResponse ret = MyResponse();
+  
+    # obtengo el codigo de la url y lo guardo
+    code = await obtainCurrentURLCode();
+  
+    var cvBox = Hive.box('codeVerifiers');
+    var codeVerifier = await cvBox.get('cv');
+    cvBox.clear();
+    if (codeVerifier == null) {
+      # no hay un codeVerifier, asi que va a dar error, cortamos ejecucion
+      ret.content = {'error': 'No codeVerifier'};
+      return ret;
+    }
+    final body = {
+      'grant_type': 'authorization_code',
+      'code': code,
+      'redirect_uri': redirectUri,
+      'client_id': clientId,
+      'code_verifier': codeVerifier,
+    };
+  
+    try {
+      final response = await post(
+        Uri.parse('https://accounts.spotify.com/api/token'),
+        headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+        body: body,
+      );
+  
+      ret.statusCode = response.statusCode;
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        ret.content = data;
+        return ret;
+      } else {
+        ret.content = {};
+        throw Exception('HTTP status ${response.statusCode} in getAccessToken');
+      }
+    } catch (error) {
+      # solo se imprime el error si ejecutamos en local (en desarrollo)
+      if (kDebugMode) {
+        print('Error $error');
+      }
+      return ret;
+    }
+  }
+
+\end{lstlisting}
+
+Este código se llama solamente una vez por usuario, porque obtendremos la infomración básica de este, y lo guardaremos
+en el almacenamiento local como un objeto de la clase \texttt{User}, como comentábamos en la Sección \ref{subsec:frontend}.
+Si el usuario ha introducido sus credenciales de \textit{Spotify} correctamente, y ha dado permisos a la aplicación, recogeremos
+la información básica del usuario, como su nombre, su \textit{email}, y su \textit{ID} de \textit{Spotify}, y lo guardaremos en 
+el almacenamiento local, véase el Código \ref{CODIGO:GUARDAR_USUARIO} para ver cómo se obtiene la información del usuario.
+
+\begin{lstlisting}[language=python, caption=Guardar información del usuario, label=CODIGO:GUARDAR_USUARIO]
+  Future<MyResponse> retrieveSpotifyProfileInfo() async {
+    MyResponse ret = MyResponse();
+    MyResponse tokenResponse = await getAccessToken();
+    if (tokenResponse.statusCode != 200) {
+      # Error en la obtencion del token
+      ret.statusCode = tokenResponse.statusCode;
+      ret.content = User.notValid();
+      return ret;
+    }
+  
+    final Uri uri = Uri.parse('https://api.spotify.com/v1/me');
+    User newUser;
+  
+    try {
+      final response = await get(
+        uri,
+        headers: {
+          'Authorization': 'Bearer ${tokenResponse.content["access_token"]}'
+        },
+      );
+      ret.statusCode = response.statusCode;
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+
+        # Creamos un objeto usuario a partir de la informacion que nos devuelve Spotify 
+        newUser = User.fromJson(data, tokenResponse.content['access_token'],
+            tokenResponse.content['refresh_token']);
+
+        # Guardamos el nuevo usuario en el almacenamiento local
+        var usersBox = Hive.box<User>('users');
+        await usersBox.put(newUser.id, newUser);
+
+        ret.content = newUser;
+        return ret;
+      } else {
+        ret.content = User.notValid();
+        throw Exception(
+            'HTTP status ${response.statusCode} en retrieveSpotifyProfileInfo');
+      }
+    } catch (error) {
+      # solo se imprime el error si ejecutamos en local (en desarrollo)
+      if (kDebugMode) {
+        print('Error: $error');
+      }
+      return ret;
+    }
+  }
+\end{lstlisting}
+
+Podemos observar en los fragmentos de código expuestos cómo hacemos uso del objeto \texttt{MyResponse} para devolver información, donde el \texttt{statusCode}
+y \texttt{content} son fundamentales para el manejo de errores y la obtención de información. También puede verse en la línea 3 del Código \ref{CODIGO:GUARDAR_USUARIO}
+cómo se hace la llamada al código \ref{CODIGO:GET_ACCESS_TOKEN}. Esta llamada se incluye dentro de la misma función porque en nuestra aplicación, obtener el 
+\texttt{access\_token} y obtener la información del perfil del usuario van de la mano. En las líneas 18 y 26 del Código \ref{CODIGO:GUARDAR_USUARIO} se hace uso 
+de los tokens para hacer la llamada para obtener la información del usuario, y para guardar la información del usuario en el almacenamiento local, respectivamente.
+
+Vamos a ver para terminar cómo después se accede a esta información del usuario en el almacenamiento local, para utilizarla.
+En el Código \ref{CODIGO:ACCEDER_USUARIO} se puede ver cómo se accede a la información del usuario en el almacenamiento local, y 
+cómo se hace uso de ella, en este caso, para utilizar el \texttt{access\_token} para realizar una petición después.
+
+\begin{lstlisting}[language=python, caption=Acceder a la información del usuario, label=CODIGO:ACCEDER_USUARIO]
+  Future<MyResponse> getUsersTopItems(
+    String userId, String type, String timeRange, double limit) async {
+
+    MyResponse ret = MyResponse();
+    
+    # Accedemos al almacenamiento local para obtener el usuario
+    var usersBox = Hive.box<User>('Users');
+    User? user = usersBox.get(userId);
+    var accessToken = user!.accessToken;
+
+    final args = {
+      'time_range': timeRange,
+      'limit': limit.round().toString(),
+    };
+
+    final Uri uri = Uri.https('api.spotify.com', '/v1/me/top/$type', args);
+    try {
+      final response = await get(
+        uri,
+        headers: {'Authorization': 'Bearer $accessToken'},
+      );
+      ret.statusCode = response.statusCode;
+      if (response.statusCode == 200) {
+        final data = json.decode(response.body);
+        ret.content = parseItemData(data, tipo);
+        return ret;
+      } else {
+        ret.content = [];
+        throw Exception('HTTP status ${response.statusCode} en getUsersTopItems');
+      }
+    } catch (error) {
+      # solo se imprime el error si ejecutamos en local (en desarrollo)
+      if (kDebugMode) {
+        print('Error: $error');
+      }
+      return ret;
+    }
+  }
+\end{lstlisting}
+
+En las líneas 7 y 9 del Código \ref{CODIGO:ACCEDER_USUARIO} se accede al almacenamiento local para obtener el usuario, y en la línea 9 
+se accede al \texttt{access\_token}.
+
+\subsection{Llamadas a la API de Spotify y procesamiento de respuestas\label{SEC:API_SPOTIFY_IMPLEMENTACION}}
+
+En el Código \ref{CODIGO:GUARDAR_USUARIO} se puede ver cómo se hace uso de la librería \texttt{http} para hacer llamadas a la API de \textit{Spotify}.
+En la línea 15 se hace uso de la función \texttt{get} para hacer una llamada \texttt{GET} a la URI correspondiente, y se le pasan
+los \texttt{headers} necesarios para que \textit{Spotify} nos devuelva la información del usuario. En la línea 23 se hace uso de la función \texttt{json.decode}
+para procesar la respuesta de \textit{Spotify}, con la cual se crea un objeto de la clase \texttt{User}, que se guarda en el almacenamiento local.
+
+Y este proceso se puede extrapolar al resto de peticiones a la API, cambiarán posibles argumentos que haya que pasar, y cambiará la URI a la que se haga la petición,
+dependiendo del \textit{endpoint} (resumidos en la Tabla \ref{TB:ENDPOINTS}) al que se quiera hacer la petición.
+
+Una cuestión a comentar es el procesamiento de los 'objetos' que devuelve \textit{Spotify}. Ya que \textit{Spotify} nos devolverá listas con 
+artistas y canciones en formato \texttt{JSON}. Por ello, vamos a comentar cómo se procesan estos objetos en la aplicación. Por ejemplo, cuando 
+se pide la lista de los artistas o canciones más escuchados por un usuario (véase el Código \ref{CODIGO:ACCEDER_USUARIO}), se obtiene un objeto en formato \texttt{JSON}, el cual procesa 
+artistas o usuarios en la línea 25, dependiendo del tipo de objeto que se haya pedido. Véase el Código \ref{CODIGO:PROCESAR_ITEM}, el cual corresponde
+a la función para procesar artistas o canciones.
+
+\begin{lstlisting}[language=python, caption=Procesar objeto en formato \textit{JSON}, label=CODIGO:PROCESAR_ITEM]
+
+  List parseItemData(data, type) {
+    List topItems = [];
+    if (type == 'artists') {
+      for (var item in data['items']) {
+        Artist a = Artist.fromJson(item);
+        topItems.add(a);
+      }
+    } else {
+      for (var item in data['items']) {
+        Track a = Track.fromJson(item);
+        topItems.add(a);
+      }
+    }
+    return topItems;
+  }
+
+\end{lstlisting}
+
+Vemos en las líneas 6 y 11 del Código \ref{CODIGO:PROCESAR_ITEM} que hacemos uso de un constructor personalizado (\texttt{fromJson}) 
+para crear objetos de las clases \texttt{Artist} y \texttt{Track} a partir de los datos que nos devuelve \textit{Spotify}. También tenemos 
+ese constructor personalizado para la clase \texttt{User}, el cual se utilizaba en el Código \ref{CODIGO:GUARDAR_USUARIO} en la línea 26, solo
+que a este se le pasaba además el \texttt{access\_token} y el \texttt{refresh\_token} que se obtienen en el Código \ref{CODIGO:GET_ACCESS_TOKEN}.
+Vamos a ver un ejemplo de cómo se implementa este constructor personalizado en la clase \texttt{User} en el Código \ref{CODIGO:FROM_JSON_USER}, los 
+constructores de las otras clases se implementan de la misma forma, obviando las diferencias que tengan los objetos \textit{JSON} que devuelve \textit{Spotify}.
+
+\begin{lstlisting}[language=python, caption=Constructor personalizado de la clase \texttt{User}, label=CODIGO:FROM_JSON_USER]
+  factory User.fromJson(
+    Map<String, dynamic> json, String token, String refreshToken) {
+    String imageUrl = '';
+    if ((json['images'] as List).isNotEmpty) {
+      # La lista de imagenes no esta vacia y puedes acceder a json['images'][0]
+      imageUrl =
+          json['images'][1]['url']; // Selecciona la segunda imagen de la lista
+    } else {
+      # La lista de imagenes esta vacia o no existe la clave 'images' en el JSON
+      imageUrl = '';
+    }
+
+    return User(
+      displayName: json['display_name'],
+      id: json['id'],
+      email: json['email'],
+      imageUrl: imageUrl,
+      country: json['country'],
+      followers: json['followers']['total'],
+      accessToken: token,
+      refreshToken: refreshToken,
+    );
+  }
+\end{lstlisting}
+\subsection{Generación de \textit{playlist} combinada\label{SEC:AGREGACION_IMPLEMENTACION}}
+
+En la Secciones \ref{SEC:RECOMENDACION_GRUPOS} y \ref{SEC:AGREGACION} comentábamos cómo íbamos a llevar a cabo la agregación y obtención 
+de \textit{ratings} grupales para las recomendaciones obtenidas de los usuarios. Vamos a tratar de explicar este proceso paso a paso en esta sección.
+Desde la obtención de las recomendaciones de los usuarios, hasta la agregación de estas recomendaciones, y la obtención de los \textit{ratings} grupales,
+que se utilizarán para obtener las \textit{playlists} generadas para los grupos. Cuando se selecciona en la aplicación la opción de generar una 
+\textit{playlist} para un grupo, se inicia un proceso que se recoge en la función \texttt{generateCombinedPlaylist}, véase el Código \ref{CODIGO:GENERAR_PLAYLIST_COMBINADA}.
+
+\begin{lstlisting}[language=python, caption=Generar \textit{playlist} combinada, label=CODIGO:GENERAR_PLAYLIST_COMBINADA]
+  Future<MyResponse> generateCombinedPlaylist(
+    Duration duration, String? type) async {
+    MyResponse ret = MyResponse();
+
+    # Obtenemos las recomendaciones de todos los usuarios del grupo
+    MyResponse recommendations = await obtainAllUsersRecommendations();
+    
+    if (recommendations.statusCode != 200) {
+      ret.statusCode = recommendations.statusCode;
+      ret.content = recommendations.content;
+      ret.auxContent = recommendations.auxContent;
+      return ret;
+    }
+    # Generamos la playlist combinada agregando todas las recomendaciones
+    Map<String, List> playlists = generateRecommendedPlaylist(
+        recommendations.content, duration, type);
+
+
+    ret.statusCode = recommendations.statusCode;
+    ret.content = playlists;
+
+    return ret;
+  }
+\end{lstlisting}
+
+Esta función, aparentemente corta, en la línea 6 del Código \ref{CODIGO:GENERAR_PLAYLIST_COMBINADA} obtiene las recomendaciones de todos los usuarios del grupo, y en la línea 15 se 
+generan las \textit{playlists} recomendadas. En esta última línea es donde se agregan todas las recomendaciones de los usuarios del grupo
+, asignando primero un \textit{ratings} individuales a las recomendaciones de cada usuario, para después aplicar la estrategia de agregación pertinente y obtener
+los \textit{ratings} grupales, que se utilizarán para la generación de la \textit{playlist} recomendada. Vamos a cubrir cada uno de los principales
+pasos de este proceso en las siguientes subsecciones.
+
+
+\subsubsection{Obtención de recomendaciones de los usuarios\label{subsec:obtencion_recomendaciones_implementacion}}
+
+En primer lugar se obtienen recomendaciones para los usuarios con la función \texttt{getRecommendations}, la cual cuenta con 
+elementos en el código muy similares a fragmentos como el Código \ref{CODIGO:ACCEDER_USUARIO}. Lo que merece la pena comentar aquí 
+son los argumentos que se le pasan a la URI, \texttt{seedArtists}, \texttt{seedTracks} y \texttt{seedGenres}, que son los artistas, canciones y 
+géneros a partir de los cuales se obtendrán las recomendaciones. Véase en el fragmento de Código \ref{CODIGO:USO_SEEDS} el uso y la definición de estos 
+argumentos que se le pasan a la función \texttt{getRecommendations}.
+
+\begin{lstlisting}[language=python, caption=Definición de los argumentos \texttt{seedArtists} y \texttt{seedTracks}, label=CODIGO:USO_SEEDS]
+  Future<MyResponse> getRecommendations(String userId, List<String> seedArtists,
+      List<String> seedTracks, double limit) async {
+    
+    # ...
+
+    final args = {
+    'market': 'ES',
+    'limit': limit.round().toString(),
+    'seed_artists': seedArtists,
+    'seed_genres': seedGenres,
+    'seed_tracks': seedTracks,
+  };
+
+    final Uri uri = Uri.https('api.spotify.com', '/v1/recommendations', args);
+    try {
+      final response = await get(
+        uri,
+        headers: {'Authorization': 'Bearer $accessToken'},
+      );
+      # ...
+    }
+  }
+\end{lstlisting}
+
+Los artistas y canciones los podemos obtner de las listas de artistas y canciones más escuchadas
+de cada uno de los usuarios del grupo, que se obtienen con la función \texttt{getUsersTopItems}, que se puede ver en el Código \ref{CODIGO:ACCEDER_USUARIO}.
+Además, es importante saber que la API de \textit{Spotify} nos permite utilizar hasta 5 semillas en total, en la proporción que decidamos.
+
+\paragraph{Decisión sobre las semillas a partir de los cuales se obtendrán las recomendaciones.}
+
+Debemos destacar aquí una decisión más o menos arbitraria, y es que decidimos que para la obtención de las recomendaciones a la hora de generar
+una \textit{playlist} para un grupo, se utilizarán los 2 artistas más escuchados en el largo plazo y las 3 canciones más escuchadas en el corto plazo
+por cada usuario del grupo. No utilizaremos semillas de géneros musicales. Esta decisión se tomó teniendo en cuenta dos ideas:
+
+\begin{itemize}
+  \item \textbf{Variedad:} se decidió que se utilizaran los 2 artistas más escuchados en el largo plazo para que las recomendaciones no se basaran
+  solamente en los gustos recientes de los usuarios y tuvieran en cuenta de qué artistas los usuarios son 'fanes', y se decidió que se utilizaran 
+  las 3 canciones más escuchadas en el corto plazo para tener en cuenta las canciones a las que un usuario puede estar enganchado recientemente.
+  \item \textbf{Equilibrio:} se decidió que se utilizaran 2 artistas y 3 canciones para que las recomendaciones no se basaran solamente en un tipo
+  de ítem, teniendo en cuenta algo más amplio como los artistas, y algo más específico como las canciones.
+  \item \textbf{Limitaciones en las semillas de género:} se decidió que no se utilizaran semillas de géneros musicales porque no podemos saber los géneros más escuchados
+  por un usuario de manera tan sencilla, y no creímos que fuera a aportar algo muy especial.
+\end{itemize}
+
+Véase el Código \ref{CODIGO:OBTENCION_RECOMENDACIONES} para ver cómo se obtienen las recomendaciones para todos los usuarios del grupo, 
+teniendo como argumentos por defecto el número de canciones y artistas a utilizar como semillas, y el término de tiempo a utilizar para obtener las semillas.
+
+\begin{lstlisting}[language=python, caption=Obtención de recomendaciones para un usuario, label=CODIGO:OBTENCION_RECOMENDACIONES]
+  Future<MyResponse> obtainAllUsersRecommendations(
+    {double numTracks = 3,
+    double numArtists = 2,
+    String tracksTerm = 'short_term',
+    String artistsTerm = 'long_term'}) async {
+    
+    MyResponse ret = MyResponse();
+    var usersBox = Hive.box<User>('users').toMap();
+
+    Map<String, List> recommendations = {};
+
+    for (User user in usersBox.values) {
+      String userId = user.id;
+
+      # Actualizacion del token de acceso para asegurarnos de que no haya problemas
+      await user.updateToken();
+
+      # Obtencion de las semillas de canciones
+      MyResponse topTracks =
+          await getUsersTopItems(userId, 'tracks', tracksTerm, numTracks);
+      # Comprobacion de errores...
+      List? trackSeeds = topTracks.content.map((track) => track.id).toList();
+
+      # Obtencion de las semillas de artistas
+      MyResponse topArtists =
+          await getUsersTopItems(userId, 'artists', artistsTerm, numArtists);
+      # Comprobacion de errores...
+      List? artistSeeds = topArtists.content.map((artist) => artist.id).toList();
+
+      # Obtencion de las recomendaciones del usuario en base a las semillas obtenidas
+      MyResponse userRecommendations =
+          await getRecommendations(userId, artistSeeds, trackSeeds, 100);
+      # Comprobacion de errores...
+      ret.statusCode = userRecommendations.statusCode;
+
+      # Se anaden las recomendaciones obtenidas para ese usuario
+      recommendations[userId] = userRecommendations.content;
+    }
+    ret.content = recommendations;
+    return ret;
+  }
+\end{lstlisting}
+
+
+\subsubsection{Agregación de recomendaciones\label{subsec:agregacion_recomendaciones_implementacion}}
+
+Una vez que se han obtenido las recomendaciones de todos los usuarios del grupo, salimos de el módulo de peticiones a la API 
+y se procede a la agregación de estas recomendaciones desde el módulo de recomendación. Véase el Código \ref{CODIGO:AGREGADOR} 
+para ver cómo se lleva a cabo este proceso. 
+
+\begin{lstlisting}[language=python, caption=Proceso de agregación, label=CODIGO:AGREGADOR]
+Map<String, List<dynamic>> generateRecommendedPlaylist(
+    Map<String, List> recommendations,
+    Duration playlistDuration,
+    List<int> seedProp,
+    String? tipo) {
+  Map groupRatings = {};
+  Map sortedTracks = {};
+  Map recommendation = {};
+  
+  # Obtenemos los ratings individuales
+  Map<Track, List<double>> ratings =
+      obtainIndividualRatings(recommendations, seedProp);
+
+  # Aplicamos la estrategia de agregacion del diccionario strategies correspondiente
+  groupRatings[tipo!] = strategies[tipo]!(recommendations, ratings);
+  
+  # Ordenamos las recomendaciones por rating de mayor a menor
+  sortedTracks[tipo] = sortedRecommendation(groupRatings[tipo]!);
+
+  # Cortamos las recomendaciones para que no superen la duracion indicada por el usuario
+  recommendation[tipo] =
+      cutOrderedRecommendations(sortedTracks[tipo]!, playlistDuration);
+
+  # Devolvemos la playlist generada
+  return recommendation;
+}
+
+\end{lstlisting}
+
+En primer lugar, se obtienen los \textit{ratings} individuales de las recomendaciones de cada usuario, que se obtienen con la función
+ \texttt{obtainIndividualRatings}, que se puede ver en el Código \ref{CODIGO:OBTENCION_RATINGS_INDIVIDUALES}. 
+
+\paragraph{Decisión sobre los \textit{ratings} individuales.}
+
+Se decidió que el \textit{rating} de una canción para un usuario se basara en el orden de la canción en la lista de recomendaciones para ese usuario.
+Es decir, si una canción es la primera de la lista de recomendaciones para un usuario, su \textit{rating} será el más alto, si es la segunda, su \textit{rating}
+será el segundo más alto, y así sucesivamente. Véase el Código \ref{CODIGO:OBTENCION_RATINGS_INDIVIDUALES} para ver cómo se obtienen los \textit{ratings} individuales.
+
+\begin{lstlisting}[language=python, caption=Obtención de \textit{ratings} individuales, label=CODIGO:OBTENCION_RATINGS_INDIVIDUALES]
+  Map<Track, List<double>> obtainIndividualRatings(
+    Map<String, List> recommendations, List<int> seedProp) {
+    # Inicializacion de variables
+    Map<Track, List<double>> ratings = {};
+    int userNum = 0;
+    int totalUsers = recommendations.length;
+    List<String> trackIds = [];
+
+    for (List trackList in recommendations.values) {
+      double subtract = 0; # Valor que se sustrae al valor de ranking invertido
+      for (var trackPos = 0; trackPos < trackList.length; trackPos++) {
+        Track track = trackList[trackPos];
+
+        # Calculo de rating de una cancion
+        double trackRating = trackList.length - subtract;
+
+        if (trackIds.contains(track.id)) {
+          # El track ya se habia recomendado a otro usuario
+          # Se anade el rating del usuario que corresponda
+          ratings[track]![userNum] = trackRating;
+        } else {
+          # El track ha sido analizado por primera vez entre las recomendaciones
+          # Todas las listas de ratings de cada track tendran un rating de 0
+          # De todos los usuarios
+          ratings[track] = List.filled(totalUsers, 0);
+          # Se pone el valor correspondiente para el usuario pertinente
+          ratings[track]![userNum] = trackRating;
+          trackIds.add(track.id);
+        }
+        subtract += 1;
+      }
+      userNum += 1;
+    }
+
+    return ratings;
+  }
+\end{lstlisting}
+
+Tras darles un \textit{rating} a todas las recomendaciones de cada usuario, se aplica la estrategia de agregación correspondiente, 
+que se encuentra en el diccionario \texttt{strategies}, y que ha podido ser elegida por el usuario previamente. Véase el 
+fragmento de Código \ref{CODIGO:ESTRATEGIAS} con el diccionario de estrategias de agregación.
+
+\begin{lstlisting}[language=python, caption=Diccionario de estrategias de agregación, label=CODIGO:ESTRATEGIAS]
+Map<String, Function> strategies = {
+  'average': averageGroupRatings,
+  'multiplicative': multiplicativeGroupRatings,
+  'most_pleasure': mostPleasureGroupRatings,
+  'least_misery': leastMiseryGroupRatings,
+  'borda': bordaGroupRatings,
+  'average_custom': averageCustomGroupRatings,
+};
+\end{lstlisting}
+
+El diccionario tiene como clave una cadena con el nombre en minúsculas de la estrategia, y como valor, 
+una función que lleva a cabo la estrategia de agregación correspondiente. Véase el Código \ref{CODIGO:ESTRATEGIA_MULTIPLICATIVE} 
+para ver un ejemplo de cómo se implementa una de las estrategias.
+
+\begin{lstlisting}[language=python, caption=Estrategia de agregación \textit{average}, label=CODIGO:ESTRATEGIA_MULTIPLICATIVE]
+Map<Track, double> multiplicativeGroupRatings(
+    Map<String, List> recommendations, Map<Track, List<double>> ratings) {
+  
+    Map<Track, double> multGroupRatings = ratings.map((track, ratingsList) {
+    # Multiplicacion de los ratings individuales, para obtener uno grupal
+    double multiplicationRating = ratingsList
+        .where((rating) => rating != 0)
+        .reduce((double a, double b) => a * b);
+
+    return MapEntry(track, multiplicationRating);
+  });
+
+  return multGroupRatings;
+}
+\end{lstlisting}
+
+Todas las estrategias siguen una implementación similar a la del Código \ref{CODIGO:ESTRATEGIA_MULTIPLICATIVE},
+y devuelven un diccionario con \texttt{Track} como clave y \texttt{double} como valor, que son los \textit{ratings} grupales.
+
+\subsubsection{Obtención de la \textit{playlist} final\label{subsec:playlist_final_implementacion}}
+
+Una vez que se han obtenido los \textit{ratings} grupales, se ordenan las recomendaciones por \textit{rating} de mayor a menor, como 
+se puede ver en el Código \ref{CODIGO:ORDENAR_RECOMENDACIONES}, y se cortan las recomendaciones para que no superen la duración 
+indicada por el usuario, como se puede ver en el Código \ref{CODIGO:CORTAR_RECOMENDACIONES}.
+
+\begin{lstlisting}[language=python, caption=Ordenar recomendaciones, label=CODIGO:ORDENAR_RECOMENDACIONES]
+  List<Track> sortedRecommendation(Map<Track, dynamic> groupRatings) {
+    List<Track> sortedTracks = groupRatings.keys.toList();
+    sortedTracks.sort((a, b) {
+      int c = groupRatings[b].compareTo(groupRatings[a]);
+      # En caso de tener mismo rating, ordenar alfabeticamente
+      if (c == 0) {
+        return a.name.compareTo(b.name);
+      } else {
+        return c;
+      }
+    });
+    return sortedTracks;
+  }
+\end{lstlisting}
+
+Vemos como se ordenan las recomendaciones de mayor a menor en la línea 4 del Código \ref{CODIGO:ORDENAR_RECOMENDACIONES},
+y se obtiene una lista ordenada de \texttt{Track}. En el Código \ref{CODIGO:CORTAR_RECOMENDACIONES} se muestra cómo se corta
+la lista para que no supere la duración deseada.
+
+\begin{lstlisting}[language=python, caption=Cortar recomendaciones, label=CODIGO:CORTAR_RECOMENDACIONES]
+List cutOrderedRecommendations(
+    List orderedRecommendations, Duration playlistDuration) {
+  List cutRecommendations = [];
+  int currentDuration = 0;
+  # La duracion de cada Track esta guardada en milisegundos
+  int desiredDuration = playlistDuration
+      .inMilliseconds; 
+
+  for (Track track in orderedRecommendations) {
+    if (currentDuration + track.durationMs <= desiredDuration) {
+      cutRecommendations.add(track);
+      currentDuration += track.durationMs;
+    } else if (currentDuration + track.durationMs <
+        desiredDuration + (desiredDuration * 0.2)) {
+      # Si la duracion de la lista de reproduccion NO excede en mas de 0.2 la duracion deseada
+      # Agregamos la pista y continuamos con la siguiente
+      cutRecommendations.add(track);
+      currentDuration += track.durationMs;
+      break;
+    } else if (currentDuration + track.durationMs >=
+        desiredDuration + (desiredDuration * 0.2)) {
+      # Si la duracion de la lista de reproduccion excede en mas de 0.2 la duracion deseada
+      # NO agregamos la pista y continuamos con la siguiente
+      continue;
+    } else {
+      break;
+    }
+  }
+
+  return cutRecommendations;
+}
+\end{lstlisting}
+
+Tras esta sucesión de procesos se obtiene la \textit{playlist} final, que se devuelve como una lista de \texttt{Track},
+lista para ser mostrada en nuestra aplicación.
+
+COMENTAR AQUI QUE EN EL APENDICE SE MUESTRAN UNOS PANTALLAZOS DE COMO SE VERIA EN LA APP, O MOSTRARLOS AQUI
+
+TAMBIEN UN DIAGRAMA RESUMEN QUE EXPLIQUE TODO EL PROCESO Y TODAS LAS INTERACCIONES ENTRE LAS FUNCIONES 
+NO SE DE QUE TIPO EL DIAGRAMA AÚN, Y NO SÉ SI METERLO EN EL APÉNDICE.
+
+PERO BUENO SI DUDO CON ESTO TAMBIEN DEBERIA DUDAR CON LOS FRAGMENTOS DE CODIGO.
+
+
+
+
+
+
+
+
+\subsection{Pruebas de evaluación\label{SEC:PRUEBAS_EVALUACION}}
+
+HABLAR SOBRE LAS GRAFICAS DE OVERLAP ENTRE ESTRATEGIAS Y COMO SE HAN obtenido
+Y TERMINAR CON COMO HAN INFLUIDO EN LA DECISION DE LAS ESTRATEGIAS A UTILIZAR
