@@ -1,6 +1,7 @@
-\subsection{Análisis de requisitos\label{SEC:REQUISITOS}}
+En esta sección, haremos una aproximación al análisis de requisitos de la aplicación que vamos a desarrollar, definiendo
+también los casos de uso fundamentales de la aplicación.
 
-En esta sección de análisis, se detallarán los requisitos funcionales y no funcionales de la aplicación.
+\subsection{Análisis de requisitos\label{SEC:REQUISITOS}}
 
 \paragraph{\textbf{Requisitos Funcionales}}
 
@@ -26,15 +27,13 @@ de Spotify. A continuación, se detallan los requisitos funcionales de la aplica
         \item El sistema debe permitir a los usuarios seleccionar canciones, géneros o artistas para obtener recomendaciones.
         \item El sistema recomendará hasta 50 canciones a los usuarios.
     \end{functional} 
-    
     \item El sistema debe permitir que múltiples usuarios dados de alta en la aplicación creen una playlist colaborativa.
     \begin{functional}
         \item El sistema debe permitir a los usuarios elegir la duración de la playlist colaborativa.
         \item El sistema debe ofrecer distintas estrategias de agregación para la selección de canciones en la playlist colaborativa.
         \item El sistema debe mostrar la playlist generada en pantalla.
         \item El sistema debe permitir a los usuarios guardar la playlist colaborativa en sus cuentas de Spotify.
-    \end{functional} 
-    
+    \end{functional}
 \end{functional}
 
 \paragraph{\textbf{Requisitos No Funcionales}}
@@ -42,17 +41,21 @@ de Spotify. A continuación, se detallan los requisitos funcionales de la aplica
 A continuación, se detallan los requisitos no funcionales de la aplicación:
 
 \begin{nonfunctional}
-    \item \textbf{Rendimiento}: La aplicación debe responder a las solicitudes del usuario en menos de 3 segundos bajo condiciones normales de carga.
-    \item \textbf{Disponibilidad}: La aplicación debe estar disponible el 99\% del tiempo, asegurando el acceso de los usuarios a sus funcionalidades.
-    \item \textbf{Compatibilidad}: La aplicación debe ser compatible con las versiones más recientes de navegadores web populares como Chrome, Firefox, Safari y Edge.
-    \item \textbf{Mantenibilidad}: El código de la aplicación debe seguir las buenas prácticas de programación, siendo legible, bien documentado y fácil de mantener.
+    \item \textbf{Rendimiento}: El sistema debe responder a las solicitudes del usuario en menos de 3 segundos bajo condiciones normales de carga.
+    \item \textbf{Disponibilidad}: El sistema debe estar disponible el 99\% del tiempo, asegurando el acceso de los usuarios a sus funcionalidades.
+    \item \textbf{Compatibilidad}: El sistema debe ser compatible con las versiones más recientes de navegadores web populares como Chrome, Firefox, Safari y Edge.
+    \item \textbf{Mantenibilidad}: El código del sistema debe seguir las buenas prácticas de programación, siendo legible, bien documentado y fácil de mantener.
     \item \textbf{Usabilidad}: La interfaz de usuario debe ser intuitiva y fácil de usar, asegurando que los usuarios puedan realizar todas las operaciones sin necesidad de instrucciones adicionales.
+    \item \textbf{Almacenamiento}: El sistema debe almacenar la información de los usuarios de manera local, no existirá una base de datos centralizada.
 \end{nonfunctional}
 
 \subsection{Diagramas de casos de uso principales\label{SEC:CASOS_USO}}
 
-A continuación, se presentan los diagramas de casos de uso principales de la aplicación. Estos diagramas representan las interacciones en las cuáles
-se sustenta la funcionalidad de la aplicación.
+Se presentan en la Figura \ref{FIG:USE_CASE_DIAGRAM} los diagramas de casos de uso principales de la aplicación. Estos diagramas representan las interacciones en las cuáles
+se sustenta la funcionalidad de la aplicación. En primer lugar se muestra el caso de uso de \textit{Login}, donde mostramos los pasos para que el usuario
+termine viendo en su pantalla la información de su cuenta de \textit{Spotify}. En segundo lugar, se muestra el caso de uso de \textit{Crear Playlist}, donde se detallan los pasos
+que lleva a cabo el sistema para que los usuarios puedan crear una playlist colaborativa. 
+
 
 \begin{figure}[Diagramas de casos de uso principales de la aplicación]{FIG:USE_CASE_DIAGRAM}
     {Diagramas de casos de uso principales de la aplicación}

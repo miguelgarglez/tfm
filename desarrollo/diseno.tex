@@ -2,19 +2,39 @@ En esta sección se expondrá el diseño de la interfaz de usuario, así como el
 
 \subsection{Diseño de la interfaz de usuario\label{SEC:DISENO_INTERFAZ}}
 
-Véanse en la Figura \ref{FIG:MAQUETAS} las maquetas de la interfaz de usuario de la aplicación que hemos tenido en mente a la hora de llevar a cabo
-la implementación de nuestra aplicación.
+En la Figura \ref{FIG:MAQUETAS} se pueden ver las maquetas de la interfaz de usuario de la aplicación que hemos tenido en mente a la hora de llevar a cabo
+la implementación de nuestra aplicación. En estas maquetas se exponen las pantallas con las que el usuario podrá interactuar, contando así con un diseño 
+previo de interfaz de la aplicación que hemos tratado de seguir durante el desarrollo, siempre teniendo en cuenta que estas
+maquetas eran una guía, y que podían sufrir modificaciones durante el desarrollo.
 
 \begin{figure}[Maquetas de la aplicación a desarrollar]{FIG:MAQUETAS}
     {Maquetas de la aplicación a desarrollar}
           \image{14cm}{}{propias/maquetas.png}
 \end{figure}
 
+Tras el desarrollo de la aplicación, hemos conseguido un resultado muy satisfactorio respecto al aspecto de la interfaz de 
+usuario, que se asemeja mucho a las maquetas que se han presentado en la Figura \ref{FIG:MAQUETAS}. Véase en la Figura
+\ref{FIG:APP_SCREENSHOTS} capturas de pantalla de las pantallas de la aplicación desarrollada.
+
+\begin{figure}[Pantallas de la aplicación desarrollada]{FIG:APP_SCREENSHOTS}
+  {Pantallas de la aplicación desarrollada}
+  \subfigure[]{\textit{Welcome}}{\image{2cm}{}{propias/app_screenshots/welcome.png}}
+  \subfigure[]{\textit{Users Display}}{\image{2cm}{}{propias/app_screenshots/users_display.png}}
+  \subfigure[]{\textit{User Detail}}{\image{2cm}{}{propias/app_screenshots/user_detail.png}}
+  \subfigure[]{\textit{Get Top Items}}{\image{2cm}{}{propias/app_screenshots/get_top_items.png}}
+  \subfigure[]{\textit{Get Recommendations}}{\image{2cm}{}{propias/app_screenshots/get_recommendations.png}}
+  \subfigure[]{\textit{Generate Playlist}}{\image{2cm}{}{propias/app_screenshots/generate_playlist.png}}
+  \subfigure[]{\textit{Artists Display}}{\image{2cm}{}{propias/app_screenshots/artists_display.png}}
+  \subfigure[]{\textit{Tracks Display}}{\image{2cm}{}{propias/app_screenshots/tracks_display.png}}
+  \subfigure[]{\textit{Save Playlist}}{\image{2cm}{}{propias/app_screenshots/save_playlist.png}}
+  \subfigure[]{\textit{Saved Confirmation}}{\image{2cm}{}{propias/app_screenshots/saved_confirmation.png}}
+\end{figure}
+
 
 \subsection{Arquitectura del sistema\label{SEC:DISENO_ARQUITECTURA}}
 
 La arquitectura de la aplicación se basa en una arquitectura cliente-servidor, donde el cliente es el \textit{frontend} que hemos desarrollado, que corre en el navegador web, y 
-el servidor es la API de \textit{Spotify}.La aplicación se ejecuta en el lado del cliente (en el navegador) y utiliza opciones de almacenamiento locales para mantener la seguridad y 
+el servidor es la API de \textit{Spotify}. La aplicación se ejecuta en el lado del cliente (en el navegador) y utiliza opciones de almacenamiento locales para mantener la seguridad y 
 la integridad de los tokens de acceso a la API de \textit{Spotify}. 
 
 La arquitectura del sistema se compone de los siguientes elementos clave:
@@ -56,7 +76,7 @@ en los \textit{widgets}. Vamos a explicar cada uno de los actores principales en
 \paragraph{Pantallas}
 
 Tal y como se ha diseñado el \textit{frontend} de la aplicación, cada pantalla de la aplicación se ha desarrollado como un \textit{widget} independiente, 
-el cual, a su vez está formado por widgets más pequeños que se combinan para formar la interfaz de usuario. Los módulos que definen las pantallas se agrupan en \textit{lib/screens}:
+el cual, a su vez está formado por widgets más pequeños que se combinan para formar la interfaz de usuario. Los módulos que definen las pantallas son:
 
 \begin{itemize}
   \item \texttt{landing.dart}: pantalla de inicio de la aplicación, que muestra un botón para hacer \textit{login} con \textit{Spotify}.
@@ -73,12 +93,12 @@ el cual, a su vez está formado por widgets más pequeños que se combinan para 
   \item \texttt{get\_recommendations.dart}: pantalla del formulario para obtener recomendaciones de canciones.
 \end{itemize}
 
-Se puede encontrar conexión entre estos módulos y las maquetas de la Figura \ref{FIG:MAQUETAS}.
+Se puede encontrar relación directa entre estos módulos de pantallas y las maquetas de la Figura \ref{FIG:MAQUETAS}.
 
 \paragraph{Widgets}
 
 Los \textit{widgets} personalizados (la mayoría de \textit{widgets} utilizados en el desarrollo han sido propios del \textit{framework} o paquetes de \textit{pub.dev} \cite{pub_dev}) que 
-se utilizan para formar las pantallas se agrupan en \textit{lib/widgets}:
+se utilizan para formar las pantallas:
 
 \begin{itemize}
   \item \texttt{artist\_tile.dart}: \textit{widget} que muestra la información de un artista en un elemento de lista.
@@ -89,10 +109,10 @@ se utilizan para formar las pantallas se agrupan en \textit{lib/widgets}:
 
 \paragraph{Servicios}
 
-Por otro lado, agrupados en \textit{lib/services}, se encuentran los módulos que se encargan de realizar las llamadas a la API de \textit{Spotify} y procesar las respuestas para uniformizarlas
+Por otro lado, agrupados en los 'servicios', se encuentran los módulos que se encargan de realizar las llamadas a la API de \textit{Spotify} y procesar las respuestas para uniformizarlas
 y hacerlas más fáciles de manejar en el \textit{frontend}. En la Sección \ref{SEC:IMPLEMENTACION} se ahondará más en el uso de estos módulos. También en este mismo grupo se encuentra el módulo
-de recomendación de canciones, que se ha desarrollado para llevar a cabo la agregación de las canciones recomendadas por \textit{Spotify} para los usuarios que forman un grupo. 
-En este grupo tenemos:
+de recomendación de canciones, que se ha desarrollado para llevar a cabo la agregación de las canciones recomendadas por \textit{Spotify} para los usuarios que forman un grupo,
+así como un módulo de recogida de métricas sobre las recomendaciones de \textit{playlists}:
 
 \begin{itemize}
   \item \texttt{requests.dart}: módulo que se encarga de realizar las llamadas a la API de \textit{Spotify}.
@@ -103,7 +123,7 @@ En este grupo tenemos:
 \paragraph{Modelos}
 
 Cuando hablamos de uniformizar las respuestas de la API de \textit{Spotify}, nos referimos a que todas ellas se reducirán a un modelo de objeto determinado, para así uniformizar el manejo de
-errores en las pantallas y las peticiones exitosas. Se han agrupado en \textit{lib/models} los modelos de objetos que se utilizan en la aplicación:
+errores en las pantallas y las peticiones exitosas. Se han agrupado los modelos de objetos que se utilizan en la aplicación:
 
 \begin{itemize}
   \item \texttt{artist.dart}: modelo de objeto que representa a un artista.
@@ -178,7 +198,8 @@ listar qué tipos de \textit{endpoints} o interacciones con la API nos harán fa
   playlist que se haya generado.
 \end{itemize}
 
-Todos estos \textit{endpoints} están disponibles en la API de \textit{Spotify}, cuya URL base es textit{"https://api.spotify.com/v1}. Vamos a hacer un recorrido por cada uno de ellos.
+Todos estos \textit{endpoints} están disponibles en la API de \textit{Spotify}, cuya URL base es \textit{"https://api.spotify.com/v1"}. 
+Vamos a hacer un recorrido por cada uno de ellos.
 
 \paragraph{Datos de cuenta de los usuarios\label{subsec:datos_cuenta_usuarios}}
 
@@ -195,7 +216,7 @@ del cliente no puede ser protegida de manera segura. Se puede ver un gráfico de
 
 Para llevar a cabo esta autenticación, la app tendrá que lanzar la URL de autenticación de \textit{Spotify}
 ("https://accounts.spotify.com/authorize"). Se explicará más en detalle la implementación de este flujo de autenticación
-en la Sección \ref{SEC:FLUJO_AUTENTICACION}.
+en la Sección \ref{SEC:FLUJO_AUTENTICACION_IMPLEMENTACION}.
 
 Una vez se lleva a cabo la autenticación del usuario con su cuenta de \textit{Spotify}, ya podemos hacer llamadas a la API
 gracias al token de acceso que hemos obtenido. Comenzaremos por obtener los datos de la cuenta del usuario, como su foto de perfil, o su
@@ -204,10 +225,10 @@ ruta es \texttt{/me}, \texttt{GET} es el método a utilizar, y no se necesitan p
 
 \paragraph{Canciones más escuchadas\label{subsec:canciones_mas_escuchadas}}
 
-Obtener las canciones más escuchadas por los usuarios será un factor fundamental para la generación de \textit{playlists}, descubrimos que hay un 
-\textit{endpoint} que nos puede devolver los datos que necesitamos. En la documentación de la API \cite{spotify_api} está definido como 
+Obtener las canciones más escuchadas por los usuarios será un factor fundamental para la generación de \textit{playlists}. Descubrimos que hay un 
+\textit{endpoint} que nos puede devolver los datos que necesitamos: En la documentación de la API \cite{spotify_api} está definido como 
 \textit{Get User's Top Items} \cite{top_items}. Y es que, resulta que podremos obtener tanto las canciones más escuchadas, como los artistas más escuchados. 
-Veremos cómo haremos uso de este \textit{endpoint} para la implementación de nuestra app en la Sección \ref{SEC:IMPLEMENTACION}. 
+Veremos cómo haremos uso de este \textit{endpoint} para la implementación de nuestra app en la Sección \ref{SEC:API_SPOTIFY_IMPLEMENTACION}. 
 
 Como se puede observar en la Figura \ref{FIG:TOP_ITEMS}, \texttt{GET} es el método a utilizar y se especifican los siguientes parámetros:
 
@@ -228,7 +249,7 @@ Como se puede observar en la Figura \ref{FIG:TOP_ITEMS}, \texttt{GET} es el mét
 \paragraph{Recomendaciones\label{subsec:recomendaciones}}
 
 Para obtener recomendaciones de canciones, \textit{Spotify} nos ofrece un \textit{endpoint} llamado \textit{Get Recommendations} \cite{recommendations}.
-En la Sección \ref{SEC:IMPLEMENTACION} ahondaremos más en detalle sobre cómo se ha hecho uso de este 
+En la Sección \ref{SEC:API_SPOTIFY_IMPLEMENTACION} ahondaremos más en detalle sobre cómo se ha hecho uso de este 
 \textit{endpoint} para la implementación de la app. En la Figura \ref{FIG:RECOMMENDATIONS}, además de que
 \texttt{GET} es el método a utilizar, se pueden observar cinco parámetros que se pueden especificar:
 
@@ -255,8 +276,8 @@ muy a tener en cuenta para trabajo futuro, y lo comentaremos en el Capítulo \re
 
 \paragraph{Crear playlist\label{subsec:crear_playlist}}
 
-Para crear una playlist, \textit{Spotify} nos ofrece un \textit{endpoint} llamado \textit{Create Playlist} \cite{create_playlist}.
-Como con los anteriores, ahondaremos más en cómo es utilizado en el capítulo \ref{CAP:DESARROLLO}. En la Figura \ref{FIG:CREATE_PLAYLIST}, además de
+Para crear una playlist, \textit{Spotify} nos ofrece un \textit{endpoint} llamado \textit{Create Playlist} \cite{create_playlist}. 
+En la Figura \ref{FIG:CREATE_PLAYLIST}, además de que 
 \texttt{POST} es el método a utilizar, se pueden observar los parámetros a especificar en el cuerpo de la petición:
 
 \begin{itemize}
@@ -296,7 +317,7 @@ si no, se recomienda pasarlas en el cuerpo de la petición.
 
 \paragraph{Resumen de los \textit{endpoints} a utilizar\label{subsec:resumen_endpoints}}
 
-En la tabla \ref{TB:ENDPOINTS} se resume la información de los \textit{endpoints} de la API de \textit{Spotify} que se han comentado en esta sección.
+En la Tabla \ref{TB:ENDPOINTS} se resume la información de los \textit{endpoints} de la API de \textit{Spotify} que se han comentado en esta sección.
 
 
 \begin{table}[Tabla resumen de los \textit{endpoints} a utilizar]{TB:ENDPOINTS}{Tabla resumen de los \textit{endpoints} de la API de \textit{Spotify} a utilizar.}

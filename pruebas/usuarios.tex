@@ -1,0 +1,92 @@
+Será la forma en la que trataremos de evaluar nuestro sistema de recomendación, elaborando encuestas para recoger las sensaciones y satisfacción
+que las \textit{playlists} generadas por nuestro sistema de recomendación han causado en los usuarios. Compararemos estrategias de agregación para tratar de sacar conclusiones
+sobre que estrategias tienen mejor acogida, trataremos de sacar una puntuación de usabilidad para nuestra aplicación 
+con una encuesta \textit{SUS} (System Usability Scale) y, por último, trataremos de sacar conclusiones sobre posibles nuevas funcionalidades que podrían ser interesantes 
+para implementar en el futuro.
+
+\subsection{Gestión de usuarios\label{SEC:GESTION_USUARIOS}}
+
+Como comentábamos en la Sección \ref{subsec:vision_general_api}, \textit{Spotify} nos permite dar de alta hasta 25 usuarios en el modo de desarrollo. Esto sin duda 
+ha supuesto una limitación para nuestras pruebas con usuarios, puesto que nosotros teníamos que saber qué personas
+iban a probar nuestra aplicación para poder darlos de alta previamente. Por esto no hemos podido compartir nuestra aplicación y nuestras
+encuestas con un número elevado de personas, lo que sin duda hubiera sido lo ideal, para tener el mayor número de opiniones posibles, junto con mayor 
+variedad de grupos de personas. Nuestra encuesta ha tenido numerosas preguntas, las cuales tratarán de obtener:
+
+\begin{itemize}
+    \item Contexto sobre el grupo de personas que ha generado una \textit{playlist} con nuestra aplicación.
+    \item Comparación de estrategias de agregación.
+    \item Puntuación de usabilidad de la aplicación.
+    \item Posibles nuevas funcionalidades que podrían ser interesantes para implementar en el futuro.
+\end{itemize}
+
+\subsection{Procedimiento de las pruebas con los usuarios\label{SEC:PROCEDIMIENTO}}
+
+Las pruebas con usuarios se han llevado a cabo de manera presencial, reuniéndonos con los usuarios, dándolos de alta en nuestra aplicación para que pudieran utilizarla y 
+explicándoles los pasos a seguir:
+
+\begin{itemize}
+    \item En primer lugar, que todos hicieran login en nuestra aplicación con su cuenta de \textit{Spotify}.
+    \item Una vez todos aparecieran en la pantalla principal de la aplicación, les explicábamos que tenían que generar una \textit{playlist} con nuestra aplicación, eligiendo
+    la opción: \textit{Comparar estrategias A y B}, e indicando una duración de 1 hora para la \textit{playlist}.
+    \item Una vez generadas las \textit{playlist}, les pedíamos que revisaran las canciones que habían sido añadidas a las \textit{playlists}, que se quedaran con la 
+    sensación que les transmitían, o si una le gustaba más que otra.
+    \begin{itemize}
+        \item Es importante destacar que, en este paso, si nuestro sistema de recomendación no era capaz de obtener una \textit{playlist}
+        diferente para cada estrategia, solo se mostraría una en pantalla, y esta opción ha sido barajada en el formulario.
+    \end{itemize}
+    \item Compartíamos con ellos el formulario vía \textit{link}.
+    \item Por último, les pedíamos que rellenaran el formulario de manera totalmente sincera.
+\end{itemize}
+
+
+\subsection{Contexto sobre el grupo de personas\label{SEC:CONTEXTOS}}
+
+En nuestra encuesta, asignamos un nombre identificativo a cada grupo, preguntamos de cuántas personas se componía, 
+y si consideraban si el grupo era homogéneo o heterogéneo. De estas preguntas, obtenemos lo siguiente:
+
+\begin{itemize}
+    \item \textbf{Número de personas en el grupo}: La mayoría de grupos han sido parejas, dejando otro grupo de 3 y de 4 personas.
+    \item \textbf{Nombre para identificar el grupo}: Les pedíamos que pusieran los nombres de las personas que habían generado la \textit{playlist} en orden alfabético.
+    \item \textbf{Homogeneidad del grupo}: Las parejas han coincidido en su percepción de la homogeneidad de sus gustos. Pero en los grupos
+    más numerosos, ha habido opiniones dispares.
+\end{itemize}
+
+Sobre la valoración de la homogeneidad en las parejas, sí que creemos que nos pueden servir para sacar algunas
+conclusiones sobre las teorías que empezamos a plantear en la Sección \ref{SEC:DECISIONES_TRAS_RESULTADOS}, como la de que 
+un bajo número de personas en el grupo, (como las parejas), y la baja similitud en los gustos, podía provocar que 
+las estrategias de agregación no aportaran diferencias en las recomendaciones.
+
+\subsection{Comparación de estrategias\label{SEC:COMPARACION_ESTRATEGIAS}}
+
+Para los grupos que obtuvieron dos \textit{playlists} diferentes, les pedíamos que valoraran por separado las dos \textit{playlists} 
+y que elijieran cuál de las dos preferían. En el caso de que no obtuvieran dos \textit{playlists} diferentes, les pedíamos que 
+valoraran la \textit{playlist} que les había aparecido en pantalla. De esta manera, obtenemos lo siguiente:
+
+\begin{itemize}
+    \item \textbf{Comparación de estrategias}: ninguna de las dos estrategias ha sido claramente preferida por los usuarios. Tanto en parejas, 
+    como en grupos más grandes, la elección variaba.
+    \item \textbf{Valoración de la \textit{playlist}}: tanto comparando dos, como cuando solamente se obtenía una, las puntuaciones de
+    que los usuarios daban se aproximan al 6,5 sobre 10.
+\end{itemize}
+
+\subsection{Encuesta de usabilidad\label{SEC:ENCUESTA_USABILIDAD}}
+
+Para evaluar la usabilidad de nuestra aplicación, hemos utilizado la encuesta \textit{SUS} (System Usability Scale) 
+\cite{brooke1986system}. Esta encuesta son 10 preguntas sobre usabilidad, que se responden con una escala de 5 puntos, y 
+nos permite obtener una puntuación de usabilidad aplicando una fórmula sobre los valores de las respuestas. Los valores 
+de las respuestas que hemos utilizado han sido las medias de las respuestas de los usuarios encuestados. La fórmula para 
+obtener la puntuación de usabilidad se puede ver en la Ecuación \ref{EQ:SUS} donde $r_i$ es la puntuación en la pregunta
+$i$.
+
+\begin{equation}[EQ:SUS]{Esto es un ejemplo de titulo de ecuación incluida la propia ecuación $\sum c_{ij}= \frac{a}{\int a dx} $}
+	\boxed{SUS = 2.5 \sum_{i=1}^{10}  \begin{cases}
+        r_i - 1 & \text{si } i \text{ es impar} \\
+        5 - r_i & \text{si } i \text{ es par}
+        \end{cases}
+        }
+\end{equation}
+
+La puntuación de usabilidad que hemos obtenido ha sido de 68,75 sobre 100. Esta puntuación se considera aceptable, pero
+
+
+\subsection{Posible nueva funcionalidad en la aplicación\label{SEC:GESTION_USUARIOS}}

@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: tfgtfmthesisuam.aux
 The style file: ieeetr.bst
 Database file #1: tfgtfmthesisuam.bib
-You've used 28 entries,
+You've used 31 entries,
             1876 wiz_defined-function locations,
-            585 strings with 6454 characters,
-and the built_in function-call counts, 4515 in all, are:
-= -- 413
-> -- 151
+            607 strings with 7172 characters,
+and the built_in function-call counts, 5424 in all, are:
+= -- 495
+> -- 195
 < -- 0
-+ -- 67
-- -- 39
-* -- 226
-:= -- 641
-add.period$ -- 31
-call.type$ -- 28
-change.case$ -- 27
++ -- 83
+- -- 52
+* -- 297
+:= -- 770
+add.period$ -- 34
+call.type$ -- 31
+change.case$ -- 30
 chr.to.int$ -- 0
-cite$ -- 28
-duplicate$ -- 178
-empty$ -- 586
-format.name$ -- 39
-if$ -- 1143
+cite$ -- 31
+duplicate$ -- 227
+empty$ -- 674
+format.name$ -- 52
+if$ -- 1360
 int.to.chr$ -- 0
-int.to.str$ -- 28
-missing$ -- 5
-newline$ -- 90
-num.names$ -- 29
-pop$ -- 163
+int.to.str$ -- 31
+missing$ -- 8
+newline$ -- 99
+num.names$ -- 32
+pop$ -- 177
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 145
+skip$ -- 173
 stack$ -- 0
-substring$ -- 115
-swap$ -- 33
+substring$ -- 171
+swap$ -- 50
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 0
 warning$ -- 0
-while$ -- 40
-width$ -- 30
-write$ -- 239
+while$ -- 49
+width$ -- 33
+write$ -- 269

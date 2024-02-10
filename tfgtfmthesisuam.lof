@@ -11,15 +11,45 @@
 \contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{19}{figure.caption.25}%
 \contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{19}{figure.caption.25}%
 \contentsline {figure}{\numberline {3.2}{\ignorespaces Maquetas de la aplicaci\IeC {\'o}n a desarrollar}}{20}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Diagrama de secuencia de interacci\IeC {\'o}n con la API de \textit {Spotify}}}{21}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Visi\IeC {\'o}n general \textit {Spotify for Developers}}}{23}{figure.caption.36}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{23}{figure.caption.36}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{23}{figure.caption.36}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{23}{figure.caption.36}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Flujo de autenticaci\IeC {\'o}n PKCE}}{24}{figure.caption.38}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Obtener canciones o artistas m\IeC {\'a}s escuchados}}{25}{figure.caption.40}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Obtener recomendaciones}}{26}{figure.caption.42}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Crear playlist}}{27}{figure.caption.44}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces A\IeC {\~n}adir canciones a \textit {playlist}}}{28}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Pantallas de la aplicaci\IeC {\'o}n desarrollada}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces lof}}{20}{figure.caption.27}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Diagrama de secuencia de interacci\IeC {\'o}n con la API de \textit {Spotify}}}{21}{figure.caption.28}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Visi\IeC {\'o}n general \textit {Spotify for Developers}}}{24}{figure.caption.37}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{24}{figure.caption.37}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{24}{figure.caption.37}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{24}{figure.caption.37}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Flujo de autenticaci\IeC {\'o}n PKCE}}{25}{figure.caption.39}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Obtener canciones o artistas m\IeC {\'a}s escuchados}}{26}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Obtener recomendaciones}}{27}{figure.caption.43}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Crear playlist}}{28}{figure.caption.45}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces A\IeC {\~n}adir canciones a \textit {playlist}}}{29}{figure.caption.46}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas con similitud en semillas}}{48}{figure.caption.55}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{48}{figure.caption.55}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{48}{figure.caption.55}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{48}{figure.caption.55}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{48}{figure.caption.55}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{48}{figure.caption.55}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{48}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 3 personas sin similitud en semillas}}{49}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{49}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{49}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{49}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{49}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{49}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{49}{figure.caption.57}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas sin similitud en semillas}}{50}{figure.caption.59}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para grupos de 3, 4 y 5 personas con similitud en semillas}}{51}{figure.caption.61}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{51}{figure.caption.61}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{51}{figure.caption.61}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{51}{figure.caption.61}%
 \addvspace {10\p@ }

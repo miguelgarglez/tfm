@@ -15,7 +15,7 @@
 \BOOKMARK [2][-]{subsection.2.3.2}{Tipos de sistemas de recomendaci\363n}{section.2.3}% 15
 \BOOKMARK [2][-]{subsection.2.3.3}{Estrategias de agregaci\363n}{section.2.3}% 16
 \BOOKMARK [2][-]{subsection.2.3.4}{Evaluaci\363n de un sistema de recomendaci\363n a grupos}{section.2.3}% 17
-\BOOKMARK [2][-]{subsection.2.3.5}{Implicaciones para el trabajo}{section.2.3}% 18
+\BOOKMARK [1][-]{section.2.4}{Implicaciones para el trabajo}{chapter.2}% 18
 \BOOKMARK [0][-]{chapter.3}{Desarrollo de nuestra aplicaci\363n}{}% 19
 \BOOKMARK [1][-]{section.3.1}{An\341lisis}{chapter.3}% 20
 \BOOKMARK [2][-]{subsection.3.1.1}{An\341lisis de requisitos}{section.3.1}% 21
@@ -28,9 +28,17 @@
 \BOOKMARK [2][-]{subsection.3.3.2}{Llamadas a la API de Spotify y procesamiento de respuestas}{section.3.3}% 28
 \BOOKMARK [2][-]{subsection.3.3.3}{Generaci\363n de playlist combinada}{section.3.3}% 29
 \BOOKMARK [2][-]{subsection.3.3.4}{Pruebas de evaluaci\363n}{section.3.3}% 30
-\BOOKMARK [0][-]{chapter.4}{Pruebas y resultados}{}% 31
-\BOOKMARK [1][-]{section.4.1}{Estudios con usuarios}{chapter.4}% 32
-\BOOKMARK [2][-]{subsection.4.1.1}{Gesti\363n de usuarios}{section.4.1}% 33
-\BOOKMARK [1][-]{section.4.2}{Evaluaciones offline}{chapter.4}% 34
-\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 35
-\BOOKMARK [0][-]{chapter*.53}{Bibliograf\355a}{}% 36
+\BOOKMARK [2][-]{subsection.3.3.5}{Resumen}{section.3.3}% 31
+\BOOKMARK [0][-]{chapter.4}{Pruebas y resultados}{}% 32
+\BOOKMARK [1][-]{section.4.1}{Evaluaciones offline}{chapter.4}% 33
+\BOOKMARK [2][-]{subsection.4.1.1}{Resultados obtenidos}{section.4.1}% 34
+\BOOKMARK [2][-]{subsection.4.1.2}{Decisiones tras los resultados}{section.4.1}% 35
+\BOOKMARK [1][-]{section.4.2}{Estudios con usuarios}{chapter.4}% 36
+\BOOKMARK [2][-]{subsection.4.2.1}{Gesti\363n de usuarios}{section.4.2}% 37
+\BOOKMARK [2][-]{subsection.4.2.2}{Procedimiento de las pruebas con los usuarios}{section.4.2}% 38
+\BOOKMARK [2][-]{subsection.4.2.3}{Contexto sobre el grupo de personas}{section.4.2}% 39
+\BOOKMARK [2][-]{subsection.4.2.4}{Comparaci\363n de estrategias}{section.4.2}% 40
+\BOOKMARK [2][-]{subsection.4.2.5}{Encuesta de usabilidad}{section.4.2}% 41
+\BOOKMARK [2][-]{subsection.4.2.6}{Posible nueva funcionalidad en la aplicaci\363n}{section.4.2}% 42
+\BOOKMARK [0][-]{chapter.5}{Conclusiones y trabajo futuro}{}% 43
+\BOOKMARK [0][-]{chapter*.62}{Bibliograf\355a}{}% 44
