@@ -56,21 +56,22 @@
 \contentsline {paragraph}{Decisi\IeC {\'o}n sobre los \textit {ratings} individuales.}{38}{section*.52}%
 \contentsline {subsubsection}{Obtenci\IeC {\'o}n de la \textit {playlist} final}{40}{section*.53}%
 \contentsline {subsection}{\numberline {3.3.4}Pruebas de evaluaci\IeC {\'o}n}{41}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Resumen}{44}{subsection.3.3.5}%
+\contentsline {subsection}{\numberline {3.3.5}Resumen}{45}{subsection.3.3.5}%
 \contentsline {chapter}{\numberline {4}Pruebas y resultados}{47}{chapter.4}%
 \contentsline {section}{\numberline {4.1}Evaluaciones \textit {offline}}{47}{section.4.1}%
 \contentsline {subsection}{\numberline {4.1.1}Resultados obtenidos}{47}{subsection.4.1.1}%
 \contentsline {paragraph}{Grupo de 2 usuarios con similitud en semillas}{47}{section*.54}%
 \contentsline {paragraph}{Grupo de 3 usuarios sin similitud en semillas}{49}{section*.56}%
-\contentsline {paragraph}{Grupo de 2 usuarios sin similitud en semillas}{50}{section*.58}%
+\contentsline {paragraph}{Grupo de 2 usuarios sin similitud en semillas}{49}{section*.58}%
 \contentsline {paragraph}{Grupos de 3, 4 y 5 usuarios con similitud en semillas}{51}{section*.60}%
 \contentsline {subsection}{\numberline {4.1.2}Decisiones tras los resultados}{51}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Estudios con usuarios}{52}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Gesti\IeC {\'o}n de usuarios}{52}{subsection.4.2.1}%
+\contentsline {section}{\numberline {4.2}Estudios con usuarios}{53}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Gesti\IeC {\'o}n de usuarios}{53}{subsection.4.2.1}%
 \contentsline {subsection}{\numberline {4.2.2}Procedimiento de las pruebas con los usuarios}{53}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Contexto sobre el grupo de personas}{53}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.3}Contexto sobre el grupo de personas}{54}{subsection.4.2.3}%
 \contentsline {subsection}{\numberline {4.2.4}Comparaci\IeC {\'o}n de estrategias}{54}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Encuesta de usabilidad}{54}{subsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.2.6}Posible nueva funcionalidad en la aplicaci\IeC {\'o}n}{54}{subsection.4.2.6}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{55}{chapter.5}%
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{58}{chapter*.62}%
+\contentsline {subsection}{\numberline {4.2.5}Encuesta de usabilidad}{55}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}Posible nueva funcionalidad en la aplicaci\IeC {\'o}n}{56}{subsection.4.2.6}%
+\contentsline {section}{\numberline {4.3}Resumen}{56}{section.4.3}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{59}{chapter.5}%
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{62}{chapter*.62}%

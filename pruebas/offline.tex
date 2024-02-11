@@ -1,5 +1,6 @@
-Hemos hecho uso de estas evaluaciones \textit{offline} para comparar distintas estrategias de agregación. Así seremos
-capaces de ver cuáles se comportaban de manera más similar a otras estrategias, y cuáles se comportaban de manera más diferente. Esto nos dará la posibilidad de suprimir
+Hemos hecho uso de estas evaluaciones \textit{offline}, tratadas en la Sección \ref{SEC:EVALUACION}, 
+ para comparar distintas estrategias de agregación, y ver cuáles se comportaban de manera más similar a otras estrategias, y 
+ cuáles de manera más diferente. Esto nos dará la posibilidad de suprimir
 estrategias que sean demasiado similares, para así centrar las comparaciones con usuarios en las estrategias que más diferencias presenten entre sí.
 Exponíamos en la Sección \ref{SEC:PRUEBAS_EVALUACION_IMPLEMENTACION} cómo se implementabaron los mecanismos para obtener los datos de similitud entre \textit{playlists} generadas 
 con distintas estrategias de agregación y la similitud entre usuarios con la coincidencia de semillas. En esta sección, expondremos los resultados obtenidos y las conclusiones 
@@ -7,7 +8,7 @@ que hemos sacado de ellos.
 
 \subsection{Resultados obtenidos\label{SEC:RESULTADOS_OBTENIDOS}}
 
-Los datos recogidos de las pruebas implementadas se han recogido en archivos \textit{JSON} que se han procesado después con \textit{Python} para generar gráficas que muestren la evolución 
+Los datos de las pruebas implementadas se han recogido en archivos \textit{JSON} que se han procesado después con \textit{Python} para generar gráficas que muestren la evolución 
 de la similitud entre \textit{playlists} generadas con distintas estrategias de agregación con el aumento de la duración de estas. Hemos realizado pruebas para grupos de 
 2, 3, 4 y 5 usuarios, en los cuales para algunos no existía ninguna similitud entre semillas, y para otros sí. 
 
@@ -15,12 +16,12 @@ de la similitud entre \textit{playlists} generadas con distintas estrategias de 
 
 \begin{figure}[Gráficas de similitud entre estrategias para un grupo de 2 personas con similitud en semillas]{FIG:GRAFICAS_PAREJA_SIMILITUD}
     {Gráficas de similitud entre estrategias para un grupo de 2 personas con similitud en semillas}
-    \subfigure[]{\textit{Average}}{\image{7cm}{}{graficas/average_2_coincidence.png}}
-    \subfigure[]{\textit{Average Custom}}{\image{7cm}{}{graficas/custom_2_coincidence.png}}
-    \subfigure[]{\textit{Borda}}{\image{7cm}{}{graficas/borda_2_coincidence.png}}
-    \subfigure[]{\textit{Least Misery}}{\image{7cm}{}{graficas/misery_2_coincidence.png}}
-    \subfigure[]{\textit{Most Pleasure}}{\image{7cm}{}{graficas/pleasure_2_coincidence.png}}
-    \subfigure[]{\textit{Multiplicative}}{\image{7cm}{}{graficas/multiplicative_2_coincidence.png}}
+    \subfigure[]{\textit{Average}}{\image{7.5cm}{}{graficas/average_2_coincidence.png}}
+    \subfigure[]{\textit{Average Custom}}{\image{7.5cm}{}{graficas/custom_2_coincidence.png}}
+    \subfigure[]{\textit{Borda}}{\image{7.5cm}{}{graficas/borda_2_coincidence.png}}
+    \subfigure[]{\textit{Least Misery}}{\image{7.5cm}{}{graficas/misery_2_coincidence.png}}
+    \subfigure[]{\textit{Most Pleasure}}{\image{7.5cm}{}{graficas/pleasure_2_coincidence.png}}
+    \subfigure[]{\textit{Multiplicative}}{\image{7.5cm}{}{graficas/multiplicative_2_coincidence.png}}
 \end{figure}
 
 En la Figura \ref{FIG:GRAFICAS_PAREJA_SIMILITUD} se muestran las gráficas de evolución de la similitud de una estrategia frente a 
@@ -31,8 +32,8 @@ recomendaciones. De estas primeras gráficas podemos sacar las siguientes conclu
     \item Vemos que, entre algunas estrategias, el valor de similitud es muy alto con duraciones pequeñas, lo que nos indica que estas estrategias tienen
     un comportamiento similar. Por ejemplo, si nos fijamos en la gráfica de \textit{Average}, vemos que las líneas de \textit{Least Misery} y \textit{Most Pleasure}
     se aproximan mucho más que el resto al máximo valor de similitud con duraciones pequeñas.
-    \item Claramente, a medida que se aumenta la duración de la \textit{playlist}, la similitud entre las estrategias aumenta, y tiende 
-    a ser total. Ya que, de los usuarios del grupo siempre obtenemos el mismo número de canciones candidatas.
+    \item Claramente, a medida que se aumenta la duración de la \textit{playlist}, la similitud entre las estrategias aumenta, viendo que la similitud
+    llega a ser total para las mayores duraciones, ya que, tenemos que tener en cuenta que siempre obtenemos el mismo número de canciones candidatas.
 \end{itemize}
 
 \paragraph{Grupo de 3 usuarios sin similitud en semillas}
@@ -43,12 +44,12 @@ resultados obtenidos.
 
 \begin{figure}[Gráficas de similitud entre estrategias para un grupo de 3 personas sin similitud en semillas]{FIG:GRAFICAS_TRIO_NO_SIMILITUD}
     {Gráficas de similitud entre estrategias para un grupo de 3 personas sin similitud en semillas}
-    \subfigure[]{\textit{Average}}{\image{7cm}{}{graficas/average_3_no_coincidence.png}}
-    \subfigure[]{\textit{Average Custom}}{\image{7cm}{}{graficas/custom_3_no_coincidence.png}}
-    \subfigure[]{\textit{Borda}}{\image{7cm}{}{graficas/borda_3_no_coincidence.png}}
-    \subfigure[]{\textit{Least Misery}}{\image{7cm}{}{graficas/misery_3_no_coincidence.png}}
-    \subfigure[]{\textit{Most Pleasure}}{\image{7cm}{}{graficas/pleasure_3_no_coincidence.png}}
-    \subfigure[]{\textit{Multiplicative}}{\image{7cm}{}{graficas/multiplicative_3_no_coincidence.png}}
+    \subfigure[]{\textit{Average}}{\image{7.5cm}{}{graficas/average_3_no_coincidence.png}}
+    \subfigure[]{\textit{Average Custom}}{\image{7.5cm}{}{graficas/custom_3_no_coincidence.png}}
+    \subfigure[]{\textit{Borda}}{\image{7.5cm}{}{graficas/borda_3_no_coincidence.png}}
+    \subfigure[]{\textit{Least Misery}}{\image{7.5cm}{}{graficas/misery_3_no_coincidence.png}}
+    \subfigure[]{\textit{Most Pleasure}}{\image{7.5cm}{}{graficas/pleasure_3_no_coincidence.png}}
+    \subfigure[]{\textit{Multiplicative}}{\image{7.5cm}{}{graficas/multiplicative_3_no_coincidence.png}}
 \end{figure}
 
 Las conclusiones que podemos sacar de las gráficas de la Figura \ref{FIG:GRAFICAS_TRIO_NO_SIMILITUD} son las siguientes:

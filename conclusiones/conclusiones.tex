@@ -1,3 +1,33 @@
-En este capítulo se expondrán las conclusiones que se han obtenido tras
-la realización de este trabajo y las últimas pruebas con usuarios, y se van a proponer posibles rumbos a seguir 
-para trabajo futuro en el proyecto.
+Tras la realización de este proyecto, podemos afirmar que los objetivos iniciales que planteamos en la Sección \ref{SEC:OBJETIVOS} se han cumplido.
+Hemos desarrollado una aplicación web que permite a grupos de usuarios de \textit{Spotify} generar \textit{playlists} de música que combinen sus gustos musicales, consiguiendo 
+una alternativa a las \textit{playlists} que la aplicación de \textit{Spotify} les pueda ofrecer. Además, con los resultados de la encuesta de usabilidad, nos llevamos un \textit{feedback}
+positivo de los usuarios que nos enorgullece y nos anima a seguir trabajando en el proyecto.
+
+Nos hemos familiarizado con el \textit{framework} de desarrollo \textit{Flutter}, y hemos desarrollado la aplicación web con él, consiguiendo asentar unos principios de desarrollo con tecnologías
+\textit{frontend} que nos serán útiles en el futuro. También, hemos estudiado la API de \textit{Spotify}, y hemos desarrollado el módulo de llamadas a la API, lo que nos ha hecho coger más experiencia
+y soltura en el desarrollo de aplicaciones que hagan uso de APIs de terceros que requieran autenticación.
+
+En cuanto al otro objetivo principal del proyecto, el estudio de estrategias de agregación para la generación de \textit{playlists}, hemos obtenido resultados interesantes con los que, a pesar
+de no haber llegado a conclusiones definitivas, hemos obtenido una idea de cómo podríamos seguir trabajando en el futuro. No hemos podido definir una estrategia que se alce como la mejor, pero
+sí hemos podido comprobar en pruebas tanto \textit{offline} como con usuarios que cuando los grupos son de muy pocos usuarios, y los gustos son dispares, el uso de diferentes estrategias de agregación
+deja de tener efecto, generando recomendaciones que son iguales.
+
+Somos conscientes de que la aplicación desarrollada tiene mucho margen de mejora, empezando por la calidad y riqueza de las recomendaciones, y pasando por las opciones de configuración a la hora de generar
+\textit{playlists}. Hemos podido ver en las encuestas que, sin duda hay posibles nuevas funcionalidades que podríamos añadir a la aplicación, destacando la posibilidad de indicar situaciones de escucha para 
+las \textit{playlists} generadas. Creemos que, el \textit{endpoint} de recomendaciones de la API de \textit{Spotify} es muy rico en opciones de configuración, y que podríamos explotar más estas opciones para
+mejorar la calidad de las recomendaciones y, llevar a la realidad la nueva funcionalidad.
+
+Otra cuestión que nos surge a raíz de las valoraciones en las encuestas es que, nos gustaría probar otra estrategia muy simple, en la cual, simplemente pusieramos en una \textit{playlist} las canciones más escuchadas
+de cada usuario del grupo. Creemos que, en el contexto de nuestras pruebas, habría desencadenado resultados muy positivos, debido a que las personas identificarían a simple vista canciones que conocen y que saben que les gustan, que 
+eclipsarían psoiblemente a las canciones que no conocen. También, otra variables a tener en cuenta para más experimentos, serían las ventanas temporales utilizadas para obtener los artistas y canciones más escuchados de los usuarios, 
+ya que podría tener cierta relevancia.
+
+La limitación que pone \textit{Spotify} sobre los usuarios que pueden utilizar la aplicación (tenemos que registrar los correos de quien la va a utilizar previamente), es un problema cuya única solución es hacer una solicitud 
+reglamentaria a \textit{Spotify} para que cambie el plan de la aplicación a uno que permita a cualquier usuario de \textit{Spotify} utilizarla. Tenemos como trabajo futuro mejorar y adaptar la aplicación para que esta cumpla con 
+los requisitos de \textit{Spotify}, y así poder llegar a muchos más usuarios, algo que sería muy beneficioso para los experimentos.
+
+En cuanto a la aplicación en sí, nos gustaría trabajar en mejorar la interfaz de usuario, haciéndola más atractiva y usable, por ejemplo, añadiendo algunas animaciones de progreso y carga, desarrollar un modo oscuro y uno claro,
+o la opción de tener más de un idioma. Además, trabajar en el rendimiento y fluidez de la aplicación es algo que nos gustaría hacer, ya que, aunque no hemos tenido problemas notorios de rendimiento, creemos que siempre se puede mejorar.
+
+En resumen, estamos satisfechos con el trabajo realizado, y creemos que hemos cumplido con los objetivos que nos planteamos. Hemos aprendido mucho, y nos llevamos un proyecto que nos ha gustado mucho desarrollar, 
+y que nos deja con ganas de seguir trabajando en él. Por último, dejamos el enlace al repositorio de \textit{GitHub} del proyecto con el código: \url{https://github.com/miguelgarglez/combined_playlist_maker}.

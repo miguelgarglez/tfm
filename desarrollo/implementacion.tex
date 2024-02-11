@@ -553,6 +553,11 @@ Map<Track, double> multiplicativeGroupRatings(
 
 Todas las estrategias siguen una implementación similar a la del Código \ref{CODIGO:ESTRATEGIA_MULTIPLICATIVE},
 y devuelven un diccionario con \texttt{Track} como clave y \texttt{double} como valor, que son los \textit{ratings} grupales.
+Las estrategias se han implementado en base a la teoría sobre ellas que se ha explicado en la Sección \ref{SEC:AGREGACION}, 
+aclarando que, la estrategia que hemos nombrado como \textit{average\_custom} hace la media de todos los \textit{ratings} individuales,
+aunque estos sean 0 (no tienen \textit{rating} del usuario), siguiendo la teoría de la estrategia \textit{Average}. En cambio, la estrategia que hemos 
+nombrado como \textit{average} hace la media de los \textit{ratings} individuales que no sean 0, inspirándose en la teoría de la estrategia 
+\textit{Average without misery}.
 
 \subsubsection{Obtención de la \textit{playlist} final\label{subsec:playlist_final_implementacion}}
 
@@ -620,7 +625,7 @@ lista para ser mostrada en nuestra aplicación.
 % %%%%%%%%%%%%%%%%%% NO DEJAR!!!!! %%%%%%%%%%%%%%%%%%
 
 TAMBIEN UN DIAGRAMA RESUMEN QUE EXPLIQUE TODO EL PROCESO Y TODAS LAS INTERACCIONES ENTRE LAS FUNCIONES 
-NO SE DE QUE TIPO EL DIAGRAMA AÚN, Y NO SÉ SI METERLO EN EL APÉNDICE.
+NO SE DE QUE TIPO EL DIAGRAMA AÚN, Y HACER SI ME DA TIEMPO
 
 % %%%%%%%%%%%%%%%%%% NO DEJAR!!!!! %%%%%%%%%%%%%%%%%%
 
