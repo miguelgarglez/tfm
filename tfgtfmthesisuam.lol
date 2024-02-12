@@ -20,11 +20,12 @@
 \contentsline {lstlisting}{\numberline {3.13}Estrategia de agregaci\IeC {\'o}n \textit {average}}{39}{lstlisting.3.13}%
 \contentsline {lstlisting}{\numberline {3.14}Ordenar recomendaciones}{40}{lstlisting.3.14}%
 \contentsline {lstlisting}{\numberline {3.15}Cortar recomendaciones}{40}{lstlisting.3.15}%
-\contentsline {lstlisting}{\numberline {3.16}Generaci\IeC {\'o}n de estad\IeC {\'\i }sticas}{41}{lstlisting.3.16}%
-\contentsline {lstlisting}{\numberline {3.17}Diccionario de similitud entre usuarios}{42}{lstlisting.3.17}%
-\contentsline {lstlisting}{\numberline {3.18}Diccionario de recomendaciones}{43}{lstlisting.3.18}%
-\contentsline {lstlisting}{\numberline {3.19}Diccionario de similitud entre estrategias para una duraci\IeC {\'o}n}{43}{lstlisting.3.19}%
-\contentsline {lstlisting}{\numberline {3.20}Formato del mapa \texttt {results}}{44}{lstlisting.3.20}%
+\contentsline {lstlisting}{\numberline {3.16}Generaci\IeC {\'o}n de estad\IeC {\'\i }sticas}{43}{lstlisting.3.16}%
+\contentsline {lstlisting}{\numberline {3.17}Diccionario de similitud entre usuarios}{44}{lstlisting.3.17}%
+\contentsline {lstlisting}{\numberline {3.18}Diccionario de recomendaciones}{44}{lstlisting.3.18}%
+\contentsline {lstlisting}{\numberline {3.19}Diccionario de similitud entre estrategias para una duraci\IeC {\'o}n}{45}{lstlisting.3.19}%
+\contentsline {lstlisting}{\numberline {3.20}Formato del mapa \texttt {results}}{46}{lstlisting.3.20}%
+\addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

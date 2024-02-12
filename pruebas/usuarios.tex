@@ -1,4 +1,4 @@
-Elaboraremos encuestas para recoger las sensaciones y satisfacción
+Elaboraremos encuestas (las preguntas se muestran en el Apéndice \ref{CAP:PREGUNTAS_FORMULARIO}) para recoger las sensaciones y satisfacción
 que las \textit{playlists} generadas por nuestro sistema de recomendación han causado en los usuarios. Compararemos estrategias de agregación para tratar de sacar conclusiones
 sobre qué estrategias tienen mejor acogida, trataremos de sacar una puntuación de usabilidad para nuestra aplicación 
 con una encuesta \textit{SUS} (System Usability Scale) y, por último, trataremos de sacar conclusiones sobre posibles nuevas funcionalidades que podrían ser interesantes 
@@ -50,30 +50,36 @@ Otros datos a tener en cuenta:
 
 \subsection{Contexto sobre el grupo de personas\label{SEC:CONTEXTOS}}
 
-En nuestra encuesta, asignamos un nombre identificativo a cada grupo, preguntamos de cuántas personas se componía, 
-y si consideraban si el grupo era homogéneo o heterogéneo. De estas preguntas, obtenemos lo siguiente:
+En nuestra encuesta asignamos un nombre identificativo a cada grupo, preguntamos de cuántas personas se componía, 
+y si consideraban si el grupo era homogéneo o heterogéneo. De estas preguntas (véase la Sección \ref{SEC:PREGUNTAS_CONTEXTO}), obtenemos lo siguiente:
 
 \begin{itemize}
     \item \textbf{Número de personas en el grupo}: La mayoría de grupos han sido parejas, dejando otro grupo de 3 y de 4 personas.
     \item \textbf{Nombre para identificar el grupo}: Les pedíamos que pusieran los nombres de las personas que habían generado la \textit{playlist} en orden alfabético.
     \item \textbf{Homogeneidad del grupo}: Las parejas han coincidido en su percepción de la homogeneidad de sus gustos. Pero en los grupos
-    más numerosos, ha habido opiniones dispares.
+    más numerosos, ha habido opiniones dispares. Hemos visto que para el grupo de 3 personas, dos de ellas consideraban que tenían gustos heterogéneos (dando '3' como respuesta) 
+    y una homogéneos (dando '7' como respuesta), 
+    y para el grupo de 4 personas, dos consideraban que tenían gustos homogéneos (dando '6' y '7' como respuesta) y dos heterogéneos (dando '3' como respuesta).
+
 \end{itemize}
 
 Sobre la valoración de la homogeneidad en las parejas, sí que creemos que nos pueden servir para sacar algunas
 conclusiones sobre las teorías que empezamos a plantear en la Sección \ref{SEC:DECISIONES_TRAS_RESULTADOS}, como la de que 
-un bajo número de personas en el grupo, (como las parejas), y la baja similitud en los gustos, podía provocar que 
+un bajo número de personas en el grupo (como las parejas) y la baja similitud en los gustos, podía provocar que 
 las estrategias de agregación no aportaran diferencias en las recomendaciones.
 
 \subsection{Comparación de estrategias\label{SEC:COMPARACION_ESTRATEGIAS}}
 
 Para los grupos que obtuvieron dos \textit{playlists} diferentes, les pedíamos que valoraran por separado las dos \textit{playlists} 
-y que elijieran cuál de las dos preferían. En el caso de que no obtuvieran dos \textit{playlists} diferentes, les pedíamos que 
-valoraran la \textit{playlist} que les había aparecido en pantalla. De esta manera, obtenemos lo siguiente:
+y que eligieran cuál de las dos preferían. En el caso de que no obtuvieran dos \textit{playlists} diferentes, les pedíamos que 
+valoraran la \textit{playlist} que les había aparecido en pantalla (véanse las preguntas en la Sección \ref{SEC:PREGUNTAS_COMPARACION}). 
+De esta manera, obtenemos lo siguiente:
 
 \begin{itemize}
-    \item \textbf{Comparación de estrategias}: ninguna de las dos estrategias ha sido claramente preferida por los usuarios. Tanto en parejas, 
-    como en grupos más grandes, la elección ha variado en todo momento.
+    \item \textbf{Comparación de estrategias}: ninguna de las dos estrategias ha sido claramente preferida por los usuarios. Teniendo encuenta los
+     grupos más grandes, la elección ha variado en todo momento, teniendo teniendo en el grupo de 3 personas, dos personas que preferían la estrategia A (\textit{Multiplicative}) y una la estrategia B 
+     (\textit{Least Misery}), y en el grupo de 4 personas, dos personas que preferían la estrategia \textit{Least Misery} y dos la estrategia \textit{Multiplicative}. Sí que podemos destacar un suceso 
+     que, no sabemos si es casualidad o no, y es que, para la única pareja que ha obtenido dos \textit{playlists} diferentes, los usuarios prefirieron la estrategia B (\textit{Least Misery}).
     \item \textbf{Valoración de la \textit{playlist}}: tanto comparando dos, como cuando solamente se obtenía una, las puntuaciones medias
     que los usuarios han dado a las \textit{playlists} se aproximan al 6,5 sobre 10.
     \item \textbf{Obtención de dos \textit{playlists}}: para la gran mayoría de las parejas, solo se ha obtenido una \textit{playlist}, coincidiendo
@@ -84,10 +90,10 @@ valoraran la \textit{playlist} que les había aparecido en pantalla. De esta man
 \subsection{Encuesta de usabilidad\label{SEC:ENCUESTA_USABILIDAD}}
 
 Para evaluar la usabilidad de nuestra aplicación, hemos utilizado la encuesta \textit{SUS} (System Usability Scale) 
-\cite{brooke1986system}. Esta encuesta son 10 preguntas sobre usabilidad, que se responden con una escala de 5 puntos, y 
-nos permite obtener una puntuación de usabilidad aplicando una fórmula sobre los valores de las respuestas. Los valores 
-de las respuestas que hemos utilizado han sido las medias de las respuestas de los usuarios encuestados. La fórmula para 
-obtener la puntuación de usabilidad se puede ver en la Ecuación \ref{EQ:SUS} donde $r_i$ es la puntuación en la pregunta
+\cite{brooke1986system}. Esta encuesta son 10 preguntas sobre usabilidad (véanse las preguntas en la Sección \ref{SEC:PREGUNTAS_SUS}), 
+que se responden con una escala de 5 puntos, y nos permite obtener una puntuación de usabilidad aplicando una fórmula sobre los valores 
+de las respuestas. Los valores de las respuestas que hemos utilizado han sido las medias de las respuestas de los usuarios encuestados. 
+La fórmula para obtener la puntuación de usabilidad se puede ver en la Ecuación \ref{EQ:SUS} donde $r_i$ es la puntuación en la pregunta
 $i$.
 
 \begin{equation}[EQ:SUS]{Cálculo de la puntuación de usabilidad con la encuesta \textit{SUS}}
@@ -126,7 +132,7 @@ es muy buena (una puntuación por encima de 70 se considera buena) tras las encu
 
 \subsection{Posible nueva funcionalidad en la aplicación\label{SEC:GESTION_USUARIOS}}
 
-Como pregunta final de la encuesta, pedimos a los usuarios que eligieran, entre varias propuestas de nuevas funcionalidades para la 
+Como pregunta final de la encuesta (véase la Sección \ref{SEC:PREGUNTA_FUNCIONALIDAD}), pedimos a los usuarios que eligieran, entre varias propuestas de nuevas funcionalidades para la 
 aplicación, cuál les parecía más interesante. Las propuestas que les ofrecimos fueron las siguientes:
 
 \begin{itemize}
@@ -142,9 +148,9 @@ La segunda opción más votada ha sido la de que haya una aplicación para móvi
 La opción de poder reproducir música directamente desde la app ha sido la menos votada, con un 20\% de los votos.
 No ha habido otras sugerencias, y nadie ha votado que no se deba añadir nada.
 
-\section{Resumen\label{SEC:RESUMEN_ENCUESTA}}
+\subsection{Resumen\label{SEC:RESUMEN_ENCUESTA}}
 
-Después de realizar las encuestas, hemos obtenido una puntuación de usabilidad de 88.65 sobre 100, lo que es algo muy positivo para nuestra aplicación..
+Después de realizar las encuestas, hemos obtenido una puntuación de usabilidad de 88.65 sobre 100, lo que es algo muy positivo para nuestra aplicación.
 En cuanto a la comparación de estrategias, ninguna de las dos estrategias ha sido claramente preferida por los usuarios, y la puntuación media 
 que los usuarios han dado a las \textit{playlists} ha sido aproximadamente de 6,5 sobre 10, lo cual es un resultado que muestra que, 
 en general, las \textit{playlists} generadas por nuestra aplicación no han entusiasmado en exceso a los usuarios, pero tampoco les han disgustado.
@@ -153,10 +159,3 @@ de que tenían gustos heterogéneos (para los grupos más grandes siempre se han
 de que un menor número de usuarios y la baja similitud en los gustos, provoca que las estrategias de agregación no aporten diferencias en las recomendaciones.
 Por último, hemos obtenido que la opción más votada para añadir nuevas funcionalidades a la aplicación ha sido la de añadir nuevos parámetros que influyan 
 en la generación de las \textit{playlists}, lo cual nos deja con un reto para seguir mejorando la aplicación en el futuro.
-
-
-TENGO DUDAS SOBRE LAS PREGUNTAS DE LA ENCUESTA, NO SÉ SI MOSTRARLA TODA ENTERA EN EL APÉNDICE, O MOSTRAR LAS PREGUNTAS SUELTAS EN CADA APARTADO.
-LO QUE ESTA CLARO ES QUE HAY QUE MOSTRARLAS SI. 
-
-POR OTRO LADO, EL PLANTEAMIENTO DE NO IR TRATANDO DE MANERA ESPECÍFICA CADA PREGUNTA ME GUSTA. PREFIERO IR
-TRATANDO MÁS LAS CUESTIONES QUE TRATÁBAMOS DE RESPONDER CON LA ENCUESTA, Y NO IR PREGUNTA A PREGUNTA.

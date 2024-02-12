@@ -32,24 +32,36 @@
 \contentsline {figure}{\numberline {3.8}{\ignorespaces Obtener recomendaciones}}{27}{figure.caption.43}%
 \contentsline {figure}{\numberline {3.9}{\ignorespaces Crear playlist}}{28}{figure.caption.45}%
 \contentsline {figure}{\numberline {3.10}{\ignorespaces A\IeC {\~n}adir canciones a \textit {playlist}}}{29}{figure.caption.46}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Diagrama Generaci\IeC {\'o}n de \textit {playlists}}}{42}{figure.caption.54}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas con similitud en semillas}}{48}{figure.caption.55}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{48}{figure.caption.55}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{48}{figure.caption.55}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{48}{figure.caption.55}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{48}{figure.caption.55}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{48}{figure.caption.55}%
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{48}{figure.caption.55}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 3 personas sin similitud en semillas}}{50}{figure.caption.57}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{50}{figure.caption.57}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{50}{figure.caption.57}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{50}{figure.caption.57}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{50}{figure.caption.57}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{50}{figure.caption.57}%
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{50}{figure.caption.57}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas sin similitud en semillas}}{51}{figure.caption.59}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para grupos de 3, 4 y 5 personas con similitud en semillas}}{52}{figure.caption.61}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{52}{figure.caption.61}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{52}{figure.caption.61}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{52}{figure.caption.61}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas con similitud en semillas}}{48}{figure.caption.56}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{48}{figure.caption.56}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{48}{figure.caption.56}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{48}{figure.caption.56}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{48}{figure.caption.56}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{48}{figure.caption.56}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{48}{figure.caption.56}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 3 personas sin similitud en semillas}}{50}{figure.caption.58}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{50}{figure.caption.58}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{50}{figure.caption.58}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{50}{figure.caption.58}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{50}{figure.caption.58}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{50}{figure.caption.58}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{50}{figure.caption.58}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas sin similitud en semillas}}{51}{figure.caption.60}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para grupos de 3, 4 y 5 personas con similitud en semillas}}{52}{figure.caption.62}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{52}{figure.caption.62}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{52}{figure.caption.62}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{52}{figure.caption.62}%
 \addvspace {10\p@ }
+\addvspace {10\p@ }
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Preguntas sobre el contexto del grupo}}{65}{figure.caption.64}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Preguntas sobre la valoraci\IeC {\'o}n y comparaci\IeC {\'o}n de estrategias}}{66}{figure.caption.65}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{66}{figure.caption.65}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{66}{figure.caption.65}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Preguntas sobre la valoraci\IeC {\'o}n en caso de obtener una \textit {playlist}}}{67}{figure.caption.66}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 1}}{67}{figure.caption.67}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 2}}{68}{figure.caption.68}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 3}}{68}{figure.caption.69}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 4}}{69}{figure.caption.70}%
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Pregunta nueva funcionalidad}}{69}{figure.caption.71}%

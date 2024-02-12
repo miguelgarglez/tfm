@@ -2,15 +2,15 @@ Hemos hecho uso de estas evaluaciones \textit{offline}, tratadas en la Sección 
  para comparar distintas estrategias de agregación, y ver cuáles se comportaban de manera más similar a otras estrategias, y 
  cuáles de manera más diferente. Esto nos dará la posibilidad de suprimir
 estrategias que sean demasiado similares, para así centrar las comparaciones con usuarios en las estrategias que más diferencias presenten entre sí.
-Exponíamos en la Sección \ref{SEC:PRUEBAS_EVALUACION_IMPLEMENTACION} cómo se implementabaron los mecanismos para obtener los datos de similitud entre \textit{playlists} generadas 
+Exponíamos en la Sección \ref{SEC:PRUEBAS_EVALUACION_IMPLEMENTACION} cómo se implementaron los mecanismos para obtener los datos de similitud entre \textit{playlists} generadas 
 con distintas estrategias de agregación y la similitud entre usuarios con la coincidencia de semillas. En esta sección, expondremos los resultados obtenidos y las conclusiones 
 que hemos sacado de ellos.
 
 \subsection{Resultados obtenidos\label{SEC:RESULTADOS_OBTENIDOS}}
 
 Los datos de las pruebas implementadas se han recogido en archivos \textit{JSON} que se han procesado después con \textit{Python} para generar gráficas que muestren la evolución 
-de la similitud entre \textit{playlists} generadas con distintas estrategias de agregación con el aumento de la duración de estas. Hemos realizado pruebas para grupos de 
-2, 3, 4 y 5 usuarios, en los cuales para algunos no existía ninguna similitud entre semillas, y para otros sí. 
+de la similitud entre \textit{playlists} (tasa de coincidencias de canciones) generadas con distintas estrategias de agregación con el aumento de la duración de estas. Hemos realizado pruebas para grupos de 
+2, 3, 4 y 5 usuarios, en los cuales para algunos no existía ninguna similitud entre semillas (tasa de coincidencia en artistas y canciones más escuchados), y para otros sí. 
 
 \paragraph{Grupo de 2 usuarios con similitud en semillas}
 
@@ -32,8 +32,8 @@ recomendaciones. De estas primeras gráficas podemos sacar las siguientes conclu
     \item Vemos que, entre algunas estrategias, el valor de similitud es muy alto con duraciones pequeñas, lo que nos indica que estas estrategias tienen
     un comportamiento similar. Por ejemplo, si nos fijamos en la gráfica de \textit{Average}, vemos que las líneas de \textit{Least Misery} y \textit{Most Pleasure}
     se aproximan mucho más que el resto al máximo valor de similitud con duraciones pequeñas.
-    \item Claramente, a medida que se aumenta la duración de la \textit{playlist}, la similitud entre las estrategias aumenta, viendo que la similitud
-    llega a ser total para las mayores duraciones, ya que, tenemos que tener en cuenta que siempre obtenemos el mismo número de canciones candidatas.
+    \item Claramente, a medida que se aumenta la duración de la \textit{playlist}, la similitud entre las estrategias aumenta, viendo que las \textit{playlists} 
+    para las mayores duraciones serán iguales para todas las estrategias, ya que tenemos que tener en cuenta que siempre obtenemos el mismo número de canciones candidatas.
 \end{itemize}
 
 \paragraph{Grupo de 3 usuarios sin similitud en semillas}
@@ -55,7 +55,7 @@ resultados obtenidos.
 Las conclusiones que podemos sacar de las gráficas de la Figura \ref{FIG:GRAFICAS_TRIO_NO_SIMILITUD} son las siguientes:
 
 \begin{itemize}
-    \item Vemos que, parece que la ausencia de coincidencia en semillas de los usuarios hace que las estrategias se comporten de más uniforme, viendo que, ya para duraciones
+    \item Vemos que la ausencia de coincidencia en semillas de los usuarios hace que las estrategias se comporten de manera más uniforme, viendo que, desde duraciones
     bajas la similitud es prácticamente total entre casi todas las estrategias.
     \item Es importante el 'casi todas' que hemos mencionado, ya que destaca que la estrategia \textit{Multiplicative} se comporta de manera diferente al resto, y su similitud con el resto de estrategias
     es mucho menor que la similitud entre las demás estrategias. No obstante, acaba tendiendo a la máxima similitud con el aumento de la duración, como es de esperar.
@@ -78,17 +78,17 @@ Como se puede observar en la Figura \ref{FIG:GRAFICAS_PAREJA_NO_SIMILITUD}, toda
 no tiene ninguna coincidencia en semillas. Esto nos hace observar que:
 
 \begin{itemize}
-    \item La menor cantidad en un grupo de usuarios, y la baja coincidencia en sus gustos, contribuyen a que las estrategias de agregación 
+    \item El menor tamaño de un grupo de usuarios, y la baja coincidencia en sus gustos, contribuyen a que las estrategias de agregación 
     dejen de aportar diferencias a la hora de generar recomendaciones.
     \item A pesar de que anteriormente habíamos observado que la estrategia \textit{Multiplicative} se comportaba de manera diferente al resto,
-    en este caso, no es así. Deberemos seguir observando el comportamiento de las estrategias en grupos de mayor tamaño para
+    en este caso no es así. Deberemos seguir observando el comportamiento de las estrategias en grupos de mayor tamaño para
     tratar de destacar algunas estrategias.
 \end{itemize}
 
 \paragraph{Grupos de 3, 4 y 5 usuarios con similitud en semillas}
 
 Vamos a observar resultados con situaciones algo más favorables para nuestro sistema de recomendación. En la Figura \ref{FIG:GRUPOS_MAYORES_SIMILITUD}
-se muestran los resultados obtenidos para grupos de 3, 4 y 5 usuarios, en los cuales, existía una coincidencia de una semilla de artista entre tan sólo
+se muestran los resultados obtenidos para grupos de 3, 4 y 5 usuarios, en los cuales existía una coincidencia de una semilla de artista entre tan sólo
 dos de los usuarios del grupo. Mostraremos las gráficas de la estrategia \textit{Average} frente al resto.
 
 \begin{figure}[Gráficas de similitud entre estrategias para grupos de 3, 4 y 5 personas con similitud en semillas]{FIG:GRUPOS_MAYORES_SIMILITUD}
@@ -106,18 +106,18 @@ Viendo las gráficas de la Figura \ref{FIG:GRUPOS_MAYORES_SIMILITUD}, podemos de
     \begin{itemize}
         \item \textbf{\textit{Average}}, \textbf{\textit{Least Misery}} y \textbf{\textit{Most Pleasure}} tienen una similitud cercana a la máxima entre sí desde el principio. No sabríamos
         destacar una estrategia que pueda ser más diferente que las otras dos.
-        \item \textbf{\textit{Average Custom}}, \textbf{\textit{Borda}} y \textbf{\textit{Multiplicative}} tienen una similitud casi máxima entre sí desde el principio. Observamos que,
+        \item \textbf{\textit{Average Custom}}, \textbf{\textit{Borda}} y \textbf{\textit{Multiplicative}} tienen una similitud casi máxima entre sí desde el principio. Observamos que
         \textit{Borda} y \textit{Average Custom} son idénticas en su comportamiento. Por ello destacaríamos \textit{Multiplicative} como la estrategia que más se diferencia.
     \end{itemize}
 \end{itemize}
 
 \subsection{Decisiones tras los resultados\label{SEC:DECISIONES_TRAS_RESULTADOS}}
 
-Tras haber tratado de explorar distintos escenarios de número de usuarios del grupo y similitud en semillas entre ellos, hemos podido
+Tras haber tratado de explorar distintos escenarios de número de usuarios del grupo y similitud de semillas entre ellos, hemos podido
 ver indicios de algunas teorías:
 
 \begin{itemize}
-    \item La similitud entre estrategias tiende a ser máxima con el aumento de la duración de la \textit{playlist}. Esto es de esperar, ya que, a mayor duración, 
+    \item La similitud entre estrategias tiende a ser máxima con el aumento de la duración de la \textit{playlist}. Esto es de esperar, ya que a mayor duración, 
     con un número fijo de canciones candidatas, la probabilidad de que exista similitud entre estrategias es mayor.
     \item Un número menor de usuarios en el grupo contribuye a que las estrategias de agregación dejen de aportar diferencias a la hora de generar recomendaciones.
     \item La coincidencia en semillas entre usuarios del grupo contribuye a que las estrategias sí que aporten diferencias a la hora de generar recomendaciones.
@@ -134,6 +134,6 @@ grupo de estrategias:
     \item \textbf{\textit{Multiplicative}}: Hemos observado que esta estrategia se comporta de manera diferente a las otras dos estrategias de su grupo, que se comportaban de 
     manera idéntica entre sí. 
     \item \textbf{\textit{Least Misery}}: podríamos también haber escogido \textit{Average} o \textit{Most Pleasure} como representantes de su grupo, ya que ninguna destacaba por ser
-    más diferente que las otras dos. No obstante, hemos decidido escoger \textit{Least Misery} por ser la estrategia, con la idea más diferente detrás de ella, y que, por tanto,
+    más diferente que las otras dos. No obstante, hemos decidido escoger \textit{Least Misery} por ser la estrategia con la idea más diferente detrás de ella, y que, por tanto,
     podría ser más interesante de comparar con usuarios.
 \end{itemize}
