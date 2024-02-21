@@ -1,67 +1,67 @@
 \babel@toc {spanish}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Ejecuci\IeC {\'o}n de un proyecto \textit {Flutter}}}{5}{figure.caption.13}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Ejemplo de \IeC {\'a}rbol de \textit {widgets}}}{5}{figure.caption.14}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Implementaci\IeC {\'o}n en c\IeC {\'o}digo de un \textit {StatelessWidget} y un \textit {StatefulWidget}}}{6}{figure.caption.15}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{6}{figure.caption.15}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{6}{figure.caption.15}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Ejecuci\IeC {\'o}n de un proyecto \textit {Flutter}}}{7}{figure.caption.8}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Ejemplo de \IeC {\'a}rbol de \textit {widgets}}}{7}{figure.caption.9}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Implementaci\IeC {\'o}n en c\IeC {\'o}digo de un \textit {StatelessWidget} y un \textit {StatefulWidget}}}{8}{figure.caption.10}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{8}{figure.caption.10}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{8}{figure.caption.10}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagramas de casos de uso principales de la aplicaci\IeC {\'o}n}}{19}{figure.caption.25}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{19}{figure.caption.25}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{19}{figure.caption.25}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Maquetas de la aplicaci\IeC {\'o}n a desarrollar}}{20}{figure.caption.26}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Pantallas de la aplicaci\IeC {\'o}n desarrollada}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(g)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(h)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(i)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {subfigure}{\numberline {(j)}{\ignorespaces lof}}{20}{figure.caption.27}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Diagrama de secuencia de interacci\IeC {\'o}n con la API de \textit {Spotify}}}{21}{figure.caption.28}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Visi\IeC {\'o}n general \textit {Spotify for Developers}}}{24}{figure.caption.37}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{24}{figure.caption.37}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{24}{figure.caption.37}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{24}{figure.caption.37}%
-\contentsline {figure}{\numberline {3.6}{\ignorespaces Flujo de autenticaci\IeC {\'o}n PKCE}}{25}{figure.caption.39}%
-\contentsline {figure}{\numberline {3.7}{\ignorespaces Obtener canciones o artistas m\IeC {\'a}s escuchados}}{26}{figure.caption.41}%
-\contentsline {figure}{\numberline {3.8}{\ignorespaces Obtener recomendaciones}}{27}{figure.caption.43}%
-\contentsline {figure}{\numberline {3.9}{\ignorespaces Crear playlist}}{28}{figure.caption.45}%
-\contentsline {figure}{\numberline {3.10}{\ignorespaces A\IeC {\~n}adir canciones a \textit {playlist}}}{29}{figure.caption.46}%
-\contentsline {figure}{\numberline {3.11}{\ignorespaces Diagrama Generaci\IeC {\'o}n de \textit {playlists}}}{42}{figure.caption.54}%
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Diagramas de casos de uso principales de la aplicaci\IeC {\'o}n}}{21}{figure.caption.20}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{21}{figure.caption.20}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{21}{figure.caption.20}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Maquetas de la aplicaci\IeC {\'o}n a desarrollar}}{22}{figure.caption.21}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Pantallas de la aplicaci\IeC {\'o}n desarrollada}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(g)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(h)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(i)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {subfigure}{\numberline {(j)}{\ignorespaces lof}}{22}{figure.caption.22}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Diagrama de secuencia de interacci\IeC {\'o}n con la API de \textit {Spotify}}}{23}{figure.caption.23}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Visi\IeC {\'o}n general \textit {Spotify for Developers}}}{26}{figure.caption.32}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{26}{figure.caption.32}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{26}{figure.caption.32}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{26}{figure.caption.32}%
+\contentsline {figure}{\numberline {3.6}{\ignorespaces Flujo de autenticaci\IeC {\'o}n PKCE}}{27}{figure.caption.34}%
+\contentsline {figure}{\numberline {3.7}{\ignorespaces Obtener canciones o artistas m\IeC {\'a}s escuchados}}{28}{figure.caption.36}%
+\contentsline {figure}{\numberline {3.8}{\ignorespaces Obtener recomendaciones}}{29}{figure.caption.38}%
+\contentsline {figure}{\numberline {3.9}{\ignorespaces Crear playlist}}{30}{figure.caption.40}%
+\contentsline {figure}{\numberline {3.10}{\ignorespaces A\IeC {\~n}adir canciones a \textit {playlist}}}{31}{figure.caption.41}%
+\contentsline {figure}{\numberline {3.11}{\ignorespaces Diagrama generaci\IeC {\'o}n de \textit {playlists}}}{43}{figure.caption.49}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas con similitud en semillas}}{48}{figure.caption.56}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{48}{figure.caption.56}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{48}{figure.caption.56}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{48}{figure.caption.56}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{48}{figure.caption.56}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{48}{figure.caption.56}%
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{48}{figure.caption.56}%
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 3 personas sin similitud en semillas}}{50}{figure.caption.58}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{50}{figure.caption.58}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{50}{figure.caption.58}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{50}{figure.caption.58}%
-\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{50}{figure.caption.58}%
-\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{50}{figure.caption.58}%
-\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{50}{figure.caption.58}%
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas sin similitud en semillas}}{51}{figure.caption.60}%
-\contentsline {figure}{\numberline {4.4}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para grupos de 3, 4 y 5 personas con similitud en semillas}}{52}{figure.caption.62}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{52}{figure.caption.62}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{52}{figure.caption.62}%
-\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{52}{figure.caption.62}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas con similitud en semillas}}{50}{figure.caption.51}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{50}{figure.caption.51}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{50}{figure.caption.51}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{50}{figure.caption.51}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{50}{figure.caption.51}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{50}{figure.caption.51}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{50}{figure.caption.51}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 3 personas sin similitud en semillas}}{52}{figure.caption.53}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{52}{figure.caption.53}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{52}{figure.caption.53}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{52}{figure.caption.53}%
+\contentsline {subfigure}{\numberline {(d)}{\ignorespaces lof}}{52}{figure.caption.53}%
+\contentsline {subfigure}{\numberline {(e)}{\ignorespaces lof}}{52}{figure.caption.53}%
+\contentsline {subfigure}{\numberline {(f)}{\ignorespaces lof}}{52}{figure.caption.53}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para un grupo de 2 personas sin similitud en semillas}}{53}{figure.caption.55}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Gr\IeC {\'a}ficas de similitud entre estrategias para grupos de 3, 4 y 5 personas con similitud en semillas}}{54}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{54}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{54}{figure.caption.57}%
+\contentsline {subfigure}{\numberline {(c)}{\ignorespaces lof}}{54}{figure.caption.57}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {A.1}{\ignorespaces Preguntas sobre el contexto del grupo}}{65}{figure.caption.64}%
-\contentsline {figure}{\numberline {A.2}{\ignorespaces Preguntas sobre la valoraci\IeC {\'o}n y comparaci\IeC {\'o}n de estrategias}}{66}{figure.caption.65}%
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{66}{figure.caption.65}%
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{66}{figure.caption.65}%
-\contentsline {figure}{\numberline {A.3}{\ignorespaces Preguntas sobre la valoraci\IeC {\'o}n en caso de obtener una \textit {playlist}}}{67}{figure.caption.66}%
-\contentsline {figure}{\numberline {A.4}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 1}}{67}{figure.caption.67}%
-\contentsline {figure}{\numberline {A.5}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 2}}{68}{figure.caption.68}%
-\contentsline {figure}{\numberline {A.6}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 3}}{68}{figure.caption.69}%
-\contentsline {figure}{\numberline {A.7}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 4}}{69}{figure.caption.70}%
-\contentsline {figure}{\numberline {A.8}{\ignorespaces Pregunta nueva funcionalidad}}{69}{figure.caption.71}%
+\contentsline {figure}{\numberline {A.1}{\ignorespaces Preguntas sobre el contexto del grupo}}{67}{figure.caption.59}%
+\contentsline {figure}{\numberline {A.2}{\ignorespaces Preguntas sobre la valoraci\IeC {\'o}n y comparaci\IeC {\'o}n de estrategias}}{68}{figure.caption.60}%
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces lof}}{68}{figure.caption.60}%
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces lof}}{68}{figure.caption.60}%
+\contentsline {figure}{\numberline {A.3}{\ignorespaces Preguntas sobre la valoraci\IeC {\'o}n en caso de obtener una \textit {playlist}}}{69}{figure.caption.61}%
+\contentsline {figure}{\numberline {A.4}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 1}}{69}{figure.caption.62}%
+\contentsline {figure}{\numberline {A.5}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 2}}{70}{figure.caption.63}%
+\contentsline {figure}{\numberline {A.6}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 3}}{70}{figure.caption.64}%
+\contentsline {figure}{\numberline {A.7}{\ignorespaces Preguntas encuesta SUS (\textit {System Usability Scale}) Parte 4}}{71}{figure.caption.65}%
+\contentsline {figure}{\numberline {A.8}{\ignorespaces Pregunta nueva funcionalidad}}{71}{figure.caption.66}%

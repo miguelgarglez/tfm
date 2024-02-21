@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.13)  12 FEB 2024 00:59
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.5.13)  21 FEB 2024 18:51
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -643,15 +643,15 @@ Package: etexcmds 2019/12/15 v1.7 Avoid name clashes with e-TeX commands (HO)
 Package: iftex 2020/03/06 v1.0d TeX engine tests
 )))
 \verbatim@out=\write5
-runsystem(touch w18-test-202421259.tex)...disabled (restricted).
+runsystem(touch w18-test-20242211131.tex)...disabled (restricted).
 
-runsystem(rm -f w18-test-202421259.tex)...disabled (restricted).
+runsystem(rm -f w18-test-20242211131.tex)...disabled (restricted).
 
 runsystem(rm -f "tfgtfmthesisuam.gnuploterrors")...disabled (restricted).
 
 runsystem(mkdir -p "gnuplottex")...disabled (restricted).
 
-runsystem(touch "gnuplottex/w18-test-202421259.tex")...disabled (restricted).
+runsystem(touch "gnuplottex/w18-test-20242211131.tex")...disabled (restricted).
 
 
 
@@ -2060,21 +2060,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [14] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
- (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.loa)
-\tf@loa=\write25
-\openout6 = `tfgtfmthesisuam.loa'.
-
  (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.lol)
-\tf@lol=\write26
+\tf@lol=\write25
 \openout6 = `tfgtfmthesisuam.lol'.
-
- (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.ltb)
-\tf@ltb=\write27
-\openout6 = `tfgtfmthesisuam.ltb'.
-
- (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.loe)
-\tf@loe=\write28
-\openout6 = `tfgtfmthesisuam.loe'.
 
  (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.lof
 LaTeX Info: Redefining \. on input line 1.
@@ -2098,16 +2086,8 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 )
-\tf@lof=\write29
+\tf@lof=\write26
 \openout6 = `tfgtfmthesisuam.lof'.
-
- (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.lot
-LaTeX Info: Redefining \. on input line 1.
-LaTeX Info: Redefining \% on input line 1.
-Package cleveref Info: loaded `spanish' language definitions on input line 1.
-)
-\tf@lot=\write30
-\openout6 = `tfgtfmthesisuam.lot'.
 
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
@@ -2122,32 +2102,6 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 [16] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
-\openout6 = `tfgtfmthesisuam.mw'.
-
- (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.ltb)
-\tf@ltb=\write31
-\openout6 = `tfgtfmthesisuam.ltb'.
-
-
-Overfull \hbox (2.21538pt too wide) has occurred while \output is active
- []
- []
-
-
-Overfull \hbox (2.21538pt too wide) has occurred while \output is active
- []
- []
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-[17] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
- [18
-
-] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2169,7 +2123,9 @@ l.66 ...ropuesta y objetivos\label{SEC:OBJETIVOS}}
                                                   {introduccion/objetivos}
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [1] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+ [1
+
+] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2189,10 +2145,10 @@ LaTeX Font Info:    Font shape `T1/txss/m/it' in size <9> not available
 LaTeX Font Info:    Font shape `T1/txss/m/sl' will be
 (Font)              scaled to size 8.54997pt on input line 8.
 Ending itemize
-) (/Users/miguelgarciagonzalez/TFM_MUII/tfm/introduccion/estructura.tex)
-LaTeX Info: Redefining \. on input line 70.
-LaTeX Info: Redefining \% on input line 70.
-Package cleveref Info: loaded `spanish' language definitions on input line 70.
+) (/Users/miguelgarciagonzalez/TFM_MUII/tfm/introduccion/estructura.tex
+LaTeX Info: Redefining \. on input line 18.
+LaTeX Info: Redefining \% on input line 18.
+Package cleveref Info: loaded `spanish' language definitions on input line 18.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2206,8 +2162,8 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 pdfTeX warning (ext4): destination with the same identifier (name{page.2}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.70 ...{Estado del arte\label{CAP:ESTADODELARTE}}
-                                                  {estadodelarte/estadodelarte}
+l.18 
+     
 \openout6 = `tfgtfmthesisuam.mw'.
 
  [2] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
@@ -2219,6 +2175,42 @@ l.70 ...{Estado del arte\label{CAP:ESTADODELARTE}}
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
+\openout6 = `tfgtfmthesisuam.mw'.
+
+)
+LaTeX Info: Redefining \. on input line 70.
+LaTeX Info: Redefining \% on input line 70.
+Package cleveref Info: loaded `spanish' language definitions on input line 70.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.70 ...{Estado del arte\label{CAP:ESTADODELARTE}}
+                                                  {estadodelarte/estadodelarte}
+\openout6 = `tfgtfmthesisuam.mw'.
+
+ [3] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
+<to be read again> 
+                   \relax 
+l.70 ...{Estado del arte\label{CAP:ESTADODELARTE}}
+                                                  {estadodelarte/estadodelarte}
+\openout6 = `tfgtfmthesisuam.mw'.
+
+ [4
+
+] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2257,16 +2249,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
  []
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.3}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.31 
-     
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [3
-
-] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[5] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2300,14 +2285,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
  []
 
-pdfTeX warning (ext4): destination with the same identifier (name{page.4}) has been already used, duplicate ignored
-<to be read again> 
-                   \relax 
-l.80 ...ction{\textit{Widgets}\label{SEC:WIDGETS}}
-                                                  
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [4] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[6] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2343,7 +2323,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[5 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/flutter_run.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/widget_tree.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[7 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/flutter_run.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/widget_tree.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2369,7 +2349,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[6 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/stateless.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/stateful.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[8 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/stateless.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/stateful.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2397,7 +2377,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[7] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[9] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2426,7 +2406,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[8] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[10] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2448,7 +2428,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[9] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[11] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2470,7 +2450,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[10] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[12] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2491,7 +2471,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[11] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[13] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2517,7 +2497,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[12] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[14] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2539,7 +2519,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[13] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[15] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2569,7 +2549,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[14] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[16] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2594,7 +2574,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[15] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[17] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2603,7 +2583,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [16
+ [18
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2629,7 +2609,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[17] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[19] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2668,7 +2648,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[18] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[20] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2707,7 +2687,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[19 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/login_usecase.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/create_playlist_usecase.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[21 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/login_usecase.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/create_playlist_usecase.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -2737,7 +2717,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[20 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/maquetas.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/welcome.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/users_display.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/user_detail.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/get_top_items.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/get_recommendations.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/generate_playlist.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/artists_display.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/tracks_display.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/save_playlist.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/saved_confirmation.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[22 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/maquetas.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/welcome.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/users_display.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/user_detail.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/get_top_items.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/get_recommendations.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/generate_playlist.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/artists_display.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/tracks_display.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/save_playlist.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_screenshots/saved_confirmation.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2764,7 +2744,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[21 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/interaccion_api.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[23 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/interaccion_api.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2788,7 +2768,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[22] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[24] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2812,7 +2792,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[23] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[25] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2846,7 +2826,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[24 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/dashboard.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_basic_info.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_settings.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[26 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/dashboard.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_basic_info.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/app_settings.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2866,7 +2846,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[25 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/flujo_pkce.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[27 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/flujo_pkce.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2890,7 +2870,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[26 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/top_items.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[28 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/top_items.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2914,7 +2894,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[27 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/recommendations.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[29 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/recommendations.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -2926,17 +2906,10 @@ LaTeX Font Info:    Font shape `T1/txss/bx/it' in size <11> not available
 (Font)              Font shape `T1/txss/bx/sl' tried instead on input line 318.
 LaTeX Font Info:    Font shape `T1/txss/bx/sl' will be
 (Font)              scaled to size 10.44997pt on input line 318.
-
-Overfull \hbox (31.64072pt too wide) in paragraph at lines 324--347
- [] 
- []
-
 ) (/Users/miguelgarciagonzalez/TFM_MUII/tfm/desarrollo/implementacion.tex
-Underfull \vbox (badness 6792) has occurred while \output is active []
-
-LaTeX Info: Redefining \. on input line 15.
-LaTeX Info: Redefining \% on input line 15.
-Package cleveref Info: loaded `spanish' language definitions on input line 15.
+LaTeX Info: Redefining \. on input line 6.
+LaTeX Info: Redefining \% on input line 6.
+Package cleveref Info: loaded `spanish' language definitions on input line 6.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2949,37 +2922,15 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[28 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/create_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-LaTeX Info: Redefining \. on input line 15.
-LaTeX Info: Redefining \% on input line 15.
-Package cleveref Info: loaded `spanish' language definitions on input line 15.
-
-Overfull \hbox (2.21538pt too wide) has occurred while \output is active
- []
- []
-
-
-Overfull \hbox (2.21538pt too wide) has occurred while \output is active
- []
- []
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-[29 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/add_to_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[30 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/create_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
  (/usr/local/texlive/2020/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2020/03/24 1.8d listings language file
 )
-LaTeX Info: Redefining \. on input line 60.
-LaTeX Info: Redefining \% on input line 60.
-Package cleveref Info: loaded `spanish' language definitions on input line 60.
+LaTeX Info: Redefining \. on input line 22.
+LaTeX Info: Redefining \% on input line 22.
+Package cleveref Info: loaded `spanish' language definitions on input line 22.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -2992,39 +2943,20 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[30] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[31 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/add_to_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 118.
-LaTeX Info: Redefining \% on input line 118.
-Package cleveref Info: loaded `spanish' language definitions on input line 118.
-
-Overfull \hbox (2.21538pt too wide) has occurred while \output is active
- []
- []
-
-
-Overfull \hbox (2.21538pt too wide) has occurred while \output is active
- []
- []
+\openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[31] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
-\openout6 = `tfgtfmthesisuam.mw'.
-
-
-Overfull \hbox (17.36052pt too wide) in paragraph at lines 169--174
-[]\T1/txss/m/n/11 Podemos ob-ser-var en los frag-men-tos de có-di-go ex-pues-tos có-mo ha-ce-mos uso del ob-je-to \T1/pcr/m/n/11 MyResponse
- []
-
-LaTeX Info: Redefining \. on input line 175.
-LaTeX Info: Redefining \% on input line 175.
-Package cleveref Info: loaded `spanish' language definitions on input line 175.
+LaTeX Info: Redefining \. on input line 76.
+LaTeX Info: Redefining \% on input line 76.
+Package cleveref Info: loaded `spanish' language definitions on input line 76.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3040,9 +2972,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [32] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 229.
-LaTeX Info: Redefining \% on input line 229.
-Package cleveref Info: loaded `spanish' language definitions on input line 229.
+LaTeX Info: Redefining \. on input line 138.
+LaTeX Info: Redefining \% on input line 138.
+Package cleveref Info: loaded `spanish' language definitions on input line 138.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3058,13 +2990,14 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [33] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-\openout6 = `tfgtfmthesisuam.mw'.
 
-\openout6 = `tfgtfmthesisuam.mw'.
+Overfull \hbox (17.36052pt too wide) in paragraph at lines 173--178
+[]\T1/txss/m/n/11 Podemos ob-ser-var en los frag-men-tos de có-di-go ex-pues-tos có-mo ha-ce-mos uso del ob-je-to \T1/pcr/m/n/11 MyResponse
+ []
 
-LaTeX Info: Redefining \. on input line 279.
-LaTeX Info: Redefining \% on input line 279.
-Package cleveref Info: loaded `spanish' language definitions on input line 279.
+LaTeX Info: Redefining \. on input line 192.
+LaTeX Info: Redefining \% on input line 192.
+Package cleveref Info: loaded `spanish' language definitions on input line 192.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3080,9 +3013,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [34] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 330.
-LaTeX Info: Redefining \% on input line 330.
-Package cleveref Info: loaded `spanish' language definitions on input line 330.
+LaTeX Info: Redefining \. on input line 243.
+LaTeX Info: Redefining \% on input line 243.
+Package cleveref Info: loaded `spanish' language definitions on input line 243.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3102,20 +3035,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-
-Overfull \hbox (24.30606pt too wide) in paragraph at lines 334--339
-[]\T1/txss/m/n/11 En pri-mer lu-gar se ob-tie-nen re-co-men-da-cio-nes pa-ra los usua-rios con la fun-ción \T1/pcr/m/n/11 getRecommendations\T1/txss/m/n/11 ,
- []
-
-
-Overfull \hbox (5.78867pt too wide) in paragraph at lines 334--339
-\T1/txss/m/n/11 re-ce la pe-na co-men-tar aquí son los ar-gu-men-tos que se le pa-san a la URI, \T1/pcr/m/n/11 seedArtists\T1/txss/m/n/11 , \T1/pcr/m/n/11 seedTracks
- []
-
-Begining itemize
-LaTeX Info: Redefining \. on input line 379.
-LaTeX Info: Redefining \% on input line 379.
-Package cleveref Info: loaded `spanish' language definitions on input line 379.
+LaTeX Info: Redefining \. on input line 302.
+LaTeX Info: Redefining \% on input line 302.
+Package cleveref Info: loaded `spanish' language definitions on input line 302.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3131,11 +3053,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [36] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-
-Ending itemize
-LaTeX Info: Redefining \. on input line 439.
-LaTeX Info: Redefining \% on input line 439.
-Package cleveref Info: loaded `spanish' language definitions on input line 439.
+LaTeX Info: Redefining \. on input line 343.
+LaTeX Info: Redefining \% on input line 343.
+Package cleveref Info: loaded `spanish' language definitions on input line 343.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3151,9 +3071,19 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [37] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 490.
-LaTeX Info: Redefining \% on input line 490.
-Package cleveref Info: loaded `spanish' language definitions on input line 490.
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+
+Begining itemize
+Ending itemize
+
+Underfull \vbox (badness 1590) has occurred while \output is active []
+
+LaTeX Info: Redefining \. on input line 392.
+LaTeX Info: Redefining \% on input line 392.
+Package cleveref Info: loaded `spanish' language definitions on input line 392.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3169,9 +3099,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [38] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 550.
-LaTeX Info: Redefining \% on input line 550.
-Package cleveref Info: loaded `spanish' language definitions on input line 550.
+LaTeX Info: Redefining \. on input line 452.
+LaTeX Info: Redefining \% on input line 452.
+Package cleveref Info: loaded `spanish' language definitions on input line 452.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3187,9 +3117,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [39] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 604.
-LaTeX Info: Redefining \% on input line 604.
-Package cleveref Info: loaded `spanish' language definitions on input line 604.
+LaTeX Info: Redefining \. on input line 510.
+LaTeX Info: Redefining \% on input line 510.
+Package cleveref Info: loaded `spanish' language definitions on input line 510.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3205,11 +3135,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [40] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-
-Figure propias/diagrama_generar_playlist.png with width data
-LaTeX Info: Redefining \. on input line 633.
-LaTeX Info: Redefining \% on input line 633.
-Package cleveref Info: loaded `spanish' language definitions on input line 633.
+LaTeX Info: Redefining \. on input line 565.
+LaTeX Info: Redefining \% on input line 565.
+Package cleveref Info: loaded `spanish' language definitions on input line 565.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3225,9 +3153,9 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [41] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 633.
-LaTeX Info: Redefining \% on input line 633.
-Package cleveref Info: loaded `spanish' language definitions on input line 633.
+LaTeX Info: Redefining \. on input line 628.
+LaTeX Info: Redefining \% on input line 628.
+Package cleveref Info: loaded `spanish' language definitions on input line 628.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3240,12 +3168,14 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[42 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/diagrama_generar_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[42] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 692.
-LaTeX Info: Redefining \% on input line 692.
-Package cleveref Info: loaded `spanish' language definitions on input line 692.
+
+Figure propias/diagrama_generar_playlist.png with width data
+LaTeX Info: Redefining \. on input line 636.
+LaTeX Info: Redefining \% on input line 636.
+Package cleveref Info: loaded `spanish' language definitions on input line 636.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3258,16 +3188,12 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[43] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[43 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/propias/diagrama_generar_playlist.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-LaTeX Info: Redefining \. on input line 749.
-LaTeX Info: Redefining \% on input line 749.
-Package cleveref Info: loaded `spanish' language definitions on input line 749.
+LaTeX Info: Redefining \. on input line 695.
+LaTeX Info: Redefining \% on input line 695.
+Package cleveref Info: loaded `spanish' language definitions on input line 695.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3283,9 +3209,13 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 [44] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
-LaTeX Info: Redefining \. on input line 815.
-LaTeX Info: Redefining \% on input line 815.
-Package cleveref Info: loaded `spanish' language definitions on input line 815.
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 752.
+LaTeX Info: Redefining \% on input line 752.
+Package cleveref Info: loaded `spanish' language definitions on input line 752.
 
 Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  []
@@ -3299,6 +3229,24 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 \openout6 = `tfgtfmthesisuam.mw'.
 
 [45] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+\openout6 = `tfgtfmthesisuam.mw'.
+
+LaTeX Info: Redefining \. on input line 816.
+LaTeX Info: Redefining \% on input line 816.
+Package cleveref Info: loaded `spanish' language definitions on input line 816.
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+
+Overfull \hbox (2.21538pt too wide) has occurred while \output is active
+ []
+ []
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+[46] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 )
@@ -3317,11 +3265,18 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[46] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[47] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
+\openout6 = `tfgtfmthesisuam.mw'.
+
+\openout6 = `tfgtfmthesisuam.mw'.
+
+ [48
+
+] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -3348,9 +3303,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[47
-
-] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[49] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3380,7 +3333,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[48 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/custom_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/borda_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/misery_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/pleasure_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/multiplicative_2_coincidence.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[50 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/custom_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/borda_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/misery_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/pleasure_2_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/multiplicative_2_coincidence.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -3415,7 +3368,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[49] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[51] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 LaTeX Info: Redefining \. on input line 86.
@@ -3433,7 +3386,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[50 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/custom_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/borda_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/misery_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/pleasure_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/multiplicative_3_no_coincidence.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[52 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/custom_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/borda_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/misery_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/pleasure_3_no_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/multiplicative_3_no_coincidence.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -3465,7 +3418,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[51 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/multiplicative_2_no_coincidence.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[53 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/multiplicative_2_no_coincidence.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3492,7 +3445,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[52 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_3_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_4_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_5_coincidence.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[54 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_3_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_4_coincidence.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/graficas/average_5_coincidence.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -3516,7 +3469,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[53] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[55] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3553,7 +3506,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[54] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[56] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3588,7 +3541,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[55] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[57] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3614,7 +3567,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[56] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[58] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3640,12 +3593,12 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[57] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[59] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [58
+ [60
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3667,7 +3620,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[59] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[61] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3690,7 +3643,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[60] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[62] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -3699,29 +3652,29 @@ Underfull \hbox (badness 10000) in paragraph at lines 10--12
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 44--48
+Underfull \hbox (badness 10000) in paragraph at lines 48--52
 []\T1/txss/m/n/11 Marketing4eCommerce, ``His-to-ria de spo-tify: na-ci-mien-to y evo-lu-ción.'' []$\T1/pcr/m/n/11 https : / /
  []
 
 
-Overfull \hbox (85.80762pt too wide) in paragraph at lines 44--48
+Overfull \hbox (85.80762pt too wide) in paragraph at lines 48--52
 \T1/pcr/m/n/11 marketing4ecommerce . net / historia-[]de-[]spotify-[]del-[]lider-[]de-[]la-[]musica-[]en-[]streaming/$[]\T1/txss/m/n/11 ,
  []
 
 
-Underfull \hbox (badness 2134) in paragraph at lines 50--52
+Underfull \hbox (badness 2134) in paragraph at lines 54--56
 []\T1/txss/m/n/11 deezerdevs, ``Dee-zer api do-cu-men-ta-tion.'' []$\T1/pcr/m/n/11 https : / / rapidapi . com / deezerdevs / api /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 54--56
+Underfull \hbox (badness 10000) in paragraph at lines 58--60
 []\T1/txss/m/n/11 A. Inc., ``Ap-ple mu-sic api.'' []$\T1/pcr/m/n/11 https : / / developer . apple . com / documentation /
  []
 
 (/usr/local/texlive/2020/texmf-dist/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2013/05/13 UCS: Unicode data U+2000..U+20FF
 )
-Underfull \hbox (badness 7631) in paragraph at lines 58--60
+Underfull \hbox (badness 7631) in paragraph at lines 62--64
 []\T1/txss/m/n/11 S. En-gi-nee-ring, ``Spo-tify en-gi-nee-ring - spo-tify's of-fi-cial tech-no-logy blog.'' []$\T1/pcr/m/n/11 https : / /
  []
 
@@ -3730,7 +3683,7 @@ Underfull \vbox (badness 1472) has occurred while \output is active []
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [61
+ [63
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3773,7 +3726,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[62] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[64] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3784,7 +3737,7 @@ LaTeX Font Info:    Font shape `T1/pxss/b/sc' in size <39> not available
 (Font)              Font shape `T1/pxss/bx/sc' tried instead on input line 88.
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [63
+ [65
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3795,7 +3748,7 @@ LaTeX Font Info:    Font shape `T1/pxss/b/sc' in size <39> not available
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [64] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+ [66] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -3814,7 +3767,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[65
+[67
 
  </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/preguntas_contexto.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3846,7 +3799,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[66 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/comp_estrategias_ind.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/comp_estrategias_grupo.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[68 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/comp_estrategias_ind.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/comp_estrategias_grupo.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3873,7 +3826,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[67 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/valoracion_1_playlist.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/SUS_1.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[69 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/valoracion_1_playlist.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/SUS_1.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3895,7 +3848,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[68 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/SUS_2.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/SUS_3.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[70 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/SUS_2.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/SUS_3.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 
@@ -3916,7 +3869,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[69 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/SUS_4.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/funcionalidades.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[71 </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/SUS_4.png> </Users/miguelgarciagonzalez/TFM_MUII/tfm/img/preguntas_encuesta/funcionalidades.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3925,7 +3878,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [70
+ [72
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3933,7 +3886,7 @@ Overfull \hbox (2.21538pt too wide) has occurred while \output is active
  (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.ind)
 \openout6 = `tfgtfmthesisuam.mw'.
 
- [71
+ [73
 
 ] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
@@ -3964,7 +3917,7 @@ Underfull \hbox (badness 10000) has occurred while \output is active
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-[72 </Users/miguelgarciagonzalez/TFM_MUII/tfm/logoUAMw.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
+[74 </Users/miguelgarciagonzalez/TFM_MUII/tfm/logoUAMw.png>] (/Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.mw)
 \openout6 = `tfgtfmthesisuam.mw'.
 
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 93.
@@ -4697,205 +4650,13 @@ Package cleveref Info: loaded `spanish' language definitions on input line 32.
 
 \openout6 = `tfgtfmthesisuam.mw'.
 
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
-\openout6 = `tfgtfmthesisuam.mw'.
-
 )
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 93.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 93.
 \openout6 = `tfgtfmthesisuam.out'.
 
 Package rerunfilecheck Info: File `tfgtfmthesisuam.out' has not changed.
-(rerunfilecheck)             Checksum: AAF612A91E5D6AFB8335F27E03694849;4108.
+(rerunfilecheck)             Checksum: E1E2E2E2D90746AC685E919906880C90;4108.
 
 
 LaTeX Font Warning: Size substitutions with differences
@@ -4915,34 +4676,24 @@ LaTeX Warning: There were multiply-defined labels.
 
 \openout6 = `tfgtfmthesisuam.toc'.
 
-\openout6 = `tfgtfmthesisuam.loa'.
-
 \openout6 = `tfgtfmthesisuam.lol'.
-
-\openout6 = `tfgtfmthesisuam.ltb'.
-
-\openout6 = `tfgtfmthesisuam.loe'.
 
 \openout6 = `tfgtfmthesisuam.lof'.
 
-\openout6 = `tfgtfmthesisuam.lot'.
-
-\openout6 = `tfgtfmthesisuam.ltb'.
-
  ) 
 Here is how much of TeX's memory you used:
- 49740 strings out of 480608
- 1094053 string characters out of 5903630
- 2046026 words of memory out of 5000000
- 63384 multiletter control sequences out of 15000+600000
- 646023 words of font info for 172 fonts, out of 8000000 for 9000
+ 49706 strings out of 480608
+ 1093108 string characters out of 5903630
+ 2061342 words of memory out of 5000000
+ 63366 multiletter control sequences out of 15000+600000
+ 645516 words of font info for 171 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 71i,15n,107p,1121b,2416s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 71i,15n,107p,1121b,2438s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/base/8r.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{/usr/local/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}</usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/rtxbsssc.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/txfonts/rtxsssc.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrb0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/helvetic/uhvr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/palatino/uplb8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on /Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.pdf (90 pages, 5413231 bytes).
+Output written on /Users/miguelgarciagonzalez/TFM_MUII/tfm/tfgtfmthesisuam.pdf (90 pages, 5413887 bytes).
 PDF statistics:
- 2047 PDF objects out of 2073 (max. 8388607)
- 1798 compressed objects within 18 object streams
- 893 named destinations out of 1000 (max. 500000)
+ 2052 PDF objects out of 2073 (max. 8388607)
+ 1802 compressed objects within 19 object streams
+ 889 named destinations out of 1000 (max. 500000)
  711 words of extra memory for PDF output out of 10000 (max. 10000000)
 

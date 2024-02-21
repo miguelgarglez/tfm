@@ -10,6 +10,10 @@ S.~AB, ``Spotify.'' \url{https://open.spotify.com/}, 2024.
 S.~AB, ``Web api, spotify for developers.''
   \url{https://developer.spotify.com/documentation/web-api}, 2024.
 
+\bibitem{recommender_handbook}
+F.~Ricci, L.~Rokach, and B.~Shapira, eds., {\em Recommender Systems Handbook}.
+\newblock Springer {US}, 2022.
+
 \bibitem{flutter_car}
 Google, ``Toyota showcase.'' \url{https://flutter.dev/showcase/toyota}, 2021.
 
@@ -57,10 +61,6 @@ A.~Inc., ``Apple music api.''
 \bibitem{SpotifyEngineeringBlog}
 S.~Engineering, ``Spotify engineering - spotify’s official technology blog.''
   \url{https://engineering.atspotify.com/}, 2024.
-
-\bibitem{recommender_handbook}
-F.~Ricci, L.~Rokach, and B.~Shapira, eds., {\em Recommender Systems Handbook}.
-\newblock Springer {US}, 2022.
 
 \bibitem{recommenderintro}
 F.~Ricci, L.~Rokach, and B.~Shapira, ``Recommender systems: introduction and

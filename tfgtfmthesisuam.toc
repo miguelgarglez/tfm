@@ -3,81 +3,81 @@
 \contentsline {section}{\numberline {1.1}Motivaci\IeC {\'o}n del proyecto}{1}{section.1.1}%
 \contentsline {section}{\numberline {1.2}Propuesta y objetivos}{2}{section.1.2}%
 \contentsline {section}{\numberline {1.3}Estructura del documento}{2}{section.1.3}%
-\contentsline {chapter}{\numberline {2}Estado del arte}{3}{chapter.2}%
-\contentsline {section}{\numberline {2.1}\textit {Framework} de desarrollo de aplicaciones: \textit {Flutter}}{3}{section.2.1}%
-\contentsline {subsection}{\numberline {2.1.1}\textit {Dart}, el lenguaje detr\IeC {\'a}s de \textit {Flutter}}{4}{subsection.2.1.1}%
-\contentsline {subsection}{\numberline {2.1.2}Instalaci\IeC {\'o}n y primer uso b\IeC {\'a}sico}{4}{subsection.2.1.2}%
-\contentsline {subsection}{\numberline {2.1.3}\textit {Widgets}}{5}{subsection.2.1.3}%
-\contentsline {section}{\numberline {2.2}\textit {Spotify} y su API Web}{6}{section.2.2}%
-\contentsline {subsection}{\numberline {2.2.1}La API Web de \textit {Spotify}}{7}{subsection.2.2.1}%
-\contentsline {subsection}{\numberline {2.2.2}Contribuci\IeC {\'o}n de \textit {Spotify} a la investigaci\IeC {\'o}n y desarrollo en el \IeC {\'a}mbito del an\IeC {\'a}lisis musical y la recomendaci\IeC {\'o}n}{7}{subsection.2.2.2}%
-\contentsline {section}{\numberline {2.3}Recomendaci\IeC {\'o}n}{8}{section.2.3}%
-\contentsline {subsection}{\numberline {2.3.1}M\IeC {\'e}todos y t\IeC {\'e}cnicas de recomendaci\IeC {\'o}n}{9}{subsection.2.3.1}%
-\contentsline {subsubsection}{Basado en contenido}{10}{section*.16}%
-\contentsline {subsubsection}{Filtrado colaborativo}{10}{section*.17}%
-\contentsline {subsubsection}{Sistemas h\IeC {\'\i }bridos}{11}{section*.18}%
-\contentsline {subsection}{\numberline {2.3.2}Tipos de sistemas de recomendaci\IeC {\'o}n}{11}{subsection.2.3.2}%
-\contentsline {subsubsection}{Recomendaci\IeC {\'o}n de m\IeC {\'u}sica}{12}{section*.19}%
-\contentsline {subsubsection}{Recomendaci\IeC {\'o}n a grupos}{12}{section*.20}%
-\contentsline {subsection}{\numberline {2.3.3}Estrategias de agregaci\IeC {\'o}n}{13}{subsection.2.3.3}%
-\contentsline {subsection}{\numberline {2.3.4}Evaluaci\IeC {\'o}n de un sistema de recomendaci\IeC {\'o}n a grupos}{14}{subsection.2.3.4}%
-\contentsline {subsubsection}{Estudios con usuarios}{14}{section*.21}%
-\contentsline {subsubsection}{Evaluaciones \textit {offline}}{14}{section*.22}%
-\contentsline {section}{\numberline {2.4}Implicaciones para el trabajo}{15}{section.2.4}%
-\contentsline {chapter}{\numberline {3}Desarrollo de nuestra aplicaci\IeC {\'o}n}{17}{chapter.3}%
-\contentsline {section}{\numberline {3.1}An\IeC {\'a}lisis}{17}{section.3.1}%
-\contentsline {subsection}{\numberline {3.1.1}An\IeC {\'a}lisis de requisitos}{17}{subsection.3.1.1}%
-\contentsline {paragraph}{\textbf {Requisitos Funcionales}}{17}{section*.23}%
-\contentsline {paragraph}{\textbf {Requisitos No Funcionales}}{18}{section*.24}%
-\contentsline {subsection}{\numberline {3.1.2}Diagramas de casos de uso principales}{18}{subsection.3.1.2}%
-\contentsline {section}{\numberline {3.2}Dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{19}{section.3.2}%
-\contentsline {subsection}{\numberline {3.2.1}Dise\IeC {\~n}o de la interfaz de usuario}{19}{subsection.3.2.1}%
-\contentsline {subsection}{\numberline {3.2.2}Arquitectura del sistema}{19}{subsection.3.2.2}%
-\contentsline {subsubsection}{Frontend}{21}{section*.29}%
-\contentsline {paragraph}{Pantallas}{22}{section*.30}%
-\contentsline {paragraph}{Widgets}{22}{section*.31}%
-\contentsline {paragraph}{Servicios}{22}{section*.32}%
-\contentsline {paragraph}{Modelos}{23}{section*.33}%
-\contentsline {subsubsection}{Almacenamiento Local}{23}{section*.34}%
-\contentsline {subsubsection}{API de Spotify}{23}{section*.35}%
-\contentsline {paragraph}{Visi\IeC {\'o}n general de la API}{23}{section*.36}%
-\contentsline {paragraph}{Datos de cuenta de los usuarios}{25}{section*.38}%
-\contentsline {paragraph}{Canciones m\IeC {\'a}s escuchadas}{25}{section*.40}%
-\contentsline {paragraph}{Recomendaciones}{26}{section*.42}%
-\contentsline {paragraph}{Crear playlist}{27}{section*.44}%
-\contentsline {paragraph}{Resumen de los \textit {endpoints} a utilizar}{28}{section*.47}%
-\contentsline {section}{\numberline {3.3}Implementaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{28}{section.3.3}%
-\contentsline {subsection}{\numberline {3.3.1}Flujo de autenticaci\IeC {\'o}n}{30}{subsection.3.3.1}%
-\contentsline {subsection}{\numberline {3.3.2}Llamadas a la API de Spotify y procesamiento de respuestas}{33}{subsection.3.3.2}%
-\contentsline {subsection}{\numberline {3.3.3}Generaci\IeC {\'o}n de \textit {playlist} combinada}{35}{subsection.3.3.3}%
-\contentsline {subsubsection}{Obtenci\IeC {\'o}n de recomendaciones de los usuarios}{36}{section*.49}%
-\contentsline {paragraph}{Decisi\IeC {\'o}n sobre las semillas a partir de las cuales se obtendr\IeC {\'a}n las recomendaciones.}{36}{section*.50}%
-\contentsline {subsubsection}{Agregaci\IeC {\'o}n de recomendaciones}{38}{section*.51}%
-\contentsline {paragraph}{Decisi\IeC {\'o}n sobre los \textit {ratings} individuales.}{38}{section*.52}%
-\contentsline {subsubsection}{Obtenci\IeC {\'o}n de la \textit {playlist} final}{40}{section*.53}%
-\contentsline {subsection}{\numberline {3.3.4}Pruebas de evaluaci\IeC {\'o}n}{43}{subsection.3.3.4}%
-\contentsline {subsection}{\numberline {3.3.5}Resumen}{46}{subsection.3.3.5}%
-\contentsline {chapter}{\numberline {4}Pruebas y resultados}{47}{chapter.4}%
-\contentsline {section}{\numberline {4.1}Evaluaciones \textit {offline}}{47}{section.4.1}%
-\contentsline {subsection}{\numberline {4.1.1}Resultados obtenidos}{47}{subsection.4.1.1}%
-\contentsline {paragraph}{Grupo de 2 usuarios con similitud en semillas}{49}{section*.55}%
-\contentsline {paragraph}{Grupo de 3 usuarios sin similitud en semillas}{49}{section*.57}%
-\contentsline {paragraph}{Grupo de 2 usuarios sin similitud en semillas}{49}{section*.59}%
-\contentsline {paragraph}{Grupos de 3, 4 y 5 usuarios con similitud en semillas}{51}{section*.61}%
-\contentsline {subsection}{\numberline {4.1.2}Decisiones tras los resultados}{51}{subsection.4.1.2}%
-\contentsline {section}{\numberline {4.2}Estudios con usuarios}{53}{section.4.2}%
-\contentsline {subsection}{\numberline {4.2.1}Gesti\IeC {\'o}n de usuarios}{53}{subsection.4.2.1}%
-\contentsline {subsection}{\numberline {4.2.2}Procedimiento de las pruebas con los usuarios}{53}{subsection.4.2.2}%
-\contentsline {subsection}{\numberline {4.2.3}Contexto sobre el grupo de personas}{54}{subsection.4.2.3}%
-\contentsline {subsection}{\numberline {4.2.4}Comparaci\IeC {\'o}n de estrategias}{54}{subsection.4.2.4}%
-\contentsline {subsection}{\numberline {4.2.5}Encuesta de usabilidad}{55}{subsection.4.2.5}%
-\contentsline {subsection}{\numberline {4.2.6}Posible nueva funcionalidad en la aplicaci\IeC {\'o}n}{56}{subsection.4.2.6}%
-\contentsline {subsection}{\numberline {4.2.7}Resumen}{56}{subsection.4.2.7}%
-\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{59}{chapter.5}%
-\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{62}{chapter*.63}%
-\contentsline {part}{Ap\IeC {\'e}ndices}{63}{part.1}%
-\contentsline {chapter}{\numberline {A}Preguntas de la encuesta con usuarios}{65}{appendix.Alph1}%
-\contentsline {section}{\numberline {A.1}Preguntas sobre el contexto de los usuarios y el grupo}{65}{section.Alph1.1}%
-\contentsline {section}{\numberline {A.2}Preguntas sobre la valoraci\IeC {\'o}n y comparaci\IeC {\'o}n de estrategias}{66}{section.Alph1.2}%
-\contentsline {section}{\numberline {A.3}Preguntas encuesta SUS}{67}{section.Alph1.3}%
-\contentsline {section}{\numberline {A.4}Pregunta sobre nueva funcionalidad}{69}{section.Alph1.4}%
+\contentsline {chapter}{\numberline {2}Estado del arte}{5}{chapter.2}%
+\contentsline {section}{\numberline {2.1}\textit {Framework} de desarrollo de aplicaciones: \textit {Flutter}}{5}{section.2.1}%
+\contentsline {subsection}{\numberline {2.1.1}\textit {Dart}, el lenguaje detr\IeC {\'a}s de \textit {Flutter}}{6}{subsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1.2}Instalaci\IeC {\'o}n y primer uso b\IeC {\'a}sico}{6}{subsection.2.1.2}%
+\contentsline {subsection}{\numberline {2.1.3}\textit {Widgets}}{7}{subsection.2.1.3}%
+\contentsline {section}{\numberline {2.2}\textit {Spotify} y su API Web}{8}{section.2.2}%
+\contentsline {subsection}{\numberline {2.2.1}La API Web de \textit {Spotify}}{9}{subsection.2.2.1}%
+\contentsline {subsection}{\numberline {2.2.2}Contribuci\IeC {\'o}n de \textit {Spotify} a la investigaci\IeC {\'o}n y desarrollo en el \IeC {\'a}mbito del an\IeC {\'a}lisis musical y la recomendaci\IeC {\'o}n}{9}{subsection.2.2.2}%
+\contentsline {section}{\numberline {2.3}Recomendaci\IeC {\'o}n}{10}{section.2.3}%
+\contentsline {subsection}{\numberline {2.3.1}M\IeC {\'e}todos y t\IeC {\'e}cnicas de recomendaci\IeC {\'o}n}{11}{subsection.2.3.1}%
+\contentsline {subsubsection}{Basado en contenido}{12}{section*.11}%
+\contentsline {subsubsection}{Filtrado colaborativo}{12}{section*.12}%
+\contentsline {subsubsection}{Sistemas h\IeC {\'\i }bridos}{13}{section*.13}%
+\contentsline {subsection}{\numberline {2.3.2}Tipos de sistemas de recomendaci\IeC {\'o}n}{13}{subsection.2.3.2}%
+\contentsline {subsubsection}{Recomendaci\IeC {\'o}n de m\IeC {\'u}sica}{14}{section*.14}%
+\contentsline {subsubsection}{Recomendaci\IeC {\'o}n a grupos}{14}{section*.15}%
+\contentsline {subsection}{\numberline {2.3.3}Estrategias de agregaci\IeC {\'o}n}{15}{subsection.2.3.3}%
+\contentsline {subsection}{\numberline {2.3.4}Evaluaci\IeC {\'o}n de un sistema de recomendaci\IeC {\'o}n a grupos}{16}{subsection.2.3.4}%
+\contentsline {subsubsection}{Estudios con usuarios}{16}{section*.16}%
+\contentsline {subsubsection}{Evaluaciones \textit {offline}}{16}{section*.17}%
+\contentsline {section}{\numberline {2.4}Implicaciones para el trabajo}{17}{section.2.4}%
+\contentsline {chapter}{\numberline {3}Desarrollo de nuestra aplicaci\IeC {\'o}n}{19}{chapter.3}%
+\contentsline {section}{\numberline {3.1}An\IeC {\'a}lisis}{19}{section.3.1}%
+\contentsline {subsection}{\numberline {3.1.1}An\IeC {\'a}lisis de requisitos}{19}{subsection.3.1.1}%
+\contentsline {paragraph}{\textbf {Requisitos Funcionales}}{19}{section*.18}%
+\contentsline {paragraph}{\textbf {Requisitos No Funcionales}}{20}{section*.19}%
+\contentsline {subsection}{\numberline {3.1.2}Diagramas de casos de uso principales}{20}{subsection.3.1.2}%
+\contentsline {section}{\numberline {3.2}Dise\IeC {\~n}o de la aplicaci\IeC {\'o}n}{21}{section.3.2}%
+\contentsline {subsection}{\numberline {3.2.1}Dise\IeC {\~n}o de la interfaz de usuario}{21}{subsection.3.2.1}%
+\contentsline {subsection}{\numberline {3.2.2}Arquitectura del sistema}{21}{subsection.3.2.2}%
+\contentsline {subsubsection}{Frontend}{23}{section*.24}%
+\contentsline {paragraph}{Pantallas}{24}{section*.25}%
+\contentsline {paragraph}{Widgets}{24}{section*.26}%
+\contentsline {paragraph}{Servicios}{24}{section*.27}%
+\contentsline {paragraph}{Modelos}{25}{section*.28}%
+\contentsline {subsubsection}{Almacenamiento Local}{25}{section*.29}%
+\contentsline {subsubsection}{API de Spotify}{25}{section*.30}%
+\contentsline {paragraph}{Visi\IeC {\'o}n general de la API}{25}{section*.31}%
+\contentsline {paragraph}{Datos de cuenta de los usuarios}{27}{section*.33}%
+\contentsline {paragraph}{Canciones m\IeC {\'a}s escuchadas}{27}{section*.35}%
+\contentsline {paragraph}{Recomendaciones}{28}{section*.37}%
+\contentsline {paragraph}{Crear playlist}{29}{section*.39}%
+\contentsline {paragraph}{Resumen de los \textit {endpoints} a utilizar}{30}{section*.42}%
+\contentsline {section}{\numberline {3.3}Implementaci\IeC {\'o}n de la aplicaci\IeC {\'o}n}{31}{section.3.3}%
+\contentsline {subsection}{\numberline {3.3.1}Flujo de autenticaci\IeC {\'o}n}{31}{subsection.3.3.1}%
+\contentsline {subsection}{\numberline {3.3.2}Llamadas a la API de Spotify y procesamiento de respuestas}{35}{subsection.3.3.2}%
+\contentsline {subsection}{\numberline {3.3.3}Generaci\IeC {\'o}n de \textit {playlist} combinada}{37}{subsection.3.3.3}%
+\contentsline {subsubsection}{Obtenci\IeC {\'o}n de recomendaciones de los usuarios}{37}{section*.44}%
+\contentsline {paragraph}{Decisi\IeC {\'o}n sobre las semillas a partir de las cuales se obtendr\IeC {\'a}n las recomendaciones.}{38}{section*.45}%
+\contentsline {subsubsection}{Agregaci\IeC {\'o}n de recomendaciones}{39}{section*.46}%
+\contentsline {paragraph}{Decisi\IeC {\'o}n sobre los \textit {ratings} individuales.}{40}{section*.47}%
+\contentsline {subsubsection}{Obtenci\IeC {\'o}n de la \textit {playlist} final}{42}{section*.48}%
+\contentsline {subsection}{\numberline {3.3.4}Pruebas de evaluaci\IeC {\'o}n}{44}{subsection.3.3.4}%
+\contentsline {subsection}{\numberline {3.3.5}Resumen}{47}{subsection.3.3.5}%
+\contentsline {chapter}{\numberline {4}Pruebas y resultados}{49}{chapter.4}%
+\contentsline {section}{\numberline {4.1}Evaluaciones \textit {offline}}{49}{section.4.1}%
+\contentsline {subsection}{\numberline {4.1.1}Resultados obtenidos}{49}{subsection.4.1.1}%
+\contentsline {paragraph}{Grupo de 2 usuarios con similitud en semillas}{51}{section*.50}%
+\contentsline {paragraph}{Grupo de 3 usuarios sin similitud en semillas}{51}{section*.52}%
+\contentsline {paragraph}{Grupo de 2 usuarios sin similitud en semillas}{51}{section*.54}%
+\contentsline {paragraph}{Grupos de 3, 4 y 5 usuarios con similitud en semillas}{53}{section*.56}%
+\contentsline {subsection}{\numberline {4.1.2}Decisiones tras los resultados}{53}{subsection.4.1.2}%
+\contentsline {section}{\numberline {4.2}Estudios con usuarios}{55}{section.4.2}%
+\contentsline {subsection}{\numberline {4.2.1}Gesti\IeC {\'o}n de usuarios}{55}{subsection.4.2.1}%
+\contentsline {subsection}{\numberline {4.2.2}Procedimiento de las pruebas con los usuarios}{55}{subsection.4.2.2}%
+\contentsline {subsection}{\numberline {4.2.3}Contexto sobre el grupo de personas}{56}{subsection.4.2.3}%
+\contentsline {subsection}{\numberline {4.2.4}Comparaci\IeC {\'o}n de estrategias}{56}{subsection.4.2.4}%
+\contentsline {subsection}{\numberline {4.2.5}Encuesta de usabilidad}{57}{subsection.4.2.5}%
+\contentsline {subsection}{\numberline {4.2.6}Posible nueva funcionalidad en la aplicaci\IeC {\'o}n}{58}{subsection.4.2.6}%
+\contentsline {subsection}{\numberline {4.2.7}Resumen}{58}{subsection.4.2.7}%
+\contentsline {chapter}{\numberline {5}Conclusiones y trabajo futuro}{61}{chapter.5}%
+\contentsline {chapter}{Bibliograf\IeC {\'\i }a}{64}{chapter*.58}%
+\contentsline {part}{Ap\IeC {\'e}ndices}{65}{part.1}%
+\contentsline {chapter}{\numberline {A}Preguntas de la encuesta con usuarios}{67}{appendix.Alph1}%
+\contentsline {section}{\numberline {A.1}Preguntas sobre el contexto de los usuarios y el grupo}{67}{section.Alph1.1}%
+\contentsline {section}{\numberline {A.2}Preguntas sobre la valoraci\IeC {\'o}n y comparaci\IeC {\'o}n de estrategias}{68}{section.Alph1.2}%
+\contentsline {section}{\numberline {A.3}Preguntas encuesta SUS}{69}{section.Alph1.3}%
+\contentsline {section}{\numberline {A.4}Pregunta sobre nueva funcionalidad}{71}{section.Alph1.4}%
